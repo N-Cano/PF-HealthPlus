@@ -8,7 +8,7 @@ module.exports = (sequelize) => {
         primaryKey: true,
         allowNull: false
     },
-    dni: {
+    personalId: {
         type: DataTypes.NUMBER,
         unique: true,
         allowNull: false
