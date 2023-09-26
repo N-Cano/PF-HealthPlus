@@ -1,6 +1,7 @@
 import { Home, Landing, Form, Login, Profile, Payment, Plan } from "./Views";
 import { Route, Routes, useLocation } from "react-router-dom";
 import NavBar from "./Components/NavBar/NavBar";
+import 'tailwindcss/tailwind.css'
 
 const App = () => {
   const { pathname } = useLocation();
