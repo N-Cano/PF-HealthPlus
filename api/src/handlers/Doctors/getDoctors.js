@@ -13,7 +13,7 @@ const doctors = [
     {name: 'Esto', specialty: 'Ophthalmology', price: 130},
     {name: 'Es', specialty: 'Rhinology/Nasal and Sinus Care', price: 100},
     {name: 'BOKAAAA', specialty: 'Chiropodist', price: 120},
-]
+];
 
 const getDoctors = (req, res) => {
     res.status(200).json(doctors)
