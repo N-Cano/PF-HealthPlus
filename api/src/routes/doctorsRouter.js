@@ -1,7 +1,7 @@
 const { Router } = require('express');
-const getDoctors = require('../handlers/getDoctors');
-const getDoctorById = require('../handlers/getDoctorById');
-const deleteDoctor = require('../handlers/deleteDoctor');
+const getDoctors = require('../handlers/Doctors/getDoctors');
+const getDoctorById = require('../handlers/Doctors/getDoctorById');
+const deleteDoctor = require('../handlers/Doctors/deleteDoctor');
 
 const doctorRouter = Router();
 
