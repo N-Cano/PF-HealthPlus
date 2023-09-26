@@ -1,6 +1,9 @@
 import banner from "../../assets/backgrounds/doctor 1 sin fondo.png";
 import about1 from "../../assets/backgrounds/doctor 3.jpg";
 import about2 from "../../assets/backgrounds/doctor 4.jpg";
+import NavBar from "../../Components/NavBar/NavBar";
+import Scroll from "../../Components/Scroll/Scroll";
+import ScrollToTop from "react-scroll-to-top";
 import { BeakerIcon } from "@heroicons/react/24/solid";
 
 const Landing = () => {
@@ -8,6 +11,7 @@ const Landing = () => {
     <>
       <h1>PARTE SUPERIOR</h1>
       {/* AQUÍ VA EL SCROLL*/}
+      <NavBar />
       {/* AQUÍ VA EL NAVBAR CON EL LOGIN DESDE EL APP.JSX*/}
       {/* AQUÍ VA EL COMPONENTE DE CAMBIO DE IDIOMA*/}
       {/* AQUÍ VA EL COMPONENTE DE CAMBIO DE DARKMODE*/}
@@ -21,24 +25,26 @@ const Landing = () => {
         <img src={banner} alt="banner" className="w-32 h-32"></img>
       </div>
 
-      <div>
+      <div id="about">
         <h3>WHAT DO WE DO?</h3>
         <p>
           {`At HealthPlus we are dedicated to you, and your health. Our aim is to
-          provide fast, easy and patient-oriented services. Our doctors’
+          provide fast, easy and patient-oriented services. Our doctors
           priority are the patients and their families.`}
         </p>
-      </div>
 
-      <div>
         <h3>OUR COMMUNITY</h3>
         <p>
           We are a professional clinic with a long trajectory based in the
           United States, with a large coverage, elite service and a professional
           staff.
         </p>
+      </div>
+
+      <div id="doctors">
         <h3>{`DOCTORS >`}</h3>
       </div>
+
       <div>
         <h3>CONTACT US</h3>
         <p>Here you can get in touch we us.</p>
@@ -63,7 +69,7 @@ const Landing = () => {
       </div>
 
       {/*  SERVICES */}
-      <div>
+      <div id="services">
         <h2>OUR SERVICES</h2>
         <p>
           We are committed to the well-being of our patients, taking care of the
@@ -135,11 +141,14 @@ const Landing = () => {
         <h3>The best doctors give you the best care</h3>
         <p>
           Devotion, professionalism and hard work are the essence of our team of
-          experienced doctors, nurses and care assistants․
+          experienced doctors, nurses and care assistants
         </p>
       </div>
 
       {/*  LOCATIONS PUEDE SER UN COMPONENTE APARTE */}
+      <div id="locations">
+        <h2>LOCATIONS</h2>
+      </div>
 
       <div>
         <div>
@@ -155,6 +164,8 @@ const Landing = () => {
           <p>healthplushclinic@gmail.com</p>
         </div>
       </div>
+
+      <ScrollToTop smooth />
 
       {/*  SPONSORS */}
 
