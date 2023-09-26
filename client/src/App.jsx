@@ -8,7 +8,7 @@ const App = () => {
 
   return (
     <div>
-      {pathname === "/" && <NavBar />}
+      {pathname === "/home" && <NavBar />}
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/login" element={<Login />} />
