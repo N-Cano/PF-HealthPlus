@@ -1,7 +1,15 @@
 const { Router } = require('express');
+// const pruebaRouter = require('./prueba');
 
-const router = Router();
+const response = {
+    activo: true
+}
+const routes = Router();
 
 // Acá irán las rutas del back
 
-module.export = router;
+routes.use('/prueba', function(req, res) {
+    req.statusCode(200).json(response)
+})
+
+module.export = routes;
