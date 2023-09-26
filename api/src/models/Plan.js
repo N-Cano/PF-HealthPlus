@@ -11,7 +11,7 @@ module.exports = (sequelize) => {
             type: DataTypes.FLOAT(6, 2),
             allowNull: false,
         },
-        benefists: {
+        benefits: {
             type: DataTypes.STRING,
             allowNull: false
         }
