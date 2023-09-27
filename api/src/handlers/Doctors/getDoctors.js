@@ -1,4 +1,4 @@
-const bringDoctors = require('../../controllers/doctorsControllers');
+const {bringDoctors} = require('../../controllers/doctorsControllers');
 
 const getDoctors = async (req, res) => {
 
