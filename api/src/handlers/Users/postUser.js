@@ -1,17 +1,11 @@
-const postUser = (req, res) => {
-    const { name, email, password, personalId, image, location } = req.body;
+const createUser = require('../../controllers/usersControllers')
 
-    res.status(200).json({
-        status: 'created',
-        user: {
-            name,
-            email,
-            password,
-            personalId,
-            image,
-            location
-        }
-    })
+const postUser = async (req, res) => {
+    const { name, email, password, personalId, image, location, plan } = req.body;
+
+    const data = { name, email, password, personalId, image, location, plan }
+    const user = await createUser(data)
+    res.status(201).json(user)
 };
 
 module.exports = postUser
