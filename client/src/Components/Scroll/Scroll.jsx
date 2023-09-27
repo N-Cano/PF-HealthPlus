@@ -1,4 +1,4 @@
-// import React from "react";
+import React from "react";
 
 const Scroll = () => {
   const scrollToSection = (sectionId) => {
@@ -9,32 +9,40 @@ const Scroll = () => {
   };
 
   return (
-    <>
+    <div class="flex space-x-2">
       <button
+      class="text-gray-900 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2  text-sm font-medium"
         onClick={() => {
           scrollToSection("about");
-        }}>
-        About
+        }}
+      >
+        ABOUT
       </button>
       <button
+       class="text-gray-900 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2  text-sm font-medium"
         onClick={() => {
           scrollToSection("doctors");
-        }}>
-        Services
+        }}
+      >
+        SERVICES
       </button>
       <button
+       class="text-gray-900 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2  text-sm font-medium"
         onClick={() => {
           scrollToSection("services");
-        }}>
-        Doctors
+        }}
+      >
+        DOCTORS
       </button>
       <button
+       class="text-gray-900 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2  text-sm font-medium"
         onClick={() => {
           scrollToSection("locations");
-        }}>
-        Locations
+        }}
+      >
+        LOCATIONS
       </button>
-    </>
+    </div>
   );
 };
 
