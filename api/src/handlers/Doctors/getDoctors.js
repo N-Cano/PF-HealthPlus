@@ -1,8 +1,14 @@
 const bringDoctors = require('../../controllers/doctorsControllers');
 
 const getDoctors = async (req, res) => {
-    const doctors = await bringDoctors()
-    res.status(200).json(doctors);
+
+    try {
+        const doctors = await bringDoctors()
+        res.status(200).json(doctors);
+
+    } catch (error) {
+        res.status(500).send(error.message);
+    }
 
 };
 
