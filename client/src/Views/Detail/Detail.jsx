@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+
+import { useEffect, useState} from 'react';
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { Link } from "react-router-dom";
@@ -20,6 +21,7 @@ const Detail = () => {
   return (
     <div>
       <div>
+
         <h1>{`${detail.name} Details`}</h1>
         <h2>ID: {detail.id}</h2>
         <img src={detail.background_image || detail.image} alt="" />
@@ -40,6 +42,22 @@ const Detail = () => {
             <button>Home</button>
           </Link>
         </div>
+
+        <h2>price: {detail.price}</h2>
+
+    </div>
+    <div>
+        <h2>description:{detail.description}</h2>
+
+        </div>
+
+      </div>
+                <div>
+                <Link to="/home">
+                <button>Home</button>
+                </Link>
+                </div>
+
       </div>
     </div>
   );

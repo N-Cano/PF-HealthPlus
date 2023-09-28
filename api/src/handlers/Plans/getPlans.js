@@ -1,14 +1,14 @@
-const { bringPlans } = require('../../controllers/plansControllers')
+// const { bringPlans } = require('../../controllers/plansControllers')
 
-const getPlans = async (req, res) => {
-    try {
-        const plans = await bringPlans()
-        res.status(200).json(plans)
+// const getPlans = async (req, res) => {
+//     try {
+//         const plans = await bringPlans()
+//         res.status(200).json(plans)
 
-    } catch (error) {
-        res.status(500).send(error.message);
-    }
-};
+//     } catch (error) {
+//         res.status(500).send(error.message);
+//     }
+// };
 
-module.exports = getPlans;
+// module.exports = getPlans;
 

@@ -8,4 +8,5 @@ import Plan from "./Plan/Plan.jsx";
 import ForgotPassgord from "./ForgotPassword/ForgotPassword.jsx";
 import SignUp from "./SignUp/SignUp.jsx";
 import Detail from "./Detail/Detail.jsx";
+
 export { Home, Form, Landing, Login, Profile, Payment, Plan, ForgotPassgord, SignUp , Detail};
