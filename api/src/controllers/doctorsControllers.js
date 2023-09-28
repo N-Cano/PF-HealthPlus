@@ -36,16 +36,17 @@ const bringDoctorById = async (id) => {
 
 // --- Create a new doctor ---
 
-const createDoctor = async ({ name, email, password, personalId, image, location }) => {
+const createDoctor = async ({ name, description, enable, image, price, specialty }) => {
     try {
         const newDoctor = await db.collection('doctors').add({
-            name,
-            email,
-            password,
-            personalId,
+            description,
+            enable,
             image,
-            location
+            name,
+            price,
+            specialty
         });
+
         return {
             status: 'created',
             doctor: newDoctor
