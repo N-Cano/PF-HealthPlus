@@ -1,16 +1,18 @@
-import banner from "../../assets/backgrounds/doctor 1 sin fondo.png";
+
 import about1 from "../../assets/backgrounds/doctor 3.jpg";
 import about2 from "../../assets/backgrounds/doctor 4.jpg";
 import { useDispatch } from "react-redux";
 import Scroll from "../../Components/Scroll/Scroll";
 import ScrollToTop from "react-scroll-to-top";
-import { BeakerIcon } from "@heroicons/react/24/solid";
+
 import { NavBar, Footer, SlidesBanner, Sponsors } from "../../Components/index";
 import availableService1 from "../../assets/backgrounds/doctor 2.jpg";
 import availableService2 from "../../assets/backgrounds/doctor 5.jpg";
 import availableService3 from "../../assets/backgrounds/doctor 9.jpg";
+
 import Cards from "../../Components/CardsComponent/Cards/Cards";
 import {filterSpeciality , orderCards, priceCards} from "../../redux/actions"
+
 
 const Landing = () => {
 const dispatch = useDispatch();
@@ -32,24 +34,26 @@ const filterSpecial = (event) => {
       {/* AQUÍ VA EL NAVBAR CON EL LOGIN DESDE EL APP.JSX*/}
       {/* AQUÍ VA EL COMPONENTE DE CAMBIO DE IDIOMA*/}
       {/* AQUÍ VA EL COMPONENTE DE CAMBIO DE DARKMODE*/}
-     
 
+      <NavBar />
+     
 
       {/* BANNER COMO SLIDES */}
       <SlidesBanner />
 
-
       {/* ABOUT US  1*/}
-      <div className="flex flex-col md:flex-row md:items-center md:justify-center">
+      <div
+        id="about"
+        className="flex flex-col md:flex-row md:items-center md:justify-center"
+      >
         <div className="flex-1 bg-blue-200 p-4 rounded-lg shadow-md my-2 mx-2 md:my-6 md:mr-2 md:ml-2 md:pb-12 h-96">
           <h3 className="mt-5 text-center text-2xl">WHAT DO WE DO?</h3>
           <p className="mt-5 text-center">
             {`At HealthPlus we are dedicated to you, and your health. Our aim is to
-      provide fast, easy and patient-oriented services. Our doctors’
+      provide fast, easy and patient-oriented services. Our doctors'
       priority are the patients and their families.`}
           </p>
         </div>
-
 
         <div className="flex-1 bg-blue-200 p-4 rounded-lg shadow-md my-2 mx-2 md:my-6 md:mr-2 md:ml-2 md:flex md:flex-col md:justify-center md:pb-12 h-96">
           <h3 className="mt-5 text-center text-2xl">OUR COMMUNITY</h3>
@@ -63,6 +67,9 @@ const filterSpecial = (event) => {
             <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full">{`DOCTORS >`}</button>
           </div>
         </div>
+
+
+=======  //REVISAR ESTOS TITULOS
         <h2>APPOINTMENTS</h2>
       </div>
       <div>
@@ -70,6 +77,7 @@ const filterSpecial = (event) => {
       </div>
       <div>
         <h2>Schedule your FREE checkout</h2>
+
         <div className="flex-1 bg-blue-200 p-4 rounded-lg shadow-md my-2 mx-2 md:my-6 md:mr-2 md:ml-2 md:flex md:flex-col md:justify-center md:pb-12 h-96">
           <h3 className="mt-5 text-center text-2xl">CONTACT US</h3>
           <p className="mt-5 text-center">Here you can get in touch with us.</p>
@@ -80,7 +88,6 @@ const filterSpecial = (event) => {
         </div>
       </div>
 
-
       {/* ABOUT US 2*/}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 py-1 ">
         <div
@@ -89,7 +96,8 @@ const filterSpecial = (event) => {
             backgroundImage: `url(https://images.pexels.com/photos/4021775/pexels-photo-4021775.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)`,
             backgroundSize: "cover",
             backgroundPosition: "center",
-          }}>
+          }}
+        >
           <div className="absolute inset-0 bg-black opacity-70 text-white p-4 rounded-lg group-hover:opacity-100 z-10 flex justify-center items-center">
             <p className="mb-4 text-lg md:text-xl lg:text-2xl xl:text-3xl text-center">
               HealthPlus is a private medical center that focuses on serving its
@@ -98,14 +106,14 @@ const filterSpecial = (event) => {
           </div>
         </div>
 
-
         <div
           className="relative rounded-lg shadow-md overflow-hidden transform transition-transform hover:scale-105 h-auto md:h-96"
           style={{
             backgroundImage: `url(https://images.pexels.com/photos/4483327/pexels-photo-4483327.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)`,
             backgroundSize: "cover",
             backgroundPosition: "center",
-          }}>
+          }}
+        >
           <div className="absolute inset-0 bg-black opacity-70 text-white p-4 rounded-lg group-hover:opacity-100 z-10 flex justify-center items-center">
             <div className="md:flex md:flex-row md:items-center md:w-full">
               <p className="mb-4 text-lg md:text-xl lg:text-2xl xl:text-3xl text-center">
@@ -117,9 +125,8 @@ const filterSpecial = (event) => {
         </div>
       </div>
 
-
       {/*  SERVICES */}
-      <div className="grid grid-cols-3 gap-4">
+      <div id="doctors" className="grid grid-cols-3 gap-4">
         <div className="bg-50 p-4 rounded-lg shadow-md flex flex-col items-center justify-center">
           <div>
             <div className="bg-blue-600 w-full rounded-lg h-12 flex items-center justify-center">
@@ -175,21 +182,21 @@ const filterSpecial = (event) => {
         </div>
       </div>
 
-
       {/* AVAILABLE SERVICES */}
       <div className="bg-blue-200 h-96 ">
         <h2 className="text-4xl text-center pt-2">AVAILABLE SERVICES</h2>
       </div>
-
 
       {/* SPECIALTIES */}
       <div className="bg-blue-300 h-96 ">
         <h2 className="text-4xl text-center pt-2">SPECIALTIES</h2>
       </div>
 
-
       {/*  SECCIÓN DE DOCTORES SE RENDERIZAN LAS CARDS CON EFECTO HOVER AL HACER CLICK NOS LLEVA AL DETAIL DE CADA DOCTOR */}
-      <div className="bg-white p-4 shadow-md w-100 h-[1200px] flex flex-col items-center">
+      <div
+        id="services"
+        className="bg-white p-4 shadow-md w-100 h-[1200px] flex flex-col items-center"
+      >
         <h3 className="text-black text-7xl text-center pt-2">
           The best doctors give you the best care
         </h3>
@@ -222,9 +229,11 @@ const filterSpecial = (event) => {
         <Cards/>
       </div>
 
-
       {/*  LOCATIONS PUEDE SER UN COMPONENTE APARTE */}
-      <div className="bg-blue-400 p-4  shadow-md w-100 h-48 grid grid-cols-2">
+      <div
+        id="locations"
+        className="bg-blue-400 p-4  shadow-md w-100 h-48 grid grid-cols-2"
+      >
         <div>
           <div>
             <img></img>
@@ -241,10 +250,10 @@ const filterSpecial = (event) => {
         </div>
       </div>
 
+      <ScrollToTop smooth />
 
       {/*  SPONSORS */}
       <Sponsors />
-
 
       {/*  SOCIAL MEDIA */}
       <Footer />
