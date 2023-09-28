@@ -1,23 +1,18 @@
-
-import { NavBar, Footer, SlidesBanner, Sponsors } from "../../Components/index";
-import availableService1 from "../../assets/backgrounds/doctor 2.jpg";
-import availableService2 from "../../assets/backgrounds/doctor 5.jpg";
-import availableService3 from "../../assets/backgrounds/doctor 9.jpg";
-
+import { Link } from "react-router-dom";
+import {
+  Footer,
+  SlidesBanner,
+  Sponsors,
+  Location,
+} from "../../Components/index";
+import availableService1 from "../../assets/backgrounds/doctor_6_1_400x400.jpg";
+import availableService2 from "../../assets/backgrounds/doctor_5_400x400.jpg";
+import availableService3 from "../../assets/backgrounds/doctor_9_400x400.jpg";
 
 const Landing = () => {
   return (
     <>
-      {/* AQUÍ VA EL SCROLL*/}
-      {/* AQUÍ VA EL NAVBAR CON EL LOGIN DESDE EL APP.JSX*/}
-      {/* AQUÍ VA EL COMPONENTE DE CAMBIO DE IDIOMA*/}
-      {/* AQUÍ VA EL COMPONENTE DE CAMBIO DE DARKMODE*/}
-      <NavBar />
-
-
-      {/* BANNER COMO SLIDES */}
       <SlidesBanner />
-
 
       {/* ABOUT US  1*/}
       <div className="flex flex-col md:flex-row md:items-center md:justify-center">
@@ -29,7 +24,6 @@ const Landing = () => {
       priority are the patients and their families.`}
           </p>
         </div>
-
 
         <div className="flex-1 bg-blue-200 p-4 rounded-lg shadow-md my-2 mx-2 md:my-6 md:mr-2 md:ml-2 md:flex md:flex-col md:justify-center md:pb-12 h-96">
           <h3 className="mt-5 text-center text-2xl">OUR COMMUNITY</h3>
@@ -44,7 +38,6 @@ const Landing = () => {
           </div>
         </div>
 
-
         <div className="flex-1 bg-blue-200 p-4 rounded-lg shadow-md my-2 mx-2 md:my-6 md:mr-2 md:ml-2 md:flex md:flex-col md:justify-center md:pb-12 h-96">
           <h3 className="mt-5 text-center text-2xl">CONTACT US</h3>
           <p className="mt-5 text-center">Here you can get in touch with us.</p>
@@ -54,7 +47,6 @@ const Landing = () => {
           </div>
         </div>
       </div>
-
 
       {/* ABOUT US 2*/}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 py-1 ">
@@ -72,7 +64,6 @@ const Landing = () => {
             </p>
           </div>
         </div>
-
 
         <div
           className="relative rounded-lg shadow-md overflow-hidden transform transition-transform hover:scale-105 h-auto md:h-96"
@@ -92,7 +83,6 @@ const Landing = () => {
         </div>
       </div>
 
-
       {/*  SERVICES */}
       <div className="grid grid-cols-3 gap-4">
         <div className="bg-50 p-4 rounded-lg shadow-md flex flex-col items-center justify-center">
@@ -100,68 +90,65 @@ const Landing = () => {
             <div className="bg-blue-600 w-full rounded-lg h-12 flex items-center justify-center">
               <h2 className="text-white text-center">APPOINTMENTS</h2>
             </div>
-            <div className="h-68 aspect-w-16 aspect-h-9 mb-0">
-              <img
-                src={availableService1}
-                alt="doctor"
-                className="w-full h-full object-center"
-              />
-            </div>
+            <img
+              src={availableService1}
+              alt="doctor"
+              className="w-full h-full ps-4"
+            />
           </div>
-          <button className="bg-black text-white h-12 w-28 rounded-2xl mt-32">
-            here
-          </button>
+          <Link to="/login">
+            <button className="bg-black text-white h-12 w-28 rounded-2xl mt-2 hover:bg-white hover:text-black">
+              here
+            </button>
+          </Link>
         </div>
         <div className="bg-50 p-4 rounded-lg shadow-md flex flex-col items-center justify-center">
           <div>
-            <div className="bg-blue-600 w-11/12 rounded-lg h-12 flex items-center justify-center">
+            <div className="bg-blue-600 w-full rounded-lg h-12 flex items-center justify-center">
               <h2 className="text-white text-center">DOCTORS</h2>
             </div>
-            <div className="h-68 aspect-w-16 aspect-h-9">
-              <img
-                src={availableService2}
-                alt="doctor"
-                className="w-50 h-50 object-cover"
-              />
-            </div>
+            <img
+              src={availableService2}
+              alt="doctor"
+              className="w-full h-full ps-4"
+            />
           </div>
-          <button className="bg-black text-white h-12 w-28 rounded-2xl mt-2">
-            here
-          </button>
+          <Link to="/login">
+            <button className="bg-black text-white h-12 w-28 rounded-2xl mt-2 hover:bg-white hover:text-black">
+              here
+            </button>
+          </Link>
         </div>
         <div className="bg-50 p-4 rounded-lg shadow-md flex flex-col items-center justify-center">
           <div>
             <div className="bg-blue-600 w-full rounded-lg h-12 flex items-center justify-center">
               <h2 className="text-white text-center">
-                Schedule your FREE checkout
+                SCHEDULE YOUR FREE CHECKOUT
               </h2>
             </div>
-            <div className="h-68 aspect-w-16 aspect-h-9">
-              <img
-                src={availableService3}
-                alt="doctor"
-                className="w-50 h-50 object-cover"
-              />
-            </div>
+            <img
+              src={availableService3}
+              alt="doctor"
+              className="w-full h-full ps-4"
+            />
           </div>
-          <button className="bg-black text-white h-12 w-28 rounded-2xl mt-2">
-            here
-          </button>
+          <Link to="/login">
+            <button className="bg-black text-white h-12 w-28 rounded-2xl mt-2 hover:bg-white hover:text-black">
+              here
+            </button>
+          </Link>
         </div>
       </div>
-
 
       {/* AVAILABLE SERVICES */}
       <div className="bg-blue-200 h-96 ">
         <h2 className="text-4xl text-center pt-2">AVAILABLE SERVICES</h2>
       </div>
 
-
       {/* SPECIALTIES */}
       <div className="bg-blue-300 h-96 ">
         <h2 className="text-4xl text-center pt-2">SPECIALTIES</h2>
       </div>
-
 
       {/*  SECCIÓN DE DOCTORES SE RENDERIZAN LAS CARDS CON EFECTO HOVER AL HACER CLICK NOS LLEVA AL DETAIL DE CADA DOCTOR */}
       <div className="bg-white p-4 shadow-md w-100 h-[1200px] flex flex-col items-center">
@@ -174,29 +161,11 @@ const Landing = () => {
         </p>
       </div>
 
-
       {/*  LOCATIONS PUEDE SER UN COMPONENTE APARTE */}
-      <div className="bg-blue-400 p-4  shadow-md w-100 h-48 grid grid-cols-2">
-        <div>
-          <div>
-            <img></img>
-            <p>Kr 20 Saint Lou</p>
-          </div>
-          <div>
-            <img></img>
-            <p>{`+(1) 7-25`}</p>
-          </div>
-          <div>
-            <img></img>
-            <p>healthplushclinic@gmail.com</p>
-          </div>
-        </div>
-      </div>
-
+      <Location />
 
       {/*  SPONSORS */}
       <Sponsors />
-
 
       {/*  SOCIAL MEDIA */}
       <Footer />
