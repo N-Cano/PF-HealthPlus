@@ -1,4 +1,3 @@
-
 import banner from "../../assets/backgrounds/doctor 1 sin fondo.png";
 import about1 from "../../assets/backgrounds/doctor 3.jpg";
 import about2 from "../../assets/backgrounds/doctor 4.jpg";
@@ -10,6 +9,7 @@ import { NavBar, Footer, SlidesBanner, Sponsors } from "../../Components/index";
 import availableService1 from "../../assets/backgrounds/doctor 2.jpg";
 import availableService2 from "../../assets/backgrounds/doctor 5.jpg";
 import availableService3 from "../../assets/backgrounds/doctor 9.jpg";
+import Cards from "../../Components/CardsComponent/Cards/Cards";
 
 
 const Landing = () => {
@@ -50,11 +50,6 @@ const Landing = () => {
             <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full">{`DOCTORS >`}</button>
           </div>
         </div>
-
-
-
-
-              <div>
         <h2>APPOINTMENTS</h2>
       </div>
       <div>
