@@ -1,4 +1,11 @@
 
+import banner from "../../assets/backgrounds/doctor 1 sin fondo.png";
+import about1 from "../../assets/backgrounds/doctor 3.jpg";
+import about2 from "../../assets/backgrounds/doctor 4.jpg";
+import NavBar from "../../Components/NavBar/NavBar";
+import Scroll from "../../Components/Scroll/Scroll";
+import ScrollToTop from "react-scroll-to-top";
+import { BeakerIcon } from "@heroicons/react/24/solid";
 import { NavBar, Footer, SlidesBanner, Sponsors } from "../../Components/index";
 import availableService1 from "../../assets/backgrounds/doctor 2.jpg";
 import availableService2 from "../../assets/backgrounds/doctor 5.jpg";
@@ -45,6 +52,16 @@ const Landing = () => {
         </div>
 
 
+
+
+              <div>
+        <h2>APPOINTMENTS</h2>
+      </div>
+      <div>
+        <h2>DOCTORS</h2>
+      </div>
+      <div>
+        <h2>Schedule your FREE checkout</h2>
         <div className="flex-1 bg-blue-200 p-4 rounded-lg shadow-md my-2 mx-2 md:my-6 md:mr-2 md:ml-2 md:flex md:flex-col md:justify-center md:pb-12 h-96">
           <h3 className="mt-5 text-center text-2xl">CONTACT US</h3>
           <p className="mt-5 text-center">Here you can get in touch with us.</p>
