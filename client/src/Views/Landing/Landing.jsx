@@ -160,7 +160,6 @@ const Landing = () => {
       {/* SPECIALTIES */}
       <div className="bg-blue-300 h-96 ">
         <h2 className="text-4xl text-center pt-2">SPECIALTIES</h2>
-        <Cards/>
       </div>
 
 
