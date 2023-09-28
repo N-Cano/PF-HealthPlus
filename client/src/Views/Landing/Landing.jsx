@@ -5,6 +5,7 @@ import NavBar from "../../Components/NavBar/NavBar";
 import Scroll from "../../Components/Scroll/Scroll";
 import ScrollToTop from "react-scroll-to-top";
 import { BeakerIcon } from "@heroicons/react/24/solid";
+import Cards from "../../Components/Doctors/Cards/Cards"
 
 const Landing = () => {
   return (
@@ -83,7 +84,7 @@ const Landing = () => {
         <h2>APPOINTMENTS</h2>
       </div>
       <div>
-        <h2>DOCTORS</h2>
+        <Cards/>
       </div>
       <div>
         <h2>Schedule your FREE checkout</h2>
