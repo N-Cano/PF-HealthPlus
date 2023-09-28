@@ -1,4 +1,4 @@
-import { useEffect } from "react"; secundarios
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getDoctors } from "../../../redux/actions";
 import Card from "../Card/Card";

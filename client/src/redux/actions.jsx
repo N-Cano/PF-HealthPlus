@@ -3,7 +3,10 @@ import {
     GET_DOCTORS,
     GET_DOCTOR,
     GET_PATIENT,
-} from "./action-types";
+    FILTER_SPECIAL,
+    ORDER,
+    PRICE
+} from "./actions-types";
 
 export const getDoctors = () => {
     return async (dispatch) => {
@@ -55,3 +58,21 @@ export const getPatient = (id) => {
         }
     };
 }
+export const filterSpeciality = (special) => {
+  return {
+    type: FILTER_SPECIAL,
+    payload: special,
+  };
+};
+export const orderCards = (orden) => {
+  return {
+    type: ORDER,
+    payload: orden,
+  };
+};
+export const priceCards = (price) => {
+  return {
+    type: PRICE,
+    payload: price,
+  };
+};
