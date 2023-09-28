@@ -1,14 +1,14 @@
 import { Home, Landing, Form, Login, Profile, Payment, Plan, ForgotPassgord, SignUp } from "./Views";
 import { Route, Routes, useLocation } from "react-router-dom";
 import NavBar from "./Components/NavBar/NavBar";
-import 'tailwindcss/tailwind.css'
+import "tailwindcss/tailwind.css";
 
 const App = () => {
   const { pathname } = useLocation();
 
   return (
     <div>
-      {pathname === "/home" && <NavBar />}
+      {pathname === "/" && <NavBar />}
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/login" element={<Login />} />
