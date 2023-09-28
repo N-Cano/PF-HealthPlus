@@ -9,9 +9,7 @@ import { BeakerIcon } from "@heroicons/react/24/solid";
 const Landing = () => {
   return (
     <>
-      <h1>PARTE SUPERIOR</h1>
       {/* AQUÍ VA EL SCROLL*/}
-      <NavBar />
       {/* AQUÍ VA EL NAVBAR CON EL LOGIN DESDE EL APP.JSX*/}
       {/* AQUÍ VA EL COMPONENTE DE CAMBIO DE IDIOMA*/}
       {/* AQUÍ VA EL COMPONENTE DE CAMBIO DE DARKMODE*/}
