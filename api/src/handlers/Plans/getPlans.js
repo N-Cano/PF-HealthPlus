@@ -1,7 +1,14 @@
-const getPlans =(req,res)=>{
-res.status(200).json({
-    status: 'Simulo que trae todos los planes'
-})
+const { bringPlans } = require('../../controllers/plansControllers')
+
+const getPlans = async (req, res) => {
+    try {
+        const plans = await bringPlans()
+        res.status(200).json(plans)
+
+    } catch (error) {
+        res.status(500).send(error.message);
+    }
 };
 
-module.exports= getPlans;
+module.exports = getPlans;
+
