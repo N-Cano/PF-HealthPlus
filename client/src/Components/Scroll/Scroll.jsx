@@ -9,37 +9,33 @@ const Scroll = () => {
   };
 
   return (
-    <div class="flex space-x-2">
+    <div className="flex space-x-2">
       <button
-      class="text-gray-900 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2  text-sm font-medium"
+        className="text-gray-900 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2  text-sm font-medium"
         onClick={() => {
           scrollToSection("about");
-        }}
-      >
+        }}>
         ABOUT
       </button>
       <button
-       class="text-gray-900 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2  text-sm font-medium"
+        className="text-gray-900 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2  text-sm font-medium"
         onClick={() => {
           scrollToSection("doctors");
-        }}
-      >
+        }}>
         SERVICES
       </button>
       <button
-       class="text-gray-900 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2  text-sm font-medium"
+        className="text-gray-900 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2  text-sm font-medium"
         onClick={() => {
           scrollToSection("services");
-        }}
-      >
+        }}>
         DOCTORS
       </button>
       <button
-       class="text-gray-900 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2  text-sm font-medium"
+        className="text-gray-900 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2  text-sm font-medium"
         onClick={() => {
           scrollToSection("locations");
-        }}
-      >
+        }}>
         LOCATIONS
       </button>
     </div>
