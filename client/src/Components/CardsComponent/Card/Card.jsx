@@ -6,9 +6,9 @@ const Card = (props) => {
                 <Link to={`/detail/${props.id}`}>
                     IR A DETAIL
                 </Link>
-            <p> name:{props.name}</p> 
-            <p> specialty:{props.specialty}</p>
-            <img className='w-12 ' src={props.image} alt=""/>
+                <p> name:{props.name}</p>
+                <p> specialty:{props.specialty}</p>
+                <img className='w-12 ' src={props.image} alt="" />
             </div>
         </div>
     )

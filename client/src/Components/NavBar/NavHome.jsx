@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import logo from "../../assets/logo2.jpeg";
+import ScrollHome from "../Scroll/ScrollHome";
 
 const NavHome = () => {
   return (
@@ -15,25 +16,37 @@ const NavHome = () => {
                 {/* Contenedor de botones del componente Scroll */}
                 <div className="flex items-center space-x-4 ml-auto ">
                   {/* Botones del componente Scroll */}
+                  <ScrollHome/>
                 </div>
 
                 <div className="flex items-center">
-                  <Link to="/">
+                  <Link to="/create">
                     <a
                       href="#"
                       className="text-gray-900 hover:bg-gray-700 hover:text-white rounded-md px-4 py-2 text-sm font-medium"
                     >
-                      LOG OUT
+                      SCHEDULE
                     </a>
                   </Link>
 
                   <div className="flex items-center">
-                    <Link to="/create">
+                    <Link to="/plan">
                       <a
                         href="#"
                         className="text-gray-900 hover:bg-gray-700 hover:text-white rounded-md px-4 py-2 text-sm font-medium"
                       >
-                        SCHEDULE
+                        MEDICAL PLAN
+                      </a>
+                    </Link>
+                  </div>
+
+                  <div className="flex items-center">
+                    <Link to="/">
+                      <a
+                        href="#"
+                        className="text-gray-900 hover:bg-gray-700 hover:text-white rounded-md px-4 py-2 text-sm font-medium"
+                      >
+                        LOG OUT
                       </a>
                     </Link>
                   </div>
