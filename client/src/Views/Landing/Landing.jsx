@@ -1,17 +1,25 @@
 
+import { Link } from "react-router-dom";
+import {
+  Footer,
+  SlidesBanner,
+  Sponsors,
+  Location,
+} from "../../Components/index";
+import availableService1 from "../../assets/backgrounds/doctor_6_1_400x400.jpg";
+import availableService2 from "../../assets/backgrounds/doctor_5_400x400.jpg";
+import availableService3 from "../../assets/backgrounds/doctor_9_400x400.jpg";
+
 import about1 from "../../assets/backgrounds/doctor 3.jpg";
 import about2 from "../../assets/backgrounds/doctor 4.jpg";
 import { useDispatch } from "react-redux";
 import Scroll from "../../Components/Scroll/Scroll";
 import ScrollToTop from "react-scroll-to-top";
 
-import { NavBar, Footer, SlidesBanner, Sponsors } from "../../Components/index";
-import availableService1 from "../../assets/backgrounds/doctor 2.jpg";
-import availableService2 from "../../assets/backgrounds/doctor 5.jpg";
-import availableService3 from "../../assets/backgrounds/doctor 9.jpg";
 
 import Cards from "../../Components/CardsComponent/Cards/Cards";
 import {filterSpeciality , orderCards, priceCards} from "../../redux/actions"
+
 
 
 const Landing = () => {
@@ -30,11 +38,8 @@ const filterSpecial = (event) => {
 
   return (
     <>
-      {/* AQUÍ VA EL SCROLL*/}
-      {/* AQUÍ VA EL NAVBAR CON EL LOGIN DESDE EL APP.JSX*/}
-      {/* AQUÍ VA EL COMPONENTE DE CAMBIO DE IDIOMA*/}
-      {/* AQUÍ VA EL COMPONENTE DE CAMBIO DE DARKMODE*/}
 
+   
       <NavBar />
      
 
@@ -67,16 +72,6 @@ const filterSpecial = (event) => {
             <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full">{`DOCTORS >`}</button>
           </div>
         </div>
-
-
-=======  //REVISAR ESTOS TITULOS
-        <h2>APPOINTMENTS</h2>
-      </div>
-      <div>
-        <h2>DOCTORS</h2>
-      </div>
-      <div>
-        <h2>Schedule your FREE checkout</h2>
 
         <div className="flex-1 bg-blue-200 p-4 rounded-lg shadow-md my-2 mx-2 md:my-6 md:mr-2 md:ml-2 md:flex md:flex-col md:justify-center md:pb-12 h-96">
           <h3 className="mt-5 text-center text-2xl">CONTACT US</h3>
@@ -132,53 +127,53 @@ const filterSpecial = (event) => {
             <div className="bg-blue-600 w-full rounded-lg h-12 flex items-center justify-center">
               <h2 className="text-white text-center">APPOINTMENTS</h2>
             </div>
-            <div className="h-68 aspect-w-16 aspect-h-9 mb-0">
-              <img
-                src={availableService1}
-                alt="doctor"
-                className="w-full h-full object-center"
-              />
-            </div>
+            <img
+              src={availableService1}
+              alt="doctor"
+              className="w-full h-full ps-4"
+            />
           </div>
-          <button className="bg-black text-white h-12 w-28 rounded-2xl mt-32">
-            here
-          </button>
+          <Link to="/login">
+            <button className="bg-black text-white h-12 w-28 rounded-2xl mt-2 hover:bg-white hover:text-black">
+              here
+            </button>
+          </Link>
         </div>
         <div className="bg-50 p-4 rounded-lg shadow-md flex flex-col items-center justify-center">
           <div>
-            <div className="bg-blue-600 w-11/12 rounded-lg h-12 flex items-center justify-center">
+            <div className="bg-blue-600 w-full rounded-lg h-12 flex items-center justify-center">
               <h2 className="text-white text-center">DOCTORS</h2>
             </div>
-            <div className="h-68 aspect-w-16 aspect-h-9">
-              <img
-                src={availableService2}
-                alt="doctor"
-                className="w-50 h-50 object-cover"
-              />
-            </div>
+            <img
+              src={availableService2}
+              alt="doctor"
+              className="w-full h-full ps-4"
+            />
           </div>
-          <button className="bg-black text-white h-12 w-28 rounded-2xl mt-2">
-            here
-          </button>
+          <Link to="/login">
+            <button className="bg-black text-white h-12 w-28 rounded-2xl mt-2 hover:bg-white hover:text-black">
+              here
+            </button>
+          </Link>
         </div>
         <div className="bg-50 p-4 rounded-lg shadow-md flex flex-col items-center justify-center">
           <div>
             <div className="bg-blue-600 w-full rounded-lg h-12 flex items-center justify-center">
               <h2 className="text-white text-center">
-                Schedule your FREE checkout
+                SCHEDULE YOUR FREE CHECKOUT
               </h2>
             </div>
-            <div className="h-68 aspect-w-16 aspect-h-9">
-              <img
-                src={availableService3}
-                alt="doctor"
-                className="w-50 h-50 object-cover"
-              />
-            </div>
+            <img
+              src={availableService3}
+              alt="doctor"
+              className="w-full h-full ps-4"
+            />
           </div>
-          <button className="bg-black text-white h-12 w-28 rounded-2xl mt-2">
-            here
-          </button>
+          <Link to="/login">
+            <button className="bg-black text-white h-12 w-28 rounded-2xl mt-2 hover:bg-white hover:text-black">
+              here
+            </button>
+          </Link>
         </div>
       </div>
 
@@ -230,27 +225,11 @@ const filterSpecial = (event) => {
       </div>
 
       {/*  LOCATIONS PUEDE SER UN COMPONENTE APARTE */}
-      <div
-        id="locations"
-        className="bg-blue-400 p-4  shadow-md w-100 h-48 grid grid-cols-2"
-      >
-        <div>
-          <div>
-            <img></img>
-            <p>Kr 20 Saint Lou</p>
-          </div>
-          <div>
-            <img></img>
-            <p>{`+(1) 7-25`}</p>
-          </div>
-          <div>
-            <img></img>
-            <p>healthplushclinic@gmail.com</p>
-          </div>
-        </div>
-      </div>
 
+      <Location />
+    
       <ScrollToTop smooth />
+
 
       {/*  SPONSORS */}
       <Sponsors />

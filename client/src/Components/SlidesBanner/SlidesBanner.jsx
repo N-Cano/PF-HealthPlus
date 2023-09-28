@@ -41,7 +41,7 @@ const SlidesBanner = () => {
   };
 
   return (
-    <div className="max-w-[1800px] h-[580px] w-full m-auto py-3 px-4 relative group">
+    <div className="max-w-[1800px] h-[580px] w-full m-auto py-7 px-4 relative group">
       <div
         style={{
           backgroundImage: `url(${slides[currentIndex].url})`,

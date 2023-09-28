@@ -4,5 +4,6 @@ import Scroll from "./Scroll/Scroll";
 import SlidesBanner from "./SlidesBanner/SlidesBanner";
 import Sponsors from "./Sponsors/Sponsors";
 import Newsletter from "./Newsletter/Newsletter.jsx";
+import Location from "./Location/Location";
 
-export { NavBar, Footer, Scroll, SlidesBanner, Sponsors, Newsletter };
+export { NavBar, Footer, Scroll, SlidesBanner, Sponsors, Newsletter, Location };
