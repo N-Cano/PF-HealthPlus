@@ -1,7 +1,7 @@
 import banner from "../../assets/backgrounds/doctor 1 sin fondo.png";
 import about1 from "../../assets/backgrounds/doctor 3.jpg";
 import about2 from "../../assets/backgrounds/doctor 4.jpg";
-import NavBar from "../../Components/NavBar/NavBar";
+import { useDispatch } from "react-redux";
 import Scroll from "../../Components/Scroll/Scroll";
 import ScrollToTop from "react-scroll-to-top";
 import { BeakerIcon } from "@heroicons/react/24/solid";
@@ -10,16 +10,29 @@ import availableService1 from "../../assets/backgrounds/doctor 2.jpg";
 import availableService2 from "../../assets/backgrounds/doctor 5.jpg";
 import availableService3 from "../../assets/backgrounds/doctor 9.jpg";
 import Cards from "../../Components/CardsComponent/Cards/Cards";
-
+import {filterSpeciality , orderCards, priceCards} from "../../redux/actions"
 
 const Landing = () => {
+const dispatch = useDispatch();
+
+const filterSpecial = (event) => {
+    dispatch(filterSpeciality(event.target.value)); //llama a las funciones con el valor dado
+  };
+  const handleOrder = (e) =>{ //dispatch del asc y desc
+    dispatch(orderCards(e.target.value))
+  };
+  const handlePrice = (event) => {
+    dispatch(priceCards(event.target.value));
+  };
+
+
   return (
     <>
       {/* AQUÍ VA EL SCROLL*/}
       {/* AQUÍ VA EL NAVBAR CON EL LOGIN DESDE EL APP.JSX*/}
       {/* AQUÍ VA EL COMPONENTE DE CAMBIO DE IDIOMA*/}
       {/* AQUÍ VA EL COMPONENTE DE CAMBIO DE DARKMODE*/}
-      <NavBar />
+     
 
 
       {/* BANNER COMO SLIDES */}
@@ -184,6 +197,29 @@ const Landing = () => {
           Devotion, professionalism and hard work are the essence of our team of
           experienced doctors, nurses and care assistants․
         </p>
+        <select  onChange={filterSpecial}>
+        <option value="allDocs">allDocs</option>
+        <option value="Dermatology">Dermatology</option>
+        <option value="Rheumatology">Rheumatology</option>
+        <option value="Psychiatry">Psychiatry</option>
+        <option value="Gastroenterology.">Gastroenterology</option>
+        <option value="Endocinology">Endocinology</option>
+        <option value="Radiology">Radiology</option>
+        <option value="Urology">Urology</option>
+        <option value="cardiology">Cardiology</option>      
+      </select>
+      <select onChange={handleOrder}>
+                    <option>Order</option>
+                    <option value='A'>A-Z</option>
+                    <option value='D'>Z-A</option>
+            </select>
+            
+            <select  onChange={handlePrice}>
+                    <option>Price</option>
+                    <option value='Top'>Price Top</option>
+                    <option value='Low'>Price Low</option>
+            </select>
+        <Cards/>
       </div>
 
 
