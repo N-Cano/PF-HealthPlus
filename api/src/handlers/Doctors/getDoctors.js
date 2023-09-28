@@ -1,4 +1,4 @@
-const bringDoctors = require('../../controllers/doctorsControllers');
+const { bringDoctors } = require('../../controllers/doctorsControllers');
 
 const getDoctors = async (req, res) => {
 
@@ -7,9 +7,9 @@ const getDoctors = async (req, res) => {
         res.status(200).json(doctors);
 
     } catch (error) {
-        res.status(500).send(error.message);
+        console.log(error);
+        res.status(404).json(error);
     }
-
 };
 
 module.exports = getDoctors;
