@@ -5,5 +5,7 @@ import Login from "./Login/Login.jsx";
 import Profile from "./Profile/Profile.jsx";
 import Payment from "./Payment/Payment.jsx";
 import Plan from "./Plan/Plan.jsx";
-
-export { Home, Form, Landing, Login, Profile, Payment, Plan };
+import ForgotPassgord from "./ForgotPassword/ForgotPassword.jsx";
+import SignUp from "./SignUp/SignUp.jsx";
+import Detail from "./Detail/Detail.jsx";
+export { Home, Form, Landing, Login, Profile, Payment, Plan, ForgotPassgord, SignUp , Detail};

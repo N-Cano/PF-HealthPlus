@@ -1,8 +1,9 @@
-import { NavBar, Footer, SlidesBanner, Sponsors } from "../../Components/index";
 
+import { NavBar, Footer, SlidesBanner, Sponsors } from "../../Components/index";
 import availableService1 from "../../assets/backgrounds/doctor 2.jpg";
 import availableService2 from "../../assets/backgrounds/doctor 5.jpg";
 import availableService3 from "../../assets/backgrounds/doctor 9.jpg";
+
 
 const Landing = () => {
   return (
@@ -13,8 +14,10 @@ const Landing = () => {
       {/* AQUÍ VA EL COMPONENTE DE CAMBIO DE DARKMODE*/}
       <NavBar />
 
+
       {/* BANNER COMO SLIDES */}
       <SlidesBanner />
+
 
       {/* ABOUT US  1*/}
       <div className="flex flex-col md:flex-row md:items-center md:justify-center">
@@ -26,6 +29,7 @@ const Landing = () => {
       priority are the patients and their families.`}
           </p>
         </div>
+
 
         <div className="flex-1 bg-blue-200 p-4 rounded-lg shadow-md my-2 mx-2 md:my-6 md:mr-2 md:ml-2 md:flex md:flex-col md:justify-center md:pb-12 h-96">
           <h3 className="mt-5 text-center text-2xl">OUR COMMUNITY</h3>
@@ -40,6 +44,7 @@ const Landing = () => {
           </div>
         </div>
 
+
         <div className="flex-1 bg-blue-200 p-4 rounded-lg shadow-md my-2 mx-2 md:my-6 md:mr-2 md:ml-2 md:flex md:flex-col md:justify-center md:pb-12 h-96">
           <h3 className="mt-5 text-center text-2xl">CONTACT US</h3>
           <p className="mt-5 text-center">Here you can get in touch with us.</p>
@@ -49,6 +54,7 @@ const Landing = () => {
           </div>
         </div>
       </div>
+
 
       {/* ABOUT US 2*/}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 py-1 ">
@@ -67,6 +73,7 @@ const Landing = () => {
           </div>
         </div>
 
+
         <div
           className="relative rounded-lg shadow-md overflow-hidden transform transition-transform hover:scale-105 h-auto md:h-96"
           style={{
@@ -84,6 +91,7 @@ const Landing = () => {
           </div>
         </div>
       </div>
+
 
       {/*  SERVICES */}
       <div className="grid grid-cols-3 gap-4">
@@ -142,15 +150,18 @@ const Landing = () => {
         </div>
       </div>
 
+
       {/* AVAILABLE SERVICES */}
       <div className="bg-blue-200 h-96 ">
         <h2 className="text-4xl text-center pt-2">AVAILABLE SERVICES</h2>
       </div>
 
+
       {/* SPECIALTIES */}
       <div className="bg-blue-300 h-96 ">
         <h2 className="text-4xl text-center pt-2">SPECIALTIES</h2>
       </div>
+
 
       {/*  SECCIÓN DE DOCTORES SE RENDERIZAN LAS CARDS CON EFECTO HOVER AL HACER CLICK NOS LLEVA AL DETAIL DE CADA DOCTOR */}
       <div className="bg-white p-4 shadow-md w-100 h-[1200px] flex flex-col items-center">
@@ -162,6 +173,7 @@ const Landing = () => {
           experienced doctors, nurses and care assistants․
         </p>
       </div>
+
 
       {/*  LOCATIONS PUEDE SER UN COMPONENTE APARTE */}
       <div className="bg-blue-400 p-4  shadow-md w-100 h-48 grid grid-cols-2">
@@ -181,8 +193,10 @@ const Landing = () => {
         </div>
       </div>
 
+
       {/*  SPONSORS */}
       <Sponsors />
+
 
       {/*  SOCIAL MEDIA */}
       <Footer />
