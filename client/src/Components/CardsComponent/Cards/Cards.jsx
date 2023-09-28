@@ -2,7 +2,8 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getDoctors } from "../../../redux/actions";
 import Card from "../Card/Card";
-
+import { useState } from "react"
+import Paginado from "../../Paginado/Paginado";
 const Cards = () => {
     const dispatch = useDispatch();
     const doctors = useSelector((state) => state.doctors);
@@ -11,10 +12,22 @@ const Cards = () => {
         dispatch(getDoctors());
     }, [dispatch]);
 
+    const [currentPage, setCurrentPage] = useState(1); //currentpage almacena la pagina actual y el Set la actualiza
+
+  const itemsPerPage = 5; //cant de elem por pag
+  const totalItems = doctors.length;
+  const totalPages = Math.ceil(totalItems / itemsPerPage); //calcula el total de elementos
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber); //esta func se encarga de pasar de pag
+  };
+  const startIndex = (currentPage - 1) * itemsPerPage; //calcula los indices de inicio 
+  const endIndex = startIndex + itemsPerPage; //y fin
+  const currentGame = doctors.slice(startIndex, endIndex);
+
     return (
         <div>
             <div >
-                {doctors.map((doc) => (
+                {currentGame.map((doc) => (
                     <Card
                         name={doc.name}
                         specialty={doc.specialty}
@@ -26,6 +39,11 @@ const Cards = () => {
                     />
                 ))}
             </div>
+            <Paginado
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={handlePageChange}
+        />
         </div>
     )
 }
