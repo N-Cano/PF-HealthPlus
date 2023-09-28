@@ -2,9 +2,21 @@
 import { useEffect, useState} from 'react';
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { getDoctor } from '../../redux/actions';
 
 const Detail = () => {
+const dispatch = useDispatch();
+  const doctor = useSelector((state) => state.doctor);
+
+  useEffect(() => {
+    dispatch(getDoctor());
+  }, [dispatch]);
+
+
+
+
     const [detail, setDetail] = useState({});
     const {id} = useParams()
     useEffect(() => {
@@ -51,3 +63,4 @@ const Detail = () => {
     )
 }
 export default Detail
+

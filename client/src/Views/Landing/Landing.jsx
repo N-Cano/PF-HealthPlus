@@ -3,7 +3,7 @@ import { NavBar, Footer, SlidesBanner, Sponsors } from "../../Components/index";
 import availableService1 from "../../assets/backgrounds/doctor 2.jpg";
 import availableService2 from "../../assets/backgrounds/doctor 5.jpg";
 import availableService3 from "../../assets/backgrounds/doctor 9.jpg";
-
+import Cards from "../../Components/Doctors/Cards/Cards";
 
 const Landing = () => {
   return (
@@ -12,7 +12,7 @@ const Landing = () => {
       {/* AQUÍ VA EL NAVBAR CON EL LOGIN DESDE EL APP.JSX*/}
       {/* AQUÍ VA EL COMPONENTE DE CAMBIO DE IDIOMA*/}
       {/* AQUÍ VA EL COMPONENTE DE CAMBIO DE DARKMODE*/}
-      <NavBar />
+      
 
 
       {/* BANNER COMO SLIDES */}
@@ -160,6 +160,7 @@ const Landing = () => {
       {/* SPECIALTIES */}
       <div className="bg-blue-300 h-96 ">
         <h2 className="text-4xl text-center pt-2">SPECIALTIES</h2>
+        <Cards/>
       </div>
 
 
