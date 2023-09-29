@@ -16,6 +16,26 @@ const bringDoctors = async () => {
     }
 };
 
+const bringDoctorByName = async (name) => {
+    try {
+        const querySnapshot = await db.collection('doctors').where('name', '==', name).get();
+        const doctors = [];
+        querySnapshot.forEach((doc) => {
+            doctors.push({
+                id: doc.id,
+                ...doc.data()
+            })
+        })
+        return doctors;
+        // if (doctor.name) return doctor;
+        // else throw new Error(No doctor matched with NAME: ${name})
+
+    } catch (error) {
+        console.log(error);
+        throw new Error(error)
+    }
+};
+
 // --- Bring a doctor from data base ---
 // ? Siempre y cuando la propiedad isActive sea true
 
@@ -65,4 +85,4 @@ const createDoctor = async ({ name, description, enable, image, price, specialty
 //     res.send('doctor deleted')
 // })
 
-module.exports = { bringDoctors, bringDoctorById, createDoctor };
+module.exports = { bringDoctors, bringDoctorById, createDoctor , bringDoctorByName};
