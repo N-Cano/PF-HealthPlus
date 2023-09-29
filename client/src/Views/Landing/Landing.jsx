@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import {
   Footer,
@@ -18,30 +17,29 @@ import ScrollToTop from "react-scroll-to-top";
 import NavBar from "../../Components/NavBar/NavBar";
 
 import Cards from "../../Components/CardsComponent/Cards/Cards";
-import {filterSpeciality , orderCards, priceCards} from "../../redux/actions"
+
+import { filterSpeciality, orderCards, priceCards } from "../../redux/actions";
+
 import SearchBar from "../../Components/Utils/SearchBar/SearchBar";
 
 
 const Landing = () => {
-const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-const filterSpecial = (event) => {
+  const filterSpecial = (event) => {
     dispatch(filterSpeciality(event.target.value)); //llama a las funciones con el valor dado
   };
-  const handleOrder = (e) =>{ //dispatch del asc y desc
-    dispatch(orderCards(e.target.value))
+  const handleOrder = (e) => {
+    //dispatch del asc y desc
+    dispatch(orderCards(e.target.value));
   };
   const handlePrice = (event) => {
     dispatch(priceCards(event.target.value));
   };
 
-
   return (
     <>
-
-   
       <NavBar />
-     
 
       {/* BANNER COMO SLIDES */}
       <SlidesBanner />
@@ -197,8 +195,9 @@ const filterSpecial = (event) => {
         </h3>
         <p className="mt-8 text-4xl text-center">
           Devotion, professionalism and hard work are the essence of our team of
-          experienced doctors, nurses and care assistants․
+          experienced doctors, nurses and care assistants.
         </p>
+
         <select  onChange={filterSpecial}>
         <option value="allDocs">allDocs</option>
         <option value="Dermatology">Dermatology</option>
@@ -223,14 +222,14 @@ const filterSpecial = (event) => {
             </select>
             <SearchBar/>
         <Cards/>
+
       </div>
 
       {/*  LOCATIONS PUEDE SER UN COMPONENTE APARTE */}
-
-      <Location />
-    
+      <div id="locations">
+        <Location />
+      </div>
       <ScrollToTop smooth />
-
 
       {/*  SPONSORS */}
       <Sponsors />
