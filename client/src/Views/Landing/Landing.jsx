@@ -17,7 +17,11 @@ import ScrollToTop from "react-scroll-to-top";
 import NavBar from "../../Components/NavBar/NavBar";
 
 import Cards from "../../Components/CardsComponent/Cards/Cards";
+
 import { filterSpeciality, orderCards, priceCards } from "../../redux/actions";
+
+import SearchBar from "../../Components/Utils/SearchBar/SearchBar";
+
 
 const Landing = () => {
   const dispatch = useDispatch();
@@ -193,29 +197,32 @@ const Landing = () => {
           Devotion, professionalism and hard work are the essence of our team of
           experienced doctors, nurses and care assistants.
         </p>
-        <select onChange={filterSpecial}>
-          <option value="allDocs">allDocs</option>
-          <option value="Dermatology">Dermatology</option>
-          <option value="Rheumatology">Rheumatology</option>
-          <option value="Psychiatry">Psychiatry</option>
-          <option value="Gastroenterology.">Gastroenterology</option>
-          <option value="Endocinology">Endocinology</option>
-          <option value="Radiology">Radiology</option>
-          <option value="Urology">Urology</option>
-          <option value="cardiology">Cardiology</option>
-        </select>
-        <select onChange={handleOrder}>
-          <option>Order</option>
-          <option value="A">A-Z</option>
-          <option value="D">Z-A</option>
-        </select>
 
-        <select onChange={handlePrice}>
-          <option>Price</option>
-          <option value="Top">Price Top</option>
-          <option value="Low">Price Low</option>
-        </select>
-        <Cards />
+        <select  onChange={filterSpecial}>
+        <option value="allDocs">allDocs</option>
+        <option value="Dermatology">Dermatology</option>
+        <option value="Rheumatology">Rheumatology</option>
+        <option value="Psychiatry">Psychiatry</option>
+        <option value="Gastroenterology.">Gastroenterology</option>
+        <option value="Endocinology">Endocinology</option>
+        <option value="Radiology">Radiology</option>
+        <option value="Urology">Urology</option>
+        <option value="cardiology">Cardiology</option>      
+      </select>
+      <select onChange={handleOrder}>
+                    <option>Order</option>
+                    <option value='A'>A-Z</option>
+                    <option value='D'>Z-A</option>
+            </select>
+            
+            <select  onChange={handlePrice}>
+                    <option>Price</option>
+                    <option value='Top'>Price Top</option>
+                    <option value='Low'>Price Low</option>
+            </select>
+            <SearchBar/>
+        <Cards/>
+
       </div>
 
       {/*  LOCATIONS PUEDE SER UN COMPONENTE APARTE */}

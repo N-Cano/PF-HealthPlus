@@ -2,6 +2,7 @@ import axios from "axios";
 import {
     GET_DOCTORS,
     GET_DOCTOR,
+    GET_DOCTORS_NAME,
     GET_PATIENT,
     FILTER_SPECIAL,
     ORDER,
@@ -24,11 +25,24 @@ export const getDoctors = () => {
         }
     };
 };
+export const getDoctorName = (name) => {
+    return async (dispatch) => {
+    try {
+        let json = await axios.get(`http://localhost:3001/doctors?name=${name}`);
+        return dispatch ({
+            type: GET_DOCTORS_NAME,
+            payload: json.data  //es lo q devuelve la ruta una vez q le asigno algo por name
+        })
+    } catch (error) {
+        alert('Game not found 😕');
+    }
+    }   
+}  
 
 export const getDoctor = (id) => {
     return async (dispatch) => {
         try {
-            const response = await axios.get('http://localhost:3001/doctors/${id}');
+            const response = await axios.get(`http://localhost:3001/doctors/${id}`);
             const doctor = response.data;
             dispatch({
                 type: GET_DOCTOR,
@@ -45,7 +59,7 @@ export const getDoctor = (id) => {
 export const getPatient = (id) => {
     return async (dispatch) => {
         try {
-            const response = await axios.get('http://localhost:3001/users/${id}');
+            const response = await axios.get(`http://localhost:3001/users/${id}`);
             const patient = response.data;
             dispatch({
                 type: GET_PATIENT,

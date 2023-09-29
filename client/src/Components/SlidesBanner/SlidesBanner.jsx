@@ -21,6 +21,10 @@ const SlidesBanner = () => {
       url: "https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1932&q=80",
       msg: "We have the best attention",
     },
+    {
+      url: "https://static.nationalgeographicla.com/files/styles/image_3200/public/chimpanzee_01.webp?w=1600&h=1065",
+      msg: "JORGE"
+    }
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
