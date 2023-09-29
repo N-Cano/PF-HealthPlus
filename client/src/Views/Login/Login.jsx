@@ -1,9 +1,27 @@
 import { Link } from "react-router-dom"
 import doctors from "../../assets/doctors.png"
 import logoGoogle from "../../assets/logoGoogle.png"
+import {UserAuth} from '../../context/AuthContext'
+import { useEffect } from "react"
+import { useNavigate } from "react-router-dom"
 
 const Login = () => {
 
+    const navigate = useNavigate();
+    const {user, signInWithGoogle} = UserAuth();
+    const loginWithGoogle = async () => {
+        try {
+            await signInWithGoogle();
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
+    useEffect(() => {
+        if(user !== null) {
+            navigate('/home')
+        }
+    }, [user]);
 
     return (
         <div className='h-screen flex justify-center items-start flex-col relative'>
@@ -43,7 +61,7 @@ const Login = () => {
                             className='hover:text-gray-600 hover:scale-110 transition duration-300 ease-in-out'
                         >Sign Up</Link>
                     </div>
-                    <button className='bg-white p-2 rounded-2xl mb-4 w-56 flex items-center hover:text-gray-600 hover:scale-110 transition duration-300 ease-in-out'>
+                    <button onClick={loginWithGoogle} className='bg-white p-2 rounded-2xl mb-4 w-56 flex items-center hover:text-gray-600 hover:scale-110 transition duration-300 ease-in-out'>
                         <img className='w-5 m-2' src={logoGoogle} alt="" /> Sign in with Google
                     </button>
                     <button

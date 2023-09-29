@@ -15,7 +15,7 @@ import about2 from "../../assets/backgrounds/doctor 4.jpg";
 import { useDispatch } from "react-redux";
 import Scroll from "../../Components/Scroll/Scroll";
 import ScrollToTop from "react-scroll-to-top";
-
+import NavBar from "../../Components/NavBar/NavBar";
 
 import Cards from "../../Components/CardsComponent/Cards/Cards";
 import {filterSpeciality , orderCards, priceCards} from "../../redux/actions"
