@@ -4,7 +4,8 @@ import {
     GET_PATIENT,
     FILTER_SPECIAL,
     ORDER,
-    PRICE
+    PRICE,
+    GET_DOCTORS_NAME
 } from "./actions-types";
 
 const initialState = {
@@ -23,6 +24,11 @@ const rootReducer = (state = initialState, actions) => {
 
         case GET_PATIENT:
             return { ...state, patient: actions.payload }
+        case GET_DOCTORS_NAME:
+            return {
+                ...state,
+                 doctors: actions.payload
+                }
 
         case FILTER_SPECIAL:
             if (actions.payload === "allDocs") {

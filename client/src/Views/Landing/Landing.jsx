@@ -19,7 +19,7 @@ import NavBar from "../../Components/NavBar/NavBar";
 
 import Cards from "../../Components/CardsComponent/Cards/Cards";
 import {filterSpeciality , orderCards, priceCards} from "../../redux/actions"
-
+import SearchBar from "../../Components/Utils/SearchBar/SearchBar";
 
 
 const Landing = () => {
@@ -221,6 +221,7 @@ const filterSpecial = (event) => {
                     <option value='Top'>Price Top</option>
                     <option value='Low'>Price Low</option>
             </select>
+            <SearchBar/>
         <Cards/>
       </div>
 
