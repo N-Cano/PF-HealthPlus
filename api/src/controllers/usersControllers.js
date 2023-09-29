@@ -1,12 +1,40 @@
 const { db } = require('../firebase')
 
+//  --- Sign up ---
+const signUpUser = async ({ name, lastName, email, password }) => {
+    try {
+        // Verificar que no exista el usuario
+        // const querySnapshot = await db.collection('users').where('email', '==', email).get();
+        // const matchedUsers = [];
+        // querySnapshot.forEach((user) => {
+        //     matchedUsers.push({
+        //         ...user.data()
+        //     })
+        // });
+        // console.log(matchedUsers);
+        // if (matchedUsers.length > 0) throw new Error('Email already in use')
+        
+        const newUser = await db.collection('users').add({
+            name,
+            lastName,
+            email,
+            // ! Hashear contraseña
+            password
+        });
+        return newUser;
+    } catch (error) {
+        throw new Error(error)
+    }
+};
 
-// --- Create a new user ---
+
+
+//? --- Update user ---
 
 const createUser = async ({ name, email, password, personalId, location, enable, photo }) => {
     try {
         // Posibilidad de que no manden photo?
-        const newUser = await db.collection('users').add({
+        const updateUser = await db.collection('users').add({
             enable,
             name,
             email,
@@ -18,7 +46,7 @@ const createUser = async ({ name, email, password, personalId, location, enable,
 
         return {
             status: 'created',
-            user: newUser
+            user: updateUser
         }
     } catch (error) {
         console.log(error);
@@ -67,4 +95,4 @@ const disableUser = async (id) => {
 };
 
 
-module.exports = { createUser, bringUserById, deleteUser, disableUser }
+module.exports = { createUser, bringUserById, deleteUser, disableUser, signUpUser }
