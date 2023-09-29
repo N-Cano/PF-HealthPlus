@@ -199,7 +199,8 @@ const filterSpecial = (event) => {
           Devotion, professionalism and hard work are the essence of our team of
           experienced doctors, nurses and care assistants․
         </p>
-        <select  onChange={filterSpecial}>
+        <div>
+        <select className="bg-sky-200/100 ... rounded-lg " onChange={filterSpecial}>
         <option value="allDocs">allDocs</option>
         <option value="Dermatology">Dermatology</option>
         <option value="Rheumatology">Rheumatology</option>
@@ -210,18 +211,21 @@ const filterSpecial = (event) => {
         <option value="Urology">Urology</option>
         <option value="cardiology">Cardiology</option>      
       </select>
-      <select onChange={handleOrder}>
+      <select className="bg-sky-200/100 ... rounded-lg " onChange={handleOrder}>
                     <option>Order</option>
                     <option value='A'>A-Z</option>
                     <option value='D'>Z-A</option>
             </select>
             
-            <select  onChange={handlePrice}>
+            <select className="bg-sky-200/100 ... rounded-lg " onChange={handlePrice}>
                     <option>Price</option>
                     <option value='Top'>Price Top</option>
                     <option value='Low'>Price Low</option>
             </select>
-            <SearchBar/>
+            </div>
+            <div className="bg-blue-200 ... rounded-lg ">
+            <SearchBar />
+            </div>
         <Cards/>
       </div>
 
