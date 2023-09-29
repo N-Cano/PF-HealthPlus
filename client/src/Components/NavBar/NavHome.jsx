@@ -20,6 +20,8 @@ const NavHome = () => {
 useEffect(() => {
     if (user !== null) {
       navigate("/home");
+    } else {
+      navigate("/");
     }
 }, [user])
 
@@ -71,6 +73,7 @@ useEffect(() => {
                       </button>
                       </a>
                     </Link>
+                    <h3>Welcome, {user.displayName}</h3>
                   </div>
                 </div>
               </div>
