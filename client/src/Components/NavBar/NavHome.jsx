@@ -18,8 +18,8 @@ const NavHome = () => {
   };
 
 useEffect(() => {
-    if (user !== null) {
-      navigate("/home");
+    if (user === null) {
+      navigate("/");
     }
 }, [user])
 
@@ -65,12 +65,13 @@ useEffect(() => {
                       <a
                         href="#"
                         className="text-gray-900 hover:bg-gray-700 hover:text-white rounded-md px-4 py-2 text-sm font-medium"
-                      >
+                        >
                         <button onClick={logOutWithGoogle}>
                       LOG OUT
                       </button>
                       </a>
                     </Link>
+                        <h1>Hi, {user.displayName}</h1>
                   </div>
                 </div>
               </div>
