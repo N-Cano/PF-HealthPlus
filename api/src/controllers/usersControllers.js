@@ -1,22 +1,19 @@
 const { db } = require('../firebase')
 
+
 // --- Create a new user ---
 
-const createUser = async ({ name, email, password, personalId, image, location, plan }) => {
+const createUser = async ({ name, email, password, personalId, location, enable, photo }) => {
     try {
-        const querySnapshot = await db.collection('plans').where('benefits', '==', plan).get();
-        const plansData = []
-        querySnapshot.forEach((doc) => {
-            plansData.push(doc.data())
-        })
+        // Posibilidad de que no manden photo?
         const newUser = await db.collection('users').add({
+            enable,
             name,
             email,
             password,
             personalId,
-            image,
             location,
-            plan: plansData
+            photo
         })
 
         return {
@@ -24,12 +21,13 @@ const createUser = async ({ name, email, password, personalId, image, location, 
             user: newUser
         }
     } catch (error) {
+        console.log(error);
         throw new Error(error)
     }
 
 }
 
-// --- Bring a user from data base---
+// --- Bring an user from data base---
 
 const bringUserById = async (id) => {
     try {
@@ -38,12 +36,35 @@ const bringUserById = async (id) => {
             id: userData.id,
             ...userData.data()
         };
-        if(user.name) return user;
+        if (user.name) return user;
         else throw new Error(`No user matched with ID: ${id}`)
     } catch (error) {
         throw new Error(error)
     }
 };
 
+// --- Delete an user from data base ---
+const deleteUser = async (id) => {
+    try {
+        const deletedUser = await db.collection('users').doc(id).delete();
+        return deletedUser;
+        // Falta tirar error al no encontrar usuario
+    } catch (error) {
+        console.log(error);
+        throw new Error(error)
+    }
+}
 
-module.exports = {createUser, bringUserById }
+// --- Disable an user from data base --- 
+const disableUser = async (id) => {
+    try {
+        return await db.collection('users').doc(id).update({
+            enable: false
+        })
+    } catch (error) {
+        throw new Error(error)
+    }
+};
+
+
+module.exports = { createUser, bringUserById, deleteUser, disableUser }
