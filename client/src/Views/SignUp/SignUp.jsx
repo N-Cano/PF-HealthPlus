@@ -1,12 +1,14 @@
 import { Link } from "react-router-dom"
 import { useState } from "react";
+import axios from "axios"
+import { useNavigate } from "react-router-dom";
 const SignUp = () => {
-
+   const navigate = useNavigate()
     const [form,setForm] = useState({
-        name: "",
-        lastname: "",
-        email: "",
-        password: "",
+        name:"",
+        lastName:"",
+        email:"",
+        password:"",
       });
       const changeHandler = (event)=>{
           const property = event.target.name;
@@ -17,8 +19,9 @@ const SignUp = () => {
       const submitHandler =(event)=>{
         event.preventDefault()
         axios.post("http://localhost:3001/users/signup",form)
-        .then(res=>alert("Usuario Creado"))
-        .catch(err=>alert(err));
+        alert("Usuario Creado")
+        navigate("/login")
+        
       }
     return (
         <main className='flex m-auto justify-center items-center flex-col h-screen'>
@@ -44,8 +47,8 @@ const SignUp = () => {
                         className='p-2 pl-4 placeholder-slate-600 rounded-2xl focus:outline-none w-72'
                         type="text"
                         placeholder="Last name"
-                        name="lastname"
-                        value={form.lastname}
+                        name="lastName"
+                        value={form.lastName}
                     ></input>
 
                     <label className='text-xl'>Email</label>
