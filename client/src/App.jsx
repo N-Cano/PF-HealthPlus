@@ -2,9 +2,14 @@ import { Home, Landing, Form, Login, Profile, Payment, Plan, ForgotPassgord, Sig
 import { Route, Routes, useLocation } from "react-router-dom";
 // import NavBar from "./Components/NavBar/NavBar";
 import "tailwindcss/tailwind.css";
+import { UserAuth } from './context/AuthContext'
 
 const App = () => {
   const { pathname } = useLocation();
+  const { user } = UserAuth();
+  const RequireAuth = ({children}) => {
+    return user ? children : <Navigate to={"/login"}/>
+  };
 
   return (
     <div>
@@ -12,7 +17,9 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/home" element={<Home />} />
+        <Route path="/home" element={<RequireAuth>
+          <Home/>
+          </RequireAuth>} />
         <Route path="/create" element={<Form />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/payment" element={<Payment />} />
