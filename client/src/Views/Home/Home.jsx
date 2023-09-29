@@ -1,5 +1,7 @@
 import NavHome from "../../Components/NavBar/NavHome";
 import ScrollToTop from "react-scroll-to-top";
+import Footer from "../../Components/Footer/Footer";
+import News from "../../Components/News/News";
 
 const Home = () => {
   return (
@@ -10,12 +12,8 @@ const Home = () => {
         id="news"
         className="flex flex-col md:flex-row md:items-center md:justify-center"
       >
-        <div className="flex-1 bg-blue-200 p-4 rounded-lg shadow-md my-2 mx-2 md:my-6 md:mr-2 md:ml-2 md:pb-12 h-96">
-          <h3 className="mt-5 text-center text-2xl">NEWS</h3>
-          <p className="mt-5 text-center">
-            {`At HealthPlus, we care about your health. This is why we continue to implement  the latest technology. Check out fresh health news!`}
-          </p>
-        </div>
+        <News />
+        
       </div>
 
       <div
@@ -31,7 +29,16 @@ const Home = () => {
         </div>
       </div>
 
+      <div className="flex-1 bg-blue-200 p-4 rounded-lg shadow-md my-2 mx-2 md:my-6 md:mr-2 md:ml-2 md:pb-12 h-96">
+        <h3 className="mt-5 text-center text-2xl">SERVICES</h3>
+        <p className="mt-5 text-center">
+          {`We have a wide variety of services for you!`}
+        </p>
+      </div>
+
       <ScrollToTop smooth />
+
+      <Footer />
     </div>
   );
 };
