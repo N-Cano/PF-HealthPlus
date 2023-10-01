@@ -18,9 +18,7 @@ const NavHome = () => {
   };
 
 useEffect(() => {
-    if (user !== null) {
-      navigate("/home");
-    } else {
+    if (user === null) {
       navigate("/");
     }
 }, [user])
