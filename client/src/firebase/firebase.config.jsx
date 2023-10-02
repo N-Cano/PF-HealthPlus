@@ -1,7 +1,7 @@
 import { getAuth } from "firebase/auth";
 import { initializeApp } from "firebase/app";
 
-const firebaseConfig = {
+export const firebaseConfig = {
   apiKey: "AIzaSyAJrmBNAQC28GDuuVRejYlw9AWRI5U_GLI",
   authDomain: "health-plus-pf.firebaseapp.com",
   projectId: "health-plus-pf",
