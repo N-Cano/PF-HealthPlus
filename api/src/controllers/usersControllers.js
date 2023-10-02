@@ -3,7 +3,7 @@ const { db } = require('../firebase')
 //  --- Sign up ---
 const signUpUser = async ({ name, lastName, email, password }) => {
     try {
-        // Verificar que no exista el usuario
+        //* Verificar que no exista el usuario
         // const querySnapshot = await db.collection('users').where('email', '==', email).get();
         // const matchedUsers = [];
         // querySnapshot.forEach((user) => {
@@ -27,6 +27,25 @@ const signUpUser = async ({ name, lastName, email, password }) => {
     }
 };
 
+// --- Login ---
+const logInUser = async (email, password) => {
+    try {
+        const userData = await db.collection('users').where('email', '==', email).get();
+        const user = [];
+        userData.forEach((us) => {
+            user.push({
+                id: us.id,
+                ...us.data()
+            })
+        })
+        if(user.length < 1) throw new Error('Mail not registered');
+        if(user[0].password !== password) throw new Error('Unvalid mail or password');
+        else return true;
+    } catch (error) {
+        console.log(error);
+        throw new Error(error)
+    }
+};  
 
 
 //? --- Update user ---
@@ -95,4 +114,4 @@ const disableUser = async (id) => {
 };
 
 
-module.exports = { createUser, bringUserById, deleteUser, disableUser, signUpUser }
+module.exports = { createUser, bringUserById, deleteUser, disableUser, signUpUser, logInUser }
