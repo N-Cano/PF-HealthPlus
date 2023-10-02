@@ -4,9 +4,10 @@ import {
   SlidesBanner,
   Sponsors,
   Location,
+  AvailableServices,
 } from "../../Components/index";
 import availableService1 from "../../assets/backgrounds/doctor_6_1_400x400.jpg";
-import availableService2 from "../../assets/backgrounds/doctor_5_400x400.jpg";
+import availableService2 from "../../assets/backgrounds/doctor_2_400x400.jpg";
 import availableService3 from "../../assets/backgrounds/doctor_9_400x400.jpg";
 
 import about1 from "../../assets/backgrounds/doctor 3.jpg";
@@ -21,7 +22,6 @@ import Cards from "../../Components/CardsComponent/Cards/Cards";
 // import { filterSpeciality, orderCards, priceCards } from "../../redux/actions";
 
 // import SearchBar from "../../Components/Utils/SearchBar/SearchBar";
-
 
 const Landing = () => {
   const dispatch = useDispatch();
@@ -47,8 +47,7 @@ const Landing = () => {
       {/* ABOUT US  1*/}
       <div
         id="about"
-        className="flex flex-col md:flex-row md:items-center md:justify-center"
-      >
+        className="flex flex-col md:flex-row md:items-center md:justify-center">
         <div className="flex-1 bg-blue-200 p-4 rounded-lg shadow-md my-2 mx-2 md:my-6 md:mr-2 md:ml-2 md:pb-12 h-96">
           <h3 className="mt-5 text-center text-2xl">WHAT DO WE DO?</h3>
           <p className="mt-5 text-center">
@@ -89,8 +88,7 @@ const Landing = () => {
             backgroundImage: `url(https://images.pexels.com/photos/4021775/pexels-photo-4021775.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)`,
             backgroundSize: "cover",
             backgroundPosition: "center",
-          }}
-        >
+          }}>
           <div className="absolute inset-0 bg-black opacity-70 text-white p-4 rounded-lg group-hover:opacity-100 z-10 flex justify-center items-center">
             <p className="mb-4 text-lg md:text-xl lg:text-2xl xl:text-3xl text-center">
               HealthPlus is a private medical center that focuses on serving its
@@ -105,8 +103,7 @@ const Landing = () => {
             backgroundImage: `url(https://images.pexels.com/photos/4483327/pexels-photo-4483327.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)`,
             backgroundSize: "cover",
             backgroundPosition: "center",
-          }}
-        >
+          }}>
           <div className="absolute inset-0 bg-black opacity-70 text-white p-4 rounded-lg group-hover:opacity-100 z-10 flex justify-center items-center">
             <div className="md:flex md:flex-row md:items-center md:w-full">
               <p className="mb-4 text-lg md:text-xl lg:text-2xl xl:text-3xl text-center">
@@ -176,20 +173,20 @@ const Landing = () => {
       </div>
 
       {/* AVAILABLE SERVICES */}
-      <div className="bg-blue-200 h-96 ">
-        <h2 className="text-4xl text-center pt-2">AVAILABLE SERVICES</h2>
+      <div className="bg-white h-[550px] mt-10">
+        <h2 className="text-4xl text-center pt-2 mb-3">AVAILABLE SERVICES</h2>
+        <AvailableServices />
       </div>
 
       {/* SPECIALTIES */}
-      <div className="bg-blue-300 h-96 ">
+      <div className="bg-white h-96">
         <h2 className="text-4xl text-center pt-2">SPECIALTIES</h2>
       </div>
 
       {/*  SECCIÓN DE DOCTORES SE RENDERIZAN LAS CARDS CON EFECTO HOVER AL HACER CLICK NOS LLEVA AL DETAIL DE CADA DOCTOR */}
       <div
         id="services"
-        className="bg-white p-4 shadow-md w-100 h-[1200px] flex flex-col items-center"
-      >
+        className="bg-white p-4 shadow-md w-100 h-[1200px] flex flex-col items-center">
         <h3 className="text-black text-7xl text-center pt-2">
           The best doctors give you the best care
         </h3>
@@ -200,10 +197,6 @@ const Landing = () => {
 
         {/* <div>
         <select className="bg-sky-200/100 ... rounded-lg " onChange={filterSpecial}>
-
-
-
-
         <option value="allDocs">allDocs</option>
         <option value="Dermatology">Dermatology</option>
         <option value="Rheumatology">Rheumatology</option>
@@ -229,8 +222,7 @@ const Landing = () => {
             <div className="bg-blue-200 ... rounded-lg ">
             <SearchBar />
             </div> */}
-        <Cards/>
-
+        <Cards />
       </div>
 
       {/*  LOCATIONS PUEDE SER UN COMPONENTE APARTE */}
