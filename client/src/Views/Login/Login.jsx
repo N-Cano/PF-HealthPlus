@@ -6,6 +6,8 @@ import { useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import { useState } from "react";
 import { postUser } from "../../functions/post";
+import axios from "axios"
+
 const Login = () => {
 
     const navigate = useNavigate();
@@ -26,8 +28,6 @@ const Login = () => {
     //----------------------------------------------------------------------------------
 
     const [form, setForm] = useState({
-        name: "",
-        lastName: "",
         email: "",
         password: "",
     });
@@ -37,12 +37,25 @@ const Login = () => {
         setForm({ ...form, [property]: value })
         //   validate({...form, [property]:value})
     }
-    const submitHandler = (event) => {
+    const submitHandler =(event)=>{
         event.preventDefault()
-        postUser(form)
-        navigate('/home')
-    }
+        const {data} = axios.post("http://localhost:3001/users/login",form);
+         if (data === true){
+            navigate("/home")
+         } else {
+            console.log("Logeo Fallido");
+         }
+      }
+//----------------------------------------------------------------
+//MOSTRAR CONTRASEÑA
+    const [showPassword, setShowPassword] = useState(false);
+    const [iconClass, setIconClass] = useState('bx')
 
+  const togglePassword = () => {
+    setShowPassword(!showPassword);
+    setIconClass(showPassword ? 'bx-show-alt' : 'bx-hide');
+  };
+      
 
     return (
         <div className='h-screen flex justify-center items-start flex-col relative'>
@@ -67,11 +80,18 @@ const Login = () => {
                         <input
                             onChange={changeHandler}
                             className='p-2 pl-4 placeholder-slate-600 rounded-2xl focus:outline-none'
-                            type="password"
+                            type={showPassword ? 'text' : 'password'}
+                            id="pass"
                             placeholder="Password..."
                             name="password"
                             value={form.password}
+                            
                         ></input>
+                        <i className={`bx ${showPassword ? 'bx-hide' : 'bx-show-alt'}`}
+                           onClick={togglePassword}></i>
+                        
+                     
+                        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'/>
                     </div>
 
 
