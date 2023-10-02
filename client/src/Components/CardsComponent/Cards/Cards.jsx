@@ -26,7 +26,7 @@ const Cards = () => {
 
     return (
         <div>
-            <div className="border-2 flex rounded-l-2xl gap-10 " >
+            <div className="border-2 flex bg-white rounded-l-2xl gap-10 " >
                 {currentGame.map((doc) => (
                     <Card
                         name={doc.name}
