@@ -27,17 +27,17 @@ export const getDoctors = () => {
 };
 export const getDoctorName = (name) => {
     return async (dispatch) => {
-    try {
-        let json = await axios.get(`http://localhost:3001/doctors?name=${name}`);
-        return dispatch ({
-            type: GET_DOCTORS_NAME,
-            payload: json.data  //es lo q devuelve la ruta una vez q le asigno algo por name
-        })
-    } catch (error) {
-        alert('Game not found 😕');
+        try {
+            let json = await axios.get(`http://localhost:3001/doctors?name=${name}`);
+            return dispatch({
+                type: GET_DOCTORS_NAME,
+                payload: json.data  //es lo q devuelve la ruta una vez q le asigno algo por name
+            })
+        } catch (error) {
+            alert('Game not found 😕');
+        }
     }
-    }   
-}  
+}
 
 export const getDoctor = (id) => {
     return async (dispatch) => {
@@ -73,20 +73,32 @@ export const getPatient = (id) => {
     };
 }
 export const filterSpeciality = (special) => {
-  return {
-    type: FILTER_SPECIAL,
-    payload: special,
-  };
+    return {
+        type: FILTER_SPECIAL,
+        payload: special,
+    };
 };
 export const orderCards = (orden) => {
-  return {
-    type: ORDER,
-    payload: orden,
-  };
+    return {
+        type: ORDER,
+        payload: orden,
+    };
 };
 export const priceCards = (price) => {
-  return {
-    type: PRICE,
-    payload: price,
-  };
+    return {
+        type: PRICE,
+        payload: price,
+    };
 };
+
+export const postUser = (user) => {
+    return async () => {
+        try {
+            await axios.post("http://localhost:3001/users/signup", user);
+        }
+        catch (error) {
+            console.error("Error al crear el usuario:", error)
+            throw new Error(error);
+        }
+    };
+}
