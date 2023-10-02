@@ -9,7 +9,7 @@ const Card = (props) => {
                 <p> name:{props.name}</p>
                 <p> specialty:{props.specialty}</p>
                 <div className="h-auto w-80 content-center">
-                <img  src={props.image} alt="" />
+                <img  src={props.photo} alt="" />
                 </div>
             </div>
         </div>

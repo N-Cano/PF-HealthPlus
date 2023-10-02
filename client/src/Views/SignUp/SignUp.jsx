@@ -17,11 +17,15 @@ const SignUp = () => {
         setForm({ ...form, [property]: value })
         //   validate({...form, [property]:value})
     }
-    const submitHandler = (event) => {
-        event.preventDefault()
-        postUser(form)
-        console.log(form, 'usuario creado');
-        navigate("/login")
+    const submitHandler = async (event) => {
+        event.preventDefault();
+        try {
+            await postUser(form);
+            console.log("Usuario creado");
+            navigate("/login");
+        } catch (error) {
+            console.error("Error al crear el usuario:", error);
+        }
     }
     return (
         <main className='flex m-auto justify-center items-center flex-col h-screen'>
