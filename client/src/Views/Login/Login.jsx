@@ -4,11 +4,13 @@ import logoGoogle from "../../assets/logoGoogle.png"
 import { UserAuth } from '../../context/AuthContext'
 import { useEffect } from "react"
 import { useNavigate } from "react-router-dom"
-import { useState } from "react";
-import { postUser } from "../../functions/post";
-import axios from "axios"
+import { useState } from "react"
+import {signInWithEmailAndPassword} from 'firebase/auth'
+import { auth } from '../../firebase/firebase.config'
 
 const Login = () => {
+
+    //-------------------------------Google Auth-----------------------------------------
 
     const navigate = useNavigate();
     const { user, signInWithGoogle } = UserAuth();
@@ -20,36 +22,32 @@ const Login = () => {
         }
     };
 
+    //----------------------Email and Password Auth-------------------------------------
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
+    const loginWithEmailPassword = async () => {
+        try {
+            await signInWithEmailAndPassword(auth, email, password); // Usa getAuth(auth)
+            navigate('/home');
+        } catch (error) {
+            console.error("Error al iniciar sesión con correo y contraseña:", error.message);
+        }
+    };
+
+           
+
     useEffect(() => {
         if (user) {
             navigate('/home')
         }
     }, [user]);
-    //----------------------------------------------------------------------------------
 
-    const [form, setForm] = useState({
-        email: "",
-        password: "",
-    });
-    const changeHandler = (event) => {
-        const property = event.target.name;
-        const value = event.target.value;
-        setForm({ ...form, [property]: value })
-        //   validate({...form, [property]:value})
-    }
-    const submitHandler =(event)=>{
-        event.preventDefault()
-        const {data} = axios.post("http://localhost:3001/users/login",form);
-         if (data === true){
-            navigate("/home")
-         } else {
-            console.log("Logeo Fallido");
-         }
-      }
 //----------------------------------------------------------------
 //MOSTRAR CONTRASEÑA
     const [showPassword, setShowPassword] = useState(false);
     const [iconClass, setIconClass] = useState('bx')
+
 
   const togglePassword = () => {
     setShowPassword(!showPassword);
@@ -63,22 +61,20 @@ const Login = () => {
                 <h2
                     className='text-3xl mb-8 font-bold text-neutral-50 bg-gray-950 rounded-2xl p-2'
                 >Sign In</h2>
-                <form onSubmit={submitHandler}>
+               
                     <div className='flex flex-col gap-2 mb-6'>
                         <label className='font-bold text-xl'>Email</label>
-                        <input onChange={changeHandler}
-                            className='p-2 pl-4 placeholder-slate-600 rounded-2xl focus:outline-none'
-                            type="text"
+                        <input 
+                        onChange={(e) => setEmail(e.target.value)}
+                            className='p-2 pl-4 placeholder-slate-600 rounded-2xl focus:outline-none'         
                             placeholder="Email..."
-                            name="email"
-                            value={form.email}
                         ></input>
                     </div>
 
                     <div className='flex flex-col gap-2 mb-6'>
                         <label className='font-bold text-xl'>Password</label>
                         <input
-                            onChange={changeHandler}
+                        onChange={(e) => setPassword(e.target.value)}
                             className='p-2 pl-4 placeholder-slate-600 rounded-2xl focus:outline-none'
                             type={showPassword ? 'text' : 'password'}
                             id="pass"
@@ -86,6 +82,7 @@ const Login = () => {
                             name="password"
                             value={form.password}
                             
+
                         ></input>
                         <i className={`bx ${showPassword ? 'bx-hide' : 'bx-show-alt'}`}
                            onClick={togglePassword}></i>
@@ -97,12 +94,10 @@ const Login = () => {
 
                     <div className='flex flex-col items-center justify-center gap-2'>
                         <div className='flex text-xs w-full justify-between mb-8'>
-
                             <Link
                                 to='/forgotPassword'
                                 className='hover:text-gray-600 hover:scale-110 transition duration-300 ease-in-out'
                             >Forgot Password</Link>
-
                             <Link
                                 to='/signUp'
                                 className='hover:text-gray-600 hover:scale-110 transition duration-300 ease-in-out'
@@ -112,12 +107,12 @@ const Login = () => {
                             <img className='w-5 m-2' src={logoGoogle} alt="" /> Sign in with Google
                         </button>
                         <button
+                            onClick={loginWithEmailPassword}
                             type="submit"
-                            value="password"
                             className='bg-slate-950 text-neutral-50 w-24 p-2 rounded-2xl hover:bg-slate-700 hover:scale-110 transition duration-300 ease-in-out'
-                        >START</button>
+                        >Sign in with Email and Password</button>
                     </div>
-                </form>
+                
             </div>
             <img src={doctors} className="w-[50rem] absolute right-0 bottom-0" />
         </div>
