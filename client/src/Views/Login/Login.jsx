@@ -80,7 +80,6 @@ const Login = () => {
                             id="pass"
                             placeholder="Password..."
                             name="password"
-                            value={form.password}
                             
 
                         ></input>
