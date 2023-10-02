@@ -5,7 +5,7 @@ import Paginado from "../Paginado/paginado";
 const News = () => {
   const [news, setNews] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 2;
+  const itemsPerPage = 5;
   const totalItems = news.length;
   const totalPages = Math.ceil(totalItems / itemsPerPage);
   const startIndex = (currentPage - 1) * itemsPerPage;
