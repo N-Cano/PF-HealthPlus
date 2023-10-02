@@ -1,13 +1,19 @@
 import { Link } from "react-router-dom";
 import logo from "../../assets/logo2.jpeg";
 import ScrollHome from "../Scroll/ScrollHome";
-import { UserAuth } from "../../context/AuthContext";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { auth } from "../../firebase/firebase.config";
+import { UserAuth } from "../../context/AuthContext";
+
 
 const NavHome = () => {
+
   const navigate = useNavigate();
-  const { user, signOutWithGoogle } = UserAuth();
+  const { signOutWithGoogle } = UserAuth();
+  const [user, setUser] = useState(null); // Estado local para el usuario autenticado
+
+
   const logOutWithGoogle = async () => {
     try {
       await signOutWithGoogle();
@@ -16,11 +22,21 @@ const NavHome = () => {
     }
   };
 
-  useEffect(() => {
-    if (user === null) {
-      navigate("/");
-    }
-  }, [user]);
+    // Observador de cambios de autenticación de Firebase
+    useEffect(() => {
+      const unsubscribe = auth.onAuthStateChanged((authUser) => {
+        if (authUser) {
+          // Usuario autenticado, establecer el estado local
+          setUser(authUser);
+        } else {
+          // Usuario no autenticado, redirigir a la página de inicio de sesión u otra acción
+          navigate("/");
+        }
+      });
+  
+      // Limpia el observador cuando el componente se desmonta
+      return () => unsubscribe();
+    }, [navigate]);
 
   return (
     <nav className="bg-black-100">
@@ -57,7 +73,7 @@ const NavHome = () => {
                         <button onClick={logOutWithGoogle}>LOG OUT</button>
                       </a>
                     </Link>
-                    <h3>Welcome, {user.displayName}</h3>
+                    <h3>Welcome, {user ? user.displayName || user.email : ''}</h3>
                   </div>
                 </div>
               </div>
