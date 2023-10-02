@@ -33,7 +33,7 @@ const Cards = () => {
                         specialty={doc.specialty}
                         price={doc.price}
                         key={doc.id}
-                        image={doc.image}
+                        photo={doc.photo.secure_url}
                         description={doc.description}
                         id={doc.id}
                     />
