@@ -1,21 +1,18 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import axios from "axios";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { getDoctor } from "../../redux/actions";
 
 const Detail = () => {
   const [detail, setDetail] = useState({});
   const { id } = useParams();
+  const dispatch = useDispatch();
+  const doctor = useSelector((state) => state.doctor);
   useEffect(() => {
-    axios
-      .get(`http://localhost:3001/doctors/${id}`)
-      .then(({ data }) => {
-        setDetail(data);
-      })
-      .catch((error) => {
-        alert("Error al obtener los detalles de videogame:", error);
-      });
-  }, [id]);
+    dispatch(getDoctor(id));
+    setDetail(doctor);
+  }, [dispatch]);
 
   return (
     <div>
@@ -32,9 +29,9 @@ const Detail = () => {
           <div>
             <h2>price: {detail.price}</h2>
           </div>
-          
+
         </div>
-        
+
 
         <h2>price: {detail.price}</h2>
       </div>
@@ -46,9 +43,9 @@ const Detail = () => {
           <button>Home</button>
         </Link>
 
-        
 
-   
+
+
       </div>
     </div>
   );
