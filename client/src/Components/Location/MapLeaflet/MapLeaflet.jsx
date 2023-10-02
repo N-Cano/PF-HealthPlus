@@ -1,29 +1,79 @@
+/* eslint-disable react/prop-types */
+import "leaflet/dist/leaflet.css";
+import { useState } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
-import { useMapEvent } from "react-leaflet/hooks";
-import MarkerClusterGroup from "react-leaflet-cluster";
 import { Icon, divIcon } from "leaflet";
-import "leaflet/dist/leaflet.css"; // Importar Leaflet CSS
+import MarkerClusterGroup from "react-leaflet-cluster";
+import { useMapEvents } from "react-leaflet";
 import logo from "../../../assets/logo2.jpeg";
 
-// COMPONENTE PARA MANEJAR EVENTOS CLICK
-const MapEventHandlers = () => {
-  const map = useMapEvent("click", () => {
-    map.setView([4.69497546746545, -74.12564000110368], map.getZoom());
-  });
-  return null; // Este componente no renderiza nada
-};
+const myIcon = new Icon({
+  iconUrl: logo,
+  iconSize: [33, 33],
+});
 
-const MapLeaflet = () => {
-  const markers = {
-    geocode: [4.69497546746545, -74.12564000110368],
-    popup: "Here we are",
+// Componente para manejar el marcador con la ubicación del usuario
+function LocationMarker() {
+  const [position, setPosition] = useState(null);
+
+  const map = useMapEvents({
+    click() {
+      map.locate();
+    },
+    locationfound(event) {
+      setPosition(event.latlng);
+      map.flyTo(event.latlng, map.getZoom());
+    },
+  });
+
+  return position === null ? null : (
+    <Marker position={position}>
+      <Popup>You are here</Popup>
+    </Marker>
+  );
+}
+
+// Componente para manejar eventos
+function MapEventHandlers({ targetLocation, map }) {
+  // Función para manejar el zoom cuando se haga click al marcador con el ícono
+  const handleMarkerClick = () => {
+    map.flyTo(myIcon, 50);
   };
 
-  // HACEMOS NUESTRO PROPIO ICONO DEL MARACADOR
-  const myIcon = new Icon({
-    iconUrl: logo,
-    iconSize: [38, 38], // Tamaño del icono
-  });
+  return (
+    <>
+      {/* Para detectar mi ubicación */}
+      <button
+        onClick={() => LocationMarker}
+        style={{
+          background: "black",
+          color: "white",
+          borderRadius: "3px",
+          height: "32px",
+          width: "200px",
+          position: "absolute",
+          top: "355px",
+          left: "48px",
+          zIndex: 1000,
+        }}>
+        Find my location
+      </button>
+
+      {/* Hacemos un marcador con la ubicación destino de la clínica */}
+      {targetLocation && (
+        <Marker
+          position={targetLocation}
+          icon={myIcon}
+          onClick={handleMarkerClick}>
+          <Popup>Our facility</Popup>
+        </Marker>
+      )}
+    </>
+  );
+}
+// Componente principal del mapa
+const MapLeaflet = () => {
+  const targetLocation = [4.7109479, -74.1478375];
 
   const createCustomClusterIcon = (cluster) => {
     return new divIcon({
@@ -33,26 +83,20 @@ const MapLeaflet = () => {
   };
 
   return (
-    <div style={{ height: "400px" }}>
-      {/* altura del contenedor del mapa */}
+    <div style={{ height: "400px", marginLeft: "20px" }}>
       <MapContainer
         style={{ height: "400px" }}
-        center={[4.69497546746545, -74.12564000110368]}
+        center={targetLocation}
         zoom={13}>
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-
-        {/* Usamos el componente MapEventHandlers  */}
-        <MapEventHandlers />
-
         <MarkerClusterGroup
           chunkedLoading
           iconCreateFunction={createCustomClusterIcon}>
-          <Marker position={markers.geocode} icon={myIcon}>
-            <Popup>{markers.popup}</Popup>
-          </Marker>
+          <LocationMarker />
+          <MapEventHandlers targetLocation={targetLocation} />
         </MarkerClusterGroup>
       </MapContainer>
     </div>
@@ -60,29 +104,6 @@ const MapLeaflet = () => {
 };
 
 export default MapLeaflet;
-
-//! OTRA FORMA DE AGREGAR UN MAPA CON LEAFLET JUNTO CON HOOKS Y LEAFLET JAVASCRIPT : https://leafletjs.com/examples/quick-start/
-
-// import React, { useEffect } from "react";
-// import "leaflet/dist/leaflet.css"; // Import Leaflet CSS
-// import L from "leaflet"; // Import Leaflet JavaScript
-
-// const MapLeaflet = () => {
-//   useEffect(() => {
-//     // Inicializamos el mapa
-//     const map = L.map("map").setView([51.505, -0.09], 13);
-
-//     // Añadimos una capa
-//     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-//       attribution:
-//         '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-//     }).addTo(map);
-//   }, []);
-
-//   return <div id="map" style={{ height: "400px" }}></div>;
-// };
-
-// export default MapLeaflet;
 
 /*  
 DOCUMENTACIÓN DE LEAFLET: https://leafletjs.com/reference.htmlS  + tutorial https://www.youtube.com/watch?v=jD6813wGdBA

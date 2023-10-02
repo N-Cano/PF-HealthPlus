@@ -22,3 +22,10 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Exclude .env files
+.env
+
+
+# Exclude googleApiKey.js
+config.js
