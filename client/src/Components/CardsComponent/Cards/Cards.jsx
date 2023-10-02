@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getDoctors } from "../../../redux/actions";
 import Card from "../Card/Card";
 import { useState } from "react"
-import Paginado from "../../Paginado/Paginado";
+import Paginado from "../../Paginado/paginado";
 const Cards = () => {
     const dispatch = useDispatch();
     const doctors = useSelector((state) => state.doctors);
@@ -26,14 +26,14 @@ const Cards = () => {
 
     return (
         <div>
-            <div >
+            <div className="border-2 flex bg-white rounded-l-2xl gap-10 " >
                 {currentGame.map((doc) => (
                     <Card
                         name={doc.name}
                         specialty={doc.specialty}
                         price={doc.price}
                         key={doc.id}
-                        image={doc.image}
+                        photo={doc.photo.secure_url}
                         description={doc.description}
                         id={doc.id}
                     />

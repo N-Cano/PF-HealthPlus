@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import {
   Footer,
@@ -15,33 +14,32 @@ import about2 from "../../assets/backgrounds/doctor 4.jpg";
 import { useDispatch } from "react-redux";
 import Scroll from "../../Components/Scroll/Scroll";
 import ScrollToTop from "react-scroll-to-top";
-
+import NavBar from "../../Components/NavBar/NavBar";
 
 import Cards from "../../Components/CardsComponent/Cards/Cards";
-import {filterSpeciality , orderCards, priceCards} from "../../redux/actions"
 
+// import { filterSpeciality, orderCards, priceCards } from "../../redux/actions";
+
+// import SearchBar from "../../Components/Utils/SearchBar/SearchBar";
 
 
 const Landing = () => {
-const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-const filterSpecial = (event) => {
-    dispatch(filterSpeciality(event.target.value)); //llama a las funciones con el valor dado
-  };
-  const handleOrder = (e) =>{ //dispatch del asc y desc
-    dispatch(orderCards(e.target.value))
-  };
-  const handlePrice = (event) => {
-    dispatch(priceCards(event.target.value));
-  };
-
+  // const filterSpecial = (event) => {
+  //   dispatch(filterSpeciality(event.target.value)); //llama a las funciones con el valor dado
+  // };
+  // const handleOrder = (e) => {
+  //   //dispatch del asc y desc
+  //   dispatch(orderCards(e.target.value));
+  // };
+  // const handlePrice = (event) => {
+  //   dispatch(priceCards(event.target.value));
+  // };
 
   return (
     <>
-
-   
       <NavBar />
-     
 
       {/* BANNER COMO SLIDES */}
       <SlidesBanner />
@@ -197,9 +195,15 @@ const filterSpecial = (event) => {
         </h3>
         <p className="mt-8 text-4xl text-center">
           Devotion, professionalism and hard work are the essence of our team of
-          experienced doctors, nurses and care assistants․
+          experienced doctors, nurses and care assistants.
         </p>
-        <select  onChange={filterSpecial}>
+
+        {/* <div>
+        <select className="bg-sky-200/100 ... rounded-lg " onChange={filterSpecial}>
+
+
+
+
         <option value="allDocs">allDocs</option>
         <option value="Dermatology">Dermatology</option>
         <option value="Rheumatology">Rheumatology</option>
@@ -210,26 +214,30 @@ const filterSpecial = (event) => {
         <option value="Urology">Urology</option>
         <option value="cardiology">Cardiology</option>      
       </select>
-      <select onChange={handleOrder}>
+      <select className="bg-sky-200/100 ... rounded-lg " onChange={handleOrder}>
                     <option>Order</option>
                     <option value='A'>A-Z</option>
                     <option value='D'>Z-A</option>
             </select>
             
-            <select  onChange={handlePrice}>
+            <select className="bg-sky-200/100 ... rounded-lg " onChange={handlePrice}>
                     <option>Price</option>
                     <option value='Top'>Price Top</option>
                     <option value='Low'>Price Low</option>
             </select>
+            </div>
+            <div className="bg-blue-200 ... rounded-lg ">
+            <SearchBar />
+            </div> */}
         <Cards/>
+
       </div>
 
       {/*  LOCATIONS PUEDE SER UN COMPONENTE APARTE */}
-
-      <Location />
-    
+      <div id="locations">
+        <Location />
+      </div>
       <ScrollToTop smooth />
-
 
       {/*  SPONSORS */}
       <Sponsors />

@@ -1,8 +1,27 @@
 import { Link } from "react-router-dom";
 import logo from "../../assets/logo2.jpeg";
 import ScrollHome from "../Scroll/ScrollHome";
+import { UserAuth } from "../../context/AuthContext";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const NavHome = () => {
+  const navigate = useNavigate();
+  const { user, signOutWithGoogle } = UserAuth();
+  const logOutWithGoogle = async () => {
+    try {
+      await signOutWithGoogle();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    if (user === null) {
+      navigate("/");
+    }
+  }, [user]);
+
   return (
     <nav className="bg-black-100">
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
@@ -16,7 +35,7 @@ const NavHome = () => {
                 {/* Contenedor de botones del componente Scroll */}
                 <div className="flex items-center space-x-4 ml-auto ">
                   {/* Botones del componente Scroll */}
-                  <ScrollHome/>
+                  <ScrollHome />
                 </div>
 
                 <div className="flex items-center">
@@ -30,25 +49,15 @@ const NavHome = () => {
                   </Link>
 
                   <div className="flex items-center">
-                    <Link to="/plan">
-                      <a
-                        href="#"
-                        className="text-gray-900 hover:bg-gray-700 hover:text-white rounded-md px-4 py-2 text-sm font-medium"
-                      >
-                        MEDICAL PLAN
-                      </a>
-                    </Link>
-                  </div>
-
-                  <div className="flex items-center">
                     <Link to="/">
                       <a
                         href="#"
                         className="text-gray-900 hover:bg-gray-700 hover:text-white rounded-md px-4 py-2 text-sm font-medium"
                       >
-                        LOG OUT
+                        <button onClick={logOutWithGoogle}>LOG OUT</button>
                       </a>
                     </Link>
+                    <h3>Welcome, {user.displayName}</h3>
                   </div>
                 </div>
               </div>

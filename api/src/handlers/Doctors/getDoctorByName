@@ -1,0 +1,15 @@
+// const { bringDoctorByName } = require("../../controllers/doctorsControllers");
+
+
+// const getDoctorByName = async (req, res) => {
+//     try {
+//         const { name } = req.query;
+//         const doctor = await bringDoctorByName(name);
+//         res.status(200).json(doctor)
+//     } catch (error) {
+//         console.log(error);
+//         res.status(404).json(error.message)
+//     }
+// };
+
+// module.exports = getDoctorByName;

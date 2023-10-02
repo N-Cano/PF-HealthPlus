@@ -1,35 +1,80 @@
 const { db } = require('../firebase')
 
-// --- Create a new user ---
-
-const createUser = async ({ name, email, password, personalId, image, location, plan }) => {
+//  --- Sign up ---
+const signUpUser = async ({ name, lastName, email, password }) => {
     try {
-        const querySnapshot = await db.collection('plans').where('benefits', '==', plan).get();
-        const plansData = []
-        querySnapshot.forEach((doc) => {
-            plansData.push(doc.data())
-        })
+        //* Verificar que no exista el usuario
+        // const querySnapshot = await db.collection('users').where('email', '==', email).get();
+        // const matchedUsers = [];
+        // querySnapshot.forEach((user) => {
+        //     matchedUsers.push({
+        //         ...user.data()
+        //     })
+        // });
+        // console.log(matchedUsers);
+        // if (matchedUsers.length > 0) throw new Error('Email already in use')
+        
         const newUser = await db.collection('users').add({
+            name,
+            lastName,
+            email,
+            // ! Hashear contraseña
+            password
+        });
+        return newUser;
+    } catch (error) {
+        throw new Error(error)
+    }
+};
+
+// --- Login ---
+const logInUser = async (email, password) => {
+    try {
+        const userData = await db.collection('users').where('email', '==', email).get();
+        const user = [];
+        userData.forEach((us) => {
+            user.push({
+                id: us.id,
+                ...us.data()
+            })
+        })
+        if(user.length < 1) throw new Error('Mail not registered');
+        if(user[0].password !== password) throw new Error('Unvalid mail or password');
+        else return true;
+    } catch (error) {
+        console.log(error);
+        throw new Error(error)
+    }
+};  
+
+
+//? --- Update user ---
+
+const createUser = async ({ name, email, password, personalId, location, enable, photo }) => {
+    try {
+        // Posibilidad de que no manden photo?
+        const updateUser = await db.collection('users').add({
+            enable,
             name,
             email,
             password,
             personalId,
-            image,
             location,
-            plan: plansData
+            photo
         })
 
         return {
             status: 'created',
-            user: newUser
+            user: updateUser
         }
     } catch (error) {
+        console.log(error);
         throw new Error(error)
     }
 
 }
 
-// --- Bring a user from data base---
+// --- Bring an user from data base---
 
 const bringUserById = async (id) => {
     try {
@@ -38,12 +83,35 @@ const bringUserById = async (id) => {
             id: userData.id,
             ...userData.data()
         };
-        if(user.name) return user;
+        if (user.name) return user;
         else throw new Error(`No user matched with ID: ${id}`)
     } catch (error) {
         throw new Error(error)
     }
 };
 
+// --- Delete an user from data base ---
+const deleteUser = async (id) => {
+    try {
+        const deletedUser = await db.collection('users').doc(id).delete();
+        return deletedUser;
+        // Falta tirar error al no encontrar usuario
+    } catch (error) {
+        console.log(error);
+        throw new Error(error)
+    }
+}
 
-module.exports = {createUser, bringUserById }
+// --- Disable an user from data base --- 
+const disableUser = async (id) => {
+    try {
+        return await db.collection('users').doc(id).update({
+            enable: false
+        })
+    } catch (error) {
+        throw new Error(error)
+    }
+};
+
+
+module.exports = { createUser, bringUserById, deleteUser, disableUser, signUpUser, logInUser }
