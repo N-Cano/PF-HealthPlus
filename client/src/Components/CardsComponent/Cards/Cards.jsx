@@ -14,19 +14,19 @@ const Cards = () => {
 
     const [currentPage, setCurrentPage] = useState(1); //currentpage almacena la pagina actual y el Set la actualiza
 
-  const itemsPerPage = 5; //cant de elem por pag
-  const totalItems = doctors.length;
-  const totalPages = Math.ceil(totalItems / itemsPerPage); //calcula el total de elementos
-  const handlePageChange = (pageNumber) => {
-    setCurrentPage(pageNumber); //esta func se encarga de pasar de pag
-  };
-  const startIndex = (currentPage - 1) * itemsPerPage; //calcula los indices de inicio 
-  const endIndex = startIndex + itemsPerPage; //y fin
-  const currentGame = doctors.slice(startIndex, endIndex);
+    const itemsPerPage = 5; //cant de elem por pag
+    const totalItems = doctors.length;
+    const totalPages = Math.ceil(totalItems / itemsPerPage); //calcula el total de elementos
+    const handlePageChange = (pageNumber) => {
+        setCurrentPage(pageNumber); //esta func se encarga de pasar de pag
+    };
+    const startIndex = (currentPage - 1) * itemsPerPage; //calcula los indices de inicio 
+    const endIndex = startIndex + itemsPerPage; //y fin
+    const currentGame = doctors.slice(startIndex, endIndex);
 
     return (
-        <div>
-            <div className="border-2 flex bg-white rounded-l-2xl gap-10 " >
+        <div className="w-full">
+            <div className="border-2 flex justify-center item bg-white rounded-2xl gap-10 h-96" >
                 {currentGame.map((doc) => (
                     <Card
                         name={doc.name}
@@ -40,10 +40,10 @@ const Cards = () => {
                 ))}
             </div>
             <Paginado
-          currentPage={currentPage}
-          totalPages={totalPages}
-          onPageChange={handlePageChange}
-        />
+                currentPage={currentPage}
+                totalPages={totalPages}
+                onPageChange={handlePageChange}
+            />
         </div>
     )
 }
