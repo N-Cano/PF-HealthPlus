@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
 
+
     const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -20,6 +21,7 @@ const SignUp = () => {
         }
     };
    
+
     return (
         <main className='flex m-auto justify-center items-center flex-col h-screen'>
             <Link

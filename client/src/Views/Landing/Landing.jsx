@@ -18,24 +18,24 @@ import NavBar from "../../Components/NavBar/NavBar";
 
 import Cards from "../../Components/CardsComponent/Cards/Cards";
 
-import { filterSpeciality, orderCards, priceCards } from "../../redux/actions";
+// import { filterSpeciality, orderCards, priceCards } from "../../redux/actions";
 
-import SearchBar from "../../Components/Utils/SearchBar/SearchBar";
+// import SearchBar from "../../Components/Utils/SearchBar/SearchBar";
 
 
 const Landing = () => {
   const dispatch = useDispatch();
 
-  const filterSpecial = (event) => {
-    dispatch(filterSpeciality(event.target.value)); //llama a las funciones con el valor dado
-  };
-  const handleOrder = (e) => {
-    //dispatch del asc y desc
-    dispatch(orderCards(e.target.value));
-  };
-  const handlePrice = (event) => {
-    dispatch(priceCards(event.target.value));
-  };
+  // const filterSpecial = (event) => {
+  //   dispatch(filterSpeciality(event.target.value)); //llama a las funciones con el valor dado
+  // };
+  // const handleOrder = (e) => {
+  //   //dispatch del asc y desc
+  //   dispatch(orderCards(e.target.value));
+  // };
+  // const handlePrice = (event) => {
+  //   dispatch(priceCards(event.target.value));
+  // };
 
   return (
     <>
@@ -198,7 +198,7 @@ const Landing = () => {
           experienced doctors, nurses and care assistants.
         </p>
 
-        <div>
+        {/* <div>
         <select className="bg-sky-200/100 ... rounded-lg " onChange={filterSpecial}>
 
 
@@ -228,7 +228,7 @@ const Landing = () => {
             </div>
             <div className="bg-blue-200 ... rounded-lg ">
             <SearchBar />
-            </div>
+            </div> */}
         <Cards/>
 
       </div>

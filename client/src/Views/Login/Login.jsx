@@ -6,11 +6,7 @@ import { useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import { useState } from "react"
 import {signInWithEmailAndPassword} from 'firebase/auth'
-
 import { auth } from '../../firebase/firebase.config'
-
-
-
 
 const Login = () => {
 
@@ -47,6 +43,17 @@ const Login = () => {
         }
     }, [user]);
 
+//----------------------------------------------------------------
+//MOSTRAR CONTRASEÑA
+    const [showPassword, setShowPassword] = useState(false);
+    const [iconClass, setIconClass] = useState('bx')
+
+
+  const togglePassword = () => {
+    setShowPassword(!showPassword);
+    setIconClass(showPassword ? 'bx-show-alt' : 'bx-hide');
+  };
+      
 
     return (
         <div className='h-screen flex justify-center items-start flex-col relative'>
@@ -69,8 +76,19 @@ const Login = () => {
                         <input
                         onChange={(e) => setPassword(e.target.value)}
                             className='p-2 pl-4 placeholder-slate-600 rounded-2xl focus:outline-none'
+                            type={showPassword ? 'text' : 'password'}
+                            id="pass"
                             placeholder="Password..."
+                            name="password"
+                            value={form.password}
+                            
+
                         ></input>
+                        <i className={`bx ${showPassword ? 'bx-hide' : 'bx-show-alt'}`}
+                           onClick={togglePassword}></i>
+                        
+                     
+                        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'/>
                     </div>
 
 
