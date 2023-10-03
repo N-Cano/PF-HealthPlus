@@ -1,3 +1,4 @@
+
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { auth } from "../../firebase/firebase.config";
@@ -34,8 +35,7 @@ const SignUp = () => {
               className="p-2 pl-4 placeholder-slate-600 rounded-2xl focus:outline-none w-72"
               type="email"
               placeholder="Email..."
-              name="email"
-            ></input>
+              name="email"></input>
 
             <label className="text-xl">Password</label>
             <input
@@ -43,15 +43,14 @@ const SignUp = () => {
               className="p-2 pl-4 placeholder-slate-600 rounded-2xl focus:outline-none w-72"
               type="password"
               placeholder="Password..."
-              name="password"
-            ></input>
+              name="password"></input>
+
           </div>
 
           <button
             onClick={submit}
             type="submit"
-            className="bg-slate-950 text-neutral-50 w-24 p-2 rounded-2xl hover:bg-slate-700 hover:scale-110 transition duration-300 ease-in-out"
-          >
+            className="bg-slate-950 text-neutral-50 w-24 p-2 rounded-2xl hover:bg-slate-700 hover:scale-110 transition duration-300 ease-in-out">
             Sign Up
           </button>
         </div>
