@@ -1,14 +1,19 @@
 import { Link } from "react-router-dom";
 import logo from "../../assets/logo2.jpeg";
 import ScrollHome from "../Scroll/ScrollHome";
-import { UserAuth } from "../../context/AuthContext";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { auth } from "../../firebase/firebase.config";
+import { UserAuth } from "../../context/AuthContext";
+
 
 const NavHome = () => {
 
   const navigate = useNavigate();
-  const { user, signOutWithGoogle } = UserAuth();
+  const { signOutWithGoogle } = UserAuth();
+  const [user, setUser] = useState(null); // Estado local para el usuario autenticado
+
+
   const logOutWithGoogle = async () => {
     try {
       await signOutWithGoogle();
@@ -17,11 +22,21 @@ const NavHome = () => {
     }
   };
 
-useEffect(() => {
-    if (user !== null) {
-      navigate("/home");
-    }
-}, [user])
+    // Observador de cambios de autenticación de Firebase
+    useEffect(() => {
+      const unsubscribe = auth.onAuthStateChanged((authUser) => {
+        if (authUser) {
+          // Usuario autenticado, establecer el estado local
+          setUser(authUser);
+        } else {
+          // Usuario no autenticado, redirigir a la página de inicio de sesión u otra acción
+          navigate("/");
+        }
+      });
+  
+      // Limpia el observador cuando el componente se desmonta
+      return () => unsubscribe();
+    }, [navigate]);
 
   return (
     <nav className="bg-black-100">
@@ -36,7 +51,7 @@ useEffect(() => {
                 {/* Contenedor de botones del componente Scroll */}
                 <div className="flex items-center space-x-4 ml-auto ">
                   {/* Botones del componente Scroll */}
-                  <ScrollHome/>
+                  <ScrollHome />
                 </div>
 
                 <div className="flex items-center">
@@ -50,27 +65,15 @@ useEffect(() => {
                   </Link>
 
                   <div className="flex items-center">
-                    <Link to="/plan">
-                      <a
-                        href="#"
-                        className="text-gray-900 hover:bg-gray-700 hover:text-white rounded-md px-4 py-2 text-sm font-medium"
-                      >
-                        MEDICAL PLAN
-                      </a>
-                    </Link>
-                  </div>
-
-                  <div className="flex items-center">
                     <Link to="/">
                       <a
                         href="#"
                         className="text-gray-900 hover:bg-gray-700 hover:text-white rounded-md px-4 py-2 text-sm font-medium"
                       >
-                        <button onClick={logOutWithGoogle}>
-                      LOG OUT
-                      </button>
+                        <button onClick={logOutWithGoogle}>LOG OUT</button>
                       </a>
                     </Link>
+                    <h3>Welcome, {user ? user.displayName || user.email : ''}</h3>
                   </div>
                 </div>
               </div>
