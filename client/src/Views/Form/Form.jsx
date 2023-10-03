@@ -7,10 +7,10 @@ import { auth } from "../../firebase/firebase.config";
 
 const Form = () => {
   const [form, setForm] = useState({
-    name: "",
-    dni: "",
-    lastname: "",
-    birthdate: "",
+    doctorId: "",
+    userId: "",
+    date: "",
+    schedule: "",
     email: "",
   });
 
@@ -42,16 +42,16 @@ const Form = () => {
   };
 
   return (
-    
+    <div className={styles.nuevo}>
     <div className={styles.container}>
       <Nav/>
     <Cards/>
     <div className={styles.title}> SCHEDULE
     <div className={styles.userdetails}>
-    <form action="#" onSubmit={submitHandler} id="personalInfoForm">
+    <form onSubmit={submitHandler} >
            <div className={styles.inputbox}>
-            <label for="firstName">Doctor:</label>
-            <select  className={styles.button2} type="text" id="firstName" name="name" value={form.name} onChange={changeHandler}>
+            <label >Doctor:</label>
+            <select  className={styles.button2} type="text"  name="doctorId" value={form.doctorId} onChange={changeHandler}>
             <option value="">-- Select a Doctor --</option>
              <option value="3mxD0sfUAWOzt4hpWIHa">Josep Conde</option>
              <option value="7gBRp5ScJ8h4HEqOOCxl">Esmeralda Corral</option>
@@ -62,19 +62,20 @@ const Form = () => {
             </div>
             
            <div className={styles.inputbox}>
-            <label for="dni">DNI:</label>
-            <input type="text" id="dni" name="dni" value={form.dni} onChange={changeHandler}/>
+            <label >DNI:</label>
+            <input type="text"  name="userId" value={form.userId} onChange={changeHandler}/>
             </div>
             <div className={styles.inputbox}>
-            <label for="lastName">Schedule:</label>
-            <input type="time" id="lastName" name="lastname" value={form.lastname} onChange={changeHandler}/>
+            <label >Schedule:</label>
+            <input type="time"  name="schedule" value={form.schedule} onChange={changeHandler}/>
             </div>
             <div className={styles.inputbox}>
-            <label for="birthdate">Date:</label>
-            <input type="date" id="birthdate" name="birthdate" value={form.birthdate} onChange={changeHandler}/>
+            <label >Date:</label>
+            <input type="date"  name="date" value={form.date} onChange={changeHandler}/>
             </div>
             <button className={styles.button2} type="submit" >Save</button>
         </form>
+        </div>
         </div>
         </div>
         </div>
