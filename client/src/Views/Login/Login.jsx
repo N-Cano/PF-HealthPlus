@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { Link } from "react-router-dom"
 import doctors from "../../assets/doctors.png"
 import logoGoogle from "../../assets/logoGoogle.png"
