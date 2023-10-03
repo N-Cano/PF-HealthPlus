@@ -2,8 +2,8 @@ const { signUpUser } = require("../../controllers/usersControllers");
 
 const createUser = async (req, res) => {
     try {
-        const { name, lastName, email, password } = req.body;
-        const data = { name, lastName, email, password };
+        const {  email, uid } = req.body;
+        const data = { email, uid };
         const newUser = signUpUser(data);
         res.status(201).json({
             status: 'created',

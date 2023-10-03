@@ -1,4 +1,6 @@
-const { uploadImage } = require('../../../utils/cloudinary');
+
+const { uploadDoctorImage } = require('../../../utils/cloudinary');
+
 const fse = require('fs-extra')
 const { createDoctor } = require("../../controllers/doctorsControllers");
 
@@ -9,7 +11,9 @@ const postDoctor = async (req, res) => {
         const data = {description, enable, name, price, specialty};
 
         if (req.files?.image) {
-            const result = await uploadImage(req.files.image.tempFilePath);
+
+            const result = await uploadDoctorImage(req.files.image.tempFilePath);
+
 
             data.photo = {
                 public_id: result.public_id,

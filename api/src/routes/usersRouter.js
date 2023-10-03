@@ -6,14 +6,16 @@ const destroyUser = require('../handlers/Users/destroyUser');
 const unableUser = require('../handlers/Users/unableUser');
 const createUser = require('../handlers/Users/signUpUser');
 const logInHandler = require('../handlers/Users/logInUser');
+const updateUserHandler = require('../handlers/Users/updateUserHandler');
 
 const usersRouter = Router();
 
 usersRouter.post('/', postUser);
+usersRouter.put('/profile', updateUserHandler);
 usersRouter.post('/signup', createUser);
 usersRouter.post('/login', logInHandler);
-usersRouter.get('/:id', getUserById);
-usersRouter.delete('/:id', destroyUser);
-usersRouter.put('/:id', unableUser);
+// usersRouter.get('/:id', getUserById);
+// usersRouter.delete('/:id', destroyUser);
+// usersRouter.put('/:id', unableUser);
 
 module.exports = usersRouter;
