@@ -125,7 +125,7 @@ const Login = () => {
                         </div>
 
                         <div className="flex flex-col items-center justify-center gap-2">
-                            <div className="flex text-xs w-full justify-between mb-8">
+                            <div className="flex text-xs w-full justify-between mb-4">
                                 <Link
                                     to="/forgotPassword"
                                     className="hover:text-gray-600 hover:scale-110 transition duration-300 ease-in-out"
@@ -133,24 +133,16 @@ const Login = () => {
                                     Forgot Password
                                 </Link>
 
-                                <div className='flex flex-col items-center justify-center gap-2'>
-                                    <div className='flex text-xs w-full justify-between'>
-                                        <Link
-                                            to='/forgotPassword'
-                                            className='hover:text-gray-600 hover:scale-110 transition duration-300 ease-in-out'
-                                        >Forgot Password</Link>
-                                        <Link
-                                            to='/signUp'
-                                            className='hover:text-gray-600 hover:scale-110 transition duration-300 ease-in-out'
-                                        >Sign Up</Link>
-                                    </div>
-                                    <button
-                                        type="submit"
-                                        className='bg-slate-950 text-neutral-50 w-24 p-2 rounded-2xl hover:bg-slate-700 hover:scale-110 transition duration-300 ease-in-out mb-4'
-                                    >Sign In</button>
-                                </div>
+                                <Link
+                                    to='/signUp'
+                                    className='hover:text-gray-600 hover:scale-110 transition duration-300 ease-in-out'
+                                >Sign Up</Link>
 
                             </div>
+                            <button
+                                type="submit"
+                                className='bg-slate-950 text-neutral-50 w-24 p-2 rounded-2xl hover:bg-slate-700 hover:scale-110 transition duration-300 ease-in-out mb-4'
+                            >Sign In</button>
                         </div>
                     </form>
                     <button onClick={loginWithGoogle} className='bg-white p-2 rounded-2xl mb-4 w-56 flex items-center hover:text-gray-600 hover:scale-110 transition duration-300 ease-in-out m-auto'>
