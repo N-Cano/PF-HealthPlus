@@ -21,7 +21,8 @@ const Map = () => {
       <GoogleMap
         mapContainerStyle={containerStyle}
         center={center}
-        zoom={14}></GoogleMap>
+        zoom={14}
+      ></GoogleMap>
     </LoadScript>
   );
 };

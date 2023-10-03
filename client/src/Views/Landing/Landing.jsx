@@ -15,13 +15,13 @@ import { useDispatch } from "react-redux";
 import Scroll from "../../Components/Scroll/Scroll";
 import ScrollToTop from "react-scroll-to-top";
 import NavBar from "../../Components/NavBar/NavBar";
+import Specialties from "../../Components/Specialties/Specialties";
 
 import Cards from "../../Components/CardsComponent/Cards/Cards";
 
 // import { filterSpeciality, orderCards, priceCards } from "../../redux/actions";
 
 // import SearchBar from "../../Components/Utils/SearchBar/SearchBar";
-
 
 const Landing = () => {
   const dispatch = useDispatch();
@@ -180,10 +180,8 @@ const Landing = () => {
         <h2 className="text-4xl text-center pt-2">AVAILABLE SERVICES</h2>
       </div>
 
-      {/* SPECIALTIES */}
-      <div className="bg-blue-300 h-96 ">
-        <h2 className="text-4xl text-center pt-2">SPECIALTIES</h2>
-      </div>
+          
+      <Specialties />
 
       {/*  SECCIÓN DE DOCTORES SE RENDERIZAN LAS CARDS CON EFECTO HOVER AL HACER CLICK NOS LLEVA AL DETAIL DE CADA DOCTOR */}
       <div
@@ -229,8 +227,7 @@ const Landing = () => {
             <div className="bg-blue-200 ... rounded-lg ">
             <SearchBar />
             </div> */}
-        <Cards/>
-
+        <Cards />
       </div>
 
       {/*  LOCATIONS PUEDE SER UN COMPONENTE APARTE */}
