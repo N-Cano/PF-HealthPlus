@@ -113,5 +113,14 @@ const disableUser = async (id) => {
     }
 };
 
+// // --- Forgot Password ---
+// const newPassword = async (email) => {
+//     try {
+//         return await db.collection('users')
+//     } catch (error) {
+        
+//     }
+// }
+
 
 module.exports = { createUser, bringUserById, deleteUser, disableUser, signUpUser, logInUser }
