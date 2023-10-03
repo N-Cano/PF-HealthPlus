@@ -1,31 +1,30 @@
 import { Link } from "react-router-dom";
+// import { useDispatch } from "react-redux";
 import {
   Footer,
   SlidesBanner,
   Sponsors,
   Location,
   AvailableServices,
+  Newsletter,
 } from "../../Components/index";
 import availableService1 from "../../assets/backgrounds/doctor_6_1_400x400.jpg";
 import availableService2 from "../../assets/backgrounds/doctor_2_400x400.jpg";
 import availableService3 from "../../assets/backgrounds/doctor_9_400x400.jpg";
-
-import about1 from "../../assets/backgrounds/doctor 3.jpg";
-import about2 from "../../assets/backgrounds/doctor 4.jpg";
-import { useDispatch } from "react-redux";
-import Scroll from "../../Components/Scroll/Scroll";
 import ScrollToTop from "react-scroll-to-top";
 import NavBar from "../../Components/NavBar/NavBar";
+import Specialties from "../../Components/Specialties/Specialties";
 
 import Cards from "../../Components/CardsComponent/Cards/Cards";
 
+// import about1 from "../../assets/backgrounds/doctor 3.jpg";
+// import about2 from "../../assets/backgrounds/doctor 4.jpg";
+// import Scroll from "../../Components/Scroll/Scroll";
 // import { filterSpeciality, orderCards, priceCards } from "../../redux/actions";
-
 // import SearchBar from "../../Components/Utils/SearchBar/SearchBar";
 
 const Landing = () => {
-  const dispatch = useDispatch();
-
+  // const dispatch = useDispatch();
   // const filterSpecial = (event) => {
   //   dispatch(filterSpeciality(event.target.value)); //llama a las funciones con el valor dado
   // };
@@ -38,7 +37,11 @@ const Landing = () => {
   // };
 
   return (
-    <>
+    <div
+      style={{
+        background: "linear-gradient(45deg, #71b7e6, #f6f6f6)",
+        boxShadow: "7px 6px 30px #8ccef5",
+      }}>
       <NavBar />
 
       {/* BANNER COMO SLIDES */}
@@ -48,7 +51,7 @@ const Landing = () => {
       <div
         id="about"
         className="flex flex-col md:flex-row md:items-center md:justify-center">
-        <div className="flex-1 bg-blue-200 p-4 rounded-lg shadow-md my-2 mx-2 md:my-6 md:mr-2 md:ml-2 md:pb-12 h-96">
+        <div className="flex-1 bg-blue-200 p-4 rounded-lg shadow-md my-2 mx-2 md:my-6 md:mr-2 md:ml-2 md:pb-12 h-48">
           <h3 className="mt-5 text-center text-2xl">WHAT DO WE DO?</h3>
           <p className="mt-5 text-center">
             {`At HealthPlus we are dedicated to you, and your health. Our aim is to
@@ -57,7 +60,7 @@ const Landing = () => {
           </p>
         </div>
 
-        <div className="flex-1 bg-blue-200 p-4 rounded-lg shadow-md my-2 mx-2 md:my-6 md:mr-2 md:ml-2 md:flex md:flex-col md:justify-center md:pb-12 h-96">
+        <div className="flex-1 bg-blue-200 p-4 rounded-lg shadow-md my-2 mx-2 md:my-6 md:mr-2 md:ml-2 md:flex md:flex-col md:justify-center md:pb-12 h-48">
           <h3 className="mt-5 text-center text-2xl">OUR COMMUNITY</h3>
           <p className="mt-5 text-center">
             We are a professional clinic with a long trajectory based in the
@@ -65,18 +68,12 @@ const Landing = () => {
             professional staff.
           </p>
           <div className="flex-grow"></div>
-          <div className="mt-4 text-center">
-            <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full">{`DOCTORS >`}</button>
-          </div>
         </div>
 
-        <div className="flex-1 bg-blue-200 p-4 rounded-lg shadow-md my-2 mx-2 md:my-6 md:mr-2 md:ml-2 md:flex md:flex-col md:justify-center md:pb-12 h-96">
+        <div className="flex-1 bg-blue-200 p-4 rounded-lg shadow-md my-2 mx-2 md:my-6 md:mr-2 md:ml-2 md:flex md:flex-col md:justify-center md:pb-12 h-48">
           <h3 className="mt-5 text-center text-2xl">CONTACT US</h3>
           <p className="mt-5 text-center">Here you can get in touch with us.</p>
           <div className="flex-grow"></div>
-          <div className="mt-4 text-center">
-            <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full">{`LOCATIONS >`}</button>
-          </div>
         </div>
       </div>
 
@@ -116,10 +113,10 @@ const Landing = () => {
       </div>
 
       {/*  SERVICES */}
-      <div id="doctors" className="grid grid-cols-3 gap-4">
+      <div id="doctors" className="grid grid-cols-3 gap-4 ">
         <div className="bg-50 p-4 rounded-lg shadow-md flex flex-col items-center justify-center">
           <div>
-            <div className="bg-blue-600 w-full rounded-lg h-12 flex items-center justify-center">
+            <div className="bg-blue-900 w-full rounded-lg h-12 flex items-center justify-center">
               <h2 className="text-white text-center">APPOINTMENTS</h2>
             </div>
             <img
@@ -136,7 +133,7 @@ const Landing = () => {
         </div>
         <div className="bg-50 p-4 rounded-lg shadow-md flex flex-col items-center justify-center">
           <div>
-            <div className="bg-blue-600 w-full rounded-lg h-12 flex items-center justify-center">
+            <div className="bg-blue-900 w-full rounded-lg h-12 flex items-center justify-center">
               <h2 className="text-white text-center">DOCTORS</h2>
             </div>
             <img
@@ -153,7 +150,7 @@ const Landing = () => {
         </div>
         <div className="bg-50 p-4 rounded-lg shadow-md flex flex-col items-center justify-center">
           <div>
-            <div className="bg-blue-600 w-full rounded-lg h-12 flex items-center justify-center">
+            <div className="bg-blue-900 w-full rounded-lg h-12 flex items-center justify-center">
               <h2 className="text-white text-center">
                 SCHEDULE YOUR FREE CHECKOUT
               </h2>
@@ -173,21 +170,23 @@ const Landing = () => {
       </div>
 
       {/* AVAILABLE SERVICES */}
-      <div className="bg-white h-[550px] mt-10">
-        <h2 className="text-4xl text-center pt-2 mb-3">AVAILABLE SERVICES</h2>
+      <div className="h-[550px] ">
+        <h2 className="text-4xl text-center pt-2 mt-3 mb-3">
+          AVAILABLE SERVICES
+        </h2>
         <AvailableServices />
       </div>
 
       {/* SPECIALTIES */}
-      <div className="bg-white h-96">
-        <h2 className="text-4xl text-center pt-2">SPECIALTIES</h2>
+      <div className="h-[550px]">
+        <Specialties />
       </div>
 
       {/*  SECCIÓN DE DOCTORES SE RENDERIZAN LAS CARDS CON EFECTO HOVER AL HACER CLICK NOS LLEVA AL DETAIL DE CADA DOCTOR */}
       <div
         id="services"
-        className="bg-white p-4 shadow-md w-100 h-[1200px] flex flex-col items-center">
-        <h3 className="text-black text-7xl text-center pt-2">
+        className="p-4 shadow-md w-100 h-[700px] flex flex-col items-center">
+        <h3 className="text-black text-5xl text-center pt-2">
           The best doctors give you the best care
         </h3>
         <p className="mt-8 text-4xl text-center">
@@ -222,21 +221,28 @@ const Landing = () => {
             <div className="bg-blue-200 ... rounded-lg ">
             <SearchBar />
             </div> */}
+
         <Cards />
       </div>
+      {/*  SPONSORS */}
+      <div>
+        <Sponsors />
+      </div>
 
-      {/*  LOCATIONS PUEDE SER UN COMPONENTE APARTE */}
+      {/*  LOCATIONS */}
       <div id="locations">
         <Location />
       </div>
-      <ScrollToTop smooth />
 
-      {/*  SPONSORS */}
-      <Sponsors />
+      {/*SECCIÓN DE NEWSLETTER */}
+      <div className="w-full">
+        <Newsletter />
+      </div>
+      <ScrollToTop smooth />
 
       {/*  SOCIAL MEDIA */}
       <Footer />
-    </>
+    </div>
   );
 };
 export default Landing;

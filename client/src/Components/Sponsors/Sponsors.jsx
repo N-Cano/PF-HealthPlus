@@ -1,5 +1,3 @@
-import Newsletter from "../Newsletter/Newsletter";
-
 import sponsor1 from "../../assets/sponsorsImages/sponsor 1.png";
 import sponsor2 from "../../assets/sponsorsImages/sponsor 2.png";
 import sponsor3 from "../../assets/sponsorsImages/sponsor 3.png";
@@ -16,14 +14,12 @@ const sponsorsData = [
 
 const Sponsors = () => {
   return (
-    <div className="bg-blue-950 py-8 flex flex-col items-center justify-center">
-      {/*SECCIÓN DE NEWSLETTER */}
-      <Newsletter />
+    <div className="bg-blue-950 h-[250px] flex flex-col items-center justify-center">
       {/* SECCCIÓN DE SPONSORS */}
-      <div className="container mx-auto mt-8 flex flex-col items-center justify-center">
-        <h2 className="text-2xl mr-68 font-semibold text-white mb-4">
-          Our Sponsors
-        </h2>
+      <h2 className="text-2xl mr-[100px] font-semibold text-white mb-6">
+        Our Sponsors
+      </h2>
+      <div className="container mx-auto flex flex-col items-center justify-center">
         <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
           {sponsorsData.map((sponsor, index) => (
             <div key={index} className="text-center">

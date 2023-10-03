@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import logo2 from "../../assets/logo2.jpeg";
+import logo2 from "../../assets/logo2sinfond0.png";
 
 const Nav = () => {
   return (
@@ -21,8 +21,7 @@ const Nav = () => {
                   <Link to="/home">
                     <a
                       href="#"
-                      className="text-gray-900 hover:bg-gray-700 hover:text-white rounded-md px-4 py-2 text-sm font-medium"
-                    >
+                      className="text-gray-900 hover:bg-gray-700 hover:text-white rounded-md px-4 py-2 text-sm font-medium">
                       BACK
                     </a>
                   </Link>
@@ -30,8 +29,7 @@ const Nav = () => {
                   <Link to="/home">
                     <a
                       href="#"
-                      className="text-gray-900 hover:bg-gray-700 hover:text-white rounded-md px-4 py-2 text-sm font-medium"
-                    >
+                      className="text-gray-900 hover:bg-gray-700 hover:text-white rounded-md px-4 py-2 text-sm font-medium">
                       SUBSCRIBRE
                     </a>
                   </Link>

@@ -113,6 +113,7 @@ const disableUser = async (id) => {
     }
 };
 
+
 // --- Update user info ---
 const updateUser = async ({ name, photo, id, uid }) => {
     try {
@@ -128,6 +129,16 @@ const updateUser = async ({ name, photo, id, uid }) => {
         throw new Error(error)
     }
 };
+
+// // --- Forgot Password ---
+// const newPassword = async (email) => {
+//     try {
+//         return await db.collection('users')
+//     } catch (error) {
+        
+//     }
+// }
+
 
 
 module.exports = { createUser, bringUserById, deleteUser, disableUser, signUpUser, logInUser, updateUser }
