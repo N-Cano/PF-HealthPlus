@@ -31,7 +31,7 @@ const Login = () => {
             await signInWithEmailAndPassword(auth, email, password); // Usa getAuth(auth)
             navigate('/home');
         } catch (error) {
-            console.error("Error al iniciar sesión con correo y contraseña:", error.message);
+            alert("Error al iniciar sesión con correo y contraseña: verificar datos", error.message);
         }
     };
 
