@@ -4,7 +4,7 @@ import { FiInstagram } from "react-icons/fi";
 
 const Footer = () => {
   return (
-    <footer className="bg-black flex items-center justify-center h-24">
+    <footer className="bg-black flex items-center justify-center h-12">
       <div className="mr-8">
         <a href="" target="_blank" rel="noopener noreferrer">
           <FiInstagram size={24} color="white" />
