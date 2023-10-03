@@ -1,7 +1,7 @@
-const { db } = require('../firebase')
+const { db } = require('../firebase');
 
 //  --- Sign up ---
-const signUpUser = async ({ name, lastName, email, password }) => {
+const signUpUser = async ({ email, uid, }) => {
     try {
         //* Verificar que no exista el usuario
         // const querySnapshot = await db.collection('users').where('email', '==', email).get();
@@ -13,14 +13,14 @@ const signUpUser = async ({ name, lastName, email, password }) => {
         // });
         // console.log(matchedUsers);
         // if (matchedUsers.length > 0) throw new Error('Email already in use')
-        
-        const newUser = await db.collection('users').add({
-            name,
-            lastName,
+
+        const newUser = await db.collection('users').doc(uid).add({
             email,
-            // ! Hashear contraseña
-            password
+            name: '',
+            id: '',
+            photo: {}
         });
+
         return newUser;
     } catch (error) {
         throw new Error(error)
@@ -38,14 +38,14 @@ const logInUser = async (email, password) => {
                 ...us.data()
             })
         })
-        if(user.length < 1) throw new Error('Mail not registered');
-        if(user[0].password !== password) throw new Error('Unvalid mail or password');
+        if (user.length < 1) throw new Error('Mail not registered');
+        if (user[0].password !== password) throw new Error('Unvalid mail or password');
         else return true;
     } catch (error) {
         console.log(error);
         throw new Error(error)
     }
-};  
+};
 
 
 //? --- Update user ---
@@ -113,5 +113,21 @@ const disableUser = async (id) => {
     }
 };
 
+// --- Update user info ---
+const updateUser = async ({ name, photo, id, uid }) => {
+    try {
+        const userRef = db.collection('users').doc(uid)
+        const res = await userRef.update({name, id})
+        
+        return {
+            status: 'updated',
+            res
+        }
+    } catch (error) {
+        console.log(error);
+        throw new Error(error)
+    }
+};
 
-module.exports = { createUser, bringUserById, deleteUser, disableUser, signUpUser, logInUser }
+
+module.exports = { createUser, bringUserById, deleteUser, disableUser, signUpUser, logInUser, updateUser }
