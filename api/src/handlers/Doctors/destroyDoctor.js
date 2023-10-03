@@ -1,12 +1,17 @@
-const { deleteDoctor } = require('../../controllers/doctorsControllers')
+const { deleteDoctor } = require('../../controllers/doctorsControllers');
+const { deleteImage } = require('../../../utils/cloudinary');
 
 const destroyDoctor = async (req, res) => {
     try {
         const { id } = req.params;
-        const deletedDoctor = await deleteDoctor(id)
+        // Delete doctor
+        const doctor = await deleteDoctor(id);
+        // Delete cloudinary image
+        await deleteImage(doctor.photo.public_id);
+        
         res.status(200).json({
             status: 'deleted',
-            deletedDoctor
+            doctor
         });
     } catch (error) {
         console.log(error);

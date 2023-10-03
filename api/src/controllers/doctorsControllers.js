@@ -103,9 +103,16 @@ const bringDoctorByName = async (name) => {
 
 const deleteDoctor = async (id) => {
     try {
-        const deletedDoctor = await db.collection('doctors').doc(id).delete();
-        return deleteDoctor;
-        // Falta tirar error al no encontrar doctor
+        const doc = await db.collection('doctors').doc(id).get();
+        const doctor = {
+            id: doc.id,
+            ...doc.data()
+        };
+        if (doctor.name) {
+            await db.collection('doctors').doc(id).delete();
+            return doctor;
+        } else throw new Error(`doctor with id ${id} not found`);
+
     } catch (error) {
         console.log(error);
         throw new Error(error)
