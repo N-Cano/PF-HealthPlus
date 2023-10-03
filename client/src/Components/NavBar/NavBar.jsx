@@ -1,10 +1,11 @@
+/* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
 import logo2 from "../../assets/logo2.jpeg";
 import Scroll from "../Scroll/Scroll";
 
 const NavBar = ({ children }) => {
   return (
-    <nav className="bg-gray-100">
+    <nav className="bg-blue-900">
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           <div className="flex items-center">
@@ -23,8 +24,7 @@ const NavBar = ({ children }) => {
             <Link to="/login">
               <a
                 href="#"
-                className="text-gray-900 hover:bg-gray-700 hover:text-white rounded-md px-4 py-2 text-sm font-medium"
-              >
+                className="text-white hover:bg-gray-700 hover:text-white rounded-md px-4 py-2 text-sm font-medium">
                 LOGIN
               </a>
             </Link>
