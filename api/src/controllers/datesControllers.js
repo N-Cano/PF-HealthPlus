@@ -10,13 +10,12 @@ const createDate = async ({ userId, doctorId, date, schedule }) => {
         };
         const newDate = {
             userId,
-            doctor: doctor.name, 
+            doctor: doctor.name,
             date,
             schedule,
-            specialty: doctor.specialty,
-            price: doctor.price
+            specialty: doctor.specialty
         };
-        await db.collection('date').add(newDate)
+        await db.collection('dates').add(newDate)
         return {
             status: 'created',
             newDate
@@ -26,4 +25,24 @@ const createDate = async ({ userId, doctorId, date, schedule }) => {
         throw new Error(error)
     }
 };
-module.exports = { createDate };
+
+// --- check availability ---
+// Con esta forma se hace una consultapara verificar que la cita que sequiere crear sea 
+
+const checkDates = async () => {
+    try {
+        const dates = await db.collection('dates').get()
+        const datesTaken = [];
+        dates.forEach((date) => {
+            datesTaken.push({
+                ...date.data()
+            })
+        });
+        return datesTaken;
+    } catch (error) {
+        console.log(error);
+        throw new Error(error);
+    }
+};
+
+module.exports = { createDate, checkDates };
