@@ -1,31 +1,46 @@
 import Nav from "../../Components/NavBar/Nav";
-import { useState } from "react";
-import axios from "axios"
-import Cards from "../../Components/CardsComponent/Cards/Cards"
-import styles from './Form.module.css'
+import { useState, useEffect } from "react";
+import axios from "axios";
+import Cards from "../../Components/CardsComponent/Cards/Cards";
+import styles from './Form.module.css';
+import { auth } from "../../firebase/firebase.config";
 
 const Form = () => {
+  const [form, setForm] = useState({
+    name: "",
+    dni: "",
+    lastname: "",
+    birthdate: "",
+    email: "",
+  });
 
-  const [form,setForm] = useState({
-        name: "",
-        dni: "",
-        lastname: "",
-        birthdate: "",
-      });
-      console.log(form);
-
-      const changeHandler = (event)=>{
-          const property = event.target.name;
-          const value = event.target.value;
-          setForm({...form, [property]:value})
-          // validate({...form, [property]:value})
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged(function (user) {
+      if (user) {
+        const email = user.email;
+        setForm({ ...form, email });
       }
+    });
+    return () => {
+      unsubscribe();
+    };
+  }, []); 
 
-      const submitHandler =(event)=>{
-        event.preventDefault()
-        axios.post("http://localhost:3001/dates",form);
-        console.log("Datos Cargados");
-      }
+  console.log(form);
+
+  const changeHandler = (event) => {
+    const property = event.target.name;
+    const value = event.target.value;
+    setForm({ ...form, [property]: value });
+
+  };
+
+  const submitHandler = (event) => {
+    event.preventDefault();
+    axios.post("http://localhost:3001/dates", form);
+    console.log("Datos Cargados");
+  };
+
   return (
     
     <div className={styles.container}>
@@ -68,38 +83,3 @@ const Form = () => {
 };
 export default Form;
 
-{/* // <div className={styles.container}>
-        //   <div className={styles.title}>Registration</div>
-        // <form action="#">
-        // <div className={styles.userdetails}>
-        // <div className={styles.inputbox}>
-        //       <span className={styles.details}>Full name</span>
-        //       <input type="text" placeholder="enter " ></input>
-        //     </div>
-        //     <div className={styles.inputbox}>
-        //       <span className={styles.details}>username</span>
-        //       <input type="text" placeholder="enter "></input>
-        //     </div>
-        //     <div className={styles.inputbox}>
-        //       <span className={styles.details}>email</span>
-        //       <input type="text"placeholder="enter " ></input>
-        //     </div>
-        //     <div className={styles.inputbox}>
-        //       <span className={styles.details}>number</span>
-        //       <input type="text"placeholder="enter " ></input>
-        //     </div>
-        //     <div className={styles.inputbox}>
-        //       <span className={styles.details}>passwordd</span>
-        //       <input type="text"placeholder="enter " ></input>
-        //     </div>
-        //     <div className={styles.inputbox}>
-        //       <span className={styles.details}>confirme</span>
-        //       <input type="text" placeholder="enter "></input>
-        //     </div>
-        //     </div>
-            
-        //     </form>
-        //     <div className={styles.button}>
-        //       <input type="submit" value="Register"></input>
-        //     </div>
-        </div> */}
