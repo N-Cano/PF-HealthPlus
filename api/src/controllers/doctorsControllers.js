@@ -36,12 +36,12 @@ const bringDoctorById = async (id) => {
 
 // --- Create a new doctor ---
 
-const createDoctor = async ({ name, description, enable, image, price, specialty }) => {
+const createDoctor = async ({ name, description, enable, photo, price, specialty }) => {
     try {
         const newDoctor = await db.collection('doctors').add({
             description,
             enable,
-            image,
+            photo,
             name,
             price,
             specialty
@@ -52,6 +52,7 @@ const createDoctor = async ({ name, description, enable, image, price, specialty
             doctor: newDoctor
         }
     } catch (error) {
+        console.log(error);
         throw new Error(error)
     }
 };
