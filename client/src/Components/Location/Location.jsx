@@ -2,6 +2,7 @@ import { HiOutlinePhoneOutgoing } from "react-icons/hi";
 import { CiLocationOn } from "react-icons/ci";
 import { AiOutlineMail } from "react-icons/ai";
 import Map from "./Map/Map";
+import MapLeaflet from "./MapLeaflet/MapLeaflet";
 
 const Location = () => {
   return (
@@ -17,6 +18,7 @@ const Location = () => {
 
       <div className="mr-[95px]">
         <Map />
+        <MapLeaflet />
       </div>
     </div>
   );
