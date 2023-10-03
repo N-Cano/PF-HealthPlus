@@ -16,6 +16,7 @@ import { useDispatch } from "react-redux";
 import Scroll from "../../Components/Scroll/Scroll";
 import ScrollToTop from "react-scroll-to-top";
 import NavBar from "../../Components/NavBar/NavBar";
+import Specialties from "../../Components/Specialties/Specialties";
 
 import Cards from "../../Components/CardsComponent/Cards/Cards";
 
@@ -178,10 +179,14 @@ const Landing = () => {
         <AvailableServices />
       </div>
 
+          
+      <Specialties />
+
       {/* SPECIALTIES */}
       <div className="bg-white h-96">
         <h2 className="text-4xl text-center pt-2">SPECIALTIES</h2>
       </div>
+
 
       {/*  SECCIÓN DE DOCTORES SE RENDERIZAN LAS CARDS CON EFECTO HOVER AL HACER CLICK NOS LLEVA AL DETAIL DE CADA DOCTOR */}
       <div

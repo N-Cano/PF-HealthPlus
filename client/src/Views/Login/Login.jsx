@@ -1,3 +1,4 @@
+
 /* eslint-disable no-unused-vars */
 import { Link } from "react-router-dom"
 import doctors from "../../assets/doctors.png"
@@ -10,7 +11,9 @@ import { signInWithEmailAndPassword } from 'firebase/auth'
 import { auth } from '../../firebase/firebase.config'
 import { useForm, Controller } from "react-hook-form";
 
+
 const Login = () => {
+  //-------------------------------Google Auth-----------------------------------------
 
     const { handleSubmit, control, formState: { errors } } = useForm();
 
@@ -41,17 +44,35 @@ const Login = () => {
 
 
 
-    useEffect(() => {
-        if (user) {
-            navigate('/home')
-        }
-    }, [user]);
+
+  const loginWithEmailPassword = async () => {
+    try {
+      await signInWithEmailAndPassword(auth, email, password); // Usa getAuth(auth)
+      navigate("/home");
+    } catch (error) {
+      alert(
+        "Error al iniciar sesión con correo y contraseña: verificar datos",
+        error.message
+      );
+    }
+  };
+
 
     //----------------------------------------------------------------
     //MOSTRAR CONTRASEÑA
     const [showPassword, setShowPassword] = useState(false);
     const [iconClass, setIconClass] = useState('bx')
 
+  useEffect(() => {
+    if (user) {
+      navigate("/home");
+    }
+  }, [user]);
+
+  //----------------------------------------------------------------
+  //MOSTRAR CONTRASEÑA
+  const [showPassword, setShowPassword] = useState(false);
+  const [iconClass, setIconClass] = useState("bx");
 
     const togglePassword = () => {
         setShowPassword(!showPassword);
@@ -125,6 +146,14 @@ const Login = () => {
                         {errors.password && <p className='text-red-800'>{errors.password.message}</p>}
                     </div>
 
+        <div className="flex flex-col items-center justify-center gap-2">
+          <div className="flex text-xs w-full justify-between mb-8">
+            <Link
+              to="/forgotPassword"
+              className="hover:text-gray-600 hover:scale-110 transition duration-300 ease-in-out"
+            >
+              Forgot Password
+            </Link>
 
                     <div className='flex flex-col items-center justify-center gap-2'>
                         <div className='flex text-xs w-full justify-between'>
@@ -149,7 +178,12 @@ const Login = () => {
 
             </div>
             <img src={doctors} className="w-[50rem] absolute right-0 bottom-0" />
+
         </div>
-    )
-}
-export default Login
+      </div>
+      <img src={doctors} className="w-[50rem] absolute right-0 bottom-0" />
+    </div>
+  );
+};
+
+export default Login;
