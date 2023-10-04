@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet"; //useMap
 import { Icon, divIcon } from "leaflet";
 import { useMapEvents } from "react-leaflet/hooks";
 import MarkerClusterGroup from "react-leaflet-cluster";
@@ -38,7 +38,7 @@ function LocationMarker() {
 
 // Componente con botones
 const Buttons = () => {
-  const map = useMap();
+  // const map = useMap();
   return (
     <>
       {/* Para detectar mi ubicación */}
@@ -57,7 +57,7 @@ const Buttons = () => {
         }}>
         Find my location
       </button>
-      {/* Button to find the clinic's location */}
+      {/* Button to find the clinic's location 
       <button
         onClick={() => map.setView(targetLocation, 13)}
         style={{
@@ -72,7 +72,7 @@ const Buttons = () => {
           zIndex: 1000,
         }}>
         Find Clinic
-      </button>
+      </button>*/}
     </>
   );
 };

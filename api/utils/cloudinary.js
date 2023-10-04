@@ -14,10 +14,16 @@ v2.config({
     secure: true
 })
 
-// Función que sube archivos a cloudinary
-const uploadImage = async (filePath) => {
+// Función que sube archivos a cloudinary (usuarios)
+const uploadUserImage = async (filePath) => {
     return await v2.uploader.upload(filePath, {
         folder: 'userImages'
+    })
+};
+// Función que sube archivos a cloudinary (doctores)
+const uploadDoctorImage = async (filePath) => {
+    return await v2.uploader.upload(filePath, {
+        folder: 'doctorImages'
     })
 };
 
@@ -26,4 +32,4 @@ const deleteImage = async (publicId) => {
     return await v2.uploader.destroy(publicId)
 };
 
-module.exports = { uploadImage, deleteImage};
+module.exports = { uploadUserImage, deleteImage, uploadDoctorImage};

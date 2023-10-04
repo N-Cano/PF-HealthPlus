@@ -6,6 +6,8 @@ import Cards from "../../Components/CardsComponent/Cards/Cards";
 import { filterSpeciality, orderCards, priceCards } from "../../redux/actions";
 import SearchBar from "../../Components/Utils/SearchBar/SearchBar";
 import { useDispatch } from "react-redux";
+import Subscribe from "../../Components/Subscribe/Subscribe";
+import Specialties from "../../Components/Specialties/Specialties";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -79,24 +81,12 @@ const Home = () => {
         <p className="mt-5 text-center"></p>
       </div>
 
-      <div
-        id="services"
-        className="flex-1 bg-blue-200 p-4 rounded-lg shadow-md my-2 mx-2 md:my-6 md:mr-2 md:ml-2 md:pb-12 h-96"
-      >
-        <h3 className="mt-5 text-center text-2xl">SERVICES</h3>
-        <p className="mt-5 text-center">
-          {`We have a wide variety of services for you!`}
-        </p>
+      <div id="services">
+        <Specialties />
       </div>
 
-      <div
-        id="subscribe"
-        className="flex-1 bg-blue-200 p-4 rounded-lg shadow-md my-2 mx-2 md:my-6 md:mr-2 md:ml-2 md:pb-12 h-96"
-      >
-        <h3 className="mt-5 text-center text-2xl">OUR PLAN!</h3>
-        <p className="mt-5 text-center">
-          {`We have a wide variety of services for you!`}
-        </p>
+      <div id="subscribe">
+        <Subscribe />
       </div>
 
       <div
