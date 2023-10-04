@@ -15,11 +15,13 @@ const sponsorsData = [
 
 const Sponsors = () => {
   return (
-    <div className="bg-blue-950 h-[263px] flex flex-col items-center justify-center">
-      <h2 className="text-2xl mr-[1000px] font-semibold text-white">
+    <div className="bg-black h-[300px] flex flex-wrap flex-col items-center justify-around pb-12 pt-2">
+      <h2
+        className="text-2xl h-7 pt-6 md:text-3xl font-semibold text-white mb-6 md:mb-8 xl:mb-10"
+        style={{ fontFamily: "Rubik, sans-serif" }}>
         Our Sponsors
       </h2>
-      <div className="grid grid-cols-5">
+      <div className="grid grid-cols-5 mr-[200px]">
         <section>
           {sponsorsData.map((sponsor, index) => (
             <img key={index} src={sponsor.image} alt={sponsor.name} />

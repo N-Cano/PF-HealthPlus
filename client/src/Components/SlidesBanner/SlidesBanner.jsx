@@ -21,10 +21,6 @@ const SlidesBanner = () => {
       url: "https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1932&q=80",
       msg: "We have the best attention",
     },
-    {
-      url: "https://static.nationalgeographicla.com/files/styles/image_3200/public/chimpanzee_01.webp?w=1600&h=1065",
-      msg: "JORGE"
-    }
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -52,8 +48,17 @@ const SlidesBanner = () => {
           backgroundPosition: "center",
         }}
         className="w-full h-full rounded-2xl bg-center bg-cover duration-500 flex items-center justify-center">
-        <div className="absolute inset-0 flex items-center justify-center whitespace-normal overflow-visible m-20">
-          <p className="text-black text-3xl lg:text-4xl xl:text-5xl text-center">
+        <div
+          className="absolute inset-0 flex items-center justify-center whitespace-normal overflow-visible m-20"
+          style={{
+            backdropFilter: "blur(1px)",
+          }}>
+          <p
+            className="text-black text-4xl lg:text-3xl xl:text-4xl text-center font-extrabold"
+            style={{
+              fontFamily: "Rubik, sans-serif",
+              backdropFilter: "blur(100%)",
+            }}>
             {slides[currentIndex].msg}
           </p>
         </div>
