@@ -1,8 +1,7 @@
 import { Link } from "react-router-dom";
 import { useForm, Controller } from "react-hook-form";
-import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../../firebase/firebase.config";
 import { useNavigate } from "react-router-dom";
+import { postEmail } from "../../functions/post";
 
 const SignUp = () => {
   const { handleSubmit, control, formState: { errors } } = useForm();
@@ -10,10 +9,11 @@ const SignUp = () => {
 
   const onSubmit = async (data) => {
     try {
-      await createUserWithEmailAndPassword(auth, data.email, data.password);
+      const user = await postEmail(data);
       navigate("/login");
+      console.log(user);
     } catch (error) {
-      console.error("Error creating user:", error.message);
+      console.error("Error al crear el usuario:", error);
     }
   };
 

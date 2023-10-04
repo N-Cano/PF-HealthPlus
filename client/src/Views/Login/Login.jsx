@@ -1,25 +1,20 @@
-
-/* eslint-disable no-unused-vars */
 import { Link } from "react-router-dom"
 import doctors from "../../assets/doctors.png"
 import logoGoogle from "../../assets/logoGoogle.png"
 import { UserAuth } from '../../context/AuthContext'
-import { useEffect } from "react"
+import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
-import { useState } from "react"
+import { useForm, Controller } from "react-hook-form";
 import { signInWithEmailAndPassword } from 'firebase/auth'
 import { auth } from '../../firebase/firebase.config'
-import { useForm, Controller } from "react-hook-form";
-
 
 const Login = () => {
-
-    const { handleSubmit, control, formState: { errors } } = useForm();
+    const { handleSubmit, control, formState: { errors }, setValue } = useForm();
 
     //-------------------------------Google Auth-----------------------------------------
-
     const navigate = useNavigate();
     const { user, signInWithGoogle } = UserAuth();
+
     const loginWithGoogle = async () => {
         try {
             await signInWithGoogle();
@@ -29,26 +24,20 @@ const Login = () => {
     };
 
     //----------------------Email and Password Auth-------------------------------------
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-
-    const loginWithEmailPassword = async () => {
+    const loginWithEmailPassword = async (data) => {
         try {
-            await signInWithEmailAndPassword(auth, email, password); // Usa getAuth(auth)
+            await signInWithEmailAndPassword(auth, data.email, data.password);
             navigate('/home');
         } catch (error) {
             console.log(error);
         }
     };
 
-    //---------------------Mostrar Constraseña-------------------------------------------
-
+    //---------------------Mostrar Contraseña-------------------------------------------
     const [showPassword, setShowPassword] = useState(false);
-    const [iconClass, setIconClass] = useState("bx");
 
     const togglePassword = () => {
         setShowPassword(!showPassword);
-        setIconClass(showPassword ? 'bx-show-alt' : 'bx-hide');
     };
 
     useEffect(() => {
@@ -116,7 +105,7 @@ const Login = () => {
                                             placeholder="Password..."
                                             className="w-full p-2 pl-4 placeholder-slate-600 rounded-2xl focus:outline-none"
                                         />
-                                        <i className={`bx ${showPassword ? 'bx-hide' : 'bx-show-alt'}`} onClick={togglePassword}></i>
+                                        <i className={`bx ${showPassword ? 'bx-show-alt' : 'bx-hide'}`} onClick={togglePassword}></i>
                                         <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
                                     </div>
                                 )}

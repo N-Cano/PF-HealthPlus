@@ -1,8 +1,9 @@
 const { db } = require('../firebase');
 
 //  --- Sign up ---
-const signUpUser = async ({ email, uid, }) => {
+const signUpUser = async ({ email, uid }) => {
     try {
+
         //* Verificar que no exista el usuario
         // const querySnapshot = await db.collection('users').where('email', '==', email).get();
         // const matchedUsers = [];
@@ -23,10 +24,11 @@ const signUpUser = async ({ email, uid, }) => {
         });
 
         return newUser;
+
     } catch (error) {
-        throw new Error(error)
+      throw new Error(error);
     }
-};
+  };
 
 // --- Login ---
 const logInUser = async (email, password) => {

@@ -3,6 +3,7 @@ import sponsor2 from "../../assets/sponsorsImages/sponsor 2.png";
 import sponsor3 from "../../assets/sponsorsImages/sponsor 3.png";
 import sponsor4 from "../../assets/sponsorsImages/sponsor 4.png";
 import sponsor5 from "../../assets/sponsorsImages/sponsor 5.png";
+import "./Sponsors.css";
 
 const sponsorsData = [
   { name: "sponsor 1", image: sponsor1 },
@@ -14,23 +15,16 @@ const sponsorsData = [
 
 const Sponsors = () => {
   return (
-    <div className="bg-blue-950 h-[250px] flex flex-col items-center justify-center">
-      {/* SECCCIÓN DE SPONSORS */}
-      <h2 className="text-2xl mr-[100px] font-semibold text-white mb-6">
+    <div className="bg-blue-950 h-[263px] flex flex-col items-center justify-center">
+      <h2 className="text-2xl mr-[1000px] font-semibold text-white">
         Our Sponsors
       </h2>
-      <div className="container mx-auto flex flex-col items-center justify-center">
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+      <div className="grid grid-cols-5">
+        <section>
           {sponsorsData.map((sponsor, index) => (
-            <div key={index} className="text-center">
-              <img
-                src={sponsor.image}
-                alt={sponsor.name}
-                className="mx-1 h-20"
-              />
-            </div>
+            <img key={index} src={sponsor.image} alt={sponsor.name} />
           ))}
-        </div>
+        </section>
       </div>
     </div>
   );

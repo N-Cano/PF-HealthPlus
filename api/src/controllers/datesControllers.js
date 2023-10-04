@@ -1,8 +1,9 @@
 const { db } = require('../firebase')
+const sendEmail = require('./emailSenderControllers');
 
 // --- Create a Date ---
 
-const createDate = async ({ userId, doctorId, date, schedule }) => {
+const createDate = async ({ userId, doctorId, date, schedule, email }) => {
     try {
         const doctorData = await db.collection('doctors').doc(doctorId).get()
         const doctor = {
@@ -16,6 +17,11 @@ const createDate = async ({ userId, doctorId, date, schedule }) => {
             specialty: doctor.specialty
         };
         await db.collection('dates').add(newDate)
+
+        //envia mail con la cita
+        await sendEmail(email, doctor, date, schedule);
+
+
         return {
             status: 'created',
             newDate
@@ -44,5 +50,8 @@ const checkDates = async () => {
         throw new Error(error);
     }
 };
+
+
+
 
 module.exports = { createDate, checkDates };
