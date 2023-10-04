@@ -4,18 +4,37 @@ import { FaHospital } from "react-icons/fa";
 
 const AvailableServices = () => {
   return (
-    <div className="grid grid-cols-3 h-[500px] text-center">
-      <div className="bg-blue-400 flex flex-col justify-center items-center">
-        <FaUserDoctor />
-        <h3 className="text-2xl mt-2">GENERAL PRACTICES</h3>
-      </div>
-      <div className="bg-blue-600 flex flex-col justify-center items-center">
-        <FaBriefcaseMedical />
-        <h3 className="text-2xl mt-2">DIAGNOSIS</h3>
-      </div>
-      <div className="bg-blue-300 flex flex-col justify-center items-center">
-        <FaHospital />
-        <h3 className="text-2xl mt-2">TREATMENT</h3>
+    <div>
+      <h2
+        className="text-[30px] text-center pt-2 mt-3 mb-0 font-semibold"
+        style={{ fontFamily: "Rubik, sans-serif" }}>
+        AVAILABLE SERVICES
+      </h2>
+      <div className="grid grid-cols-3 h-[400px] text-center">
+        <div className=" flex flex-col justify-center items-center">
+          <FaUserDoctor />
+          <h3
+            className="text-2xl mt-2"
+            style={{ fontFamily: "Rubik, sans-serif" }}>
+            GENERAL PRACTICES
+          </h3>
+        </div>
+        <div className=" flex flex-col justify-center items-center">
+          <FaBriefcaseMedical />
+          <h3
+            className="text-2xl mt-2"
+            style={{ fontFamily: "Rubik, sans-serif" }}>
+            DIAGNOSIS
+          </h3>
+        </div>
+        <div className="flex flex-col justify-center items-center">
+          <FaHospital />
+          <h3
+            className="text-2xl mt-2"
+            style={{ fontFamily: "Rubik, sans-serif" }}>
+            TREATMENT
+          </h3>
+        </div>
       </div>
     </div>
   );

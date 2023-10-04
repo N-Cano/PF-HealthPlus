@@ -52,8 +52,14 @@ const Landing = () => {
         id="about"
         className="flex flex-col md:flex-row md:items-center md:justify-center">
         <div className="flex-1 bg-blue-200 p-4 rounded-lg shadow-md my-2 mx-2 md:my-6 md:mr-2 md:ml-2 md:pb-12 h-48">
-          <h3 className="mt-5 text-center text-2xl">WHAT DO WE DO?</h3>
-          <p className="mt-5 text-center">
+          <h3
+            className="mt-5 text-center text-2xl"
+            style={{ fontFamily: "Rubik, sans-serif" }}>
+            WHAT DO WE DO?
+          </h3>
+          <p
+            className="mt-5 text-center"
+            style={{ fontFamily: "Open Sans, sans-serif" }}>
             {`At HealthPlus we are dedicated to you, and your health. Our aim is to
       provide fast, easy and patient-oriented services. Our doctors'
       priority are the patients and their families.`}
@@ -61,8 +67,14 @@ const Landing = () => {
         </div>
 
         <div className="flex-1 bg-blue-200 p-4 rounded-lg shadow-md my-2 mx-2 md:my-6 md:mr-2 md:ml-2 md:flex md:flex-col md:justify-center md:pb-12 h-48">
-          <h3 className="mt-5 text-center text-2xl">OUR COMMUNITY</h3>
-          <p className="mt-5 text-center">
+          <h3
+            className="mt-5 text-center text-2xl"
+            style={{ fontFamily: "Rubik, sans-serif" }}>
+            OUR COMMUNITY
+          </h3>
+          <p
+            className="mt-5 text-center"
+            style={{ fontFamily: "Open Sans, sans-serif" }}>
             We are a professional clinic with a long trajectory based in the
             United States, with a large coverage, elite service, and a
             professional staff.
@@ -71,8 +83,16 @@ const Landing = () => {
         </div>
 
         <div className="flex-1 bg-blue-200 p-4 rounded-lg shadow-md my-2 mx-2 md:my-6 md:mr-2 md:ml-2 md:flex md:flex-col md:justify-center md:pb-12 h-48">
-          <h3 className="mt-5 text-center text-2xl">CONTACT US</h3>
-          <p className="mt-5 text-center">Here you can get in touch with us.</p>
+          <h3
+            className="mt-5 text-center text-2xl"
+            style={{ fontFamily: "Rubik, sans-serif" }}>
+            CONTACT US
+          </h3>
+          <p
+            className="mt-5 text-center"
+            style={{ fontFamily: "Open Sans, sans-serif" }}>
+            Here you can get in touch with us.
+          </p>
           <div className="flex-grow"></div>
         </div>
       </div>
@@ -87,7 +107,9 @@ const Landing = () => {
             backgroundPosition: "center",
           }}>
           <div className="absolute inset-0 bg-black opacity-70 text-white p-4 rounded-lg group-hover:opacity-100 z-10 flex justify-center items-center">
-            <p className="mb-4 text-lg md:text-xl lg:text-2xl xl:text-3xl text-center">
+            <p
+              className="mb-4 text-lg md:text-xl lg:text-2xl xl:text-3xl text-center"
+              style={{ fontFamily: "Rubik, sans-serif" }}>
               HealthPlus is a private medical center that focuses on serving its
               associates by providing the best services.
             </p>
@@ -103,7 +125,9 @@ const Landing = () => {
           }}>
           <div className="absolute inset-0 bg-black opacity-70 text-white p-4 rounded-lg group-hover:opacity-100 z-10 flex justify-center items-center">
             <div className="md:flex md:flex-row md:items-center md:w-full">
-              <p className="mb-4 text-lg md:text-xl lg:text-2xl xl:text-3xl text-center">
+              <p
+                className="mb-4 text-lg md:text-xl lg:text-2xl xl:text-3xl text-center"
+                style={{ fontFamily: "Rubik, sans-serif" }}>
                 HealthPlus offers you a new experience in healthcare, and you
                 can become part of our family at any time.
               </p>
@@ -113,83 +137,100 @@ const Landing = () => {
       </div>
 
       {/*  SERVICES */}
-      <div id="doctors" className="grid grid-cols-3 gap-4 ">
-        <div className="bg-50 p-4 rounded-lg shadow-md flex flex-col items-center justify-center">
+      <div id="doctors" className="grid grid-cols-3 gap-4">
+        <div className="bg-white p-4 rounded-lg shadow-md flex flex-col items-center justify-center">
           <div>
             <div className="bg-blue-900 w-full rounded-lg h-12 flex items-center justify-center">
-              <h2 className="text-white text-center">APPOINTMENTS</h2>
+              <h2
+                className="text-white text-center"
+                style={{ fontFamily: "Rubik, sans-serif" }}>
+                APPOINTMENTS
+              </h2>
             </div>
             <img
               src={availableService1}
               alt="doctor"
-              className="w-full h-full ps-4"
+              className="w-full h-full ps-0 rounded-lg"
             />
           </div>
           <Link to="/login">
-            <button className="bg-black text-white h-12 w-28 rounded-2xl mt-2 hover:bg-white hover:text-black">
-              here
+            <button
+              className="bg-black text-white h-12 w-28 rounded-2xl mt-0 hover:bg-white hover:text-black"
+              style={{ fontFamily: "Open Sans, sans-serif" }}>
+              Get started
             </button>
           </Link>
         </div>
-        <div className="bg-50 p-4 rounded-lg shadow-md flex flex-col items-center justify-center">
+        <div className="bg-white p-4 rounded-lg shadow-md flex flex-col items-center justify-center">
           <div>
             <div className="bg-blue-900 w-full rounded-lg h-12 flex items-center justify-center">
-              <h2 className="text-white text-center">DOCTORS</h2>
+              <h2
+                className="text-white text-center"
+                style={{ fontFamily: "Rubik, sans-serif" }}>
+                DOCTORS
+              </h2>
             </div>
             <img
               src={availableService2}
               alt="doctor"
-              className="w-full h-full ps-4"
+              className="w-[100%] h-full ps-0 rounded-lg"
             />
           </div>
           <Link to="/login">
-            <button className="bg-black text-white h-12 w-28 rounded-2xl mt-2 hover:bg-white hover:text-black">
-              here
+            <button
+              className="bg-black text-white h-12 w-28 rounded-2xl mt-0 hover:bg-white hover:text-black"
+              style={{ fontFamily: "Open Sans, sans-serif" }}>
+              Get started
             </button>
           </Link>
         </div>
-        <div className="bg-50 p-4 rounded-lg shadow-md flex flex-col items-center justify-center">
+        <div className="bg-white p-4 rounded-lg shadow-md flex flex-col items-center justify-center">
           <div>
             <div className="bg-blue-900 w-full rounded-lg h-12 flex items-center justify-center">
-              <h2 className="text-white text-center">
+              <h2
+                className="text-white text-center"
+                style={{ fontFamily: "Rubik, sans-serif" }}>
                 SCHEDULE YOUR FREE CHECKOUT
               </h2>
             </div>
             <img
               src={availableService3}
               alt="doctor"
-              className="w-full h-full ps-4"
+              className="w-full h-full ps-0 rounded-lg"
             />
           </div>
           <Link to="/login">
-            <button className="bg-black text-white h-12 w-28 rounded-2xl mt-2 hover:bg-white hover:text-black">
-              here
+            <button
+              className="bg-black text-white h-12 w-28 rounded-2xl mt-0 hover:bg-white hover:text-black"
+              style={{ fontFamily: "Open Sans, sans-serif" }}>
+              Get started
             </button>
           </Link>
         </div>
       </div>
 
       {/* AVAILABLE SERVICES */}
-      <div className="h-[550px] ">
-        <h2 className="text-4xl text-center pt-2 mt-3 mb-3">
-          AVAILABLE SERVICES
-        </h2>
+      <div className="h-[450px]">
         <AvailableServices />
       </div>
 
       {/* SPECIALTIES */}
-      <div className="h-[550px]">
+      <div>
         <Specialties />
       </div>
 
       {/*  SECCIÓN DE DOCTORES SE RENDERIZAN LAS CARDS CON EFECTO HOVER AL HACER CLICK NOS LLEVA AL DETAIL DE CADA DOCTOR */}
       <div
         id="services"
-        className="p-4 shadow-md w-100 h-[700px] flex flex-col items-center">
-        <h3 className="text-black text-5xl text-center pt-2">
+        className="p-4 shadow-md w-100 h-[800px] flex flex-col items-center ">
+        <h3
+          className="text-black text-[30px] text-center pt-2 font-semibold"
+          style={{ fontFamily: "Rubik, sans-serif" }}>
           The best doctors give you the best care
         </h3>
-        <p className="mt-8 text-4xl text-center">
+        <p
+          className="mt-8 text-2xl text-center"
+          style={{ fontFamily: "Open Sans, sans-serif" }}>
           Devotion, professionalism and hard work are the essence of our team of
           experienced doctors, nurses and care assistants.
         </p>

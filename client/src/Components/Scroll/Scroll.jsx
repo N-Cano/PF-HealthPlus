@@ -7,7 +7,7 @@ const Scroll = () => {
   };
 
   return (
-    <div className="flex space-x-2 ">
+    <div className="flex space-x-2" style={{ fontFamily: "Rubik, sans-serif" }}>
       <button
         className="text-white hover:bg-gray-700 hover:text-white rounded-md px-3 py-2  text-sm font-medium"
         onClick={() => {

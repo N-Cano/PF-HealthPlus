@@ -10,6 +10,6 @@ import SignUp from "./SignUp/SignUp.jsx";
 import Detail from "./Detail/Detail.jsx";
 import Profile from "./Profile/Profile.jsx";
 
-
 export { Home, Form, Landing, Login, ProfileForm,Profile, Payment, Plan, ForgotPassgord, SignUp , Detail};
+
 
