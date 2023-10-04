@@ -1,7 +1,7 @@
 import Nav from "../../Components/NavBar/Nav";
 import { useState, useEffect } from "react";
 import axios from "axios";
-
+import { auth } from "../../firebase/firebase.config";
 import styles from './ProfileForm.module.css';
 // import { auth } from "../../firebase/firebase.config";
 import { useSelector, useDispatch } from 'react-redux';
@@ -13,9 +13,21 @@ const Profile = () => {
     name:"",
     date:"",
     userId:"",
-    img:"",
+    uid:"",
   });
   console.log(form);
+
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged(function (user) {
+      if (user) {
+        const uid = user.uid;
+        setForm({ ...form, uid });
+      }
+    });
+    return () => {
+      unsubscribe();
+    };
+  }, []); 
 
 
   const changeHandler = (event) => {
@@ -29,7 +41,7 @@ const Profile = () => {
 
   const submitHandler = (event) => {
     event.preventDefault();
-    axios.post("http://localhost:3001/users/profile", form);
+    axios.put("http://localhost:3001/users/profile", form);
     console.log("Datos Cargados");
   };
 

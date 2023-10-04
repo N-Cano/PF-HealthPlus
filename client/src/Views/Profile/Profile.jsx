@@ -2,25 +2,46 @@
 import axios from "axios";
 import { Link } from "react-router-dom";
 import styles from './ProfileForm.module.css';
-import Nav from "../../Components/NavBar/Nav";
-
+import NavHome from "../../Components/NavBar/NavHome";
+import { getPatient } from "../../redux/actions";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { auth } from "../../firebase/firebase.config";
 const Profile = () => {
-  const submitHandler = (event) => {
-    event.preventDefault();
-    axios.post("http://localhost:3001/users/profile", form);
-    console.log("Datos Cargados");
-  };
+    const [form, setForm] = useState({
+    datos: "",
+  });
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged(function (user) {
+      if (user) {
+        const datos = user.uid;
+        setForm({ ...form, datos });
+      }
+    });
+    return () => {
+      unsubscribe();
+    };
+  }, []); 
 
+ const [detail, setDetail] = useState({});
+  const id = form.datos
+  const dispatch = useDispatch();
+  const patient = useSelector((state) => state.patient);
+  useEffect(() => {
+    dispatch(getPatient(id));
+    setDetail(patient);
+  }, [dispatch]);
 
 
   return (
     <div className={styles.nuevo}>
     <div className={styles.container}>
-      <Nav/>
+      
     
     <div className={styles.title}> PROFILE
     <div className={styles.userdetails}>
-    <form onSubmit={submitHandler} >
+    
            
             <div className={styles.inputbox}>
              <img src={""} alt="" />
@@ -28,26 +49,25 @@ const Profile = () => {
            </div>
 
            <div className={styles.inputbox}>
-            <label >Name:</label>
+            <label >Name:{detail.name}</label>
             
             </div>
             <div className={styles.inputbox}>
-            <label >LastName:</label>
+            <label >LastName:{detail.LastName}</label>
             
             </div>
             <div className={styles.inputbox}>
-            <label >Birthday:</label>
+            <label >Birthday:{detail.Birthday}</label>
             
             </div>
             <div className={styles.inputbox}>
-            <label >DNI:</label>
+            <label >DNI: {detail.dni}</label>
             
             </div>
             <Link to="/profileForm">
          <button className={styles.button2} type="submit" >Modificar Perfil</button>
                 </Link>
       
-        </form>
         </div>
         </div>
         </div>
