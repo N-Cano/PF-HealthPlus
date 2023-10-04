@@ -1,31 +1,22 @@
 const { db } = require('../firebase');
 
 //  --- Sign up ---
-const signUpUser = async ({ email, uid, }) => {
+const signUpUser = async ({ email, uid }) => {
     try {
-        //* Verificar que no exista el usuario
-        // const querySnapshot = await db.collection('users').where('email', '==', email).get();
-        // const matchedUsers = [];
-        // querySnapshot.forEach((user) => {
-        //     matchedUsers.push({
-        //         ...user.data()
-        //     })
-        // });
-        // console.log(matchedUsers);
-        // if (matchedUsers.length > 0) throw new Error('Email already in use')
-
-        const newUser = await db.collection('users').doc(uid).add({
-            email,
-            name: '',
-            id: '',
-            photo: {}
-        });
-
-        return newUser;
+      const userRef = db.collection('users').doc(uid);
+  
+      await userRef.set({
+        email,
+        name: '',
+        id: '',
+        photo: {}
+      });
+  
+      return userRef.id; // El ID del documento es igual al UID del usuario
     } catch (error) {
-        throw new Error(error)
+      throw new Error(error);
     }
-};
+  };
 
 // --- Login ---
 const logInUser = async (email, password) => {

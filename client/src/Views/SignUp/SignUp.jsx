@@ -3,6 +3,7 @@ import { useForm, Controller } from "react-hook-form";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase/firebase.config";
 import { useNavigate } from "react-router-dom";
+import axios from 'axios';
 
 const SignUp = () => {
   const { handleSubmit, control, formState: { errors } } = useForm();
@@ -10,7 +11,18 @@ const SignUp = () => {
 
   const onSubmit = async (data) => {
     try {
-      await createUserWithEmailAndPassword(auth, data.email, data.password);
+      // Crear el usuario en Firebase Authentication
+      const userCredential = await createUserWithEmailAndPassword(auth, data.email, data.password);
+      const user = userCredential.user;
+      console.log("User UID:", user.uid);
+    console.log("User Email:", user.email);
+
+      // Vincular al usuario auteticado a un documento en Firestore
+    await axios.post('http://localhost:3001/users/signup', {
+        uid: user.uid,
+        email:user.email
+    });
+
       navigate("/login");
     } catch (error) {
       console.error("Error creating user:", error.message);
