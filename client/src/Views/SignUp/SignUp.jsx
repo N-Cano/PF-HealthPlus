@@ -15,15 +15,16 @@ const SignUp = () => {
       const userCredential = await createUserWithEmailAndPassword(auth, data.email, data.password);
       const user = userCredential.user;
       console.log("User UID:", user.uid);
-    console.log("User Email:", user.email);
+      console.log("User Email:", user.email);
 
       // Vincular al usuario auteticado a un documento en Firestore
-    await axios.post('http://localhost:3001/users/signup', {
+      const response = await axios.post('http://localhost:3001/users/signup', {
         uid: user.uid,
-        email:user.email
-    });
-
+        email: user.email
+      });
       navigate("/login");
+
+      return response.data;
     } catch (error) {
       console.error("Error creating user:", error.message);
     }
