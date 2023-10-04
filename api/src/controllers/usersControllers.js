@@ -3,16 +3,28 @@ const { db } = require('../firebase');
 //  --- Sign up ---
 const signUpUser = async ({ email, uid }) => {
     try {
-      const userRef = db.collection('users').doc(uid);
-  
-      await userRef.set({
-        email,
-        name: '',
-        id: '',
-        photo: {}
-      });
-  
-      return userRef.id; // El ID del documento es igual al UID del usuario
+
+        //* Verificar que no exista el usuario
+        // const querySnapshot = await db.collection('users').where('email', '==', email).get();
+        // const matchedUsers = [];
+        // querySnapshot.forEach((user) => {
+        //     matchedUsers.push({
+        //         ...user.data()
+        //     })
+        // });
+        // console.log(matchedUsers);
+        // if (matchedUsers.length > 0) throw new Error('Email already in use')
+
+        const newUser = await db.collection('users').doc(uid).add({
+            name: '',
+            lastName: '',
+            userId: '',
+            date: '',
+            photo: {}
+        });
+
+        return newUser;
+
     } catch (error) {
       throw new Error(error);
     }
@@ -106,10 +118,10 @@ const disableUser = async (id) => {
 
 
 // --- Update user info ---
-const updateUser = async ({ name, photo, id, uid }) => {
+const updateUser = async ({ name, lastName, photo, userId, uid, date }) => {
     try {
         const userRef = db.collection('users').doc(uid)
-        const res = await userRef.update({name, id})
+        const res = await userRef.update({name, lastName, userId, date})
         
         return {
             status: 'updated',
