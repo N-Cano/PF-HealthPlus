@@ -14,7 +14,7 @@ usersRouter.post('/', postUser);
 usersRouter.put('/profile', updateUserHandler);
 usersRouter.post('/signup', createUser);
 usersRouter.post('/login', logInHandler);
-// usersRouter.get('/:id', getUserById);
+usersRouter.get('/:id', getUserById);
 // usersRouter.delete('/:id', destroyUser);
 // usersRouter.put('/:id', unableUser);
 
