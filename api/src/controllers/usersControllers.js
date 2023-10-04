@@ -1,20 +1,8 @@
 const { db } = require('../firebase');
 
 //  --- Sign up ---
-const signUpUser = async ({ email, uid }) => {
+const signUpUser = async ({ uid }) => {
     try {
-
-        //* Verificar que no exista el usuario
-        // const querySnapshot = await db.collection('users').where('email', '==', email).get();
-        // const matchedUsers = [];
-        // querySnapshot.forEach((user) => {
-        //     matchedUsers.push({
-        //         ...user.data()
-        //     })
-        // });
-        // console.log(matchedUsers);
-        // if (matchedUsers.length > 0) throw new Error('Email already in use')
-
         const newUser = await db.collection('users').doc(uid).add({
             name: '',
             lastName: '',
@@ -24,11 +12,10 @@ const signUpUser = async ({ email, uid }) => {
         });
 
         return newUser;
-
     } catch (error) {
-      throw new Error(error);
+        throw new Error(error)
     }
-  };
+};
 
 // --- Login ---
 const logInUser = async (email, password) => {
@@ -80,14 +67,20 @@ const createUser = async ({ name, email, password, personalId, location, enable,
 // --- Bring an user from data base---
 
 const bringUserById = async (id) => {
+
     try {
         const userData = await db.collection('users').doc(id).get();
+       
+        if (userData.empty) {
+            throw new Error(`No user matched with UID: ${id}`);
+        }
         const user = {
             id: userData.id,
             ...userData.data()
         };
-        if (user.name) return user;
-        else throw new Error(`No user matched with ID: ${id}`)
+
+        return user;
+
     } catch (error) {
         throw new Error(error)
     }
@@ -138,7 +131,7 @@ const updateUser = async ({ name, lastName, photo, userId, uid, date }) => {
 //     try {
 //         return await db.collection('users')
 //     } catch (error) {
-        
+
 //     }
 // }
 
