@@ -1,4 +1,5 @@
 const { Router } = require('express');
+const fileUpload = require('express-fileupload');
 
 const postUser = require('../handlers/Users/postUser');
 const getUserById = require('../handlers/Users/getUser');
@@ -11,11 +12,16 @@ const updateUserHandler = require('../handlers/Users/updateUserHandler');
 const usersRouter = Router();
 
 usersRouter.post('/', postUser);
+
 usersRouter.put('/profile', updateUserHandler);
-usersRouter.post('/signup', createUser);
+usersRouter.post('/signup', fileUpload({
+    useTempFiles: true,
+    tempFileDir: './uploads'
+}), createUser);
+
 usersRouter.post('/login', logInHandler);
-// usersRouter.get('/:id', getUserById);
-// usersRouter.delete('/:id', destroyUser);
-// usersRouter.put('/:id', unableUser);
+usersRouter.get('/:id', getUserById);
+usersRouter.delete('/:id', destroyUser);
+usersRouter.put('/:id', unableUser);
 
 module.exports = usersRouter;

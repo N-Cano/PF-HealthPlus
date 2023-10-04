@@ -15,9 +15,10 @@ const signUpUser = async ({ email, uid, }) => {
         // if (matchedUsers.length > 0) throw new Error('Email already in use')
 
         const newUser = await db.collection('users').doc(uid).add({
-            email,
             name: '',
-            id: '',
+            lastName: '',
+            userId: '',
+            date: '',
             photo: {}
         });
 
@@ -115,10 +116,10 @@ const disableUser = async (id) => {
 
 
 // --- Update user info ---
-const updateUser = async ({ name, photo, id, uid }) => {
+const updateUser = async ({ name, lastName, photo, userId, uid, date }) => {
     try {
         const userRef = db.collection('users').doc(uid)
-        const res = await userRef.update({name, id})
+        const res = await userRef.update({name, lastName, userId, date})
         
         return {
             status: 'updated',
