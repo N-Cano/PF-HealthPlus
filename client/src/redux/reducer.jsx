@@ -12,7 +12,8 @@ const initialState = {
     doctors: [],
     doctorsBackups: [],
     doctor: {},
-    patient: {},
+    patient: [],
+    imageSrc: '',
 }
 const rootReducer = (state = initialState, actions) => {
     switch (actions.type) {
@@ -88,6 +89,10 @@ const rootReducer = (state = initialState, actions) => {
             ...state,
             doctors: sortPrice,
       };
+      case 'SET_IMAGE':
+      return { ...state, imageSrc: actions.payload };
+
+    
         default:
             return { ...state }
     }

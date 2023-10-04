@@ -102,3 +102,7 @@ export const postUser = (user) => {
         }
     };
 }
+export const setImage = (imageSrc) => ({
+  type: 'SET_IMAGE',
+  payload: imageSrc,
+});

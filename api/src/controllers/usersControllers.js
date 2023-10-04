@@ -1,22 +1,21 @@
 const { db } = require('../firebase');
 
 //  --- Sign up ---
-const signUpUser = async ({ email, uid }) => {
+const signUpUser = async ({ uid }) => {
     try {
-      const userRef = db.collection('users').doc(uid);
-  
-      await userRef.set({
-        email,
-        name: '',
-        id: '',
-        photo: {}
-      });
-  
-      return userRef.id; // El ID del documento es igual al UID del usuario
+        const newUser = await db.collection('users').doc(uid).add({
+            name: '',
+            lastName: '',
+            userId: '',
+            date: '',
+            photo: {}
+        });
+
+        return newUser;
     } catch (error) {
-      throw new Error(error);
+        throw new Error(error)
     }
-  };
+};
 
 // --- Login ---
 const logInUser = async (email, password) => {
@@ -68,14 +67,20 @@ const createUser = async ({ name, email, password, personalId, location, enable,
 // --- Bring an user from data base---
 
 const bringUserById = async (id) => {
+
     try {
         const userData = await db.collection('users').doc(id).get();
+       
+        if (userData.empty) {
+            throw new Error(`No user matched with UID: ${id}`);
+        }
         const user = {
             id: userData.id,
             ...userData.data()
         };
-        if (user.name) return user;
-        else throw new Error(`No user matched with ID: ${id}`)
+
+        return user;
+
     } catch (error) {
         throw new Error(error)
     }
@@ -106,10 +111,10 @@ const disableUser = async (id) => {
 
 
 // --- Update user info ---
-const updateUser = async ({ name, photo, id, uid }) => {
+const updateUser = async ({ name, lastName, photo, userId, uid, date }) => {
     try {
         const userRef = db.collection('users').doc(uid)
-        const res = await userRef.update({name, id})
+        const res = await userRef.update({name, lastName, userId, date})
         
         return {
             status: 'updated',
@@ -126,7 +131,7 @@ const updateUser = async ({ name, photo, id, uid }) => {
 //     try {
 //         return await db.collection('users')
 //     } catch (error) {
-        
+
 //     }
 // }
 
