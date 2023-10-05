@@ -49,15 +49,17 @@ const Form = () => {
 
   return (
     <div className={styles.nuevo}>
-      <div className={styles.container}>
+      <div className='w-full'>
         <Nav />
+      </div>
+      <div className={styles.container}>
         <Cards />
         <div className={styles.title}>
-          SCHEDULE
+          <p className='font-bold mb-1'>SCHEDULE</p>
           <div className={styles.userdetails}>
             <form onSubmit={handleSubmit(onSubmit)}>
               <div className={styles.inputbox}>
-                <label>Doctor:</label>
+                <label className='mr-4'>Doctor:</label>
                 <Controller
                   name="doctorId"
                   control={control}
@@ -65,6 +67,7 @@ const Form = () => {
                   rules={{
                     required: 'You must choose a doctor',
                   }}
+                  className='mb-2'
                   render={({ field }) => (
                     <select
                       className={styles.button2}
@@ -86,21 +89,6 @@ const Form = () => {
                 {errors.doctorId && <p className='text-red-800'>{errors.doctorId.message}</p>}
               </div>
 
-              <div className={styles.inputbox}>
-                <label>DNI:</label>
-                <Controller
-                  name="userId"
-                  control={control}
-                  defaultValue=""
-                  rules={{
-                    required: 'You must add your DNI',
-                  }}
-                  render={({ field }) => (
-                    <input type="text" {...field} />
-                  )}
-                />
-                {errors.userId && <p className='text-red-800'>{errors.userId.message}</p>}
-              </div>
               <div className={styles.inputbox}>
                 <label>Schedule:</label>
                 <Controller
@@ -131,7 +119,7 @@ const Form = () => {
                 />
                 {errors.date && <p className='text-red-800'>{errors.date.message}</p>}
               </div>
-              <button className={styles.button2} type="submit">
+              <button className='w-40 font-bold bg-blue-400 hover:bg-indigo-500 hover:scale-110 rounded-2xl transition ease-in-out duration-300' type="submit">
                 Save
               </button>
             </form>
