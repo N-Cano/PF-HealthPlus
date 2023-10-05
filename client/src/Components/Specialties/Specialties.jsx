@@ -10,7 +10,7 @@ import { BsFillClipboardHeartFill } from "react-icons/bs"; //Cardiology
 const Specialties = () => {
   return (
     <div
-      className=" flex flex-wrap flex-col items-center justify-center text-center h-[1000px] "
+      className=" flex flex-wrap flex-col items-center justify-center text-center h-[1000px]"
       style={{
         backgroundImage:
           'url("https://images.pexels.com/photos/3376790/pexels-photo-3376790.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")',
@@ -18,21 +18,21 @@ const Specialties = () => {
         backgroundSize: "cover",
       }}>
       {/* Contenido de Servicios */}
-      <div style={{ backdropFilter: "blur(1px)" }}>
+      <div style={{ backdropFilter: "blur(1px)" }} className="mb-[95px]">
         <h3
-          className="text-[48px] text-white font-semibold"
+          className="text-[58px] text-white font-semibold"
           style={{ fontFamily: "Rubik, sans-serif" }}>
           Our Services
         </h3>
         <p
-          className="text-lg text-white mb-5"
+          className="text-lg text-white mb-4"
           style={{ fontFamily: "Open Sans, sans-serif" }}>
           At HealthPlus we offer a wide variety of services to help you take
           care of yourself.
         </p>
 
         {/* Lista de Especialidades */}
-        <div className="text-blue-900 font-semibold flex gap-4 flex-wrap items-center justify-center group h-[600px]">
+        <div className="text-blue-900 font-semibold flex gap-4 flex-wrap items-center justify-center group h-[550px]">
           <div
             className="bg-white/50 group-hover:blur-sm hover:!blur-none group-hover:scale[0.90] hover:!scale-100 cursor-pointer mb-2 w-[250px] h-[230px] rounded-2xl"
             style={{ fontFamily: "Open Sans, sans-serif" }}>
@@ -173,7 +173,7 @@ const Specialties = () => {
         </div>
         {/* Mensaje Adicional */}
         <p
-          className="text-2xl text-white font-semibold mt-2 mb-2 hidden md:block"
+          className="text-2xl text-white font-semibold mt-12 mb-2 hidden sm-custom:block"
           style={{ fontFamily: "Open Sans, sans-serif" }}>
           Because if you care, we care!
         </p>
