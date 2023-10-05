@@ -57,22 +57,6 @@ const Buttons = () => {
         }}>
         Find my location
       </button>
-      {/* Button to find the clinic's location 
-      <button
-        onClick={() => map.setView(targetLocation, 13)}
-        style={{
-          background: "black",
-          color: "white",
-          borderRadius: "3px",
-          height: "32px",
-          width: "200px",
-          position: "absolute",
-          top: "355px",
-          right: "48px",
-          zIndex: 1000,
-        }}>
-        Find Clinic
-      </button>*/}
     </>
   );
 };
@@ -81,13 +65,18 @@ const Buttons = () => {
 const MapLeaflet = () => {
   const createCustomClusterIcon = (cluster) => {
     return new divIcon({
-      html: `<div style="background-color: red; color: white; border-radius: 50%; width: 30px; height: 30px; display: flex; justify-content: center; align-items: center;">${cluster.getChildCount()}</div>`,
+      html: `<div style="background-color: red; color: white; border-radius:50%; width: 30px; height: 30px; display: flex; justify-content: center; align-items: center;">${cluster.getChildCount()}</div>`,
       iconSize: [33, 33],
     });
   };
 
   return (
-    <div style={{ height: "400px" }}>
+    <div
+      style={{
+        height: "400px",
+        width: "420px",
+        marginLeft: "30px",
+      }}>
       <MapContainer
         style={{ height: "400px" }}
         center={targetLocation}

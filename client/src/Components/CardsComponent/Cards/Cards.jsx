@@ -26,7 +26,9 @@ const Cards = () => {
 
   return (
     <div className="w-full">
-      <div className="border-2 flex justify-center item bg-white rounded-2xl gap-10 h-96">
+      <div
+        className="border-2 flex justify-center item bg-white rounded-2xl gap-10 h-96"
+        style={{ fontFamily: "Open Sans, sans-serif" }}>
         {currentGame.map((doc) => (
           <Card
             name={doc.name}

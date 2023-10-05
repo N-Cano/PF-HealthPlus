@@ -14,7 +14,7 @@ const Newsletter = () => {
     setSubscribed(true);
   };
   return (
-    <div className=" bg-blue-900 h-[300px] container w-full text-white text-center md:text-left mb-4 md:mb-0 flex flex-col items-center justify-center">
+    <div className=" bg-blue-900 h-[300px] container w-full text-white text-center md:text-left mb-0 md:mb-0 flex flex-col items-center justify-center">
       {subscribed ? (
         <p
           className="text-lg md:text-xl"
@@ -49,7 +49,7 @@ const Newsletter = () => {
               placeholder="Your email"
               value={email}
               onChange={handleEmailChange}
-              className="bg-white text-gray-800 rounded-md py-2 px-3 mb-2 md:mr-2 focus:outline-none focus:ring focus:border-blue-300"
+              className="bg-white w-[600px] text-gray-800 rounded-md py-2 px-3 mb-2 md:mr-2 focus:outline-none focus:ring focus:border-blue-300"
               required
             />
             <button

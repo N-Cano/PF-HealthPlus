@@ -1,8 +1,8 @@
-import React from "react";
+/* eslint-disable react/prop-types */
 import style from "./Paginado.module.css"; // Importa el archivo CSS con los estilos.
 
 const Paginado = ({ currentPage, totalPages, onPageChange }) => {
-  const showFirstButton = currentPage > 2;//Estas variables determinan si se deben mostrar los botones de "Primera página", "Página anterior", "Página siguiente" y "Última página", respectivamente.
+  const showFirstButton = currentPage > 2; //Estas variables determinan si se deben mostrar los botones de "Primera página", "Página anterior", "Página siguiente" y "Última página", respectivamente.
   const showPrevButton = currentPage > 1;
   const showNextButton = currentPage < totalPages;
   const showLastButton = currentPage < totalPages - 1;
@@ -10,13 +10,11 @@ const Paginado = ({ currentPage, totalPages, onPageChange }) => {
   return (
     <div className={style.paginateContainer}>
       <div className={style.paginate}>
-        {" "}
         {showFirstButton && (
           <span
             title="First page"
             className={style.pageLink}
-            onClick={() => onPageChange(1)}
-          >
+            onClick={() => onPageChange(1)}>
             <>&#8810;</>
           </span>
         )}
@@ -26,7 +24,7 @@ const Paginado = ({ currentPage, totalPages, onPageChange }) => {
             title="Previous page"
             className={style.pageLink}
             onClick={() => onPageChange(currentPage - 1)}
-          >
+            style={{ fontFamily: "Open Sans, sans-serif" }}>
             <>&#8630;</>
           </span>
         )}
@@ -38,7 +36,7 @@ const Paginado = ({ currentPage, totalPages, onPageChange }) => {
             title="Next page"
             className={style.pageLink}
             onClick={() => onPageChange(currentPage + 1)}
-          >
+            style={{ fontFamily: "Open Sans, sans-serif" }}>
             <>&#8631;</>
           </span>
         )}
@@ -47,7 +45,7 @@ const Paginado = ({ currentPage, totalPages, onPageChange }) => {
             title="Last page"
             className={style.pageLink}
             onClick={() => onPageChange(totalPages)}
-          >
+            style={{ fontFamily: "Open Sans, sans-serif" }}>
             <>&#8811;</>
           </span>
         )}

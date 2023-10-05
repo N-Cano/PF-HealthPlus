@@ -24,51 +24,133 @@ const Home = () => {
   };
 
   return (
-    <div>
+    <div
+      style={{
+        background: "linear-gradient(45deg, #71b7e6, #f6f6f6)",
+        boxShadow: "7px 6px 30px #8ccef5",
+      }}>
       <NavHome />
 
       <div
         id="doctors"
-        className="flex flex-col md:flex-row md:items-center md:justify-center"
-      >
-        <div className="flex-1  p-4 rounded-lg shadow-md my-2 mx-2 md:my-6 md:mr-2 md:ml-2 md:pb-12 h-96">
-          <h3 className="mt-5 text-center text-2xl">DOCTORS</h3>
-          <p className="mt-5 text-center">
+        className="flex flex-col md:flex-row mt-1 md:items-center md:justify-center">
+        <div className="flex-1 p-4 rounded-lg shadow-md my-7 mx-2 md:my-6 md:mr-2 md:ml-2 md:pb-12 h-60">
+          <h3
+            className="mt-5 text-center text-2xl font-bold"
+            style={{ fontFamily: "Rubik, sans-serif" }}>
+            DOCTORS
+          </h3>
+          <p
+            className="mt-5 text-center text-2xl font-normal mb-3"
+            style={{ fontFamily: "Rubik, sans-serif" }}>
             {`We work with a wide varierty of specialist, here you can find the best doctor to fit your needs. Click for more information`}
           </p>
           {/* AQUI VAN LAS CARDS Y CON CLICK MAS DETALLES DEL DOCTOR */}
-          <div>
+          <div className="flex  justify-center items-center mb-4 gap-3">
             <SearchBar />
             <select
-              className="bg-sky-200/100 ... rounded-lg "
+              className="bg-sky-200/100 ... rounded-lg w-[100px]"
               onChange={filterSpecial}
-            >
-              <option value="allDocs">allDocs</option>
-              <option value="Dermatology">Dermatology</option>
-              <option value="Rheumatology">Rheumatology</option>
-              <option value="Psychiatry">Psychiatry</option>
-              <option value="Gastroenterology.">Gastroenterology</option>
-              <option value="Endocrinology">Endocrinology</option>
-              <option value="Radiology">Radiology</option>
-              <option value="Urology">Urology</option>
-              <option value="cardiology">Cardiology</option>
+              style={{ fontFamily: "Open Sans, sans-serif" }}>
+              <option
+                value="allDocs"
+                className="font-bold text-center"
+                style={{ fontFamily: "Open Sans, sans-serif" }}>
+                allDocs
+              </option>
+              <option
+                value="Dermatology"
+                className="font-bold text-center"
+                style={{ fontFamily: "Open Sans, sans-serif" }}>
+                Dermatology
+              </option>
+              <option
+                value="Rheumatology"
+                className="font-bold"
+                style={{ fontFamily: "Open Sans, sans-serif" }}>
+                Rheumatology
+              </option>
+              <option
+                value="Psychiatry"
+                className="font-bold text-center"
+                style={{ fontFamily: "Open Sans, sans-serif" }}>
+                Psychiatry
+              </option>
+              <option
+                value="Gastroenterology"
+                className="font-bold text-center"
+                style={{ fontFamily: "Open Sans, sans-serif" }}>
+                Gastroenterology
+              </option>
+              <option
+                value="Endocrinology"
+                className="font-bold text-center"
+                style={{ fontFamily: "Open Sans, sans-serif" }}>
+                Endocrinology
+              </option>
+              <option
+                value="Radiology"
+                className="font-bold text-center"
+                style={{ fontFamily: "Open Sans, sans-serif" }}>
+                Radiology
+              </option>
+              <option
+                value="Urology"
+                className="font-bold text-center"
+                style={{ fontFamily: "Open Sans, sans-serif" }}>
+                Urology
+              </option>
+              <option
+                value="cardiology"
+                className="font-bold text-center"
+                style={{ fontFamily: "Open Sans, sans-serif" }}>
+                Cardiology
+              </option>
             </select>
             <select
-              className="bg-sky-200/100 ... rounded-lg "
+              className="bg-sky-200/100 ... rounded-lg w-[100px]"
               onChange={handleOrder}
-            >
-              <option>Order</option>
-              <option value="A">A-Z</option>
-              <option value="D">Z-A</option>
+              style={{ fontFamily: "Open Sans, sans-serif" }}>
+              <option
+                className="font-bold text-center"
+                style={{ fontFamily: "Open Sans, sans-serif" }}>
+                Order
+              </option>
+              <option
+                value="A"
+                className="font-bold text-center"
+                style={{ fontFamily: "Open Sans, sans-serif" }}>
+                A-Z
+              </option>
+              <option
+                value="D"
+                className="font-bold text-center"
+                style={{ fontFamily: "Open Sans, sans-serif" }}>
+                Z-A
+              </option>
             </select>
 
             <select
-              className="bg-sky-200/100 ... rounded-lg "
+              className="bg-sky-200/100 ... rounded-lg w-[100px]"
               onChange={handlePrice}
-            >
-              <option>Price</option>
-              <option value="Top">Price Top</option>
-              <option value="Low">Price Low</option>
+              style={{ fontFamily: "Open Sans, sans-serif" }}>
+              <option
+                className="font-bold text-center"
+                style={{ fontFamily: "Open Sans, sans-serif" }}>
+                Price
+              </option>
+              <option
+                value="Top"
+                className="font-bold text-center"
+                style={{ fontFamily: "Open Sans, sans-serif" }}>
+                Price Top
+              </option>
+              <option
+                value="Low"
+                className="font-bold text-center"
+                style={{ fontFamily: "Open Sans, sans-serif" }}>
+                Price Low
+              </option>
             </select>
           </div>
           <div className="bg-blue-200 ... rounded-lg "></div>
@@ -77,8 +159,12 @@ const Home = () => {
       </div>
 
       <div className="flex-1 p-4 rounded-lg shadow-md my-2 mx-2 md:my-6 md:mr-2 md:ml-2 md:pb-12 h-96">
-        <h3 className="mt-5 text-center text-2xl"></h3>
-        <p className="mt-5 text-center"></p>
+        <h3
+          className="mt-5 text-center text-2xl"
+          style={{ fontFamily: "Open Sans, sans-serif" }}></h3>
+        <p
+          className="mt-5 text-center"
+          style={{ fontFamily: "Open Sans, sans-serif" }}></p>
       </div>
 
       <div id="services">
@@ -91,8 +177,7 @@ const Home = () => {
 
       <div
         id="news"
-        className="flex flex-col md:flex-row md:items-center md:justify-center"
-      >
+        className="flex flex-col md:flex-row md:items-center md:justify-center">
         <News />
       </div>
 

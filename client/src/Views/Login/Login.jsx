@@ -53,10 +53,19 @@ const Login = () => {
 
   return (
     <div>
-      <div className="h-screen justify-center items-start flex-col relative bg-blue-200">
+      <div className="h-screen justify-center items-center flex-col relative bg-blue-200">
+        <Link to="/">
+          <button
+            className="bg-slate-950 ml-[258px] mt-12 text-neutral-50 w-24 p-2 rounded-2xl hover:bg-slate-700 hover:scale-110 transition duration-300 ease-in-out mb-1"
+            style={{ fontFamily: "Rubik, sans-serif" }}>
+            Back
+          </button>
+        </Link>
         <div className="grid grid-cols-1 md:grid-cols-2">
           <div className="bg-blue-400 rounded-2xl ml-2xl h-[500px] mt-10 text-center p-8 ml-20 max-w-md z-10">
-            <h2 className="text-3xl mb-8 font-bold text-neutral-50 bg-gray-950 rounded-2xl p-2">
+            <h2
+              className="text-3xl mb-8 font-bold text-neutral-50 bg-gray-950 rounded-2xl p-2"
+              style={{ fontFamily: "Rubik, sans-serif" }}>
               Sign In
             </h2>
 
@@ -141,31 +150,33 @@ const Login = () => {
 
                   <Link
                     to="/signUp"
-                    className="hover:text-gray-600 hover:scale-110 transition duration-300 ease-in-out">
+                    className="hover:text-gray-600 hover:scale-110 transition duration-300 ease-in-out"
+                    style={{ fontFamily: "Rubik, sans-serif" }}>
                     Sign Up
                   </Link>
                 </div>
                 <button
                   type="submit"
-                  className="bg-slate-950 text-neutral-50 w-24 p-2 rounded-2xl hover:bg-slate-700 hover:scale-110 transition duration-300 ease-in-out mb-4">
+                  className="bg-slate-950 text-neutral-50 w-24 p-2 rounded-2xl hover:bg-slate-700 hover:scale-110 transition duration-300 ease-in-out mb-4"
+                  style={{ fontFamily: "Rubik, sans-serif" }}>
                   Sign In
                 </button>
               </div>
             </form>
             <button
               onClick={loginWithGoogle}
-              className="bg-white p-2 rounded-2xl mb-4 w-56 flex items-center hover:text-gray-600 hover:scale-110 transition duration-300 ease-in-out m-auto">
+              className="bg-white p-2 rounded-2xl mb-4 w-56 flex items-center hover:text-gray-600 hover:scale-110 transition duration-300 ease-in-out m-auto"
+              style={{ fontFamily: "Rubik, sans-serif" }}>
               <img className="w-5 m-2" src={logoGoogle} alt="" /> Sign in with
               Google
             </button>
           </div>
-          <div className="md:flex md:items-center md:justify-center">
-            <img
-              src={doctors}
-              className="w-[48rem] absolute bottom-0 mx-0"
-              alt="Doctors"
-            />
-          </div>
+
+          <img
+            src={doctors}
+            className="w-[50rem] absolute bottom-0 right-10 hidden lg:block"
+            alt="Doctors"
+          />
         </div>
       </div>
     </div>

@@ -173,7 +173,7 @@ const Landing = () => {
             <img
               src={availableService2}
               alt="doctor"
-              className="w-[100%] h-full ps-0 rounded-lg"
+              className="w-[100%] h-full ps-0 rounded-md"
             />
           </div>
           <Link to="/login">
@@ -186,7 +186,7 @@ const Landing = () => {
         </div>
         <div className="bg-white p-4 rounded-lg shadow-md flex flex-col items-center justify-center">
           <div>
-            <div className="bg-blue-900 w-full rounded-lg h-12 flex items-center justify-center">
+            <div className="bg-blue-900 w-full rounded-md h-12 flex items-center justify-center">
               <h2
                 className="text-white text-center"
                 style={{ fontFamily: "Rubik, sans-serif" }}>
@@ -222,14 +222,14 @@ const Landing = () => {
       {/*  SECCIÓN DE DOCTORES SE RENDERIZAN LAS CARDS CON EFECTO HOVER AL HACER CLICK NOS LLEVA AL DETAIL DE CADA DOCTOR */}
       <div
         id="services"
-        className="p-4 shadow-md w-100 h-[800px] flex flex-col items-center ">
+        className="p-4 shadow-md w-100 h-[600px] flex flex-col items-center ">
         <h3
-          className="text-black text-[30px] text-center pt-2 font-semibold"
+          className="text-black text-[30px] text-center pt-1 mb-1 font-semibold"
           style={{ fontFamily: "Rubik, sans-serif" }}>
           The best doctors give you the best care
         </h3>
         <p
-          className="mt-8 text-2xl text-center"
+          className="mt-8 text-2xl text-center mb-1"
           style={{ fontFamily: "Open Sans, sans-serif" }}>
           Devotion, professionalism and hard work are the essence of our team of
           experienced doctors, nurses and care assistants.
@@ -276,7 +276,7 @@ const Landing = () => {
       </div>
 
       {/*SECCIÓN DE NEWSLETTER */}
-      <div className="w-full">
+      <div>
         <Newsletter />
       </div>
       <ScrollToTop smooth />
