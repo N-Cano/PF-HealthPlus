@@ -7,7 +7,7 @@ import { filterSpeciality, orderCards, priceCards } from "../../redux/actions";
 import SearchBar from "../../Components/Utils/SearchBar/SearchBar";
 import { useDispatch } from "react-redux";
 import Subscribe from "../../Components/Subscribe/Subscribe";
-import Specialties from "../../Components/Specialties/Specialties";
+import SpecialtiesHome from "../../Components/Specialties/SpecialtiesHome";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -168,7 +168,7 @@ const Home = () => {
       </div>
 
       <div id="services">
-        <Specialties />
+        <SpecialtiesHome />
       </div>
 
       <div id="subscribe">
