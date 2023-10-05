@@ -5,12 +5,14 @@ import Paginado from "../Paginado/paginado";
 const News = () => {
   const [news, setNews] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 5;
+  const itemsPerPage = 6;
   const totalItems = news.length;
   const totalPages = Math.ceil(totalItems / itemsPerPage);
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
-  const currentGame = news.slice(startIndex, endIndex);
+  const currentGame = news
+    .filter((article) => article.description !== "[Removed]")
+    .slice(startIndex, endIndex);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -33,6 +35,7 @@ const News = () => {
 
   return (
     <div className="bg-blue-900">
+      {console.log(currentGame)}
       <h3
         className="mt-5 text-center text-2xl text-white font-bold"
         style={{ fontFamily: "Rubik, sans-serif" }}>
@@ -41,9 +44,13 @@ const News = () => {
       <div className="flex flex-wrap justify-center">
         {currentGame.map((article, index) => (
           <div key={index} className="max-w-sm m-4">
-            <div className="bg-white rounded-lg overflow-hidden shadow-md h-[550px]">
+            <div className="bg-white rounded-lg overflow-hidden shadow-md h-[500px]">
               <img
-                src={article.urlToImage}
+                src={
+                  article.urlToImage
+                    ? article.urlToImage
+                    : "https://fakeimg.pl/553x253/85c5f2/000000?text=No+image"
+                }
                 alt={article.title}
                 className="w-full h-48 object-cover"
               />
