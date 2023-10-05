@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import Paginado from "../Paginado/paginado";
 
@@ -32,12 +32,16 @@ const News = () => {
   };
 
   return (
-    <div>
-      <h3 className="mt-5 text-center text-2xl">NEWS</h3>
+    <div className="bg-blue-900">
+      <h3
+        className="mt-5 text-center text-2xl text-white font-bold"
+        style={{ fontFamily: "Rubik, sans-serif" }}>
+        NEWS
+      </h3>
       <div className="flex flex-wrap justify-center">
         {currentGame.map((article, index) => (
           <div key={index} className="max-w-sm m-4">
-            <div className="bg-white rounded-lg overflow-hidden shadow-md">
+            <div className="bg-white rounded-lg overflow-hidden shadow-md h-[550px]">
               <img
                 src={article.urlToImage}
                 alt={article.title}
@@ -50,8 +54,7 @@ const News = () => {
                   href={article.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-3 text-blue-500"
-                >
+                  className="mt-3 text-blue-500">
                   Read more
                 </a>
               </div>

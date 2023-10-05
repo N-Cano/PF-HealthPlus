@@ -41,7 +41,7 @@ const NavHome = () => {
   };
 
   return (
-    <nav className="bg-black-100">
+    <nav className="bg-blue-900 text-white">
       {/* {console.log(user)} */}
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
         <div className="relative flex h-16 items-center justify-between">
@@ -61,13 +61,16 @@ const NavHome = () => {
                   <Link to="/create">
                     <a
                       href="#"
-                      className="text-gray-900 hover:bg-gray-700 hover:text-white rounded-md px-4 py-2 text-sm font-medium">
+                      className="text-white hover:bg-gray-700 hover:text-white rounded-md px-4 py-2 text-sm font-medium"
+                      style={{ fontFamily: "Rubik, sans-serif" }}>
                       SCHEDULE
                     </a>
                   </Link>
 
                   <div className="flex items-center">
-                    <h3 className="mr-8">
+                    <h3
+                      className="ml-[400px] font-semibold"
+                      style={{ fontFamily: "Rubik, sans-serif" }}>
                       Welcome, {user ? user.displayName || user.email : ""}
                     </h3>
                   </div>

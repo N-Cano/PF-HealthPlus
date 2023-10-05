@@ -15,9 +15,9 @@ const sponsorsData = [
 
 const Sponsors = () => {
   return (
-    <div className="bg-black h-[300px] flex flex-wrap flex-col items-center justify-around pb-12 pt-2">
+    <div className="bg-black h-[255px] flex flex-wrap flex-col items-center justify-around pb-12 pt-2">
       <h2
-        className="text-2xl h-7 pt-6 md:text-3xl font-semibold text-white mb-6 md:mb-8 xl:mb-10"
+        className="text-2xl h-6 pt-6 md:text-3xl font-semibold text-white mb-6 md:mb-8 xl:mb-10"
         style={{ fontFamily: "Rubik, sans-serif" }}>
         Our Sponsors
       </h2>
