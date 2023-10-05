@@ -2,6 +2,7 @@
 import { Link } from "react-router-dom";
 import logo2 from "../../assets/logo2.jpeg";
 import Scroll from "../Scroll/Scroll";
+// import Darkmode from "../Darkmode/Darkmode";
 
 const NavBar = ({ children }) => {
   return (
@@ -16,6 +17,7 @@ const NavBar = ({ children }) => {
             {/* Botones del componente Scroll con un margen izquierdo de 4 */}
             <div className="hidden sm:flex items-center space-x-4 ml-4">
               <Scroll />
+              {/* <Darkmode /> */}
             </div>
           </div>
 
@@ -24,7 +26,8 @@ const NavBar = ({ children }) => {
             <Link to="/login">
               <a
                 href="#"
-                className="text-white hover:bg-gray-700 hover:text-white rounded-md px-4 py-2 text-sm font-medium">
+                className="text-white hover:bg-gray-700 hover:text-white rounded-md px-4 py-2 text-sm font-medium"
+              >
                 LOGIN
               </a>
             </Link>

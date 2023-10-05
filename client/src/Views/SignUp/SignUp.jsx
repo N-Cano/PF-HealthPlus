@@ -5,7 +5,11 @@ import { auth } from "../../firebase/firebase.config";
 import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
-  const { handleSubmit, control, formState: { errors } } = useForm();
+  const {
+    handleSubmit,
+    control,
+    formState: { errors },
+  } = useForm();
   const navigate = useNavigate();
 
   const onSubmit = async (data) => {
@@ -49,7 +53,9 @@ const SignUp = () => {
                 />
               )}
             />
-            {errors.email && <p className='text-red-800'>{errors.email.message}</p>}
+            {errors.email && (
+              <p className="text-red-800">{errors.email.message}</p>
+            )}
 
             <label className="text-xl">Password</label>
             <Controller
@@ -72,8 +78,9 @@ const SignUp = () => {
                 />
               )}
             />
-            {errors.password && <p className='text-red-800'>{errors.password.message}</p>}
-
+            {errors.password && (
+              <p className="text-red-800">{errors.password.message}</p>
+            )}
           </div>
 
           <button

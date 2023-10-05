@@ -2,62 +2,73 @@
 .subscribe-section {
   position: relative;
   height: 600px; /* Ajusta la altura según tus necesidades */
-  background-color: #f0f0f0; /* Color de fondo para la sección */
-}
-
-.subscribe-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 100%;
-  padding: 20px;
-  border-radius: 8px;
-  transition: transform 0.3s;
-}
-
-.subscribe-content {
-  flex: 1;
-  max-width: 400px; /* Ajusta el ancho según tus necesidades */
-}
-
-.subscribe-content h2 {
-  font-size: 24px;
-  margin-bottom: 10px;
-}
-
-.subscribe-image {
-  flex: 1;
-  height: 100%;
-  background-image: url("https://today.duke.edu/sites/default/files/legacy-files/styles/story_hero/public/Stephoscop%20HERO.jpg?itok=1GUtDzJD"); /* Ruta de la imagen de fondo */
+  background-color: #aac1f1;
+  background-image: url("https://today.duke.edu/sites/default/files/legacy-files/styles/story_hero/public/Stephoscop%20HERO.jpg?itok=1GUtDzJD");
   background-size: cover;
   background-position: center;
 }
 
+.subscribe-container {
+  max-width: 400px;
+  margin: 0;
+  position: absolute;
+  right: 50px; /* Ajusta este valor para mover el contenedor hacia la derecha */
+  top: 50%; /* Centra verticalmente el contenedor */
+  transform: translateY(-50%); /* Centra verticalmente el contenedor */
+  padding: 20px;
+  border-radius: 15px;
+  transition: transform 0.3s;
+  background-color: #308cc9;
+}
+
+.subscribe-content {
+  flex: 1;
+  max-width: 100%;
+  text-align: center;
+}
+
+.subscribe-section h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  text-align: center;
+  font-weight: bold;
+}
+
 .subscribe-circle {
   position: absolute;
-  bottom: 20px;
   right: 20px;
-  width: 50px; /* Ajusta el tamaño del círculo según tus necesidades */
-  height: 50px;
-  background-color: #3498db; /* Color del círculo */
+  width: 90px; /* Ajusta el tamaño del círculo según tus necesidades */
+  height: 90px;
+  background-color: #357ba9; /* Color del círculo */
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  transition: background-color 0.3s; /* Agregado: transición de color al hacer hover */
 }
 
 .circle-link {
-  width: 30px; /* Ajusta el tamaño del enlace dentro del círculo */
-  height: 30px;
-  background-color: #fff; /* Color del enlace dentro del círculo */
+  width: 100%; /* Ajusta el ancho del enlace dentro del círculo */
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-radius: 50%;
+  text-align: center;
+  transition: background-color 0.3s; /* Agregado: transición de color al hacer hover */
+}
+
+.circle-link:hover {
+  background-color: #69a3c9;
+  width: 90px; /* Ajusta el tamaño del círculo según tus necesidades */
+  height: 90px; /* Agregado: color de fondo al hacer hover */
+}
+
+.circle-link p {
+  margin: 0; /* Elimina el margen del párrafo para centrar el texto */
 }
 
 .circle-link:before {
-  content: "\2192"; /* Código Unicode de una flecha hacia la derecha */
-  font-size: 18px;
-  color: #3498db; /* Color de la flecha */
+  content: ""; /* Elimina la flecha */
 }

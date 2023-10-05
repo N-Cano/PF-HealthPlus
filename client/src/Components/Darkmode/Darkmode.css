@@ -1,0 +1,25 @@
+#toggle-btn {
+  padding: 0.5em;
+  font-weight: 800;
+}
+
+#toggle-btn:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.dark-mode-toggle {
+  width: auto;
+  background: #000;
+  color: #fff;
+}
+
+#theme {
+  width: auto;
+  height: auto;
+}
+
+.dark-mode-theme {
+  background: #000;
+  color: #fff;
+}

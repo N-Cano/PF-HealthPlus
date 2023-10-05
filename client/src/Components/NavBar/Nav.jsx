@@ -1,3 +1,4 @@
+import React from "react";
 import { Link } from "react-router-dom";
 import logo2 from "../../assets/logo2sinfond0.png";
 
@@ -13,7 +14,7 @@ const Nav = () => {
             <div className="hidden sm:ml-6 sm:block">
               <div className="flex space-x-4">
                 {/* Contenedor de botones del componente Scroll */}
-                <div className="flex items-center space-x-4 ml-auto ">
+                <div className="flex items-center space-x-4 ml-auto">
                   {/* Botones del componente Scroll */}
                 </div>
 
@@ -21,20 +22,25 @@ const Nav = () => {
                   <Link to="/home">
                     <a
                       href="#"
-                      className="text-gray-900 hover:bg-gray-700 hover:text-white rounded-md px-4 py-2 text-sm font-medium">
+                      className="text-gray-900 hover:bg-gray-700 hover:text-white rounded-md px-4 py-2 text-sm font-medium"
+                    >
                       BACK
-                    </a>
-                  </Link>
-
-                  <Link to="/home">
-                    <a
-                      href="#"
-                      className="text-gray-900 hover:bg-gray-700 hover:text-white rounded-md px-4 py-2 text-sm font-medium">
-                      SUBSCRIBRE
                     </a>
                   </Link>
                 </div>
               </div>
+            </div>
+
+            <div className="flex items-center ml-auto">
+              {/* Clase específica para el botón de subscribe */}
+              <Link to="/payment">
+                <a
+                  href="#"
+                  className="subscribe-button bg-blue-500 hover:bg-blue-700 text-white rounded-md px-4 py-2 text-sm font-medium"
+                >
+                  SUBSCRIBE
+                </a>
+              </Link>
             </div>
           </div>
         </div>

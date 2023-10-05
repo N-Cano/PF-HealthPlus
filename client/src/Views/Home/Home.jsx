@@ -76,7 +76,7 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="flex-1 p-4 rounded-lg shadow-md my-2 mx-2 md:my-6 md:mr-2 md:ml-2 md:pb-12 h-96">
+      <div className="flex-1 p-4 rounded-lg shadow-md my-2 mx-2 md:my-6 md:mr-2 md:ml-2 md:pb-12 h-60">
         <h3 className="mt-5 text-center text-2xl"></h3>
         <p className="mt-5 text-center"></p>
       </div>
