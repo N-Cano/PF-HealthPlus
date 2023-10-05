@@ -24,7 +24,7 @@ const Form = () => {
     return () => {
       unsubscribe();
     };
-  }, [form]);
+  }, []);
 
   useEffect(() => {
     localStorage.setItem("form", JSON.stringify(form));

@@ -1,21 +1,22 @@
 const { db } = require('../firebase');
 
 //  --- Sign up ---
-const signUpUser = async ({ uid }) => {
+const signUpUser = async ({ email, uid }) => {
     try {
-        const newUser = await db.collection('users').doc(uid).add({
-            name: '',
-            lastName: '',
-            userId: '',
-            date: '',
-            photo: {}
-        });
+      const userRef = db.collection('users').doc(uid);
 
-        return newUser;
+      await userRef.set({
+        email,
+        name: '',
+        id: '',
+        photo: {}
+      });
+
+      return userRef.id; // El ID del documento es igual al UID del usuario
     } catch (error) {
-        throw new Error(error)
+      throw new Error(error);
     }
-};
+  };
 
 // --- Login ---
 const logInUser = async (email, password) => {

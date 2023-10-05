@@ -12,7 +12,7 @@ const initialState = {
     doctors: [],
     doctorsBackups: [],
     doctor: {},
-    patient: [],
+    patient: {},
     imageSrc: '',
 }
 const rootReducer = (state = initialState, actions) => {

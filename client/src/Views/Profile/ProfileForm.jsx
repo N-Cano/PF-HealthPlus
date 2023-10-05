@@ -6,6 +6,7 @@ import styles from './ProfileForm.module.css';
 // import { auth } from "../../firebase/firebase.config";
 import { useSelector, useDispatch } from 'react-redux';
 import { setImage } from '../../redux/actions';
+import { Link } from "react-router-dom";
 
 const Profile = () => {
   const [form, setForm] = useState({
@@ -34,6 +35,7 @@ const Profile = () => {
     const property = event.target.name;
     const value = event.target.value;
     setForm({ ...form, [property]: value });
+
     const file = event.target.files[0];
     const imageUrl = URL.createObjectURL(file);
     dispatch(setImage(imageUrl));
@@ -82,6 +84,11 @@ const Profile = () => {
             
 
             <button className={styles.button2} type="submit" >Save</button>
+            <Link to="/profile">
+            <button className={styles.button2} type="submit">
+              VOLVER
+            </button>
+          </Link>
         </form>
         </div>
         </div>

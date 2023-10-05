@@ -57,17 +57,19 @@ export const getDoctor = (id) => {
 }
 
 export const getPatient = (id) => {
+    
     return async (dispatch) => {
         try {
             const response = await axios.get(`http://localhost:3001/users/${id}`);
             const patient = response.data;
+
             dispatch({
                 type: GET_PATIENT,
                 payload: patient,
             });
         }
         catch (error) {
-            console.error("Error al obtener los datos del paciente:", error)
+            console.error( "Error al obtener los datos del paciente:", error)
             throw new Error(error);
         }
     };
