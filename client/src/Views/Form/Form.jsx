@@ -88,8 +88,24 @@ const Form = () => {
                 />
                 {errors.doctorId && <p className='text-red-800'>{errors.doctorId.message}</p>}
               </div>
+              <div className={styles.inputbox}>
+                <label>USER ID:</label>
+                <Controller
+                  name="userId"
+                  control={control}
+                  defaultValue=""
+                  rules={{
+                    required: 'You must add your DNI',
+                  }}
+                  render={({ field }) => (
+                    <input type="text" {...field} disabled />
+                  )}
+                />
+                {errors.userId && <p className='text-red-800'>{errors.userId.message}</p>}
+              </div>
 
               <div className={styles.inputbox}>
+                
                 <label>Schedule:</label>
                 <Controller
                   name="schedule"
