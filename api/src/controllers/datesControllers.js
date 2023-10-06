@@ -1,3 +1,4 @@
+const { FieldValue } = require('firebase-admin/firestore');
 const { db } = require('../firebase')
 const sendEmail = require('./emailSenderControllers');
 
@@ -9,17 +10,33 @@ const createDate = async ({ userId, doctorId, date, schedule, email }) => {
         const doctor = {
             ...doctorData.data()
         };
-        const newDate = {
-            userId,
-            doctor: doctor.name,
-            date,
-            schedule,
-            specialty: doctor.specialty
+        if(!doctor.name) throw new Error(`No doctor matched with ID: ${doctorId}`);
+        
+        const userData = await db.collection('users').doc(userId).get()
+
+        const user = {
+            ...userData.data()
         };
-        await db.collection('dates').add(newDate)
+        if(!user.name) throw new Error(`No user matched with ID: ${userId}`)
+
+        const newDate = {
+            user: user.name,
+            doctor: doctor.name,
+            specialty: doctor.specialty,
+            date,
+            schedule
+        };
+
+        const collectionRef = await db.collection('dates').add(newDate);
+
+        newDate.id = collectionRef.id
+
+        await db.collection('users').doc(userId).update({
+            dates: FieldValue.arrayUnion(newDate)
+        })
 
         //envia mail con la cita
-        await sendEmail(email, doctor, date, schedule);
+        await sendEmail(email, doctor, date, schedule, user);
 
 
         return {
@@ -51,7 +68,25 @@ const checkDates = async () => {
     }
 };
 
+// --- Delete a Date ---
 
+const deleteDate = async (id) => {
+    try {
+        const dateRef = await db.collection('dates').doc(id).get();
+        const date = {
+            id: dateRef.id,
+            ...dateRef.data()
+        };
 
+        const userData = await db.collection('users').doc(userId).get()
 
-module.exports = { createDate, checkDates };
+        if(date.id) {
+            await db.collection('dates').delete();
+            return date
+        } else throw new Error(`date with id ${id} not found`)
+    } catch (error) {
+        throw new Error(error)
+    }
+};
+
+module.exports = { createDate, checkDates, deleteDate };

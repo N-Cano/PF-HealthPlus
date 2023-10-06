@@ -16,28 +16,7 @@ const bringDoctors = async () => {
     }
 };
 
-// const bringDoctorByName = async (name) => {
-//     try {
-//         const querySnapshot = await db.collection('doctors').where('name', '==', name).get();
-//         const doctors = [];
-//         querySnapshot.forEach((doc) => {
-//             doctors.push({
-//                 id: doc.id,
-//                 ...doc.data()
-//             })
-//         })
-//         return doctors;
-//         // if (doctor.name) return doctor;
-//         // else throw new Error(No doctor matched with NAME: ${name})
-
-//     } catch (error) {
-//         console.log(error);
-//         throw new Error(error)
-//     }
-// };
-
 // --- Bring a doctor from data base ---
-// ? Siempre y cuando la propiedad isActive sea true
 
 const bringDoctorById = async (id) => {
     try {
@@ -66,11 +45,15 @@ const createDoctor = async ({ name, description, enable, photo, price, specialty
             price,
             specialty
         });
-
-        return {
-            status: 'created',
-            doctor: newDoctor
+        const doctor = {
+            name,
+            enable,
+            description,
+            specialty,
+            price,
+            photo
         }
+        return doctor
     } catch (error) {
         console.log(error);
         throw new Error(error)
@@ -99,7 +82,7 @@ const bringDoctorByName = async (name) => {
     }
 };
 
-//? --- Delete a doctor ---
+// --- Delete a doctor ---
 
 const deleteDoctor = async (id) => {
     try {
@@ -114,18 +97,56 @@ const deleteDoctor = async (id) => {
         } else throw new Error(`doctor with id ${id} not found`);
 
     } catch (error) {
-        console.log(error);
         throw new Error(error)
     }
 }
 
-// ? agregarle una propiedad isActive, que esta función la cambiaría a false
+// --- Disable a doctor ---
 
-// routes.get('/delete-doctor/:id', async (req, res) => {
-//     await db.collection('doctors').doc(req.params.id).delete()
-//     res.send('doctor deleted')
-// })
+const disableDoctor = async (id) => {
+    try {
+        const disabledDoctor = await db.collection('doctors').doc(id).get();
+        const doctor = {
+            id: disabledDoctor.id,
+            ...disabledDoctor.data()
+        }
+        if(!doctor.name) throw new Error(`doctor with ID ${id} not found`);
+        if(!doctor.enable) throw new Error(`doctor with ID ${id} already disabled`);
+
+        await db.collection('doctors').doc(id).update({
+            enable: false
+        });
+        doctor.enable = false;
+        return doctor;
+
+    } catch (error) {
+        throw new Error(error)
+    }
+};
+
+// --- Enable a doctor ---
+
+const enableDoctor = async (id) => {
+    try {
+        const enabledDoctor = await db.collection('doctors').doc(id).get();
+        const doctor = {
+            id: enabledDoctor.id,
+            ...enabledDoctor.data()
+        }
+        if(!doctor.name) throw new Error(`doctor with id ${id} not found`);
+        if(doctor.enable) throw new Error(`doctor with ID ${id} already enabled`);
+
+        await db.collection('doctors').doc(id).update({
+            enable: true
+        });
+        doctor.enable = true;
+        return doctor;
+        
+    } catch (error) {
+        throw new Error(error)
+    }
+};
 
 
-module.exports = { bringDoctors, bringDoctorById, createDoctor, bringDoctorByName, deleteDoctor };
+module.exports = { bringDoctors, bringDoctorById, createDoctor, bringDoctorByName, deleteDoctor, disableDoctor, enableDoctor };
 
