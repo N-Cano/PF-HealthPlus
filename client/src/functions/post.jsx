@@ -5,7 +5,7 @@ import { auth } from "../firebase/firebase.config";
 export const postUser = async (user) => {
     try {
         const response = await axios.post("http://localhost:3001/users/signup", user);
-        return response.data;
+        return response;
     } catch (error) {
         console.error("Error al crear el usuario:", error);
         throw new Error(error);
@@ -25,5 +25,5 @@ export const postEmail = async (data) => {
         email: user.email
     });
 
-    return response.data;
+    return response;
 };

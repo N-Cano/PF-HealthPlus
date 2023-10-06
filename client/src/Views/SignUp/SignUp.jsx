@@ -9,9 +9,10 @@ const SignUp = () => {
 
   const onSubmit = async (data) => {
     try {
-      const user = await postEmail(data);
+      const response = await postEmail(data);
       navigate("/login");
-      console.log(user);
+      console.log(response);
+      return response;
     } catch (error) {
       console.error("Error al crear el usuario:", error);
     }
