@@ -130,7 +130,8 @@ const disableUser = async (id) => {
 
 
 // --- Update user info ---
-const updateUser = async ({ name, lastName, photo, userId, uid, date }) => {
+const updateUser = async ({ name, lastName, userId, uid, date }) => {
+
     try {
         const userRef = db.collection('users').doc(uid)
         const res = await userRef.update({name, lastName, userId, date})
@@ -145,4 +146,19 @@ const updateUser = async ({ name, lastName, photo, userId, uid, date }) => {
     }
 };
 
-module.exports = { createUser, bringUserById, deleteUser, disableUser, signUpUser, updateUser, enableUser }
+// --- Bring user's dates --- 
+
+const bringUserDates = async (id) => {
+    try {
+        const userRef = await db.collection('users').doc(id).get();
+        const user = {
+            ...userRef.data()
+        }
+        if(!user.email) throw new Error(`user with ID: ${id} not found`)
+        return user.dates
+    } catch (error) {
+        throw new Error(error)
+    }
+};
+
+module.exports = { createUser, bringUserById, deleteUser, disableUser, signUpUser, updateUser, enableUser, bringUserDates }

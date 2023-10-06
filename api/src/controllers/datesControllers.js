@@ -10,14 +10,14 @@ const createDate = async ({ userId, doctorId, date, schedule, email }) => {
         const doctor = {
             ...doctorData.data()
         };
-        if(!doctor.name) throw new Error(`No doctor matched with ID: ${doctorId}`);
-        
+        if (!doctor.name) throw new Error(`No doctor matched with ID: ${doctorId}`);
+
         const userData = await db.collection('users').doc(userId).get()
 
         const user = {
             ...userData.data()
         };
-        if(!user.name) throw new Error(`No user matched with ID: ${userId}`)
+        if (!user.name) throw new Error(`No user matched with ID: ${userId}`)
 
         const newDate = {
             user: user.name,
@@ -70,20 +70,27 @@ const checkDates = async () => {
 
 // --- Delete a Date ---
 
-const deleteDate = async (id) => {
+const deleteDate = async (dateId, userId) => {
     try {
-        const dateRef = await db.collection('dates').doc(id).get();
+        const dateRef = await db.collection('dates').doc(dateId).get();
         const date = {
             id: dateRef.id,
             ...dateRef.data()
         };
+        
+        const userRef = await db.collection('users').doc(userId).get()
+        const user = {
+            ...userRef.data()
+        }
+        const filteredDates = user.dates.filter((date) => date.id !== dateId);
+        await db.collection('users').doc(userId).update({
+            dates: filteredDates
+        })
 
-        const userData = await db.collection('users').doc(userId).get()
-
-        if(date.id) {
-            await db.collection('dates').delete();
+        if(date.doctor) {
+            await db.collection('dates').doc(dateId).delete();
             return date
-        } else throw new Error(`date with id ${id} not found`)
+        } else throw new Error(`date with id ${dateId} not found`)
     } catch (error) {
         throw new Error(error)
     }

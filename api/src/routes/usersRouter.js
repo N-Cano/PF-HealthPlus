@@ -9,10 +9,12 @@ const logInHandler = require('../handlers/Users/logInUser');
 const updateUserHandler = require('../handlers/Users/updateUserHandler');
 const disableUserHandler = require('../handlers/Users/disableUserHandler');
 const enableUserHandler = require('../handlers/Users/enableUserHandler');
+const bringUserDatesHandler = require('../handlers/Users/bringUserDatesHandler');
 
 const usersRouter = Router();
 
 usersRouter.post('/', postUser);
+usersRouter.get('/dates/:id', bringUserDatesHandler);
 
 usersRouter.put('/profile', fileUpload({
     useTempFiles: true,
