@@ -12,73 +12,68 @@ const Profile = () => {
     const [form, setForm] = useState({
     datos: "",
   });
-  const [detail, setDetail] = useState({})
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged(function (user) {
+      if (user) {
+        const datos = user.uid;
+        setForm({ ...form, datos });
+      }
+    });
+    return () => {
+      unsubscribe();
+    };
+  }, []); 
+
+ const [detail, setDetail] = useState({});
+  const id = form.datos
   const dispatch = useDispatch();
   const patient = useSelector((state) => state.patient);
-
-  const [userLoaded, setUserLoaded] = useState(false);
   useEffect(() => {
-  const unsubscribe = auth.onAuthStateChanged(function (user) {
-    if (user) {
-      const datos = user.uid;
-      setForm({ ...form, datos });
-      dispatch(getPatient(datos));
+    dispatch(getPatient(id));
     setDetail(patient);
-      
-      setUserLoaded(true); // Marcar que los datos del usuario se han cargado
-    }
-  });
-
-  return () => {
-    unsubscribe();
-  };
-}, []); 
-
-
+  }, [dispatch]);
 
 
   return (
-  <div className={styles.nuevo}>
-    {userLoaded ? (
-      <div className={styles.container}>
-        <div className={styles.title}>PROFILE</div>
-        <div className={styles.userdetails}>
-          <div className={styles.inputbox}>
-            <img src={""} alt="" />
-            <h1 />
-          </div>
+    <div className={styles.nuevo}>
+    <div className={styles.container}>
+      
+    
+    <div className={styles.title}> PROFILE
+    <div className={styles.userdetails}>
+    
+           
+            <div className={styles.inputbox}>
+             <img src={""} alt="" />
+             <h1   />
+           </div>
 
-          <div className={styles.inputbox}>
-            <label>Name: {detail.name}</label>
-          </div>
-          <div className={styles.inputbox}>
-            <label>LastName: {detail.lastName}</label>
-          </div>
-          <div className={styles.inputbox}>
-            <label>Birthday: {detail.date}</label>
-          </div>
-          <div className={styles.inputbox}>
-            <label>DNI: {detail.userId}</label>
-          </div>
-          <Link to="/profileForm">
-            <button className={styles.button2} type="submit">
-              Modificar Perfil
-            </button>
-          </Link>
-          <Link to="/home">
-            <button className={styles.button2} type="submit">
-              VOLVER
-            </button>
-          </Link>
+           <div className={styles.inputbox}>
+            <label >Name:{detail.name}</label>
+            
+            </div>
+            <div className={styles.inputbox}>
+            <label >LastName:{detail.LastName}</label>
+            
+            </div>
+            <div className={styles.inputbox}>
+            <label >Birthday:{detail.Birthday}</label>
+            
+            </div>
+            <div className={styles.inputbox}>
+            <label >DNI: {detail.dni}</label>
+            
+            </div>
+            <Link to="/profileForm">
+         <button className={styles.button2} type="submit" >Modificar Perfil</button>
+                </Link>
+      
         </div>
-      </div>
-    ) : (
-      // Puedes mostrar un indicador de carga aquí mientras se cargan los datos del usuario
-      <p>Cargando...</p>
-    )}
-  </div>
-);
-
+        </div>
+        </div>
+        </div>
+     
+  );
 };
 export default Profile;
 
