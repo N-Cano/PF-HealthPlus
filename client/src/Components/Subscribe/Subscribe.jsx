@@ -7,7 +7,7 @@ const Subscribe = () => {
       <div className="subscribe-container w-[600px]">
         <div className="subscribe-content">
           <h2 style={{ fontFamily: "Rubik, sans-serif" }}>
-            ¡Take care of the you, and the people you love!
+            ¡Take care of you, and the people you love!
           </h2>
           <p style={{ fontFamily: "Rubik, sans-serif" }}>
             Includes: access to all of our specialties, free monthly checkout,
@@ -17,7 +17,7 @@ const Subscribe = () => {
         </div>
         <div className="subscribe-image"></div>
         <div className="subscribe-circle">
-          <Link to="/payment">
+          <Link to="/plan">
             <div className="circle-link"></div>
           </Link>
         </div>

@@ -23,6 +23,7 @@ const Profile = () => {
     };
   }, []);
 
+
   const [detail, setDetail] = useState({});
   const id = form.datos;
   const dispatch = useDispatch();
