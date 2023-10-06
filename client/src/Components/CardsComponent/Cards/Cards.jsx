@@ -24,11 +24,10 @@ const Cards = () => {
   const endIndex = startIndex + itemsPerPage; //y fin
   const currentGame = doctors.slice(startIndex, endIndex);
 
+
   return (
-    <div className="w-full">
-      <div
-        className="border-2 flex justify-center item bg-white rounded-2xl gap-10 h-96"
-        style={{ fontFamily: "Open Sans, sans-serif" }}>
+    <div className="w-full flex flex-col mb-8">
+      <div className="border-2 flex justify-center item bg-gray-100 rounded-2xl gap-6 h-96" >
         {currentGame.map((doc) => (
           <Card
             name={doc.name}
@@ -41,12 +40,14 @@ const Cards = () => {
           />
         ))}
       </div>
-      <Paginado
-        currentPage={currentPage}
-        totalPages={totalPages}
-        onPageChange={handlePageChange}
-      />
+      <div className='flex justify-center'>
+        <Paginado
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={handlePageChange}
+        />
+      </div>
     </div>
-  );
-};
+  )
+}
 export default Cards;
