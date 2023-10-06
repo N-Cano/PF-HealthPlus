@@ -1,22 +1,20 @@
 const nodemailer = require('nodemailer');
 
-const sendEmail = async (email, doctor, date, schedule) => {
+const sendEmail = async (email, doctor, date, schedule, user) => {
     const transporter = nodemailer.createTransport({
-        host: "smtp.ethereal.email",
-        post: 587,
-        secure: false,
+        service: 'gmail',
         auth: {
-            user: "healthplus@ethereal.email", // Cambiar por un correo electrónico real
-            pass: "contraseña_de_ethereal"
+            user: "healthplus048@gmail.com", 
+            pass: "aoxj ordm zpzw pevx"
         }
     });
 
     const mailOptions = {
-        from: "Remitente", // Cambiar por el correo electrónico real
+        from: "healthplus048@gmail.com", 
         to: email,
         subject: "Scheduled medical appointment",
         text: `
-            Dear John Doe, /* Poner el nombre del usuario */
+            Dear ${user.name} ${user.lastName}
             
             We hope this message finds you well. We would like to remind you of your upcoming appointment with our specialist in ${doctor.specialty} on ${date} at ${schedule}. Your health is our top priority, and we are looking forward to serving you.
             
@@ -24,7 +22,7 @@ const sendEmail = async (email, doctor, date, schedule) => {
             - Specialist: ${doctor.name}
             - Specialty: ${doctor.specialty}
             - Date: ${date}
-            - Time: ${schedule}
+            - Time: ${schedule}hs.
             
             If for any reason you cannot attend this appointment, please let us know in advance so we can reschedule it at your convenience.
             
@@ -34,12 +32,12 @@ const sendEmail = async (email, doctor, date, schedule) => {
             
             Best regards,
             Health Plus.
-            [Contact Phone Number] /* Poner el número de teléfono definitivo */
-            [Contact Email Address] /* Poner un correo electrónico diferente al que usamos para las citas */
+            +5493516867775
+            healthplus048@gmail.com
         `
     };
 
     return await transporter.sendMail(mailOptions);
 };
 
-module.exports = sendEmail;
+module.exports = sendEmail
