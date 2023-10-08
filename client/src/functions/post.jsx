@@ -27,3 +27,17 @@ export const postEmail = async (data) => {
 
     return response;
 };
+
+export const postDate = async (data) => {
+    // Formatear la fecha antes de enviarla al servidor
+    const dateParts = data.date.split('-'); // Dividir la fecha por guiones
+    const formattedDate = dateParts.reverse().join('-'); // Invertir y volver a unir las partes
+
+    // Crear una copia de los datos con la fecha formateada
+    const formattedData = { ...data, date: formattedDate };
+    console.log(formattedData);
+
+    const response = await axios.post("http://localhost:3001/dates", formattedData);
+    console.log("Datos Cargados", formattedData);
+    return response;
+}
