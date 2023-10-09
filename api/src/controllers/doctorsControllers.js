@@ -37,13 +37,14 @@ const bringDoctorById = async (id) => {
 
 const createDoctor = async ({ name, description, enable, photo, price, specialty }) => {
     try {
-        const newDoctor = await db.collection('doctors').add({
+        await db.collection('doctors').add({
             description,
             enable,
             photo,
             name,
             price,
-            specialty
+            specialty,
+            rol: 'doctor'
         });
         const doctor = {
             name,
@@ -51,11 +52,11 @@ const createDoctor = async ({ name, description, enable, photo, price, specialty
             description,
             specialty,
             price,
-            photo
+            photo,
+            rol: 'doctor'
         }
         return doctor
     } catch (error) {
-        console.log(error);
         throw new Error(error)
     }
 };
@@ -72,12 +73,9 @@ const bringDoctorByName = async (name) => {
                 ...doc.data()
             })
         })
-        return doctors;
-        // if (doctor.name) return doctor;
-        // else throw new Error(`No doctor matched with NAME: ${name}`)
+        return doctors
 
     } catch (error) {
-        console.log(error);
         throw new Error(error)
     }
 };
