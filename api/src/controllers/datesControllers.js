@@ -24,7 +24,8 @@ const createDate = async ({ userId, doctorId, date, schedule, email }) => {
             doctor: doctor.name,
             specialty: doctor.specialty,
             date,
-            schedule
+            schedule,
+            status: 'pending'
         };
 
         const collectionRef = await db.collection('dates').add(newDate);
@@ -68,27 +69,36 @@ const checkDates = async () => {
     }
 };
 
-// --- Delete a Date ---
+// --- Cancel a Date ---
 
-const deleteDate = async (dateId, userId) => {
+const cancelDate = async (dateId, userId) => {
     try {
         const dateRef = await db.collection('dates').doc(dateId).get();
         const date = {
             id: dateRef.id,
             ...dateRef.data()
         };
-        
+        console.log(date);
         const userRef = await db.collection('users').doc(userId).get()
         const user = {
             ...userRef.data()
         }
+        if(!user.email) throw new Error(`User with ID: ${userId} not found`)
+
         const filteredDates = user.dates.filter((date) => date.id !== dateId);
+
+        if(date.status === 'canceled') throw new Error(`date with ID: ${dateId} already canceled`) 
+        else date.status = 'canceled'
+
+        filteredDates.push(date)
+        
         await db.collection('users').doc(userId).update({
             dates: filteredDates
         })
-
         if(date.doctor) {
-            await db.collection('dates').doc(dateId).delete();
+            await db.collection('dates').doc(dateId).update({
+                status: 'canceled'
+            });
             return date
         } else throw new Error(`date with id ${dateId} not found`)
     } catch (error) {
@@ -96,4 +106,4 @@ const deleteDate = async (dateId, userId) => {
     }
 };
 
-module.exports = { createDate, checkDates, deleteDate };
+module.exports = { createDate, checkDates, cancelDate };
