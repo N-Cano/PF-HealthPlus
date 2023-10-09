@@ -14,14 +14,14 @@ const updateUserHandler = async (req, res) => {
         if(date !== '') data.date = date;
         if(userId !== '') data.userId = userId;
 
-        if(req.files?.img) {
-            const result = await uploadUserImage(req.files.img.tempFilePath);
+        if(req.files?.image) {
+            const result = await uploadUserImage(req.files.image.tempFilePath);
 
             data.photo = {
                 public_id: result.public_id,
                 secure_url: result.secure_url
             };
-            await fse.unlink(req.files.img.tempFilePath);
+            await fse.unlink(req.files.image.tempFilePath);
         };
         const updatedUser = await updateUser(data);
         res.status(200).json({
@@ -29,7 +29,6 @@ const updateUserHandler = async (req, res) => {
             updatedUser
         });
     } catch (error) {
-        console.log(error);
         res.status(400).json(error.message);
     }
 };
