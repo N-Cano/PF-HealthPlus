@@ -18,7 +18,8 @@ const createDate = async ({ userId, doctorId, date, schedule, email }) => {
             ...userData.data()
         };
 
-        if (!user.name) throw new Error(`No user matched with ID: ${userId}`)
+        if (!user.email) throw new Error(`No user matched with ID: ${userId}`)
+        if(!user.enable) throw new Error(`User with ID: ${userId} not subscribed`)
 
         const newDate = {
             user: user.name,

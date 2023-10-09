@@ -17,6 +17,7 @@ const signUpUser = async ({ email, uid }) => {
 
       return userRef.id; // El ID del documento es igual al UID del usuario
     } catch (error) {
+        console.log(error);
       throw new Error(error);
     }
   };
