@@ -196,13 +196,6 @@ const SpecialtiesHome = () => {
             </p>
           </div>
         </div>
-        {/* Mensaje Adicional */}
-        <p
-          className="text-2xl text-white font-semibold mt-8 mb-2 hidden md:block text-center  bg-blue-400/30 backdrop-blur-lg p-0 rounded-lg w-1/4"
-          style={{ fontFamily: "Open Sans, sans-serif" }}
-        >
-          Because if you care, we care!
-        </p>
       </div>
     </div>
   );
