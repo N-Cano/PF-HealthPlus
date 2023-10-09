@@ -1,4 +1,4 @@
-import { Home, Landing, Form, Login, ProfileForm, Payment, Plan, ForgotPassgord, SignUp, Detail , Profile} from "./Views";
+import { Home, Landing, Schedule, Login, ProfileForm, Payment, Plan, ForgotPassgord, SignUp, Detail, Profile, MyDates } from "./Views";
 import { Route, Routes, useLocation } from "react-router-dom";
 // import NavBar from "./Components/NavBar/NavBar";
 import "tailwindcss/tailwind.css";
@@ -21,7 +21,7 @@ const App = () => {
         <Route path="/home" element={<RequireAuth>
           <Home />
         </RequireAuth>} />
-        <Route path="/create" element={<Form />} />
+        <Route path="/create" element={<Schedule />} />
         <Route path="/profileForm" element={<ProfileForm />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/payment" element={<Payment />} />
@@ -29,6 +29,7 @@ const App = () => {
         <Route path="/forgotPassword" element={<ForgotPassgord />} />
         <Route path="/signUp" element={<SignUp />} />
         <Route path="/detail/:id" element={<Detail />} />
+        <Route path="/myDates" element={<MyDates />} />
       </Routes>
     </div>
   );

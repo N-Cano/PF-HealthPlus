@@ -1,10 +1,11 @@
 import Nav from "../../Components/NavBar/Nav";
-import axios from "axios";
 import { useForm, Controller } from "react-hook-form";
 import Cards from "../../Components/CardsComponent/Cards/Cards";
-import styles from "./Form.module.css";
+import styles from "./Schedule.module.css";
 import { auth } from "../../firebase/firebase.config";
 import { useEffect } from "react";
+import { postDate } from "../../functions/post";
+import SelectDoctor from "./SelectDoctor";
 
 const Form = () => {
   const { control, handleSubmit, setValue, getValues, formState: { errors } } = useForm();
@@ -15,18 +16,33 @@ const Form = () => {
   };
 
   const onSubmit = async (data) => {
-    // Formatear la fecha antes de enviarla al servidor
-    const dateParts = data.date.split('-'); // Dividir la fecha por guiones
-    const formattedDate = dateParts.reverse().join('-'); // Invertir y volver a unir las partes
-
-    // Crear una copia de los datos con la fecha formateada
-    const formattedData = { ...data, date: formattedDate };
-    console.log(formattedData);
-
-
-    await axios.post("http://localhost:3001/dates", formattedData);
-    console.log("Datos Cargados", formattedData);
+    postDate(data);
   };
+
+  const selectDoctor = (id) => {
+    const doctorId = id;
+    setValue("doctorId", doctorId);
+  }
+
+  function generateScheduleOptions() {
+    const options = [];
+    const startTime = 8 * 60; // 8 a.m. en minutos
+    const endTime = 16 * 60; // 4 p.m. en minutos
+    const interval = 30; // Intervalo de 30 minutos
+
+    for (let time = startTime; time <= endTime; time += interval) {
+      const hours = Math.floor(time / 60).toString().padStart(2, '0');
+      const minutes = (time % 60).toString().padStart(2, '0');
+      const timeString = `${hours}:${minutes}`;
+      options.push(
+        <option key={timeString} value={timeString}>
+          {timeString}
+        </option>
+      );
+    }
+
+    return options;
+  }
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(function (user) {
@@ -58,6 +74,7 @@ const Form = () => {
           <p className='font-bold mb-1'>SCHEDULE</p>
           <div className={styles.userdetails}>
             <form onSubmit={handleSubmit(onSubmit)}>
+
               <div className={styles.inputbox}>
                 <label className='mr-4'>Doctor:</label>
                 <Controller
@@ -75,18 +92,30 @@ const Form = () => {
                       onChange={(e) => {
                         field.onChange(e);
                         handleChange("doctorId", e.target.value);
+                        selectDoctor(e.target.value)
                       }}
                     >
-                      <option value="">-- Select a Doctor --</option>
-                      <option value="3mxD0sfUAWOzt4hpWIHa">Josep Conde</option>
-                      <option value="7gBRp5ScJ8h4HEqOOCxl">Esmeralda Corral</option>
-                      <option value="CC0EqVMbB6xLw4pXmph4">Sarai de La Cruz</option>
-                      <option value="ErlDmNFdhBCnGGOQCCV5">Driss Guijarro</option>
-                      <option value="QO68cneJcP6tarU5u1iS">Valentin Alegre</option>
+                      <SelectDoctor selectDoctor={selectDoctor} />
                     </select>
                   )}
                 />
                 {errors.doctorId && <p className='text-red-800'>{errors.doctorId.message}</p>}
+              </div>
+
+              <div className={styles.inputbox}>
+                <label>USER ID:</label>
+                <Controller
+                  name="userId"
+                  control={control}
+                  defaultValue=""
+                  rules={{
+                    required: 'You must add your DNI',
+                  }}
+                  render={({ field }) => (
+                    <input type="text" {...field} disabled />
+                  )}
+                />
+                {errors.userId && <p className='text-red-800'>{errors.userId.message}</p>}
               </div>
 
               <div className={styles.inputbox}>
@@ -98,12 +127,17 @@ const Form = () => {
                   rules={{
                     required: 'You must choose a business hours',
                   }}
+                  className='mb-2'
                   render={({ field }) => (
-                    <input type="time" {...field} />
+                    <select {...field} className='flex flex-col w-full h-11 outline-none rounded-md border-gray-300 pl-4 pt-2 border-b-2 transition ease-in-out duration-300'>
+                      <option value="">-- Select a Schedule --</option>
+                      {generateScheduleOptions()}
+                    </select>
                   )}
                 />
                 {errors.schedule && <p className='text-red-800'>{errors.schedule.message}</p>}
               </div>
+
               <div className={styles.inputbox}>
                 <label>Date:</label>
                 <Controller
@@ -119,6 +153,7 @@ const Form = () => {
                 />
                 {errors.date && <p className='text-red-800'>{errors.date.message}</p>}
               </div>
+
               <button className='w-40 font-bold bg-blue-400 hover:bg-indigo-500 hover:scale-110 rounded-2xl transition ease-in-out duration-300' type="submit">
                 Save
               </button>
