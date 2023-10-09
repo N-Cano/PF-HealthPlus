@@ -35,11 +35,11 @@ const bringDoctorById = async (id) => {
 
 // --- Create a new doctor ---
 
-const createDoctor = async ({ name, description, enable, photo, price, specialty }) => {
+const createDoctor = async ({ name, description, photo, price, specialty }) => {
     try {
         await db.collection('doctors').add({
             description,
-            enable,
+            enable: true,
             photo,
             name,
             price,
@@ -48,7 +48,7 @@ const createDoctor = async ({ name, description, enable, photo, price, specialty
         });
         const doctor = {
             name,
-            enable,
+            enable: true,
             description,
             specialty,
             price,

@@ -1,14 +1,12 @@
-
 const { uploadDoctorImage } = require('../../../utils/cloudinary');
-
 const fse = require('fs-extra')
 const { createDoctor } = require("../../controllers/doctorsControllers");
 
 const postDoctor = async (req, res) => {
     try {
-        const { description, enable, name, price, specialty } = req.body;
-        if(!description || !enable || !name ||!price ||!specialty) throw new Error('Missing information to create the doctor')
-        const data = {description, enable, name, price, specialty};
+        const { description, name, price, specialty } = req.body;
+        if(!description || !name ||!price ||!specialty) throw new Error('Missing information to create the doctor')
+        const data = {description, name, price, specialty};
 
         if (req.files?.image) {
 
