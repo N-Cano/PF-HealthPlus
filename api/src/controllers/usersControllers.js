@@ -10,7 +10,9 @@ const signUpUser = async ({ email, uid }) => {
         name: '',
         id: '',
         photo: {},
-        dates: []
+        dates: [],
+        rol: 'user',
+        enable: false
       });
 
       return userRef.id; // El ID del documento es igual al UID del usuario
@@ -18,32 +20,6 @@ const signUpUser = async ({ email, uid }) => {
       throw new Error(error);
     }
   };
-
-// --- Update user ---
-
-const createUser = async ({ name, email, password, personalId, location, enable, photo }) => {
-    try {
-        // Posibilidad de que no manden photo?
-        const updateUser = await db.collection('users').add({
-            enable,
-            name,
-            email,
-            password,
-            personalId,
-            location,
-            photo
-        })
-
-        return {
-            status: 'created',
-            user: updateUser
-        }
-    } catch (error) {
-        console.log(error);
-        throw new Error(error)
-    }
-
-}
 
 // --- Bring an user from data base---
 
@@ -129,19 +105,17 @@ const disableUser = async (id) => {
 };
 
 
-// --- Update user info ---
-const updateUser = async ({ name, lastName, userId, uid, date }) => {
-
+//  --- Update user ---
+const updateUser = async (data) => {
+    const { uid } = data
     try {
-        const userRef = db.collection('users').doc(uid)
-        const res = await userRef.update({name, lastName, userId, date})
-        
-        return {
-            status: 'updated',
-            res
+        await db.collection('users').doc(uid).update(data)
+        const user = await db.collection('users').doc(uid).get();
+        const userData = {
+            ...user.data()
         }
+        return userData
     } catch (error) {
-        console.log(error);
         throw new Error(error)
     }
 };
@@ -161,4 +135,4 @@ const bringUserDates = async (id) => {
     }
 };
 
-module.exports = { createUser, bringUserById, deleteUser, disableUser, signUpUser, updateUser, enableUser, bringUserDates }
+module.exports = { bringUserById, deleteUser, disableUser, signUpUser, updateUser, enableUser, bringUserDates }

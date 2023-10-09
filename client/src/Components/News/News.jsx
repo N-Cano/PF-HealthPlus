@@ -38,7 +38,8 @@ const News = () => {
       {console.log(currentGame)}
       <h3
         className="mt-5 text-center text-2xl text-white font-bold"
-        style={{ fontFamily: "Rubik, sans-serif" }}>
+        style={{ fontFamily: "Rubik, sans-serif" }}
+      >
         NEWS
       </h3>
       <div className="flex flex-wrap justify-center">
@@ -61,7 +62,8 @@ const News = () => {
                   href={article.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-3 text-blue-500">
+                  className="mt-3 text-blue-500"
+                >
                   Read more
                 </a>
               </div>
@@ -69,12 +71,13 @@ const News = () => {
           </div>
         ))}
       </div>
-
-      <Paginado
-        currentPage={currentPage}
-        totalPages={totalPages}
-        onPageChange={handlePageChange}
-      />
+      <div className="flex justify-center mt-4">
+        <Paginado
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={handlePageChange}
+        />
+      </div>
     </div>
   );
 };
