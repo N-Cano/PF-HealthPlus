@@ -4,7 +4,7 @@ const { db } = require('../firebase');
 
 const bringDoctors = async () => {
     try {
-        const allDoctors = await db.collection('doctors').get()
+        const allDoctors = await db.collection('doctors').where('enable', '==', true).get()
         const doctors = allDoctors.docs.map((doc) => ({
             id: doc.id,
             ...doc.data()
