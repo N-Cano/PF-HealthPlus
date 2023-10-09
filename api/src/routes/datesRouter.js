@@ -10,6 +10,6 @@ const datesRouter = Router();
 datesRouter.post('/', postDate);
 datesRouter.get('/', getDates);
 datesRouter.put('/', successDateHandler)
-datesRouter.put('/cancele', cancelDateHandler);
+datesRouter.put('/cancel', cancelDateHandler);
 
 module.exports = datesRouter;

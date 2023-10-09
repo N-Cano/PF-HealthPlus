@@ -87,7 +87,7 @@ const cancelDate = async (dateId, userId) => {
         const filteredDates = user.dates.filter((date) => date.id !== dateId);
 
         if(date.status === 'canceled') throw new Error(`date with ID: ${dateId} already canceled`)
-        if(date.status === 'taken') throw new Error(`date with ID: ${dateId} already hasbeen taken`)
+        if(date.status === 'taken') throw new Error(`date with ID: ${dateId} has been already taken`)
 
         else date.status = 'canceled'
 
