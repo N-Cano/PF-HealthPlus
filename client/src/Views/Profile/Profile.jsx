@@ -86,6 +86,13 @@ const Profile = () => {
                 <label style={{ fontFamily: "Open Sans, sans-serif" }}>
                   DNI: {patient.userId}
                 </label>
+                {/* <div className="w-40 content-center mt-2">
+                  <img
+                    // className="max-w-52 max-h-52 w-full h-full object-cover rounded-3xl mt-4 hover:scale-110 transition ease-in-out duration-300"
+                    src={patient.image}
+                    alt="profile photo"
+                  />
+                </div> */}
               </div>
               <Link to="/profileForm">
                 <button
