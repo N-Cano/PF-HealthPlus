@@ -78,7 +78,6 @@ const cancelDate = async (dateId, userId) => {
             id: dateRef.id,
             ...dateRef.data()
         };
-        console.log(date);
         const userRef = await db.collection('users').doc(userId).get()
         const user = {
             ...userRef.data()
@@ -87,11 +86,13 @@ const cancelDate = async (dateId, userId) => {
 
         const filteredDates = user.dates.filter((date) => date.id !== dateId);
 
-        if(date.status === 'canceled') throw new Error(`date with ID: ${dateId} already canceled`) 
+        if(date.status === 'canceled') throw new Error(`date with ID: ${dateId} already canceled`)
+        if(date.status === 'taken') throw new Error(`date with ID: ${dateId} already hasbeen taken`)
+
         else date.status = 'canceled'
 
         filteredDates.push(date)
-        
+
         await db.collection('users').doc(userId).update({
             dates: filteredDates
         })
@@ -106,4 +107,41 @@ const cancelDate = async (dateId, userId) => {
     }
 };
 
-module.exports = { createDate, checkDates, cancelDate };
+// --- Finish a date ---
+
+const successDate = async (dateId, userId) => {
+    try {
+        const dateRef = await db.collection('dates').doc(dateId).get();
+        const date = {
+            id: dateRef.id,
+            ...dateRef.data()
+        };
+        const userRef = await db.collection('users').doc(userId).get()
+        const user = {
+            ...userRef.data()
+        }
+        if(!user.email) throw new Error(`User with ID: ${userId} not found`)
+
+        const filteredDates = user.dates.filter((date) => date.id !== dateId);
+
+        if(date.status === 'taken') throw new Error(`date with ID: ${dateId} already taken`);
+        if(date.status === 'canceled') throw new Error(`date with ID: ${dateId} has been canceled`)
+        else date.status = 'taken'
+
+        filteredDates.push(date)
+
+        await db.collection('users').doc(userId).update({
+            dates: filteredDates
+        })
+        if(date.doctor) {
+            await db.collection('dates').doc(dateId).update({
+                status: 'taken'
+            });
+            return date
+        } else throw new Error(`date with id ${dateId} not found`)
+    } catch (error) {
+        throw new Error(error)
+    }
+};
+
+module.exports = { createDate, checkDates, cancelDate, successDate };
