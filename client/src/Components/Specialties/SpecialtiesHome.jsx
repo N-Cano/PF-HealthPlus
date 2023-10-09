@@ -17,7 +17,7 @@ const SpecialtiesHome = () => {
         autoPlay
         loop
         muted
-        className="absolute  w-full h-full object-cover"
+        className="absolute  w-full h-3/5 object-cover"
         style={{ zIndex: 0, backdropFilter: "opacity(10%)" }}
       />
 
