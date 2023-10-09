@@ -1,9 +1,10 @@
 const { deleteDate } = require("../../controllers/datesControllers");
 
-const deleteDateHandler = async (id) => {
+const deleteDateHandler = async (req, res) => {
     try {
-        const date = await deleteDate(id);
-        resizeBy.status(200).json({
+        const { userId, dateId } = req.body;
+        const date = await deleteDate(dateId, userId);
+        res.status(200).json({
             status: 'deleted',
             date
         })
