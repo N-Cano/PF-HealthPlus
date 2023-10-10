@@ -5,7 +5,7 @@ import Paginado from "../Paginado/paginado";
 const News = () => {
   const [news, setNews] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 6;
+  const itemsPerPage = 5;
   const totalItems = news.length;
   const totalPages = Math.ceil(totalItems / itemsPerPage);
   const startIndex = (currentPage - 1) * itemsPerPage;
@@ -34,7 +34,7 @@ const News = () => {
   };
 
   return (
-    <div className="bg-blue-900">
+    <div className="bg-blue-900 w-full">
       {console.log(currentGame)}
       <h3
         className="mt-5 text-center text-2xl text-white font-bold"
