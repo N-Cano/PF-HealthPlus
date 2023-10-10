@@ -1,3 +1,4 @@
+const { FieldValue } = require("firebase-admin/firestore");
 const { db } = require("../firebase");
 
 //  --- Sign up ---
@@ -8,16 +9,16 @@ const signUpUser = async ({ email, uid }) => {
         await userRef.set({
             email,
             name: '',
-            id: '',
+            userId: '',
             photo: {},
             dates: [],
             rol: 'user',
-            enable: false
+            enable: false,
+            reviews: []
         });
 
-        return userRef.id; // El ID del documento es igual al UID del usuario
+        return userRef.id;
     } catch (error) {
-        console.log(error);
         throw new Error(error);
     }
 };
@@ -157,5 +158,23 @@ const bringUserDates = async (id) => {
     }
 };
 
-module.exports = { bringUsers, bringUserById, deleteUser, disableUser, signUpUser, updateUser, enableUser, bringUserDates }
+// --- Post a review ---
+
+const reviewDoctor = async ({ userId, doctorId, comment, punctuation, date }) => {
+    try {
+        const review = {
+            doctorId,
+            comment,
+            date,
+            punctuation
+        }
+        await db.collection('users').doc(userId).update({
+            reviews: FieldValue.arrayUnion(review)
+        })
+    } catch (error) {
+        throw new Error(error)
+    }
+};
+
+module.exports = { bringUsers, bringUserById, deleteUser, disableUser, signUpUser, updateUser, enableUser, bringUserDates, reviewDoctor }
 
