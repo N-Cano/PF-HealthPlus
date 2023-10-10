@@ -31,7 +31,7 @@ const Nav = () => {
           </div>
           <div className="text-center">
             {" "}
-            <h1 className="font-bold">SUBSCRIBE</h1>{" "}
+            <h1 className="font-bold">HEALTHPLUS</h1>{" "}
           </div>
         </div>
       </div>

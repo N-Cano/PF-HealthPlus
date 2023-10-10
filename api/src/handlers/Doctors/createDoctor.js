@@ -17,6 +17,7 @@ const postDoctor = async (req, res) => {
                 public_id: result.public_id,
                 secure_url: result.secure_url
             };
+            
             // Eliminar archivo
             await fse.unlink(req.files.image.tempFilePath);
         }

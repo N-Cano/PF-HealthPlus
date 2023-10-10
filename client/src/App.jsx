@@ -1,26 +1,43 @@
-import { Home, Landing, Schedule, Login, ProfileForm, Payment, Plan, ForgotPassgord, SignUp, Detail, Profile, MyDates } from "./Views";
-import { Route, Routes, useLocation } from "react-router-dom";
+/* eslint-disable react/prop-types */
+import {
+  Home,
+  Landing,
+  Schedule,
+  Login,
+  ProfileForm,
+  Payment,
+  Plan,
+  ForgotPassgord,
+  SignUp,
+  Detail,
+  Profile,
+  MyDates,
+} from "./Views";
+import { Route, Routes } from "react-router-dom";
 // import NavBar from "./Components/NavBar/NavBar";
 import "tailwindcss/tailwind.css";
-import { UserAuth } from './context/AuthContext'
+import { UserAuth } from "./context/AuthContext";
 import { Navigate } from "react-router-dom";
 
 const App = () => {
-  const { pathname } = useLocation();
   const { user } = UserAuth();
   const RequireAuth = ({ children }) => {
-    return user ? children : <Navigate to={"/login"} />
+    return user ? children : <Navigate to={"/login"} />;
   };
 
   return (
     <div>
-      {/* {pathname === "/" && <NavBar />} */}
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/home" element={<RequireAuth>
-          <Home />
-        </RequireAuth>} />
+        <Route
+          path="/home"
+          element={
+            <RequireAuth>
+              <Home />
+            </RequireAuth>
+          }
+        />
         <Route path="/create" element={<Schedule />} />
         <Route path="/profileForm" element={<ProfileForm />} />
         <Route path="/profile" element={<Profile />} />
