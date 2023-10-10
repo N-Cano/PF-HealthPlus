@@ -1,6 +1,9 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { subscribeNewsletter } from "../../redux/actions";
 
 const Newsletter = () => {
+  const dispatch = useDispatch();
   const [email, setEmail] = useState("");
   const [subscribed, setSubscribed] = useState(false);
 
@@ -11,6 +14,7 @@ const Newsletter = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Logica de subscripción
+    dispatch(subscribeNewsletter(email));
     setSubscribed(true);
   };
   return (
