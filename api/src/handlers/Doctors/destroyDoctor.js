@@ -15,7 +15,6 @@ const destroyDoctor = async (req, res) => {
             doctor
         });
     } catch (error) {
-        console.log(error);
         res.status(404).json(error.message);
     }
 };

@@ -9,7 +9,7 @@ const signUpUser = async ({ email, uid }) => {
         await userRef.set({
             email,
             name: '',
-            id: '',
+            userId: '',
             photo: {},
             dates: [],
             rol: 'user',
