@@ -42,7 +42,7 @@ const createDoctor = async ({ name, description, photo, price, specialty }) => {
         await db.collection('doctors').add({
             description,
             enable: true,
-            // photo,
+            photo,
             name,
             price,
             specialty,
@@ -55,7 +55,7 @@ const createDoctor = async ({ name, description, photo, price, specialty }) => {
             description,
             specialty,
             price,
-            // photo,
+            photo,
             rol: 'doctor',
             comments: []
         }
