@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
-import logo2 from "../../assets/logo2.jpeg";
+import logo2 from "../../assets/logo2sinfond0.png";
 import Scroll from "../Scroll/Scroll";
 
 const NavBar = ({ children }) => {
