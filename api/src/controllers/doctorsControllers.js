@@ -37,27 +37,17 @@ const bringDoctorById = async (id) => {
 
 // --- Create a new doctor ---
 
-const createDoctor = async ({ name, description, photo, price, specialty }) => {
+const createDoctor = async (data) => {
     try {
         await db.collection('doctors').add({
-            description,
+            ...data,
             enable: true,
-            // photo,
-            name,
-            price,
-            specialty,
             rol: 'doctor',
-            comments: []
+            comments: [],
+            dates: []
         });
         const doctor = {
-            name,
-            enable: true,
-            description,
-            specialty,
-            price,
-            // photo,
-            rol: 'doctor',
-            comments: []
+            ...data
         }
         return doctor
     } catch (error) {
@@ -151,14 +141,25 @@ const enableDoctor = async (id) => {
 
 const putComments = async (data) => {
     try {
+        const { userId } = data
+
+        const userRef = await db.collection('users').doc(userId).get()
+        user = {
+            ...userRef.data()
+        };
+
+        const review = {
+            date: data.date,
+            userName: `${user.name} ${user.lastName}`,
+            comment: data.comment,
+            punctuation: data.punctuation            
+        }
+
         const { doctorId } = data
         await db.collection('doctors').doc(doctorId).update({
-            comments: FieldValue.arrayUnion(data)
+            comments: FieldValue.arrayUnion(review)
         })
-        return {
-            status: 'created',
-            data
-        }
+        return review
     } catch (error) {
         throw new Error(error)
     }
