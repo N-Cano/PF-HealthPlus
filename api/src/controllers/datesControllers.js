@@ -75,7 +75,7 @@ const checkDates = async () => {
 
 // --- Cancel a Date ---
 
-const cancelDate = async (dateId, userId) => {
+const cancelDate = async (dateId, userId, doctorId) => {
   try {
     const dateRef = await db.collection("dates").doc(dateId).get();
     const date = {
