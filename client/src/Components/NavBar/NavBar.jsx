@@ -2,6 +2,7 @@
 import { Link } from "react-router-dom";
 import logo2 from "../../assets/logo2sinfond0.png";
 import Scroll from "../Scroll/Scroll";
+import LanguageSwitcher from "../LanguageSwitcher/LanguageSwitcher";
 
 const NavBar = ({ children }) => {
   return (
@@ -16,6 +17,9 @@ const NavBar = ({ children }) => {
             {/* Botones del componente Scroll con un margen izquierdo de 4 */}
             <div className="hidden sm:flex items-center space-x-4 ml-4">
               <Scroll />
+            </div>
+            <div className="ml-[500px]">
+              <LanguageSwitcher />
             </div>
           </div>
 

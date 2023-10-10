@@ -7,6 +7,9 @@ import { useEffect, useState } from "react";
 import { auth } from "../../firebase/firebase.config";
 import img from "../../assets/blank-profile-picture-973460_960_720.webp";
 
+import Footer from "../../Components/Footer/Footer";
+
+
 const Profile = () => {
   const [form, setForm] = useState({
     datos: "",
@@ -42,6 +45,7 @@ const Profile = () => {
   }, [dispatch, id]);
 
   return (
+
     <div className='w-full h-screen bg-[#daf1f8]'>
       <Nav />
       <h2 className='text-3xl mb-8 font-bold text-neutral-50 bg-gray-950 rounded-2xl p-2 text-center max-w-md m-auto mt-8'>Your Profile</h2>
@@ -100,9 +104,11 @@ const Profile = () => {
               </div>
             </>
           )}
+
         </div>
       </div>
-    </div>
+      <Footer />
+    </>
   );
 };
 

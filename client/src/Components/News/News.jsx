@@ -38,14 +38,13 @@ const News = () => {
       {console.log(currentGame)}
       <h3
         className="mt-5 text-center text-2xl text-white font-bold"
-        style={{ fontFamily: "Rubik, sans-serif" }}
-      >
+        style={{ fontFamily: "Rubik, sans-serif" }}>
         NEWS
       </h3>
       <div className="flex flex-wrap justify-center">
         {currentGame.map((article, index) => (
           <div key={index} className="max-w-sm m-4">
-            <div className="bg-white rounded-lg overflow-hidden shadow-md h-[500px]">
+            <div className="bg-white rounded-3xl overflow-hidden shadow-md h-[500px]">
               <img
                 src={
                   article.urlToImage
@@ -62,8 +61,7 @@ const News = () => {
                   href={article.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-3 text-blue-500"
-                >
+                  className="mt-3 text-blue-500">
                   Read more
                 </a>
               </div>

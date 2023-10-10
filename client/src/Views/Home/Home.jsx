@@ -41,7 +41,7 @@ const Home = () => {
             className="mt-5 text-center text-2xl font-bold"
             style={{ fontFamily: "Rubik, sans-serif" }}
           >
-            DOCTORS
+            PROFESSIONALS
           </h3>
           <p
             className="mt-5 text-center text-2xl font-normal mb-3"
