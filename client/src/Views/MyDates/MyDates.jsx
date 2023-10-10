@@ -5,6 +5,7 @@ import CardsDates from "../../Components/CardsDates/CardsDates";
 import { auth } from "../../firebase/firebase.config";
 import { useDispatch, useSelector } from "react-redux";
 import { dateById } from "../../redux/actions";
+import Footer from "../../Components/Footer/Footer";
 
 const MyDates = () => {
   const dispatch = useDispatch();
@@ -26,6 +27,7 @@ const MyDates = () => {
     <div>
       <Nav />
       <CardsDates dates={date} />
+      <Footer />
     </div>
   );
 };
