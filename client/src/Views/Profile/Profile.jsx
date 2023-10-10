@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { auth } from "../../firebase/firebase.config";
+import Footer from "../../Components/Footer/Footer";
 
 const Profile = () => {
   const [form, setForm] = useState({
@@ -43,71 +44,71 @@ const Profile = () => {
   }, [dispatch, id]);
 
   return (
-    <div className={styles.nuevo}>
-      <div className={styles.container}>
-        <Link to="/home">
-          <button
-            className="bg-slate-950 ml-[10px] mt-2 text-neutral-50 w-24 p-2 rounded-2xl hover:bg-slate-700 hover:scale-110 transition duration-300 ease-in-out mb-2"
-            style={{ fontFamily: "Rubik, sans-serif" }}
-          >
-            Back
-          </button>
-        </Link>
-        <div
-          className={styles.title}
-          style={{ fontFamily: "Rubik, sans-serif" }}
-        >
-          YOUR PROFILE
-          {isLoading ? (
-            <div>Loading...</div>
-          ) : (
-            <div className={styles.userdetails}>
-              <div className={styles.inputbox}>
-                <img src={""} alt="" />
-                <h1 />
-              </div>
+    <>
+      <div className={styles.nuevo}>
+        <div className={styles.container}>
+          <Link to="/home">
+            <button
+              className="bg-slate-950 ml-[10px] mt-2 text-neutral-50 w-24 p-2 rounded-2xl hover:bg-slate-700 hover:scale-110 transition duration-300 ease-in-out mb-2"
+              style={{ fontFamily: "Rubik, sans-serif" }}>
+              Back
+            </button>
+          </Link>
+          <div
+            className={styles.title}
+            style={{ fontFamily: "Rubik, sans-serif" }}>
+            YOUR PROFILE
+            {isLoading ? (
+              <div>Loading...</div>
+            ) : (
+              <div className={styles.userdetails}>
+                <div className={styles.inputbox}>
+                  <img src={""} alt="" />
+                  <h1 />
+                </div>
 
-              <div className={styles.inputbox}>
-                <label style={{ fontFamily: "Open Sans, sans-serif" }}>
-                  Name: {patient.name}
-                </label>
-              </div>
-              <div className={styles.inputbox}>
-                <label style={{ fontFamily: "Open Sans, sans-serif" }}>
-                  LastName: {patient.lastName}
-                </label>
-              </div>
-              <div className={styles.inputbox}>
-                <label style={{ fontFamily: "Open Sans, sans-serif" }}>
-                  Birthday: {patient.date}
-                </label>
-              </div>
-              <div className={styles.inputbox}>
-                <label style={{ fontFamily: "Open Sans, sans-serif" }}>
-                  DNI: {patient.userId}
-                </label>
-                {/* <div className="w-40 content-center mt-2">
+                <div className={styles.inputbox}>
+                  <label style={{ fontFamily: "Open Sans, sans-serif" }}>
+                    Name: {patient.name}
+                  </label>
+                </div>
+                <div className={styles.inputbox}>
+                  <label style={{ fontFamily: "Open Sans, sans-serif" }}>
+                    LastName: {patient.lastName}
+                  </label>
+                </div>
+                <div className={styles.inputbox}>
+                  <label style={{ fontFamily: "Open Sans, sans-serif" }}>
+                    Birthday: {patient.date}
+                  </label>
+                </div>
+                <div className={styles.inputbox}>
+                  <label style={{ fontFamily: "Open Sans, sans-serif" }}>
+                    DNI: {patient.userId}
+                  </label>
+                  {/* <div className="w-40 content-center mt-2">
                   <img
                     // className="max-w-52 max-h-52 w-full h-full object-cover rounded-3xl mt-4 hover:scale-110 transition ease-in-out duration-300"
                     src={patient.image}
                     alt="profile photo"
                   />
                 </div> */}
+                </div>
+                <Link to="/profileForm">
+                  <button
+                    className={styles.button2}
+                    type="submit"
+                    style={{ fontFamily: "Open Sans, sans-serif" }}>
+                    Modificar Perfil
+                  </button>
+                </Link>
               </div>
-              <Link to="/profileForm">
-                <button
-                  className={styles.button2}
-                  type="submit"
-                  style={{ fontFamily: "Open Sans, sans-serif" }}
-                >
-                  Modificar Perfil
-                </button>
-              </Link>
-            </div>
-          )}
+            )}
+          </div>
         </div>
       </div>
-    </div>
+      <Footer />
+    </>
   );
 };
 

@@ -1,21 +1,3 @@
-// const { db } = require('../firebase');
-
-// // --- Bring all plans from data base ---
-
-// const bringPlans = async () => {
-//     try {
-//         const allPlans = await db.collection('plans').get()
-
-//         const plans = allPlans.docs.map((doc) => ({
-//             id: doc.id,
-//             ...doc.data()
-//         }));
-//         return plans;
-//     } catch (error) {
-//         throw new Error(error)
-//     }
-// };
-// module.exports = {bringPlans};
 const mercadopago = require('mercadopago');
 
 mercadopago.configure({
@@ -37,7 +19,7 @@ const plansController = (req, res) => {
             unit_price: product.price
     }],
     back_urls: {
-        success: 'http://localhost:5173',
+        success: 'http://localhost:5173/confirm',
         failure: '',
         pending: '',
     },

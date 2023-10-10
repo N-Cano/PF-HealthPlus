@@ -12,7 +12,9 @@ import {
   Profile,
   MyDates,
 } from "./Views";
+
 import { Route, Routes, useLocation } from "react-router-dom";
+
 // import NavBar from "./Components/NavBar/NavBar";
 import PostDocs from "./Components/Create/PostDocs/PostDocs";
 import PostUsers from "./Components/Create/PostUsers/PostUsers";
@@ -23,7 +25,6 @@ import DashBoard from "./Views/DashBoard/dashboard";
 import Bridge from "./Views/Brige/Bridge";
 
 const App = () => {
-  const { pathname } = useLocation();
   const { user } = UserAuth();
   const RequireAuth = ({ children }) => {
     return user ? children : <Navigate to={"/login"} />;
@@ -31,7 +32,6 @@ const App = () => {
 
   return (
     <div>
-      {/* {pathname === "/" && <NavBar />} */}
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/login" element={<Login />} />

@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-// import { useDispatch } from "react-redux";
 import {
   Footer,
   SlidesBanner,
@@ -14,35 +13,18 @@ import availableService3 from "../../assets/backgrounds/doctor_9_400x400.jpg";
 import ScrollToTop from "react-scroll-to-top";
 import NavBar from "../../Components/NavBar/NavBar";
 import Specialties from "../../Components/Specialties/Specialties";
-
 import Cards from "../../Components/CardsComponent/Cards/Cards";
-
-// import about1 from "../../assets/backgrounds/doctor 3.jpg";
-// import about2 from "../../assets/backgrounds/doctor 4.jpg";
-// import Scroll from "../../Components/Scroll/Scroll";
-// import { filterSpeciality, orderCards, priceCards } from "../../redux/actions";
-// import SearchBar from "../../Components/Utils/SearchBar/SearchBar";
+import { useTranslation } from "react-i18next";
 
 const Landing = () => {
-  // const dispatch = useDispatch();
-  // const filterSpecial = (event) => {
-  //   dispatch(filterSpeciality(event.target.value)); //llama a las funciones con el valor dado
-  // };
-  // const handleOrder = (e) => {
-  //   //dispatch del asc y desc
-  //   dispatch(orderCards(e.target.value));
-  // };
-  // const handlePrice = (event) => {
-  //   dispatch(priceCards(event.target.value));
-  // };
+  const { t } = useTranslation();
 
   return (
     <div
       style={{
         background: "linear-gradient(45deg, #71b7e6, #f6f6f6)",
         boxShadow: "7px 6px 30px #8ccef5",
-      }}
-    >
+      }}>
       <NavBar />
 
       {/* BANNER COMO SLIDES */}
@@ -51,36 +33,30 @@ const Landing = () => {
       {/* ABOUT US  1*/}
       <div
         id="about"
-        className="flex flex-col md:flex-row md:items-center md:justify-center"
-      >
+        className="flex flex-col md:flex-row md:items-center md:justify-center">
         <div className="flex-1 bg-blue-200 p-4 rounded-lg shadow-md my-2 mx-2 md:my-6 md:mr-2 md:ml-2 md:pb-12 h-48">
           <h3
             className="mt-5 text-center text-2xl"
-            style={{ fontFamily: "Rubik, sans-serif" }}
-          >
-            WHAT DO WE DO?
+            style={{ fontFamily: "Rubik, sans-serif" }}>
+            {t("LANDING PAGE.ABOUT US 1.WHAT DO WE DO.TITLE")}
           </h3>
+
           <p
             className="mt-5 text-center"
-            style={{ fontFamily: "Open Sans, sans-serif" }}
-          >
-            {`At HealthPlus we are dedicated to you, and your health. Our aim is to
-      provide fast, easy and patient-oriented services. Our doctors'
-      priority are the patients and their families.`}
+            style={{ fontFamily: "Open Sans, sans-serif" }}>
+            {`At HealthPlus, we are dedicated to you and your health. Our aim is to provide fast, easy, and patient-oriented services. Our doctors' priority is the patients and their families.`}
           </p>
         </div>
 
         <div className="flex-1 bg-blue-200 p-4 rounded-lg shadow-md my-2 mx-2 md:my-6 md:mr-2 md:ml-2 md:flex md:flex-col md:justify-center md:pb-12 h-48">
           <h3
             className="mt-5 text-center text-2xl"
-            style={{ fontFamily: "Rubik, sans-serif" }}
-          >
+            style={{ fontFamily: "Rubik, sans-serif" }}>
             OUR COMMUNITY
           </h3>
           <p
             className="mt-5 text-center"
-            style={{ fontFamily: "Open Sans, sans-serif" }}
-          >
+            style={{ fontFamily: "Open Sans, sans-serif" }}>
             We are a professional clinic with a long trajectory based in the
             United States, with a large coverage, elite service, and a
             professional staff.
@@ -91,14 +67,12 @@ const Landing = () => {
         <div className="flex-1 bg-blue-200 p-4 rounded-lg shadow-md my-2 mx-2 md:my-6 md:mr-2 md:ml-2 md:flex md:flex-col md:justify-center md:pb-12 h-48">
           <h3
             className="mt-5 text-center text-2xl"
-            style={{ fontFamily: "Rubik, sans-serif" }}
-          >
+            style={{ fontFamily: "Rubik, sans-serif" }}>
             CONTACT US
           </h3>
           <p
             className="mt-5 text-center"
-            style={{ fontFamily: "Open Sans, sans-serif" }}
-          >
+            style={{ fontFamily: "Open Sans, sans-serif" }}>
             Here you can get in touch with us.
           </p>
           <div className="flex-grow"></div>
@@ -113,13 +87,11 @@ const Landing = () => {
             backgroundImage: `url(https://images.pexels.com/photos/4021775/pexels-photo-4021775.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)`,
             backgroundSize: "cover",
             backgroundPosition: "center",
-          }}
-        >
+          }}>
           <div className="absolute inset-0 bg-black opacity-70 text-white p-4 rounded-lg group-hover:opacity-100 z-10 flex justify-center items-center">
             <p
               className="mb-4 text-lg md:text-xl lg:text-2xl xl:text-3xl text-center"
-              style={{ fontFamily: "Rubik, sans-serif" }}
-            >
+              style={{ fontFamily: "Rubik, sans-serif" }}>
               HealthPlus is a private medical center that focuses on serving its
               associates by providing the best services.
             </p>
@@ -132,14 +104,12 @@ const Landing = () => {
             backgroundImage: `url(https://images.pexels.com/photos/4483327/pexels-photo-4483327.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)`,
             backgroundSize: "cover",
             backgroundPosition: "center",
-          }}
-        >
+          }}>
           <div className="absolute inset-0 bg-black opacity-70 text-white p-4 rounded-lg group-hover:opacity-100 z-10 flex justify-center items-center">
             <div className="md:flex md:flex-row md:items-center md:w-full">
               <p
                 className="mb-4 text-lg md:text-xl lg:text-2xl xl:text-3xl text-center"
-                style={{ fontFamily: "Rubik, sans-serif" }}
-              >
+                style={{ fontFamily: "Rubik, sans-serif" }}>
                 HealthPlus offers you a new experience in healthcare, and you
                 can become part of our family at any time.
               </p>
@@ -155,8 +125,7 @@ const Landing = () => {
             <div className="bg-blue-900 w-full rounded-lg h-12 flex items-center justify-center">
               <h2
                 className="text-white text-center"
-                style={{ fontFamily: "Rubik, sans-serif" }}
-              >
+                style={{ fontFamily: "Rubik, sans-serif" }}>
                 APPOINTMENTS
               </h2>
             </div>
@@ -169,8 +138,7 @@ const Landing = () => {
           <Link to="/login">
             <button
               className="bg-black text-white h-12 w-28 rounded-2xl mt-0 hover:bg-white hover:text-black"
-              style={{ fontFamily: "Open Sans, sans-serif" }}
-            >
+              style={{ fontFamily: "Open Sans, sans-serif" }}>
               Get started
             </button>
           </Link>
@@ -180,9 +148,11 @@ const Landing = () => {
             <div className="bg-blue-900 w-full rounded-lg h-12 flex items-center justify-center">
               <h2
                 className="text-white text-center"
+
                 style={{ fontFamily: "Rubik, sans-serif" }}
               >
-                DOCTORS
+                PROFESSIONALS
+               
               </h2>
             </div>
             <img
@@ -194,8 +164,7 @@ const Landing = () => {
           <Link to="/login">
             <button
               className="bg-black text-white h-12 w-28 rounded-2xl mt-0 hover:bg-white hover:text-black"
-              style={{ fontFamily: "Open Sans, sans-serif" }}
-            >
+              style={{ fontFamily: "Open Sans, sans-serif" }}>
               Get started
             </button>
           </Link>
@@ -205,8 +174,7 @@ const Landing = () => {
             <div className="bg-blue-900 w-full rounded-md h-12 flex items-center justify-center">
               <h2
                 className="text-white text-center"
-                style={{ fontFamily: "Rubik, sans-serif" }}
-              >
+                style={{ fontFamily: "Rubik, sans-serif" }}>
                 SCHEDULE YOUR FREE CHECKOUT
               </h2>
             </div>
@@ -219,8 +187,7 @@ const Landing = () => {
           <Link to="/login">
             <button
               className="bg-black text-white h-12 w-28 rounded-2xl mt-0 hover:bg-white hover:text-black"
-              style={{ fontFamily: "Open Sans, sans-serif" }}
-            >
+              style={{ fontFamily: "Open Sans, sans-serif" }}>
               Get started
             </button>
           </Link>
@@ -240,49 +207,18 @@ const Landing = () => {
       {/*  SECCIÓN DE DOCTORES SE RENDERIZAN LAS CARDS CON EFECTO HOVER AL HACER CLICK NOS LLEVA AL DETAIL DE CADA DOCTOR */}
       <div
         id="services"
-        className="p-4 shadow-md w-100 h-[600px] flex flex-col items-center "
-      >
+        className="p-4 shadow-md w-100 h-[600px] flex flex-col items-center ">
         <h3
           className="text-black text-[30px] text-center pt-1 mb-1 font-semibold"
-          style={{ fontFamily: "Rubik, sans-serif" }}
-        >
+          style={{ fontFamily: "Rubik, sans-serif" }}>
           The best doctors give you the best care
         </h3>
         <p
           className="mt-8 text-2xl text-center mb-1"
-          style={{ fontFamily: "Open Sans, sans-serif" }}
-        >
+          style={{ fontFamily: "Open Sans, sans-serif" }}>
           Devotion, professionalism and hard work are the essence of our team of
           experienced doctors, nurses and care assistants.
         </p>
-
-        {/* <div>
-        <select className="bg-sky-200/100 ... rounded-lg " onChange={filterSpecial}>
-        <option value="allDocs">allDocs</option>
-        <option value="Dermatology">Dermatology</option>
-        <option value="Rheumatology">Rheumatology</option>
-        <option value="Psychiatry">Psychiatry</option>
-        <option value="Gastroenterology.">Gastroenterology</option>
-        <option value="Endocinology">Endocinology</option>
-        <option value="Radiology">Radiology</option>
-        <option value="Urology">Urology</option>
-        <option value="cardiology">Cardiology</option>      
-      </select>
-      <select className="bg-sky-200/100 ... rounded-lg " onChange={handleOrder}>
-                    <option>Order</option>
-                    <option value='A'>A-Z</option>
-                    <option value='D'>Z-A</option>
-            </select>
-            
-            <select className="bg-sky-200/100 ... rounded-lg " onChange={handlePrice}>
-                    <option>Price</option>
-                    <option value='Top'>Price Top</option>
-                    <option value='Low'>Price Low</option>
-            </select>
-            </div>
-            <div className="bg-blue-200 ... rounded-lg ">
-            <SearchBar />
-            </div> */}
 
         <Cards />
       </div>

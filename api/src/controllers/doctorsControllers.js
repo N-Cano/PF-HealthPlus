@@ -1,5 +1,7 @@
 const { db } = require("../firebase");
 
+const { FieldValue } = require('firebase-admin/firestore');
+
 // --- Bring all doctors from data base ---
 
 const bringDoctors = async () => {
@@ -37,6 +39,7 @@ const bringDoctorById = async (id) => {
 // --- Create a new doctor ---
 
 const createDoctor = async (data) => {
+
   try {
     await db.collection("doctors").add({
       ...data,
@@ -114,6 +117,7 @@ const disableDoctor = async (id) => {
   } catch (error) {
     throw new Error(error);
   }
+
 };
 
 // --- Enable a doctor ---
