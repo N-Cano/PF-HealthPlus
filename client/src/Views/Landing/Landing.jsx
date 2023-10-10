@@ -182,7 +182,7 @@ const Landing = () => {
                 className="text-white text-center"
                 style={{ fontFamily: "Rubik, sans-serif" }}
               >
-                DOCTORS
+                PROFESSIONALS
               </h2>
             </div>
             <img
