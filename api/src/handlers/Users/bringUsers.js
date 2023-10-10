@@ -1,6 +1,7 @@
 const { bringUsers } = require("../../controllers/usersControllers");
 
 const bringUsersHandler = async (req, res) => {
+
     try {
         const users = await bringUsers();
         res.status(200).json(users) 
