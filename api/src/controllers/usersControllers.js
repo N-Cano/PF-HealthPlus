@@ -22,6 +22,19 @@ const signUpUser = async ({ email, uid }) => {
   }
 };
 
+//   --- Bring all users ---
+const bringUsers = async () => {
+  try {
+    const allUsers = await db.collection("users").get();
+    const users = allUsers.docs.map((user) => ({
+      id: user.id,
+      ...user.data(),
+    }));
+    return users;
+  } catch (error) {
+    throw new Error(error);
+  }
+};
 // --- Bring an user from data base---
 
 const bringUserById = async (id) => {
@@ -140,4 +153,5 @@ module.exports = {
   updateUser,
   enableUser,
   bringUserDates,
+  bringUsers,
 };
