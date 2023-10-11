@@ -2,7 +2,7 @@ const { FieldValue } = require("firebase-admin/firestore");
 const { db } = require("../firebase");
 
 //  --- Sign up ---
-const signUpUser = async ({ email, uid }) => {
+const signUpUser = async ({ email, uid, photo }) => {
     try {
         const userRef = db.collection('users').doc(uid);
 
@@ -10,7 +10,7 @@ const signUpUser = async ({ email, uid }) => {
             email,
             name: '',
             userId: '',
-            photo: {},
+            photo,
             dates: [],
             rol: 'user',
             enable: false,
