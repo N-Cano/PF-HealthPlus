@@ -5,6 +5,7 @@ import News from "../../Components/News/News";
 import Cards from "../../Components/CardsComponent/Cards/Cards";
 import { filterSpeciality, orderCards, priceCards } from "../../redux/actions";
 import SearchBar from "../../Components/Utils/SearchBar/SearchBar";
+import SearchBarUsers from "../../Components/Utils/SearchBar/SearchBarUsers";
 import { useDispatch } from "react-redux";
 import Subscribe from "../../Components/Subscribe/Subscribe";
 import SpecialtiesHome from "../../Components/Specialties/SpecialtiesHome";
@@ -44,11 +45,7 @@ const DashBoard = () => {
           {/* AQUI VAN LAS CARDS Y CON CLICK MAS DETALLES DEL DOCTOR */}
           <div>
             <SearchBar />
-            <div>
-              <Link to={"/postdocs"}>
-                <button>CREAR DOCTOR</button>
-              </Link>
-            </div>
+
             <select
               className="bg-sky-200/100 ... rounded-lg w-[100px]"
               onChange={filterSpecial}
@@ -176,24 +173,19 @@ const DashBoard = () => {
           <DocsCards />
         </div>
       </div>
+      <div>
+        <Link to={"/postdocs"}>
+          <button>CREAR DOCTOR</button>
+        </Link>
+      </div>
 
       <div
         id="doctors"
         className="flex flex-col md:flex-row mt-80 md:items-center md:justify-center"
       >
         <div>
-          <h3
-            className="mt-5 text-center text-2xl font-bold"
-            style={{ fontFamily: "Rubik, sans-serif" }}
-          >
-            USERS
-          </h3>
-
           {/* AQUI VAN LAS CARDS Y CON CLICK MAS DETALLES DEL DOCTOR */}
-          <div>
-            <SearchBar />
-          </div>
-          <CardsUsers />
+          <div></div>
         </div>
       </div>
       <Footer />

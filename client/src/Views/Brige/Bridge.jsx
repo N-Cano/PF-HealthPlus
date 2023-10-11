@@ -1,20 +1,19 @@
 import { auth } from "../../firebase/firebase.config";
-import { useState } from "react";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+
 const Bridge = () => {
   const [form, setForm] = useState({
     uid: "",
   });
-  console.log(form);
-  const Navigate = useNavigate();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(function (user) {
       if (user) {
         const uid = user.uid;
-        setForm({ ...form, uid });
+        setForm({ uid }); // Actualiza el estado con el UID cuando cambia el estado de autenticación.
       }
     });
     return () => {
@@ -23,15 +22,18 @@ const Bridge = () => {
   }, []);
 
   useEffect(() => {
-    axios
-      .put(`http://localhost:3001/users/enable/${form.uid}`)
-      .then(() => {
-        Navigate("/login");
-      })
-      .catch((error) => {
-        console.error("Error al cargar los datos del paciente:", error);
-      });
-  }, []);
+    // Realiza la solicitud Axios solo si form.uid tiene un valor válido.
+    if (form.uid) {
+      axios
+        .put(`http://localhost:3001/users/enable/${form.uid}`)
+        .then(() => {
+          navigate("/login");
+        })
+        .catch((error) => {
+          console.error("Error al cargar los datos del paciente:", error);
+        });
+    }
+  }, [form.uid, navigate]);
 
   return (
     <div>

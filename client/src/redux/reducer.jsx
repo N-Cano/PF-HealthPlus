@@ -8,6 +8,7 @@ import {
   GET_DOCTORS_NAME,
   GET_DATE_ID,
   GET_USERS,
+  GET_USERS_NAME,
 } from "./actions-types";
 
 const initialState = {
@@ -44,6 +45,11 @@ const rootReducer = (state = initialState, actions) => {
       return {
         ...state,
         doctors: actions.payload,
+      };
+    case GET_USERS_NAME:
+      return {
+        ...state,
+        users: actions.payload,
       };
 
     case FILTER_SPECIAL:
