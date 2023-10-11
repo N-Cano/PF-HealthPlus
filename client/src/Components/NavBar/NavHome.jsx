@@ -1,12 +1,16 @@
 import { Link } from "react-router-dom";
 import logo2 from "../../assets/logo2sinfond0.png";
 import ScrollHome from "../Scroll/ScrollHome";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useTransition } from "react";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../../firebase/firebase.config";
 import { UserAuth } from "../../context/AuthContext";
+import LanguageSwitcher from "../LanguageSwitcher/LanguageSwitcher";
+import { useTranslation } from "react-i18next";
 
 const NavHome = () => {
+  const { t } = useTranslation();
+
   const navigate = useNavigate();
   const { signOutWithGoogle } = UserAuth();
   const [user, setUser] = useState(null); // Estado local para el usuario autenticado
@@ -63,15 +67,20 @@ const NavHome = () => {
                       href="#"
                       className="text-white hover:bg-gray-700 hover:text-white rounded-md px-4 py-2 text-sm font-medium"
                       style={{ fontFamily: "Rubik, sans-serif" }}>
-                      SCHEDULE
+                      {t("HOME PAGE.NAVBAR.SCHEDULE")}
                     </a>
                   </Link>
 
+                  <div className="ml-[170px]">
+                    <LanguageSwitcher />
+                  </div>
+
                   <div className="flex items-center">
                     <h3
-                      className="ml-[400px] font-semibold"
+                      className="ml-[100px] font-semibold"
                       style={{ fontFamily: "Rubik, sans-serif" }}>
-                      Welcome, {user ? user.displayName || user.email : ""}
+                      {t("HOME PAGE.NAVBAR.WELCOME")},<br></br>
+                      {user ? user.displayName || user.email : ""}
                     </h3>
                   </div>
                 </div>
@@ -102,21 +111,21 @@ const NavHome = () => {
                   <a
                     href="#"
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-                    Profile
+                    {t("HOME PAGE.NAVBAR.LOGIN.PROFILE")}
                   </a>
                 </Link>
                 <Link to="/myDates">
                   <a
                     href="#"
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-                    My Dates
+                    {t("HOME PAGE.NAVBAR.LOGIN.DATES")}
                   </a>
                 </Link>
                 <a
                   href="#"
                   className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                   onClick={logOutWithGoogle}>
-                  Log Out
+                  {t("HOME PAGE.NAVBAR.LOGIN.LOG OUT")}
                 </a>
               </div>
             )}

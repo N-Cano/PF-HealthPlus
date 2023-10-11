@@ -1,4 +1,8 @@
+import { useTranslation } from "react-i18next";
+
 const ScrollHome = () => {
+  const { t } = useTranslation();
+
   const scrollTo = (sectionId) => {
     const section = document.getElementById(sectionId);
     if (section) {
@@ -13,9 +17,8 @@ const ScrollHome = () => {
         style={{ fontFamily: "Rubik, sans-serif" }}
         onClick={() => {
           scrollTo("news");
-        }}
-      >
-        NEWS
+        }}>
+        {t("HOME PAGE.NAVBAR.SCROLL HOME.NEWS")}
       </button>
 
       <button
@@ -23,9 +26,8 @@ const ScrollHome = () => {
         style={{ fontFamily: "Rubik, sans-serif" }}
         onClick={() => {
           scrollTo("doctors");
-        }}
-      >
-        PROFESSIONALS
+        }}>
+        {t("HOME PAGE.NAVBAR.SCROLL HOME.PROFESSIONALS")}
       </button>
 
       <button
@@ -33,9 +35,8 @@ const ScrollHome = () => {
         style={{ fontFamily: "Rubik, sans-serif" }}
         onClick={() => {
           scrollTo("services");
-        }}
-      >
-        SERVICES
+        }}>
+        {t("HOME PAGE.NAVBAR.SCROLL HOME.SERVICES")}
       </button>
 
       <button
@@ -43,9 +44,8 @@ const ScrollHome = () => {
         style={{ fontFamily: "Rubik, sans-serif" }}
         onClick={() => {
           scrollTo("subscribe");
-        }}
-      >
-        SUBSCRIBE
+        }}>
+        {t("HOME PAGE.NAVBAR.SCROLL HOME.SUBSCRIBE")}
       </button>
     </div>
   );
