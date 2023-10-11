@@ -8,6 +8,8 @@ import { postDate } from "../../functions/post";
 import SelectDoctor from "./SelectDoctor";
 import ScheduleWithCalendar from "./ScheduleWithCalendar";
 import Footer from "../../Components/Footer/Footer";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Form = () => {
   const {
@@ -25,6 +27,17 @@ const Form = () => {
 
   const onSubmit = async (data) => {
     postDate(data);
+    //toast-notification
+    toast(`Request sent. Wait for confirmation in your email`, {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
   };
 
   const selectDoctor = (id) => {
@@ -188,6 +201,7 @@ const Form = () => {
         </div>
       </div>
       <Footer />
+      <ToastContainer />
     </>
   );
 };

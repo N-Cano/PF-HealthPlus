@@ -8,8 +8,10 @@ import SearchBar from "../../Components/Utils/SearchBar/SearchBar";
 import { useDispatch } from "react-redux";
 import Subscribe from "../../Components/Subscribe/Subscribe";
 import SpecialtiesHome from "../../Components/Specialties/SpecialtiesHome";
+import { useTranslation } from "react-i18next";
 
 const Home = () => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
 
   const filterSpecial = (event) => {
@@ -28,26 +30,22 @@ const Home = () => {
       style={{
         background: "linear-gradient(45deg, #71b7e6, #f6f6f6)",
         boxShadow: "7px 6px 30px #8ccef5",
-      }}
-    >
+      }}>
       <NavHome />
 
       <div
         id="doctors"
-        className="flex flex-col md:flex-row mt-1 md:items-center md:justify-center"
-      >
+        className="flex flex-col md:flex-row mt-1 md:items-center md:justify-center">
         <div className="flex-1 p-4 rounded-lg shadow-md my-7 mx-2 md:my-6 md:mr-2 md:ml-2 md:pb-12 h-60">
           <h3
             className="mt-5 text-center text-2xl font-bold"
-            style={{ fontFamily: "Rubik, sans-serif" }}
-          >
-            PROFESSIONALS
+            style={{ fontFamily: "Rubik, sans-serif" }}>
+            {t("HOME PAGE.PROFESSIONALS.TITLE")}
           </h3>
           <p
             className="mt-5 text-center text-2xl font-normal mb-3"
-            style={{ fontFamily: "Rubik, sans-serif" }}
-          >
-            {`We work with a wide varierty of specialist, here you can find the best doctor to fit your needs. Click for more information`}
+            style={{ fontFamily: "Rubik, sans-serif" }}>
+            {t("HOME PAGE.PROFESSIONALS.DESCRIPTION 1")}
           </p>
           {/* AQUI VAN LAS CARDS Y CON CLICK MAS DETALLES DEL DOCTOR */}
           <div className="flex  justify-center items-center mb-4 gap-3">
@@ -55,123 +53,105 @@ const Home = () => {
             <select
               className="bg-sky-200/100 ... rounded-lg w-[100px]"
               onChange={filterSpecial}
-              style={{ fontFamily: "Open Sans, sans-serif" }}
-            >
+              style={{ fontFamily: "Open Sans, sans-serif" }}>
               <option
                 value="allDocs"
                 className="font-bold text-center"
-                style={{ fontFamily: "Open Sans, sans-serif" }}
-              >
-                allDocs
+                style={{ fontFamily: "Open Sans, sans-serif" }}>
+                {t("HOME PAGE.SELECTS.ALL")}
               </option>
               <option
                 value="Dermatology"
                 className="font-bold text-center"
-                style={{ fontFamily: "Open Sans, sans-serif" }}
-              >
-                Dermatology
+                style={{ fontFamily: "Open Sans, sans-serif" }}>
+                {t("HOME PAGE.SELECTS.DERMATOLOGY")}
               </option>
               <option
                 value="Rheumatology"
-                className="font-bold"
-                style={{ fontFamily: "Open Sans, sans-serif" }}
-              >
-                Rheumatology
+                className="font-bold text-center"
+                style={{ fontFamily: "Open Sans, sans-serif" }}>
+                {t("HOME PAGE.SELECTS.RHEUMATOLOGY")}
               </option>
               <option
                 value="Psychiatry"
                 className="font-bold text-center"
-                style={{ fontFamily: "Open Sans, sans-serif" }}
-              >
-                Psychiatry
+                style={{ fontFamily: "Open Sans, sans-serif" }}>
+                {t("HOME PAGE.SELECTS.PSYCHIATRY")}
               </option>
               <option
                 value="Gastroenterology"
                 className="font-bold text-center"
-                style={{ fontFamily: "Open Sans, sans-serif" }}
-              >
-                Gastroenterology
+                style={{ fontFamily: "Open Sans, sans-serif" }}>
+                {t("HOME PAGE.SELECTS.GASTROENTEROLOGY")}
               </option>
               <option
                 value="Endocrinology"
                 className="font-bold text-center"
-                style={{ fontFamily: "Open Sans, sans-serif" }}
-              >
-                Endocrinology
+                style={{ fontFamily: "Open Sans, sans-serif" }}>
+                {t("HOME PAGE.SELECTS.ENDOCRINOLOGY")}
               </option>
               <option
                 value="Radiology"
                 className="font-bold text-center"
-                style={{ fontFamily: "Open Sans, sans-serif" }}
-              >
-                Radiology
+                style={{ fontFamily: "Open Sans, sans-serif" }}>
+                {t("HOME PAGE.SELECTS.RADIOLOGY")}
               </option>
               <option
                 value="Urology"
                 className="font-bold text-center"
-                style={{ fontFamily: "Open Sans, sans-serif" }}
-              >
-                Urology
+                style={{ fontFamily: "Open Sans, sans-serif" }}>
+                {t("HOME PAGE.SELECTS.UROLOGY")}
               </option>
               <option
                 value="cardiology"
                 className="font-bold text-center"
-                style={{ fontFamily: "Open Sans, sans-serif" }}
-              >
-                Cardiology
+                style={{ fontFamily: "Open Sans, sans-serif" }}>
+                {t("HOME PAGE.SELECTS.CARDIOLOGY")}
               </option>
             </select>
             <select
               className="bg-sky-200/100 ... rounded-lg w-[100px]"
               onChange={handleOrder}
-              style={{ fontFamily: "Open Sans, sans-serif" }}
-            >
+              style={{ fontFamily: "Open Sans, sans-serif" }}>
               <option
                 className="font-bold text-center"
-                style={{ fontFamily: "Open Sans, sans-serif" }}
-              >
-                Order
+                style={{ fontFamily: "Open Sans, sans-serif" }}>
+                {t("HOME PAGE.SELECTS.ORDER")}
               </option>
               <option
                 value="A"
                 className="font-bold text-center"
-                style={{ fontFamily: "Open Sans, sans-serif" }}
-              >
-                A-Z
+                style={{ fontFamily: "Open Sans, sans-serif" }}>
+                {t("HOME PAGE.SELECTS.AZ")}
               </option>
               <option
                 value="D"
                 className="font-bold text-center"
-                style={{ fontFamily: "Open Sans, sans-serif" }}
-              >
-                Z-A
+                style={{ fontFamily: "Open Sans, sans-serif" }}>
+                {t("HOME PAGE.SELECTS.ZA")}
               </option>
             </select>
 
             <select
               className="bg-sky-200/100 ... rounded-lg w-[100px]"
               onChange={handlePrice}
-              style={{ fontFamily: "Open Sans, sans-serif" }}
-            >
+              style={{ fontFamily: "Open Sans, sans-serif" }}>
               <option
                 className="font-bold text-center"
-                style={{ fontFamily: "Open Sans, sans-serif" }}
-              >
-                Price
+                style={{ fontFamily: "Open Sans, sans-serif" }}>
+                {t("HOME PAGE.SELECTS.PRICE")}
               </option>
               <option
                 value="Top"
                 className="font-bold text-center"
-                style={{ fontFamily: "Open Sans, sans-serif" }}
-              >
-                Price Top
+                style={{ fontFamily: "Open Sans, sans-serif" }}>
+                {t("HOME PAGE.SELECTS.TOP PRICE")}
               </option>
               <option
                 value="Low"
                 className="font-bold text-center"
-                style={{ fontFamily: "Open Sans, sans-serif" }}
-              >
-                Price Low
+                style={{ fontFamily: "Open Sans, sans-serif" }}>
+                {t("HOME PAGE.SELECTS.LOW PRICE")}
               </option>
             </select>
           </div>
@@ -183,12 +163,10 @@ const Home = () => {
       <div className="flex-1 p-4 rounded-lg shadow-md my-2 mx-2 md:my-6 md:mr-2 md:ml-2 md:pb-12 h-96">
         <h3
           className="mt-5 text-center text-2xl"
-          style={{ fontFamily: "Open Sans, sans-serif" }}
-        ></h3>
+          style={{ fontFamily: "Open Sans, sans-serif" }}></h3>
         <p
           className="mt-5 text-center"
-          style={{ fontFamily: "Open Sans, sans-serif" }}
-        ></p>
+          style={{ fontFamily: "Open Sans, sans-serif" }}></p>
       </div>
 
       <div id="services">
@@ -201,8 +179,7 @@ const Home = () => {
 
       <div
         id="news"
-        className="flex flex-col md:flex-row md:items-center md:justify-center"
-      >
+        className="flex flex-col md:flex-row md:items-center md:justify-center">
         <News />
       </div>
 

@@ -40,6 +40,7 @@ const Nav = () => {
   };
   return (
     <nav className="bg-blue-900 text-white">
+
       {/* {console.log(user)} */}
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
         <div className="relative flex h-16 items-center justify-between">
@@ -75,7 +76,9 @@ const Nav = () => {
                   </div>
                 </div>
               </div>
+
             </div>
+
           </div>
 
           <div className="relative ml-3">

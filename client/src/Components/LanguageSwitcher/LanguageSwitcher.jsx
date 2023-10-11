@@ -7,7 +7,7 @@ const languages = {
 const LanguageSwitcher = () => {
   const { i18n } = useTranslation();
 
-  // Se puede implementar localstorage (se agrega a los ¿translation.json?)
+  // Se puede implementar localstorage
   const handleChangeLanguage = (lng) => {
     i18n.changeLanguage(lng);
     // localStorage.setItem("lng", lng);
@@ -15,7 +15,7 @@ const LanguageSwitcher = () => {
 
   return (
     <div
-      className="text-white flex gap-2"
+      className="text-white flex gap-1"
       style={{ fontFamily: "Rubik, sans-serif" }}>
       {Object.keys(languages).map((lng) => (
         <button

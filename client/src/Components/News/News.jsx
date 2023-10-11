@@ -1,11 +1,14 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Paginado from "../Paginado/paginado";
+import { useTranslation } from "react-i18next";
 
 const News = () => {
+  const { t } = useTranslation();
+
   const [news, setNews] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 5;
+  const itemsPerPage = 6;
   const totalItems = news.length;
   const totalPages = Math.ceil(totalItems / itemsPerPage);
   const startIndex = (currentPage - 1) * itemsPerPage;
@@ -39,7 +42,7 @@ const News = () => {
       <h3
         className="mt-5 text-center text-2xl text-white font-bold"
         style={{ fontFamily: "Rubik, sans-serif" }}>
-        NEWS
+        {t("HOME PAGE.NEWS.TITLE")}
       </h3>
       <div className="flex flex-wrap justify-center">
         {currentGame.map((article, index) => (
@@ -52,7 +55,7 @@ const News = () => {
                     : "https://fakeimg.pl/553x253/85c5f2/000000?text=No+image"
                 }
                 alt={article.title}
-                className="w-full h-48 object-cover"
+                className="w-full h-[180px] object-cover"
               />
               <div className="p-6">
                 <h2 className="font-bold text-xl mb-2">{article.title}</h2>
@@ -62,7 +65,7 @@ const News = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="mt-3 text-blue-500">
-                  Read more
+                  {t("HOME PAGE.NEWS.BUTTON")}
                 </a>
               </div>
             </div>

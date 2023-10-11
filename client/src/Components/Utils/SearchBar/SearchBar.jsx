@@ -1,8 +1,11 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { getDoctorName, getDoctors } from "../../../redux/actions";
+import { useTranslation } from "react-i18next";
 
 export default function SearchBar() {
+  const { t } = useTranslation();
+
   const dispatch = useDispatch();
   const [name, setName] = useState("");
 
@@ -18,7 +21,7 @@ export default function SearchBar() {
       type="search"
       className="flex flex-col items-center justify-center mx-1">
       <input
-        placeholder="Search by breed name"
+        placeholder={t("HOME PAGE.SEARCHBAR.PLACEHOLDER")}
         onChange={handleInputChange}
         type="search"
         value={name}
@@ -30,7 +33,7 @@ export default function SearchBar() {
         onClick={handleSubmit}
         style={{ fontFamily: "Open Sans, sans-serif" }}
         className="bg-black rounded-lg text-white mt-2 w-[75px] py-1">
-        Search
+        {t("HOME PAGE.SEARCHBAR.BUTTON")}
       </button>
     </div>
   );

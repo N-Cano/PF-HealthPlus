@@ -5,8 +5,12 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../../firebase/firebase.config";
 import { UserAuth } from "../../context/AuthContext";
+import LanguageSwitcher from "../LanguageSwitcher/LanguageSwitcher";
+import { useTranslation } from "react-i18next";
 
 const NavHome = () => {
+  const { t } = useTranslation();
+
   const navigate = useNavigate();
   const { signOutWithGoogle } = UserAuth();
   const [user, setUser] = useState(null); // Estado local para el usuario autenticado
@@ -47,7 +51,9 @@ const NavHome = () => {
         <div className="relative flex h-16 items-center justify-between">
           <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
             <div className="flex flex-shrink-0 items-center">
+
               <img className="h-10 w-auto" src={logo3} alt="Logo" />
+
             </div>
             <div className="hidden sm:ml-6 sm:block">
               <div className="flex space-x-4">
@@ -65,15 +71,24 @@ const NavHome = () => {
                       style={{ fontFamily: "Rubik, sans-serif" }}
                     >
                       SCHEDULE
+
                     </a>
                   </Link>
 
+                  <div className="ml-[170px]">
+                    <LanguageSwitcher />
+                  </div>
+
                   <div className="flex items-center">
                     <h3
+
                       className="ml-[400px] font-semibold"
                       style={{ fontFamily: "Rubik, sans-serif" }}
                     >
                       Welcome, {user ? user.displayName || user.email : ""}
+
+                  
+
                     </h3>
                   </div>
                 </div>
@@ -104,17 +119,21 @@ const NavHome = () => {
                 <Link to="/profile">
                   <a
                     href="#"
+
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                   >
                     Profile
+
                   </a>
                 </Link>
                 <Link to="/myDates">
                   <a
                     href="#"
+
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                   >
                     My Dates
+
                   </a>
                 </Link>
                 <a
@@ -123,6 +142,7 @@ const NavHome = () => {
                   onClick={logOutWithGoogle}
                 >
                   Log Out
+
                 </a>
               </div>
             )}
