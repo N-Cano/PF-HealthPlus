@@ -25,20 +25,20 @@ const signUpUser = async ({ email, uid }) => {
 
 //   --- Bring all users ---
 const bringUsers = async () => {
+    try {
+        const allUsers = await db.collection('users').get();
+        const users = allUsers.docs.map((user)=>({
+            id: user.id,
+            ...user.data()
+        }))
+        return users
+    } catch (error) {
+        throw new Error(error)
+    }
 
-  try {
-    const allUsers = await db.collection("users").get();
-    const users = allUsers.docs.map((user) => ({
-      id: user.id,
-      ...user.data(),
-    }));
-    return users;
-  } catch (error) {
-    throw new Error(error);
-  }
 };
-// --- Bring an user from data base---
 
+// --- Bring an user from data base ---
 
 const bringUserById = async (id) => {
 
@@ -158,17 +158,22 @@ const bringUserDates = async (id) => {
     }
 };
 
+// --- Post a review ---
 
-module.exports = {
-  bringUserById,
-  deleteUser,
-  disableUser,
-  signUpUser,
-  updateUser,
-  enableUser,
-  bringUserDates,
-  bringUsers,
-
+const reviewDoctor = async ({ userId, doctorId, comment, punctuation, date }) => {
+    try {
+        const review = {
+            doctorId,
+            comment,
+            date,
+            punctuation
+        }
+        await db.collection('users').doc(userId).update({
+            reviews: FieldValue.arrayUnion(review)
+        })
+    } catch (error) {
+        throw new Error(error)
+    }
 };
 
 module.exports = { bringUsers, bringUserById, deleteUser, disableUser, signUpUser, updateUser, enableUser, bringUserDates, reviewDoctor }
