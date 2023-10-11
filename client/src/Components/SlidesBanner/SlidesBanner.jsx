@@ -1,25 +1,27 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
 import { RxDotFilled } from "react-icons/rx";
 
 const SlidesBanner = () => {
+  const { t } = useTranslation();
   const slides = [
     {
       url: "https://images.unsplash.com/photo-1527613426441-4da17471b66d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2052&q=80",
-      msg: "We offer a wide variety of services to comply with your need! Because if you care, we care.",
+      msg: t("LANDING PAGE.SLIDESBANNER.MSG 1"),
     },
     {
       url: "https://images.unsplash.com/photo-1579684453423-f84349ef60b0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=891&q=80",
-      msg: "Here you can find the best services! Because if you care, we care.",
+      msg: t("LANDING PAGE.SLIDESBANNER.MSG 2"),
     },
     {
       url: "https://images.unsplash.com/photo-1537368910025-700350fe46c7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
-      msg: "We have the best tools",
+      msg: t("LANDING PAGE.SLIDESBANNER.MSG 3"),
     },
 
     {
       url: "https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1932&q=80",
-      msg: "We have the best attention",
+      msg: t("LANDING PAGE.SLIDESBANNER.MSG 4"),
     },
   ];
 

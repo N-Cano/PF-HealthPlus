@@ -44,7 +44,7 @@ const Landing = () => {
           <p
             className="mt-5 text-center"
             style={{ fontFamily: "Open Sans, sans-serif" }}>
-            {`At HealthPlus, we are dedicated to you and your health. Our aim is to provide fast, easy, and patient-oriented services. Our doctors' priority is the patients and their families.`}
+            {t("LANDING PAGE.ABOUT US 1.WHAT DO WE DO.DESCRIPTION")}
           </p>
         </div>
 
@@ -52,14 +52,12 @@ const Landing = () => {
           <h3
             className="mt-5 text-center text-2xl"
             style={{ fontFamily: "Rubik, sans-serif" }}>
-            OUR COMMUNITY
+            {t("LANDING PAGE.ABOUT US 1.OUR COMMUNITY.TITLE")}
           </h3>
           <p
             className="mt-5 text-center"
             style={{ fontFamily: "Open Sans, sans-serif" }}>
-            We are a professional clinic with a long trajectory based in the
-            United States, with a large coverage, elite service, and a
-            professional staff.
+            {t("LANDING PAGE.ABOUT US 1.OUR COMMUNITY.DESCRIPTION")}
           </p>
           <div className="flex-grow"></div>
         </div>
@@ -68,12 +66,12 @@ const Landing = () => {
           <h3
             className="mt-5 text-center text-2xl"
             style={{ fontFamily: "Rubik, sans-serif" }}>
-            CONTACT US
+            {t("LANDING PAGE.ABOUT US 1.CONTACT US.TITLE")}
           </h3>
           <p
             className="mt-5 text-center"
             style={{ fontFamily: "Open Sans, sans-serif" }}>
-            Here you can get in touch with us.
+            {t("LANDING PAGE.ABOUT US 1.CONTACT US.DESCRIPTION")}
           </p>
           <div className="flex-grow"></div>
         </div>
@@ -92,8 +90,7 @@ const Landing = () => {
             <p
               className="mb-4 text-lg md:text-xl lg:text-2xl xl:text-3xl text-center"
               style={{ fontFamily: "Rubik, sans-serif" }}>
-              HealthPlus is a private medical center that focuses on serving its
-              associates by providing the best services.
+              {t("LANDING PAGE.ABOUT US 2.DESCRIPTION 1")}
             </p>
           </div>
         </div>
@@ -110,8 +107,7 @@ const Landing = () => {
               <p
                 className="mb-4 text-lg md:text-xl lg:text-2xl xl:text-3xl text-center"
                 style={{ fontFamily: "Rubik, sans-serif" }}>
-                HealthPlus offers you a new experience in healthcare, and you
-                can become part of our family at any time.
+                {t("LANDING PAGE.ABOUT US 2.DESCRIPTION 2")}
               </p>
             </div>
           </div>
@@ -126,7 +122,7 @@ const Landing = () => {
               <h2
                 className="text-white text-center"
                 style={{ fontFamily: "Rubik, sans-serif" }}>
-                APPOINTMENTS
+                {t("LANDING PAGE.SERVICES.APPOINTMENTS.TITLE")}
               </h2>
             </div>
             <img
@@ -139,7 +135,7 @@ const Landing = () => {
             <button
               className="bg-black text-white h-12 w-28 rounded-2xl mt-0 hover:bg-white hover:text-black"
               style={{ fontFamily: "Open Sans, sans-serif" }}>
-              Get started
+              {t("LANDING PAGE.SERVICES.APPOINTMENTS.BUTTON")}
             </button>
           </Link>
         </div>
@@ -148,11 +144,8 @@ const Landing = () => {
             <div className="bg-blue-900 w-full rounded-lg h-12 flex items-center justify-center">
               <h2
                 className="text-white text-center"
-
-                style={{ fontFamily: "Rubik, sans-serif" }}
-              >
-                PROFESSIONALS
-               
+                style={{ fontFamily: "Rubik, sans-serif" }}>
+                {t("LANDING PAGE.SERVICES.PROFESSIONALS.TITLE")}
               </h2>
             </div>
             <img
@@ -165,7 +158,7 @@ const Landing = () => {
             <button
               className="bg-black text-white h-12 w-28 rounded-2xl mt-0 hover:bg-white hover:text-black"
               style={{ fontFamily: "Open Sans, sans-serif" }}>
-              Get started
+              {t("LANDING PAGE.SERVICES.PROFESSIONALS.BUTTON")}
             </button>
           </Link>
         </div>
@@ -175,7 +168,7 @@ const Landing = () => {
               <h2
                 className="text-white text-center"
                 style={{ fontFamily: "Rubik, sans-serif" }}>
-                SCHEDULE YOUR FREE CHECKOUT
+                {t("LANDING PAGE.SERVICES.CHECKOUT.TITLE")}
               </h2>
             </div>
             <img
@@ -188,7 +181,7 @@ const Landing = () => {
             <button
               className="bg-black text-white h-12 w-28 rounded-2xl mt-0 hover:bg-white hover:text-black"
               style={{ fontFamily: "Open Sans, sans-serif" }}>
-              Get started
+              {t("LANDING PAGE.SERVICES.CHECKOUT.BUTTON")}
             </button>
           </Link>
         </div>
@@ -211,13 +204,12 @@ const Landing = () => {
         <h3
           className="text-black text-[30px] text-center pt-1 mb-1 font-semibold"
           style={{ fontFamily: "Rubik, sans-serif" }}>
-          The best doctors give you the best care
+          {t("LANDING PAGE.DOCTORS CARDS.DESCRIPTION 1")}
         </h3>
         <p
           className="mt-8 text-2xl text-center mb-1"
           style={{ fontFamily: "Open Sans, sans-serif" }}>
-          Devotion, professionalism and hard work are the essence of our team of
-          experienced doctors, nurses and care assistants.
+          {t("LANDING PAGE.DOCTORS CARDS.DESCRIPTION 2")}
         </p>
 
         <Cards />

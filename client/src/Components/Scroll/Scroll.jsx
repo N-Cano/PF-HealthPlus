@@ -1,4 +1,8 @@
+import { useTranslation } from "react-i18next";
+
 const Scroll = () => {
+  const { t } = useTranslation();
+
   const scrollToSection = (sectionId) => {
     const section = document.getElementById(sectionId);
     if (section) {
@@ -12,33 +16,29 @@ const Scroll = () => {
         className="text-white hover:bg-gray-700 hover:text-white rounded-md px-3 py-2  text-sm font-medium"
         onClick={() => {
           scrollToSection("about");
-        }}
-      >
-        ABOUT
+        }}>
+        {t("LANDING PAGE.NAVBAR.SCROLL.ABOUT")}
       </button>
       <button
         className=" text-white hover:bg-gray-700 hover:text-white rounded-md px-3 py-2  text-sm font-medium"
         onClick={() => {
           scrollToSection("doctors");
-        }}
-      >
-        SERVICES
+        }}>
+        {t("LANDING PAGE.NAVBAR.SCROLL.SERVICES")}
       </button>
       <button
         className=" text-white hover:bg-gray-700 hover:text-white rounded-md px-3 py-2  text-sm font-medium"
         onClick={() => {
           scrollToSection("services");
-        }}
-      >
-        PROFESSIONALS
+        }}>
+        {t("LANDING PAGE.NAVBAR.SCROLL.PROFESSIONALS")}
       </button>
       <button
         className=" text-white hover:bg-gray-700 hover:text-white rounded-md px-3 py-2  text-sm font-medium"
         onClick={() => {
           scrollToSection("locations");
-        }}
-      >
-        LOCATIONS
+        }}>
+        {t("LANDING PAGE.NAVBAR.SCROLL.LOCATIONS")}
       </button>
     </div>
   );

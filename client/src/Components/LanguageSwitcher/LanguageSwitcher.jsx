@@ -15,7 +15,7 @@ const LanguageSwitcher = () => {
 
   return (
     <div
-      className="text-white flex gap-2"
+      className="text-white flex gap-1"
       style={{ fontFamily: "Rubik, sans-serif" }}>
       {Object.keys(languages).map((lng) => (
         <button

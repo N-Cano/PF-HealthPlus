@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import sponsor1 from "../../assets/sponsorsImages/sponsor 1.png";
 import sponsor2 from "../../assets/sponsorsImages/sponsor 2.png";
 import sponsor3 from "../../assets/sponsorsImages/sponsor 3.png";
@@ -14,12 +15,13 @@ const sponsorsData = [
 ];
 
 const Sponsors = () => {
+  const { t } = useTranslation();
   return (
     <div className="bg-black h-[255px] flex flex-wrap flex-col items-center justify-around pb-12 pt-2">
       <h2
         className="text-2xl h-6 pt-6 md:text-3xl font-semibold text-white mb-6 md:mb-8 xl:mb-10"
         style={{ fontFamily: "Rubik, sans-serif" }}>
-        Our Sponsors
+        {t("LANDING PAGE.SPONSORS.OUR SPONSORS")}
       </h2>
       <div className="grid grid-cols-5 mr-[200px]">
         <section>

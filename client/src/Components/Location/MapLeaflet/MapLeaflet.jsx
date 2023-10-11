@@ -4,6 +4,7 @@ import { Icon, divIcon } from "leaflet";
 import { useMapEvents } from "react-leaflet/hooks";
 import MarkerClusterGroup from "react-leaflet-cluster";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 import "leaflet/dist/leaflet.css";
 import logo from "../../../assets/logo2.jpeg";
@@ -16,6 +17,7 @@ const myIcon = new Icon({
 
 // Componente para manejar el marcador con la ubicación del usuario
 function LocationMarker() {
+  const { t } = useTranslation();
   const [position, setPosition] = useState(null);
   const map = useMapEvents({
     click() {
@@ -31,13 +33,14 @@ function LocationMarker() {
     setPosition(targetLocation)
   ) : (
     <Marker position={position}>
-      <Popup>You are here</Popup>
+      <Popup>{t("LANDING PAGE.LOCATION.MAP.USER")}</Popup>
     </Marker>
   );
 }
 
 // Componente con botones
 const Buttons = () => {
+  const { t } = useTranslation();
   // const map = useMap();
   return (
     <>
@@ -55,7 +58,7 @@ const Buttons = () => {
           left: "48px",
           zIndex: 1000,
         }}>
-        Find my location
+        {t("LANDING PAGE.LOCATION.MAP.BUTTON")}
       </button>
     </>
   );
@@ -63,6 +66,8 @@ const Buttons = () => {
 
 // Componente principal del mapa
 const MapLeaflet = () => {
+  const { t } = useTranslation();
+
   const createCustomClusterIcon = (cluster) => {
     return new divIcon({
       html: `<div style="background-color: red; color: white; border-radius:50%; width: 30px; height: 30px; display: flex; justify-content: center; align-items: center;">${cluster.getChildCount()}</div>`,
@@ -91,7 +96,7 @@ const MapLeaflet = () => {
           iconCreateFunction={createCustomClusterIcon}>
           <LocationMarker />
           <Marker position={targetLocation} icon={myIcon}>
-            <Popup>Our facility</Popup>
+            <Popup>{t("LANDING PAGE.LOCATION.MAP.OUR FACILITY")}</Popup>
           </Marker>
           <Buttons />
         </MarkerClusterGroup>
