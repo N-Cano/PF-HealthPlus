@@ -2,6 +2,8 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch } from "react-redux";
 import { subscribeNewsletter } from "../../redux/actions";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Newsletter = () => {
   const { t } = useTranslation();
@@ -18,6 +20,17 @@ const Newsletter = () => {
     // Logica de subscripción
     dispatch(subscribeNewsletter(email));
     setSubscribed(true);
+    //toast-notification
+    toast(`Request sent. Wait for confirmation in your email`, {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
   };
   return (
     <div className="max-w-none bg-blue-900 h-[300px] container w-full text-white text-center md:text-left mb-0 md:mb-0 flex flex-col items-center justify-center">
@@ -68,6 +81,7 @@ const Newsletter = () => {
           </div>
         )}
       </form>
+      <ToastContainer />
     </div>
   );
 };
