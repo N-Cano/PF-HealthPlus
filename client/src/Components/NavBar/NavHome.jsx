@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import logo2 from "../../assets/logo2sinfond0.png";
 import ScrollHome from "../Scroll/ScrollHome";
-import { useEffect, useState, useTransition } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../../firebase/firebase.config";
 import { UserAuth } from "../../context/AuthContext";

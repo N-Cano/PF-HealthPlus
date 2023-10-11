@@ -58,55 +58,55 @@ const Home = () => {
                 value="allDocs"
                 className="font-bold text-center"
                 style={{ fontFamily: "Open Sans, sans-serif" }}>
-                allDocs
+                {t("HOME PAGE.SELECTS.ALL")}
               </option>
               <option
                 value="Dermatology"
                 className="font-bold text-center"
                 style={{ fontFamily: "Open Sans, sans-serif" }}>
-                Dermatology
+                {t("HOME PAGE.SELECTS.DERMATOLOGY")}
               </option>
               <option
                 value="Rheumatology"
-                className="font-bold"
+                className="font-bold text-center"
                 style={{ fontFamily: "Open Sans, sans-serif" }}>
-                Rheumatology
+                {t("HOME PAGE.SELECTS.RHEUMATOLOGY")}
               </option>
               <option
                 value="Psychiatry"
                 className="font-bold text-center"
                 style={{ fontFamily: "Open Sans, sans-serif" }}>
-                Psychiatry
+                {t("HOME PAGE.SELECTS.PSYCHIATRY")}
               </option>
               <option
                 value="Gastroenterology"
                 className="font-bold text-center"
                 style={{ fontFamily: "Open Sans, sans-serif" }}>
-                Gastroenterology
+                {t("HOME PAGE.SELECTS.GASTROENTEROLOGY")}
               </option>
               <option
                 value="Endocrinology"
                 className="font-bold text-center"
                 style={{ fontFamily: "Open Sans, sans-serif" }}>
-                Endocrinology
+                {t("HOME PAGE.SELECTS.ENDOCRINOLOGY")}
               </option>
               <option
                 value="Radiology"
                 className="font-bold text-center"
                 style={{ fontFamily: "Open Sans, sans-serif" }}>
-                Radiology
+                {t("HOME PAGE.SELECTS.RADIOLOGY")}
               </option>
               <option
                 value="Urology"
                 className="font-bold text-center"
                 style={{ fontFamily: "Open Sans, sans-serif" }}>
-                Urology
+                {t("HOME PAGE.SELECTS.UROLOGY")}
               </option>
               <option
                 value="cardiology"
                 className="font-bold text-center"
                 style={{ fontFamily: "Open Sans, sans-serif" }}>
-                Cardiology
+                {t("HOME PAGE.SELECTS.CARDIOLOGY")}
               </option>
             </select>
             <select
@@ -116,19 +116,19 @@ const Home = () => {
               <option
                 className="font-bold text-center"
                 style={{ fontFamily: "Open Sans, sans-serif" }}>
-                Order
+                {t("HOME PAGE.SELECTS.ORDER")}
               </option>
               <option
                 value="A"
                 className="font-bold text-center"
                 style={{ fontFamily: "Open Sans, sans-serif" }}>
-                A-Z
+                {t("HOME PAGE.SELECTS.AZ")}
               </option>
               <option
                 value="D"
                 className="font-bold text-center"
                 style={{ fontFamily: "Open Sans, sans-serif" }}>
-                Z-A
+                {t("HOME PAGE.SELECTS.ZA")}
               </option>
             </select>
 
@@ -139,19 +139,19 @@ const Home = () => {
               <option
                 className="font-bold text-center"
                 style={{ fontFamily: "Open Sans, sans-serif" }}>
-                Price
+                {t("HOME PAGE.SELECTS.PRICE")}
               </option>
               <option
                 value="Top"
                 className="font-bold text-center"
                 style={{ fontFamily: "Open Sans, sans-serif" }}>
-                Price Top
+                {t("HOME PAGE.SELECTS.TOP PRICE")}
               </option>
               <option
                 value="Low"
                 className="font-bold text-center"
                 style={{ fontFamily: "Open Sans, sans-serif" }}>
-                Price Low
+                {t("HOME PAGE.SELECTS.LOW PRICE")}
               </option>
             </select>
           </div>
