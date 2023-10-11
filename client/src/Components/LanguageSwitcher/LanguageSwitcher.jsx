@@ -7,7 +7,7 @@ const languages = {
 const LanguageSwitcher = () => {
   const { i18n } = useTranslation();
 
-  // Se puede implementar localstorage (se agrega a los ¿translation.json?)
+  // Se puede implementar localstorage
   const handleChangeLanguage = (lng) => {
     i18n.changeLanguage(lng);
     // localStorage.setItem("lng", lng);
