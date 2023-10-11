@@ -39,22 +39,21 @@ const bringDoctorById = async (id) => {
 // --- Create a new doctor ---
 
 const createDoctor = async (data) => {
-
-  try {
-    await db.collection("doctors").add({
-      ...data,
-      enable: true,
-      rol: "doctor",
-      comments: [],
-      dates: [],
-    });
-    const doctor = {
-      ...data,
-    };
-    return doctor;
-  } catch (error) {
-    throw new Error(error);
-  }
+    try {
+        await db.collection('doctors').add({
+            ...data,
+            enable: true,
+            rol: 'doctor',
+            comments: [],
+            dates: []
+        });
+        const doctor = {
+            ...data
+        }
+        return doctor
+    } catch (error) {
+        throw new Error(error)
+    }
 };
 
 // --- Bring doctor by name ---
