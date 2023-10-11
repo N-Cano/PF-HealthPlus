@@ -3,35 +3,29 @@ import logo2 from "../../assets/logo2sinfond0.png";
 
 const Nav = () => {
   return (
-    <nav className="bg-gray-100">
+    <nav className="bg-blue-900 text-white">
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
         <div className="relative flex h-16 items-center justify-between">
           <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-            <div className="flex flex-shrink-0 items-center">
+            <Link to='/home' className="flex flex-shrink-0 items-center">
               <img className="h-10 w-auto" src={logo2} alt="Logo" />
-            </div>
-            <div className="hidden sm:ml-6 sm:block">
-              <div className="flex space-x-4">
-                <div className="flex items-center space-x-4 ml-auto ">
-                  {/* Botones del componente Scroll */}
-                </div>
+            </Link>
 
-                <div className="flex items-center">
-                  <Link to="/home">
-                    <a
-                      href="#"
-                      className="text-gray-900 hover:bg-gray-700 hover:text-white rounded-md px-4 py-2 text-sm font-medium"
-                    >
-                      BACK
-                    </a>
-                  </Link>
-                </div>
-              </div>
+            <div className="ml-8 flex items-center justify-center">
+              <Link to="/home">
+                <a
+                  href="#"
+                  className="font-bold hover:bg-gray-700 hover:text-white rounded-md px-4 py-2 text-sm"
+                >
+                  HOME
+                </a>
+              </Link>
             </div>
+
           </div>
           <div className="text-center">
             {" "}
-            <h1 className="font-bold">SUBSCRIBE</h1>{" "}
+            <h1 className="font-bold">HEALTHPLUS</h1>{" "}
           </div>
         </div>
       </div>

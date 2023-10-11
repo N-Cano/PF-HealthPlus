@@ -8,8 +8,10 @@ import SearchBar from "../../Components/Utils/SearchBar/SearchBar";
 import { useDispatch } from "react-redux";
 import Subscribe from "../../Components/Subscribe/Subscribe";
 import SpecialtiesHome from "../../Components/Specialties/SpecialtiesHome";
-
-const Home = () => {
+import DocsCards from "../../Components/CardsDocDash/DocsCards";
+import CardsUsers from "../../Components/CardsUsers/CardsUsers";
+import { Link } from "react-router-dom";
+const DashBoard = () => {
   const dispatch = useDispatch();
 
   const filterSpecial = (event) => {
@@ -30,28 +32,23 @@ const Home = () => {
         boxShadow: "7px 6px 30px #8ccef5",
       }}
     >
-      <NavHome />
-
-      <div
-        id="doctors"
-        className="flex flex-col md:flex-row mt-1 md:items-center md:justify-center"
-      >
-        <div className="flex-1 p-4 rounded-lg shadow-md my-7 mx-2 md:my-6 md:mr-2 md:ml-2 md:pb-12 h-60">
+      <div id="doctors">
+        <div className="flex-1 p-4 rounded-lg shadow-md my-7 mx-2 md:my-6 md:mr-2 md:ml-2 md:pb-12 h-10">
           <h3
             className="mt-5 text-center text-2xl font-bold"
             style={{ fontFamily: "Rubik, sans-serif" }}
           >
-            PROFESSIONALS
+            DOCTORS
           </h3>
-          <p
-            className="mt-5 text-center text-2xl font-normal mb-3"
-            style={{ fontFamily: "Rubik, sans-serif" }}
-          >
-            {`We work with a wide varierty of specialist, here you can find the best doctor to fit your needs. Click for more information`}
-          </p>
+
           {/* AQUI VAN LAS CARDS Y CON CLICK MAS DETALLES DEL DOCTOR */}
-          <div className="flex  justify-center items-center mb-4 gap-3">
+          <div>
             <SearchBar />
+            <div>
+              <Link to={"/postdocs"}>
+                <button>CREAR DOCTOR</button>
+              </Link>
+            </div>
             <select
               className="bg-sky-200/100 ... rounded-lg w-[100px]"
               onChange={filterSpecial}
@@ -176,40 +173,31 @@ const Home = () => {
             </select>
           </div>
           <div className="bg-blue-200 ... rounded-lg "></div>
-          <Cards />
+          <DocsCards />
         </div>
       </div>
 
-      <div className="flex-1 p-4 rounded-lg shadow-md my-2 mx-2 md:my-6 md:mr-2 md:ml-2 md:pb-12 h-96">
-        <h3
-          className="mt-5 text-center text-2xl"
-          style={{ fontFamily: "Open Sans, sans-serif" }}
-        ></h3>
-        <p
-          className="mt-5 text-center"
-          style={{ fontFamily: "Open Sans, sans-serif" }}
-        ></p>
-      </div>
-
-      <div id="services">
-        <SpecialtiesHome />
-      </div>
-
-      <div id="subscribe">
-        <Subscribe />
-      </div>
-
       <div
-        id="news"
-        className="flex flex-col md:flex-row md:items-center md:justify-center"
+        id="doctors"
+        className="flex flex-col md:flex-row mt-80 md:items-center md:justify-center"
       >
-        <News />
+        <div>
+          <h3
+            className="mt-5 text-center text-2xl font-bold"
+            style={{ fontFamily: "Rubik, sans-serif" }}
+          >
+            USERS
+          </h3>
+
+          {/* AQUI VAN LAS CARDS Y CON CLICK MAS DETALLES DEL DOCTOR */}
+          <div>
+            <SearchBar />
+          </div>
+          <CardsUsers />
+        </div>
       </div>
-
-      <ScrollToTop smooth />
-
       <Footer />
     </div>
   );
 };
-export default Home;
+export default DashBoard;

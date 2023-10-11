@@ -7,11 +7,14 @@ import {
   PRICE,
   GET_DOCTORS_NAME,
   GET_DATE_ID,
+  GET_USERS,
 } from "./actions-types";
 
 const initialState = {
   doctors: [],
   doctorsBackups: [],
+  users: [],
+  usersBackups: [],
   doctor: {},
   patient: [],
   imageSrc: "",
@@ -24,6 +27,12 @@ const rootReducer = (state = initialState, actions) => {
         ...state,
         doctors: actions.payload,
         doctorsBackups: actions.payload,
+      };
+    case GET_USERS:
+      return {
+        ...state,
+        users: actions.payload,
+        usersBackups: actions.payload,
       };
 
     case GET_DOCTOR:

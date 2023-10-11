@@ -18,7 +18,7 @@ doctorRouter.post('/', fileUpload({  // Middleware para que express pueda recibi
   tempFileDir: './uploads'          // en esta ruta
 }), postDoctor);
 
-doctorRouter.post('/comment',createComments)
+doctorRouter.post('/comment', createComments)
 doctorRouter.put('/disable/:id', disableDoctorHandler);
 doctorRouter.put('/enable/:id', enableDoctorHandler);
 doctorRouter.get('/:id', getDoctorById);

@@ -13,7 +13,8 @@ const ScrollHome = () => {
         style={{ fontFamily: "Rubik, sans-serif" }}
         onClick={() => {
           scrollTo("news");
-        }}>
+        }}
+      >
         NEWS
       </button>
 
@@ -22,8 +23,9 @@ const ScrollHome = () => {
         style={{ fontFamily: "Rubik, sans-serif" }}
         onClick={() => {
           scrollTo("doctors");
-        }}>
-        DOCTORS
+        }}
+      >
+        PROFESSIONALS
       </button>
 
       <button
@@ -31,7 +33,8 @@ const ScrollHome = () => {
         style={{ fontFamily: "Rubik, sans-serif" }}
         onClick={() => {
           scrollTo("services");
-        }}>
+        }}
+      >
         SERVICES
       </button>
 
@@ -40,7 +43,8 @@ const ScrollHome = () => {
         style={{ fontFamily: "Rubik, sans-serif" }}
         onClick={() => {
           scrollTo("subscribe");
-        }}>
+        }}
+      >
         SUBSCRIBE
       </button>
     </div>
