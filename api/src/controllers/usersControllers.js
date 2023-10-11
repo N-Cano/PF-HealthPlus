@@ -27,7 +27,7 @@ const signUpUser = async ({ email, uid }) => {
 const bringUsers = async () => {
     try {
         const allUsers = await db.collection('users').get();
-        const users = allUsers.docs.map((user)=>({
+        const users = allUsers.docs.map((user) => ({
             id: user.id,
             ...user.data()
         }))
@@ -37,23 +37,40 @@ const bringUsers = async () => {
     }
 
 };
+// --- Bring an user by name from data base --
+const bringUserByName = async (name) => {
+    try {
+        const querySnapshot = await db.collection('users').where('name', '==', name).get();
+        const users = [];
+        querySnapshot.forEach((doc) => {
+            users.push({
+                id: doc.id,
+                ...doc.data()
+            })
+        })
+        return users;
+    } catch (error) {
+        throw new Error(error)
+    }
+}
 
-// --- Bring an user from data base ---
+
+// --- Bring an user by id from data base ---
 
 const bringUserById = async (id) => {
 
-  try {
-    const userData = await db.collection("users").doc(id).get();
-    const user = {
-      id: userData.id,
-      ...userData.data(),
-    };
-    if (!user.email) throw new Error(`No user matched with UID: ${id}`);
-    user.image = user.photo.secure_url;
-    return user;
-  } catch (error) {
-    throw new Error(error);
-  }
+    try {
+        const userData = await db.collection("users").doc(id).get();
+        const user = {
+            id: userData.id,
+            ...userData.data(),
+        };
+        if (!user.email) throw new Error(`No user matched with UID: ${id}`);
+        user.image = user.photo.secure_url;
+        return user;
+    } catch (error) {
+        throw new Error(error);
+    }
 };
 
 // --- Delete an user from data base ---
@@ -129,17 +146,17 @@ const disableUser = async (id) => {
 
 //  --- Update user ---
 const updateUser = async (data) => {
-  const { uid } = data;
-  try {
-    await db.collection("users").doc(uid).update(data);
-    const user = await db.collection("users").doc(uid).get();
-    const userData = {
-      ...user.data(),
-    };
-    return userData;
-  } catch (error) {
-    throw new Error(error);
-  }
+    const { uid } = data;
+    try {
+        await db.collection("users").doc(uid).update(data);
+        const user = await db.collection("users").doc(uid).get();
+        const userData = {
+            ...user.data(),
+        };
+        return userData;
+    } catch (error) {
+        throw new Error(error);
+    }
 };
 
 // --- Bring user's dates ---
@@ -176,5 +193,5 @@ const reviewDoctor = async ({ userId, doctorId, comment, punctuation, date }) =>
     }
 };
 
-module.exports = { bringUsers, bringUserById, deleteUser, disableUser, signUpUser, updateUser, enableUser, bringUserDates, reviewDoctor }
+module.exports = { bringUsers, bringUserById, deleteUser, disableUser, signUpUser, updateUser, enableUser, bringUserDates, reviewDoctor, bringUserByName }
 
