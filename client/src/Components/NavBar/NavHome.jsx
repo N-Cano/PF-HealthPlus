@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import logo from "../../assets/logo2.jpeg";
+import logo2 from "../../assets/logo2sinfond0.png";
 import ScrollHome from "../Scroll/ScrollHome";
 import { useEffect, useState, useTransition } from "react";
 import { useNavigate } from "react-router-dom";
@@ -51,7 +51,7 @@ const NavHome = () => {
         <div className="relative flex h-16 items-center justify-between">
           <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
             <div className="flex flex-shrink-0 items-center">
-              <img className="h-10 w-auto" src={logo} alt="Logo" />
+              <img className="h-10 w-auto" src={logo2} alt="Logo" />
             </div>
             <div className="hidden sm:ml-6 sm:block">
               <div className="flex space-x-4">

@@ -8,6 +8,8 @@ import {
   ORDER,
   PRICE,
   GET_DATE_ID,
+  SUBSCRIBE_NEWSLETTER,
+  GET_USERS,
 } from "./actions-types";
 
 export const getDoctors = () => {
@@ -21,6 +23,21 @@ export const getDoctors = () => {
       });
     } catch (error) {
       console.error("Error al obtener los datos de los doctores:", error);
+      throw new Error(error);
+    }
+  };
+};
+export const getUsers = () => {
+  return async (dispatch) => {
+    try {
+      const response = await axios.get("http://localhost:3001/users");
+      const users = response.data;
+      dispatch({
+        type: GET_USERS,
+        payload: users,
+      });
+    } catch (error) {
+      console.error("Error al obtener los datos de los Usuarios:", error);
       throw new Error(error);
     }
   };
@@ -120,3 +137,17 @@ export const setImage = (imageSrc) => ({
   type: "SET_IMAGE",
   payload: imageSrc,
 });
+export const subscribeNewsletter = (email) => {
+  return async (dispatch) => {
+    try {
+      const data = { email }
+      const response = await axios.post("http://localhost:3001/newsletter", data);
+      dispatch({
+        type: SUBSCRIBE_NEWSLETTER,
+        payload: response.data, 
+      });
+    } catch (error) {
+      throw new Error(error);
+    }
+  }
+};

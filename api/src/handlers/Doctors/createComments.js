@@ -1,25 +1,28 @@
 const { putComments } = require("../../controllers/doctorsControllers");
+const { reviewDoctor } = require("../../controllers/usersControllers");
 
 const createComments = async (req, res) => {
     try {
-        const { userId,
-            doctorId,
-            comment,
-            date,
-            datesId,
-            punctuation } = req.body
+        const { userId, doctorId, comment, date, punctuation } = req.body
         const data = {
             userId,
             doctorId,
             comment,
             date,
-            datesId,
             punctuation
         }
-        const response = await putComments(data);
-        res.status(201).json(response)
+        // Add review to doctor
+        const review = await putComments(data);
+
+        // Add review from user
+        await reviewDoctor(data)
+        
+        res.status(201).json({
+            status: 'posted',
+            review
+        })
     } catch (error) {
-        res.status(400).send(error.message)
+        res.status(400).json(error.message)
     }
 };
 

@@ -1,3 +1,4 @@
+const { FieldValue } = require("firebase-admin/firestore");
 const { db } = require("../firebase");
 
 //  --- Sign up ---
@@ -8,36 +9,36 @@ const signUpUser = async ({ email, uid }) => {
         await userRef.set({
             email,
             name: '',
-            id: '',
+            userId: '',
             photo: {},
             dates: [],
             rol: 'user',
-            enable: false
+            enable: false,
+            reviews: []
         });
 
-        return userRef.id; // El ID del documento es igual al UID del usuario
+        return userRef.id;
     } catch (error) {
-        console.log(error);
         throw new Error(error);
     }
 };
 
 //   --- Bring all users ---
 const bringUsers = async () => {
-    try {
-        const allUsers = await db.collection('users').get();
-        const users = allUsers.docs.map((user)=>({
-            id: user.id,
-            ...user.data()
-        }))
-        return users
-    } catch (error) {
-        throw new Error(error)
-    }
 
+  try {
+    const allUsers = await db.collection("users").get();
+    const users = allUsers.docs.map((user) => ({
+      id: user.id,
+      ...user.data(),
+    }));
+    return users;
+  } catch (error) {
+    throw new Error(error);
+  }
 };
+// --- Bring an user from data base---
 
-// --- Bring an user from data base ---
 
 const bringUserById = async (id) => {
 
@@ -157,5 +158,18 @@ const bringUserDates = async (id) => {
     }
 };
 
-module.exports = { bringUsers, bringUserById, deleteUser, disableUser, signUpUser, updateUser, enableUser, bringUserDates }
+
+module.exports = {
+  bringUserById,
+  deleteUser,
+  disableUser,
+  signUpUser,
+  updateUser,
+  enableUser,
+  bringUserDates,
+  bringUsers,
+
+};
+
+module.exports = { bringUsers, bringUserById, deleteUser, disableUser, signUpUser, updateUser, enableUser, bringUserDates, reviewDoctor }
 
