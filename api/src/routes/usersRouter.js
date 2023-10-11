@@ -1,6 +1,7 @@
 const { Router } = require("express");
 const fileUpload = require("express-fileupload");
 
+
 const postUser = require("../handlers/Users/postUser");
 const getUserById = require("../handlers/Users/getUser");
 const destroyUser = require("../handlers/Users/destroyUser");
@@ -12,27 +13,24 @@ const enableUserHandler = require("../handlers/Users/enableUserHandler");
 const bringUserDatesHandler = require("../handlers/Users/bringUserDatesHandler");
 const bringUsersHandler = require("../handlers/Users/bringUsers");
 
+
 const usersRouter = Router();
 
 usersRouter.post("/", postUser);
 usersRouter.get("/", bringUsersHandler);
 usersRouter.get("/dates/:id", bringUserDatesHandler);
 
-usersRouter.put(
-  "/profile",
-  fileUpload({
+usersRouter.put('/profile', fileUpload({
     useTempFiles: true,
-    tempFileDir: "./uploads",
-  }),
-  updateUserHandler
-);
+    tempFileDir: './uploads'
+}), updateUserHandler);
 
-usersRouter.post("/signup", createUser);
+usersRouter.post('/signup', createUser);
 
-usersRouter.post("/login", logInHandler);
-usersRouter.put("/disable/:id", disableUserHandler);
-usersRouter.put("/enable/:id", enableUserHandler);
-usersRouter.get("/:id", getUserById);
-usersRouter.delete("/:id", destroyUser);
+usersRouter.post('/login', logInHandler);
+usersRouter.put('/disable/:id', disableUserHandler);
+usersRouter.put('/enable/:id', enableUserHandler);
+usersRouter.get('/:id', getUserById);
+usersRouter.delete('/:id', destroyUser);
 
 module.exports = usersRouter;

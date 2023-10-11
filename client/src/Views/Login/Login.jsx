@@ -56,13 +56,13 @@ const Login = () => {
       <div className="h-screen justify-center items-center flex-col relative bg-blue-200">
         <Link to="/">
           <button
-            className="bg-slate-950 ml-[258px] mt-12 text-neutral-50 w-24 p-2 rounded-2xl hover:bg-slate-700 hover:scale-110 transition duration-300 ease-in-out mb-1"
+            className="bg-slate-950 ml-8 mt-12 text-neutral-50 w-24 p-2 rounded-2xl hover:bg-slate-700 hover:scale-110 transition duration-300 ease-in-out mb-1"
             style={{ fontFamily: "Rubik, sans-serif" }}>
             Back
           </button>
         </Link>
-        <div className="grid grid-cols-1 md:grid-cols-2">
-          <div className="bg-blue-400 rounded-2xl ml-2xl h-[500px] mt-10 text-center p-8 ml-20 max-w-md z-10">
+        <div className='flex justify-center items-center h-4/5'>
+          <div className="bg-blue-400 rounded-2xl mt-10 text-center p-8 max-w-[552px] w-full z-10">
             <h2
               className="text-3xl mb-8 font-bold text-neutral-50 bg-gray-950 rounded-2xl p-2"
               style={{ fontFamily: "Rubik, sans-serif" }}>
@@ -124,9 +124,8 @@ const Login = () => {
                         className="w-full p-2 pl-4 placeholder-slate-600 rounded-2xl focus:outline-none"
                       />
                       <i
-                        className={`bx ${
-                          showPassword ? "bx-show-alt" : "bx-hide"
-                        }`}
+                        className={`bx ${showPassword ? "bx-show-alt" : "bx-hide"
+                          }`}
                         onClick={togglePassword}></i>
                       <link
                         href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
