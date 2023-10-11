@@ -7,8 +7,10 @@ import styles from "./ProfileForm.module.css";
 import { useSelector, useDispatch } from "react-redux";
 import { setImage } from "../../redux/actions";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Profile = () => {
+  const navigate = useNavigate();
   const [form, setForm] = useState({
     lastName: "",
     name: "",
@@ -41,26 +43,33 @@ const Profile = () => {
     dispatch(setImage(imageUrl));
   };
 
-  const submitHandler = (event) => {
+  const submitHandler = async (event) => {
     event.preventDefault();
-    axios.put("http://localhost:3001/users/profile", form);
-    console.log("Datos Cargados");
+    try {
+      await axios.put("http://localhost:3001/users/profile", form);
+      console.log("Datos Cargados");
+      navigate("/profile");
+    } catch (error) {
+      // Maneja el error si la solicitud axios falla
+      console.error("Error al enviar el formulario:", error);
+    }
   };
 
   const imageSrc = useSelector((state) => state.imageSrc);
   const dispatch = useDispatch();
 
   return (
-    <div className={styles.nuevo}>
-      <div className={styles.container}>
-        {/* <Nav/> */}
+    <div className='w-full h-screen bg-[#daf1f8] flex flex-col justify-between'>
+      <Nav />
+      <h2 className='text-3xl mb-8 font-bold text-neutral-50 bg-gray-950 rounded-2xl p-2 text-center max-w-md m-auto mt-8'>Modify Profile</h2>
+      <div className='flex justify-center'>
 
         <div className={styles.title}>
           {" "}
-          PROFILE
           <div className={styles.userdetails}>
             <form onSubmit={submitHandler}>
-              <div className={styles.inputbox}>
+              <div className='mb-4'>
+                <label>Select img:</label>
                 <img src={imageSrc} alt="" />
                 <input
                   type="file"
@@ -107,14 +116,9 @@ const Profile = () => {
                 />
               </div>
 
-              <button className={styles.button2} type="submit">
+              <button className='font-bold w-60 bg-blue-400 hover:bg-indigo-500 hover:scale-110 rounded-2xl transition ease-in-out duration-300 m-24 py-4' type="submit">
                 Save
               </button>
-              <Link to="/profile">
-                <button className={styles.button2} type="submit">
-                  VOLVER
-                </button>
-              </Link>
             </form>
           </div>
         </div>

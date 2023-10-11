@@ -7,22 +7,24 @@
 
 .nuevo{
     display: flex;
-    height: 100vh;
+    max-height: 100vh;
+    height: 100%;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(135deg, #71b7e6, #f6f6f6) ;
 }
 .container {
     max-width: 1500px;
-    width: 300%;
     background: #daf1f8;
     padding: 25px 30px;
     border-radius: 5px;
+    align-items: center;
+    height: 80%;
 }
 .container .title {
     font-size: 25px;
     font-weight: 500;
     position: relative;
+    height: 100%;
 }
 .container .title::before {
     content: "";
@@ -38,7 +40,7 @@
     flex-wrap: wrap;
 }
 form .userdetails .inputbox{
-    margin-bottom: 15px;
+    margin-bottom: 2rem;
     width: calc(100% / 2- 20px);
 }
 .userdetails .inputbox .details{
@@ -50,12 +52,13 @@ form .userdetails .inputbox{
     height: 45px;
     width: 100%;
     outline: none;
-    border-radius: 5px;
+    border-radius: 16px;
     border: 1px solid #ccc;
     padding-left: 15px;
     font-size: 16px;
     border-bottom-width: 2px ;
     transition: all 0.3s ease;
+    margin-bottom: 2rem;
 }
 .userdetails .inputbox input:focus,
 .userdetails .inputbox input:valid{
@@ -146,11 +149,7 @@ overflow-y: scroll;
 }
 .button2 {
     background: #b5e8fc;
-    -webkit-border-radius: 10;
-    -moz-border-radius: 10;
     border-radius: 10px;
-    -webkit-box-shadow: 7px 6px 30px #5edbf1;
-    -moz-box-shadow: 7px 6px 30px #95f3f3;
     box-shadow: 7px 6px 30px #8ccef5;
     
     font-size: 18px;
