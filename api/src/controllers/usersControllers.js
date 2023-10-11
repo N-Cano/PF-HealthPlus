@@ -3,29 +3,28 @@ const { db } = require("../firebase");
 
 //  --- Sign up ---
 const signUpUser = async ({ email, uid }) => {
-    try {
-        const userRef = db.collection('users').doc(uid);
+  try {
+    const userRef = db.collection("users").doc(uid);
 
-        await userRef.set({
-            email,
-            name: '',
-            userId: '',
-            photo: {},
-            dates: [],
-            rol: 'user',
-            enable: false,
-            reviews: []
-        });
+    await userRef.set({
+      email,
+      name: "",
+      userId: "",
+      photo: {},
+      dates: [],
+      rol: "user",
+      enable: false,
+      reviews: [],
+    });
 
-        return userRef.id;
-    } catch (error) {
-        throw new Error(error);
-    }
+    return userRef.id;
+  } catch (error) {
+    throw new Error(error);
+  }
 };
 
 //   --- Bring all users ---
 const bringUsers = async () => {
-
   try {
     const allUsers = await db.collection("users").get();
     const users = allUsers.docs.map((user) => ({
@@ -39,9 +38,7 @@ const bringUsers = async () => {
 };
 // --- Bring an user from data base---
 
-
 const bringUserById = async (id) => {
-
   try {
     const userData = await db.collection("users").doc(id).get();
     const user = {
@@ -59,72 +56,64 @@ const bringUserById = async (id) => {
 // --- Delete an user from data base ---
 
 const deleteUser = async (id) => {
-
-    try {
-        const userRef = await db.collection('users').doc(id).get();
-        const user = {
-            id: userRef.id,
-            ...userRef.data()
-        }
-        if (!user.email) throw new Error(`No user matched with UID: ${id}`)
-        await db.collection('users').doc(id).delete()
-        return user
-        // Falta tirar error al no encontrar usuario
-    } catch (error) {
-        console.log(error);
-        throw new Error(error)
-    }
-}
-
+  try {
+    const userRef = await db.collection("users").doc(id).get();
+    const user = {
+      id: userRef.id,
+      ...userRef.data(),
+    };
+    if (!user.email) throw new Error(`No user matched with UID: ${id}`);
+    await db.collection("users").doc(id).delete();
+    return user;
+    // Falta tirar error al no encontrar usuario
+  } catch (error) {
+    console.log(error);
+    throw new Error(error);
+  }
+};
 
 // --- Enable an user ---
 
 const enableUser = async (id) => {
+  try {
+    const enabledUser = await db.collection("users").doc(id).get();
+    const user = {
+      id: enabledUser.id,
+      ...enabledUser.data(),
+    };
+    if (!user.email) throw new Error(`user with id ${id} not found`);
+    if (user.enable) throw new Error(`user with ID ${id} already enabled`);
 
-    try {
-        const enabledUser = await db.collection('users').doc(id).get();
-        const user = {
-            id: enabledUser.id,
-            ...enabledUser.data()
-        }
-        if (!user.email) throw new Error(`user with id ${id} not found`);
-        if (user.enable) throw new Error(`user with ID ${id} already enabled`);
-
-        await db.collection('users').doc(id).update({
-            enable: true
-        });
-        user.enable = true;
-        return user;
-
-    } catch (error) {
-        throw new Error(error)
-    }
-
+    await db.collection("users").doc(id).update({
+      enable: true,
+    });
+    user.enable = true;
+    return user;
+  } catch (error) {
+    throw new Error(error);
+  }
 };
 
 // --- Disable an user from data base ---
 
 const disableUser = async (id) => {
+  try {
+    const disabledUser = await db.collection("users").doc(id).get();
+    const user = {
+      id: disabledUser.id,
+      ...disabledUser.data(),
+    };
+    if (!user.email) throw new Error(`user with ID ${id} not found`);
+    if (!user.enable) throw new Error(`user with ID ${id} already disabled`);
 
-    try {
-        const disabledUser = await db.collection('users').doc(id).get();
-        const user = {
-            id: disabledUser.id,
-            ...disabledUser.data()
-        }
-        if (!user.email) throw new Error(`user with ID ${id} not found`);
-        if (!user.enable) throw new Error(`user with ID ${id} already disabled`);
-
-        await db.collection('users').doc(id).update({
-            enable: false
-        })
-        user.enable = false;
-        return user;
-
-    } catch (error) {
-        throw new Error(error)
-    }
-
+    await db.collection("users").doc(id).update({
+      enable: false,
+    });
+    user.enable = false;
+    return user;
+  } catch (error) {
+    throw new Error(error);
+  }
 };
 
 //  --- Update user ---
@@ -145,19 +134,17 @@ const updateUser = async (data) => {
 // --- Bring user's dates ---
 
 const bringUserDates = async (id) => {
-
-    try {
-        const userRef = await db.collection('users').doc(id).get();
-        const user = {
-            ...userRef.data()
-        }
-        if (!user.email) throw new Error(`user with ID: ${id} not found`)
-        return user.dates
-    } catch (error) {
-        throw new Error(error)
-    }
+  try {
+    const userRef = await db.collection("users").doc(id).get();
+    const user = {
+      ...userRef.data(),
+    };
+    if (!user.email) throw new Error(`user with ID: ${id} not found`);
+    return user.dates;
+  } catch (error) {
+    throw new Error(error);
+  }
 };
-
 
 module.exports = {
   bringUserById,
@@ -168,8 +155,15 @@ module.exports = {
   enableUser,
   bringUserDates,
   bringUsers,
-
 };
 
-module.exports = { bringUsers, bringUserById, deleteUser, disableUser, signUpUser, updateUser, enableUser, bringUserDates, reviewDoctor }
-
+module.exports = {
+  bringUsers,
+  bringUserById,
+  deleteUser,
+  disableUser,
+  signUpUser,
+  updateUser,
+  enableUser,
+  bringUserDates,
+};

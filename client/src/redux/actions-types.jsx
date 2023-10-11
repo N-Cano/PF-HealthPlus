@@ -7,3 +7,4 @@ export const PRICE = "PRICE";
 export const GET_DOCTORS_NAME = "GET_DOCTORS_NAME";
 export const GET_DATE_ID = "GET_DATE_ID";
 export const GET_USERS = "GET_USERS";
+export const GET_USERS_NAME = "GET_USERS_NAME";
