@@ -12,6 +12,7 @@ import SpecialtiesHome from "../../Components/Specialties/SpecialtiesHome";
 import DocsCards from "../../Components/CardsDocDash/DocsCards";
 import CardsUsers from "../../Components/CardsUsers/CardsUsers";
 import { Link } from "react-router-dom";
+import SideNavbar from "../../Components/NavBar/NavBarDesp";
 const DashBoardUsers = () => {
   const dispatch = useDispatch();
 
@@ -56,6 +57,7 @@ const DashBoardUsers = () => {
           <CardsUsers />
         </div>
       </div>
+      <SideNavbar />
       <Footer />
     </div>
   );
