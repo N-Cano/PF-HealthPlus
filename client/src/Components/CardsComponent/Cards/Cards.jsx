@@ -26,9 +26,9 @@ const Cards = () => {
   const currentDoctors = doctors.slice(startIndex, endIndex);
 
   return (
-    <div className="w-full flex flex-col mb-8">
-      {console.log("total doctors per page", currentDoctors)}
-      <div className="border-2 flex justify-center item bg-gray-100 rounded-2xl gap-6 h-96">
+    <div className="flex flex-col max-w-screen-xl mx-auto mb-0">
+      {/* {console.log("total doctors", doctors)} */}
+      <div className=" flex justify-center bg-blue-900 item rounded-2xl gap-6 h-70 mb-5 flex-wrap">
         {currentDoctors.map((doc) => (
           <Card
             name={doc.name}

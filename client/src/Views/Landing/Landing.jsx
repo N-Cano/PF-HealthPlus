@@ -200,7 +200,7 @@ const Landing = () => {
       {/*  SECCIÓN DE DOCTORES SE RENDERIZAN LAS CARDS CON EFECTO HOVER AL HACER CLICK NOS LLEVA AL DETAIL DE CADA DOCTOR */}
       <div
         id="services"
-        className="p-4 shadow-md w-100 h-[600px] flex flex-col items-center ">
+        className="p-4 max-w-screen-xl  mx-auto h-[200px] flex flex-col items-center ">
         <h3
           className="text-black text-[30px] text-center pt-1 mb-1 font-semibold"
           style={{ fontFamily: "Rubik, sans-serif" }}>
@@ -211,9 +211,8 @@ const Landing = () => {
           style={{ fontFamily: "Open Sans, sans-serif" }}>
           {t("LANDING PAGE.DOCTORS CARDS.DESCRIPTION 2")}
         </p>
-
-        <Cards />
       </div>
+      <Cards />
       {/*  SPONSORS */}
       <div>
         <Sponsors />

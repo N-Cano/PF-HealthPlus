@@ -4,7 +4,7 @@ import {
   GET_PATIENT,
   FILTER_SPECIAL,
   ORDER,
-  PRICE,
+  // RATING,
   GET_DOCTORS_NAME,
   GET_DATE_ID,
   GET_USERS,
@@ -93,35 +93,35 @@ const rootReducer = (state = initialState, actions) => {
         doctors: sortName,
       };
 
-    case PRICE:
-      const sortPrice =
-        actions.payload === "Low"
-          ? [
-              ...state.doctors.sort(function (a, b) {
-                if (a.price > b.price) {
-                  return 1;
-                }
-                if (b.price > a.price) {
-                  return -1;
-                }
-                return 0;
-              }),
-            ]
-          : [
-              ...state.doctors.sort(function (a, b) {
-                if (a.price > b.price) {
-                  return -1;
-                }
-                if (b.price > a.price) {
-                  return 1;
-                }
-                return 0;
-              }),
-            ];
-      return {
-        ...state,
-        doctors: sortPrice,
-      };
+    // case RATING:
+    //   const sortRating =
+    //     actions.payload === "Low"
+    //       ? [
+    //           ...state.doctors.sort(function (a, b) {
+    //             if (a.price > b.price) {
+    //               return 1;
+    //             }
+    //             if (b.price > a.price) {
+    //               return -1;
+    //             }
+    //             return 0;
+    //           }),
+    //         ]
+    //       : [
+    //           ...state.doctors.sort(function (a, b) {
+    //             if (a.price > b.price) {
+    //               return -1;
+    //             }
+    //             if (b.price > a.price) {
+    //               return 1;
+    //             }
+    //             return 0;
+    //           }),
+    //         ];
+    //   return {
+    //     ...state,
+    //     doctors: sortRating,
+    //   };
     case "SET_IMAGE":
       return { ...state, imageSrc: actions.payload };
 

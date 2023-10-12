@@ -3,7 +3,7 @@ import ScrollToTop from "react-scroll-to-top";
 import Footer from "../../Components/Footer/Footer";
 import News from "../../Components/News/News";
 import Cards from "../../Components/CardsComponent/Cards/Cards";
-import { filterSpeciality, orderCards, priceCards } from "../../redux/actions";
+import { filterSpeciality, orderCards, ratingCards } from "../../redux/actions";
 import SearchBar from "../../Components/Utils/SearchBar/SearchBar";
 import { useDispatch } from "react-redux";
 import Subscribe from "../../Components/Subscribe/Subscribe";
@@ -21,8 +21,8 @@ const Home = () => {
     //dispatch del asc y desc
     dispatch(orderCards(e.target.value));
   };
-  const handlePrice = (event) => {
-    dispatch(priceCards(event.target.value));
+  const handleRating = (event) => {
+    dispatch(ratingCards(event.target.value));
   };
 
   return (
@@ -35,8 +35,8 @@ const Home = () => {
 
       <div
         id="doctors"
-        className="flex flex-col md:flex-row mt-1 md:items-center md:justify-center">
-        <div className="flex-1 p-4 rounded-lg shadow-md my-7 mx-2 md:my-6 md:mr-2 md:ml-2 md:pb-12 h-60">
+        className="flex flex-col md:flex-row mt-1 md:items-center md:justify-center max-w-screen-xl mx-auto h-full">
+        <div className="flex-1 p-4 rounded-lg  my-7 mx-2 md:my-6 md:mr-2 md:ml-2 md:pb-12">
           <h3
             className="mt-5 text-center text-2xl font-bold"
             style={{ fontFamily: "Rubik, sans-serif" }}>
@@ -51,7 +51,7 @@ const Home = () => {
           <div className="flex  justify-center items-center mb-4 gap-3">
             <SearchBar />
             <select
-              className="bg-sky-200/100 ... rounded-lg w-[100px]"
+              className="bg-sky-200/100 ... rounded-lg w-[200px] h-[42px]"
               onChange={filterSpecial}
               style={{ fontFamily: "Open Sans, sans-serif" }}>
               <option
@@ -110,7 +110,7 @@ const Home = () => {
               </option>
             </select>
             <select
-              className="bg-sky-200/100 ... rounded-lg w-[100px]"
+              className="bg-sky-200/100 ... rounded-lg w-[150px] h-[42px]"
               onChange={handleOrder}
               style={{ fontFamily: "Open Sans, sans-serif" }}>
               <option
@@ -133,41 +133,32 @@ const Home = () => {
             </select>
 
             <select
-              className="bg-sky-200/100 ... rounded-lg w-[100px]"
-              onChange={handlePrice}
+              className="bg-sky-200/100 ... rounded-lg w-[200px] h-[42px]"
+              onChange={handleRating}
               style={{ fontFamily: "Open Sans, sans-serif" }}>
               <option
                 className="font-bold text-center"
                 style={{ fontFamily: "Open Sans, sans-serif" }}>
-                {t("HOME PAGE.SELECTS.PRICE")}
+                {t("HOME PAGE.SELECTS.RATING")}
               </option>
               <option
                 value="Top"
                 className="font-bold text-center"
                 style={{ fontFamily: "Open Sans, sans-serif" }}>
-                {t("HOME PAGE.SELECTS.TOP PRICE")}
+                {t("HOME PAGE.SELECTS.TOP RATING")}
               </option>
               <option
                 value="Low"
                 className="font-bold text-center"
                 style={{ fontFamily: "Open Sans, sans-serif" }}>
-                {t("HOME PAGE.SELECTS.LOW PRICE")}
+                {t("HOME PAGE.SELECTS.LOW RATING")}
               </option>
             </select>
           </div>
-          <div className="bg-blue-200 ... rounded-lg "></div>
-          <Cards />
         </div>
       </div>
 
-      <div className="flex-1 p-4 rounded-lg shadow-md my-2 mx-2 md:my-6 md:mr-2 md:ml-2 md:pb-12 h-96">
-        <h3
-          className="mt-5 text-center text-2xl"
-          style={{ fontFamily: "Open Sans, sans-serif" }}></h3>
-        <p
-          className="mt-5 text-center"
-          style={{ fontFamily: "Open Sans, sans-serif" }}></p>
-      </div>
+      <Cards />
 
       <div id="services">
         <SpecialtiesHome />

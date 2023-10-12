@@ -13,7 +13,7 @@ const Login = () => {
     handleSubmit,
     control,
     formState: { errors },
-    setValue,
+    // setValue,
   } = useForm();
 
   //-------------------------------Google Auth-----------------------------------------
@@ -61,7 +61,7 @@ const Login = () => {
             Back
           </button>
         </Link>
-        <div className='flex justify-center items-center h-4/5'>
+        <div className="flex justify-center items-center h-4/5">
           <div className="bg-blue-400 rounded-2xl mt-10 text-center p-8 max-w-[552px] w-full z-10">
             <h2
               className="text-3xl mb-8 font-bold text-neutral-50 bg-gray-950 rounded-2xl p-2"
@@ -124,8 +124,9 @@ const Login = () => {
                         className="w-full p-2 pl-4 placeholder-slate-600 rounded-2xl focus:outline-none"
                       />
                       <i
-                        className={`bx ${showPassword ? "bx-show-alt" : "bx-hide"
-                          }`}
+                        className={`bx ${
+                          showPassword ? "bx-show-alt" : "bx-hide"
+                        }`}
                         onClick={togglePassword}></i>
                       <link
                         href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
