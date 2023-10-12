@@ -5,6 +5,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { getDoctor } from "../../redux/actions";
 import styles from "./Detail.module.css";
 import Footer from "../../Components/Footer/Footer";
+import Nav from "../../Components/NavBar/Nav";
+
 const Detail = () => {
   const [detail, setDetail] = useState({});
 
@@ -19,9 +21,10 @@ const Detail = () => {
 
   return (
     <>
+      <Nav />
       <div className={styles.nuevo}>
         <div className={styles.container}>
-          <h1>{`${detail.name}`}</h1>
+          <h1>Dr.{`${detail.name}`}</h1>
           <img
             src={
               detail.photo
@@ -30,20 +33,25 @@ const Detail = () => {
             }
           />
           <div>
-            <h2>specialty:{detail.specialty}</h2>
+            <h2>
+              {" "}
+              <strong>Specialty</strong>
+              <br></br>
+              {detail.specialty}
+            </h2>
           </div>
           <div>
-            <h2>price: {detail.price}</h2>
+            <h2>
+              <strong>Reviews</strong>
+            </h2>
           </div>
           <div>
-            <h2>description:{detail.description}</h2>
+            <h2>
+              <strong>Description</strong>
+              <br></br>
+              {detail.description}
+            </h2>
           </div>
-        </div>
-
-        <div className={styles.inputbox}>
-          <Link to="/home">
-            <button>Home</button>
-          </Link>
         </div>
       </div>
       <Footer />
