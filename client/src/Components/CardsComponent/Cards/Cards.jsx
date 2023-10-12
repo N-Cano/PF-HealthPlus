@@ -27,7 +27,7 @@ const Cards = () => {
 
   return (
     <div className="w-full flex flex-col mb-8">
-      {/* {console.log("total doctors per page", currentDoctors)} */}
+      {console.log("total doctors per page", currentDoctors)}
       <div className="border-2 flex justify-center item bg-gray-100 rounded-2xl gap-6 h-96">
         {currentDoctors.map((doc) => (
           <Card

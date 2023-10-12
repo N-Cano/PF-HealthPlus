@@ -228,7 +228,13 @@
 
     "NAV": {
         "HOME BUTTON": "HOME",
-        "HEALTHPLUS": "HEALTHPLUS"
+        "HEALTHPLUS": "HEALTHPLUS",
+        "WELCOME": "Welcome",
+        "LOGIN": {
+            "PROFILE": "Profile",
+            "DATES": "My Dates",
+            "LOG OUT": "Log Out"
+        }
     }, 
 
     "PLAN": {

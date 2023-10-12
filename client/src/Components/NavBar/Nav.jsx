@@ -1,12 +1,11 @@
 import { Link } from "react-router-dom";
-import logo2 from "../../assets/logo2sinfond0.png";
-import { useTranslation } from "react-i18next";
-import LanguageSwitcher from "../LanguageSwitcher/LanguageSwitcher";
 import logo3 from "../../assets/logo2sinfond0.png";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../../firebase/firebase.config";
 import { UserAuth } from "../../context/AuthContext";
+import { useTranslation } from "react-i18next";
+import LanguageSwitcher from "../LanguageSwitcher/LanguageSwitcher";
 
 const Nav = () => {
   const { t } = useTranslation();
@@ -44,12 +43,10 @@ const Nav = () => {
   };
   return (
     <nav className="bg-blue-900 text-white">
-
       {/* {console.log(user)} */}
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
         <div className="relative flex h-16 items-center justify-between">
           <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-
             <div className="flex flex-shrink-0 items-center">
               <img className="h-10 w-auto" src={logo3} alt="Logo" />
             </div>
@@ -65,29 +62,25 @@ const Nav = () => {
                     <a
                       href="#"
                       className="text-white hover:bg-gray-700 hover:text-white rounded-md px-4 py-2 text-sm font-medium"
-                      style={{ fontFamily: "Rubik, sans-serif" }}
-                    >
-                      HOME
+                      style={{ fontFamily: "Rubik, sans-serif" }}>
+                      {t("NAV.HOME BUTTON")}
                     </a>
                   </Link>
+                  <div className="mr-[450px]">
+                    <LanguageSwitcher />
+                  </div>
 
                   <div className="flex items-center">
                     <h3
-                      className="ml-[400px] font-semibold"
-                      style={{ fontFamily: "Rubik, sans-serif" }}
-                    >
-                      Welcome, {user ? user.displayName || user.email : ""}
+                      className="ml-[250px] font-semibold"
+                      style={{ fontFamily: "Rubik, sans-serif" }}>
+                      {t("NAV.WELCOME")},{" "}
+                      {user ? user.displayName || user.email : ""}
                     </h3>
                   </div>
                 </div>
               </div>
-
-            <Link to="/home" className="flex flex-shrink-0 items-center">
-              <img className="h-10 w-auto" src={logo2} alt="Logo" />
-            </Link>
-
             </div>
-
           </div>
 
           <div className="relative ml-3">
@@ -98,8 +91,7 @@ const Nav = () => {
                 id="user-menu-button"
                 aria-expanded="false"
                 aria-haspopup="true"
-                onClick={toggleMenu}
-              >
+                onClick={toggleMenu}>
                 <img
                   className="h-8 w-8 rounded-full"
                   src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
@@ -113,47 +105,25 @@ const Nav = () => {
                 <Link to="/profile">
                   <a
                     href="#"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                  >
-                    Profile
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                    {t("NAV.LOGIN.PROFILE")}
                   </a>
                 </Link>
                 <Link to="/myDates">
                   <a
                     href="#"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                  >
-                    My Dates
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                    {t("NAV.LOGIN.DATES")}
                   </a>
                 </Link>
                 <a
                   href="#"
-
-                  className="hover:bg-gray-700 hover:text-white rounded-md px-4 py-2 font-medium text-sm"
-                  style={{
-                    fontFamily: "Rubik, sans-serif",
-                  }}>
-                  {t("NAV.HOME BUTTON")}
                   className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                  onClick={logOutWithGoogle}
-                >
-                  Log Out
+                  onClick={logOutWithGoogle}>
+                  {t("NAV.LOGIN.LOG OUT")}
                 </a>
-
               </div>
             )}
-
-              </Link>
-            </div>
-          </div>
-
-          <div className="ml-[140px]">
-            <LanguageSwitcher />
-          </div>
-          <div className="text-center ml-5 bg-blue-100 text-blue-900 rounded-full w-[150px] h-[40px] flex justify-center items-center">
-            <h1 className="font-bold"> {t("NAV.HEALTHPLUS")}</h1>
-          <div className="text-center">
-            <h1 className="font-bold">HEALTHPLUS</h1>
           </div>
         </div>
       </div>
