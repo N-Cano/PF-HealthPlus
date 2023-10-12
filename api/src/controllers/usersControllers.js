@@ -39,6 +39,7 @@ const bringUsers = async () => {
         throw new Error(error)
     }
 
+
 };
 // --- Bring an user by name from data base --
 const bringUserByName = async (name) => {
@@ -56,7 +57,6 @@ const bringUserByName = async (name) => {
         throw new Error(error)
     }
 }
-
 
 
 // --- Bring an user by id from data base ---
