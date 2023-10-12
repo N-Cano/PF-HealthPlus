@@ -17,7 +17,11 @@ const signUpUser = async ({ email, uid, photo }) => {
             reviews: []
         });
 
-        return userRef.id;
+        const newUser = {
+            email,
+            uid
+        }
+        return newUser;
     } catch (error) {
         throw new Error(error);
     }
@@ -27,7 +31,7 @@ const signUpUser = async ({ email, uid, photo }) => {
 const bringUsers = async () => {
     try {
         const allUsers = await db.collection('users').get();
-        const users = allUsers.docs.map((user)=>({
+        const users = allUsers.docs.map((user) => ({
             id: user.id,
             ...user.data()
         }))
@@ -42,18 +46,18 @@ const bringUsers = async () => {
 
 const bringUserById = async (id) => {
 
-  try {
-    const userData = await db.collection("users").doc(id).get();
-    const user = {
-      id: userData.id,
-      ...userData.data(),
-    };
-    if (!user.email) throw new Error(`No user matched with UID: ${id}`);
-    user.image = user.photo.secure_url;
-    return user;
-  } catch (error) {
-    throw new Error(error);
-  }
+    try {
+        const userData = await db.collection("users").doc(id).get();
+        const user = {
+            id: userData.id,
+            ...userData.data(),
+        };
+        if (!user.email) throw new Error(`No user matched with UID: ${id}`);
+        user.image = user.photo.secure_url;
+        return user;
+    } catch (error) {
+        throw new Error(error);
+    }
 };
 
 // --- Delete an user from data base ---
@@ -69,9 +73,7 @@ const deleteUser = async (id) => {
         if (!user.email) throw new Error(`No user matched with UID: ${id}`)
         await db.collection('users').doc(id).delete()
         return user
-        // Falta tirar error al no encontrar usuario
     } catch (error) {
-        console.log(error);
         throw new Error(error)
     }
 }
@@ -128,18 +130,29 @@ const disableUser = async (id) => {
 };
 
 //  --- Update user ---
-const updateUser = async (data) => {
-  const { uid } = data;
-  try {
-    await db.collection("users").doc(uid).update(data);
-    const user = await db.collection("users").doc(uid).get();
-    const userData = {
-      ...user.data(),
-    };
-    return userData;
-  } catch (error) {
-    throw new Error(error);
-  }
+const updateUser = async (uid, data) => {
+    try {
+        const userRef = await db.collection('users').doc(uid).get();
+
+        const user = {
+            ...userRef.data()
+        };
+        if (!user.email) throw new Error(`user with di: ${uid} not found`);
+
+        // Delete cloudinary image only if it's not the placeholder
+        if (user.photo?.public_id ||
+            user.photo.secure_url !== 'https://res.cloudinary.com/drpge2a0c/image/upload/v1697037341/userImages/blank-profile-picture-973460_960_720_sgp40b.webp') {
+            await deleteImage(user.photo.public_id);
+        };
+
+        // delete
+        await db.collection("users").doc(uid).update(data);
+        return {
+            data
+        }
+    } catch (error) {
+        throw new Error(error);
+    }
 };
 
 // --- Bring user's dates ---
