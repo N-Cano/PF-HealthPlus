@@ -8,6 +8,8 @@ import { postDate } from "../../functions/post";
 import SelectDoctor from "./SelectDoctor";
 import ScheduleWithCalendar from "./ScheduleWithCalendar";
 import Footer from "../../Components/Footer/Footer";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Form = () => {
   const {
@@ -25,6 +27,17 @@ const Form = () => {
 
   const onSubmit = async (data) => {
     postDate(data);
+    //toast-notification
+    toast(`Request sent. Wait for confirmation in your email`, {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
   };
 
   const selectDoctor = (id) => {
@@ -83,11 +96,11 @@ const Form = () => {
           <Cards />
           <div className="flex flex-row justify-around">
             <div className={styles.title}>
-              <p className="font-bold mb-1">SCHEDULE</p>
+              <p className="font-bold mb-1"></p>
               <div className={styles.userdetails}>
                 <form onSubmit={handleSubmit(onSubmit)}>
                   <div className={styles.inputbox}>
-                    <label className="mr-4">Doctor:</label>
+                    <label className="mr-4">Doctor</label>
                     <Controller
                       name="doctorId"
                       control={control}
@@ -104,7 +117,8 @@ const Form = () => {
                             field.onChange(e);
                             handleChange("doctorId", e.target.value);
                             selectDoctor(e.target.value);
-                          }}>
+                          }}
+                        >
                           <SelectDoctor selectDoctor={selectDoctor} />
                         </select>
                       )}
@@ -115,7 +129,7 @@ const Form = () => {
                   </div>
 
                   <div className={styles.inputbox}>
-                    <label>USER ID:</label>
+                    <label>User ID</label>
                     <Controller
                       name="userId"
                       control={control}
@@ -133,7 +147,7 @@ const Form = () => {
                   </div>
 
                   <div className={styles.inputbox}>
-                    <label>Schedule:</label>
+                    <label>Schedule</label>
                     <Controller
                       name="schedule"
                       control={control}
@@ -145,7 +159,8 @@ const Form = () => {
                       render={({ field }) => (
                         <select
                           {...field}
-                          className="flex flex-col w-full h-11 outline-none rounded-md border-gray-300 pl-4 pt-2 border-b-2 transition ease-in-out duration-300">
+                          className="flex flex-col w-full h-11 outline-none rounded-md border-gray-300 pl-4 pt-2 border-b-2 transition ease-in-out duration-300"
+                        >
                           <option value="">-- Select a Schedule --</option>
                           {generateScheduleOptions()}
                         </select>
@@ -157,7 +172,7 @@ const Form = () => {
                   </div>
 
                   <div className={styles.inputbox}>
-                    <label>Date:</label>
+                    <label>Date</label>
                     <Controller
                       name="date"
                       control={control}
@@ -174,7 +189,8 @@ const Form = () => {
 
                   <button
                     className="w-40 font-bold bg-blue-400 hover:bg-indigo-500 hover:scale-110 rounded-2xl transition ease-in-out duration-300"
-                    type="submit">
+                    type="submit"
+                  >
                     Save
                   </button>
                 </form>
@@ -185,6 +201,7 @@ const Form = () => {
         </div>
       </div>
       <Footer />
+      <ToastContainer />
     </>
   );
 };

@@ -3,6 +3,7 @@ const fse = require('fs-extra')
 const { createDoctor } = require("../../controllers/doctorsControllers");
 
 const postDoctor = async (req, res) => {
+
     try {
         const { description, name, specialty } = req.body;
         if(!description || !name ||!specialty) throw new Error('Missing information to create the doctor')
@@ -31,6 +32,7 @@ const postDoctor = async (req, res) => {
     } catch (error) {
         res.status(400).json(error.message)
     }
+
 };
 
 module.exports = postDoctor;

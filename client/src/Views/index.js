@@ -11,6 +11,17 @@ import Detail from "./Detail/Detail.jsx";
 import Profile from "./Profile/Profile.jsx";
 import MyDates from "./MyDates/MyDates.jsx";
 
-export { Home, Schedule, Landing, Login, ProfileForm, Profile, Payment, Plan, ForgotPassgord, SignUp, Detail, MyDates };
-
-
+export {
+  Home,
+  Schedule,
+  Landing,
+  Login,
+  ProfileForm,
+  Profile,
+  Payment,
+  Plan,
+  ForgotPassgord,
+  SignUp,
+  Detail,
+  MyDates,
+};

@@ -10,6 +10,7 @@ import {
   GET_DATE_ID,
   SUBSCRIBE_NEWSLETTER,
   GET_USERS,
+  GET_USERS_NAME,
 } from "./actions-types";
 
 export const getDoctors = () => {
@@ -48,6 +49,19 @@ export const getDoctorName = (name) => {
       let json = await axios.get(`http://localhost:3001/doctors?name=${name}`);
       return dispatch({
         type: GET_DOCTORS_NAME,
+        payload: json.data, //es lo q devuelve la ruta una vez q le asigno algo por name
+      });
+    } catch (error) {
+      alert("Game not found 😕");
+    }
+  };
+};
+export const getUsersName = (name) => {
+  return async (dispatch) => {
+    try {
+      let json = await axios.get(`http://localhost:3001/users?name=${name}`);
+      return dispatch({
+        type: GET_USERS_NAME,
         payload: json.data, //es lo q devuelve la ruta una vez q le asigno algo por name
       });
     } catch (error) {
