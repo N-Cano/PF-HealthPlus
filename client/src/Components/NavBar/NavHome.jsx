@@ -66,7 +66,8 @@ const NavHome = () => {
                     <a
                       href="#"
                       className="text-white hover:bg-gray-700 hover:text-white rounded-md px-4 py-2 text-sm font-medium"
-                      style={{ fontFamily: "Rubik, sans-serif" }}>
+                      style={{ fontFamily: "Rubik, sans-serif" }}
+                    >
                       {t("HOME PAGE.NAVBAR.SCHEDULE")}
                     </a>
                   </Link>
@@ -78,7 +79,8 @@ const NavHome = () => {
                   <div className="flex items-center">
                     <h3
                       className="ml-[100px] font-semibold"
-                      style={{ fontFamily: "Rubik, sans-serif" }}>
+                      style={{ fontFamily: "Rubik, sans-serif" }}
+                    >
                       {t("HOME PAGE.NAVBAR.WELCOME")},<br></br>
                       {user ? user.displayName || user.email : ""}
                     </h3>
@@ -96,7 +98,8 @@ const NavHome = () => {
                 id="user-menu-button"
                 aria-expanded="false"
                 aria-haspopup="true"
-                onClick={toggleMenu}>
+                onClick={toggleMenu}
+              >
                 <img
                   className="h-8 w-8 rounded-full"
                   src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
@@ -110,21 +113,24 @@ const NavHome = () => {
                 <Link to="/profile">
                   <a
                     href="#"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                  >
                     {t("HOME PAGE.NAVBAR.LOGIN.PROFILE")}
                   </a>
                 </Link>
                 <Link to="/myDates">
                   <a
                     href="#"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                  >
                     {t("HOME PAGE.NAVBAR.LOGIN.DATES")}
                   </a>
                 </Link>
                 <a
                   href="#"
                   className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                  onClick={logOutWithGoogle}>
+                  onClick={logOutWithGoogle}
+                >
                   {t("HOME PAGE.NAVBAR.LOGIN.LOG OUT")}
                 </a>
               </div>

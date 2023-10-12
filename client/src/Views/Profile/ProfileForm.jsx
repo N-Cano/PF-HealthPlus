@@ -3,13 +3,12 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { auth } from "../../firebase/firebase.config";
 import styles from "./ProfileForm.module.css";
-// import { auth } from "../../firebase/firebase.config";
 import { useSelector, useDispatch } from "react-redux";
 import { setImage } from "../../redux/actions";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
-const Profile = () => {
+const ProfileForm = () => {
   const navigate = useNavigate();
   const [form, setForm] = useState({
     lastName: "",
@@ -17,9 +16,8 @@ const Profile = () => {
     date: "",
     userId: "",
     uid: "",
-    image: "",
+    image: null,
   });
-  console.log(form);
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(function (user) {
@@ -38,15 +36,29 @@ const Profile = () => {
     const value = event.target.value;
     setForm({ ...form, [property]: value });
 
-    const file = event.target.files[0];
-    const imageUrl = URL.createObjectURL(file);
-    dispatch(setImage(imageUrl));
+    if (event.target.name === 'image') {
+      setForm({ ...form, image: event.target.files[0] });
+      const imageUrl = URL.createObjectURL(event.target.files[0]);
+      dispatch(setImage(imageUrl));
+    }
   };
 
   const submitHandler = async (event) => {
     event.preventDefault();
+    const formData = new FormData();
+    formData.append("name", form.name);
+    formData.append("lastName", form.lastName);
+    formData.append("date", form.date);
+    formData.append("userId", form.userId);
+    formData.append("uid", form.uid);
+    formData.append("image", form.image); // Add the image to the FormData
+
     try {
-      await axios.put("http://localhost:3001/users/profile", form);
+      await axios.put("http://localhost:3001/users/profile", formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data', // Set content type to handle form data
+        }
+      });
       console.log("Datos Cargados");
       navigate("/profile");
     } catch (error) {
@@ -63,7 +75,6 @@ const Profile = () => {
       <Nav />
       <h2 className='text-3xl mb-8 font-bold text-neutral-50 bg-gray-950 rounded-2xl p-2 text-center max-w-md m-auto mt-8'>Modify Profile</h2>
       <div className='flex justify-center'>
-
         <div className={styles.title}>
           {" "}
           <div className={styles.userdetails}>
@@ -74,7 +85,7 @@ const Profile = () => {
                 <input
                   type="file"
                   name="image"
-                  value={form.image}
+                  accept="image/*" // Add accept attribute to allow only image files
                   onChange={changeHandler}
                 />
               </div>
@@ -126,4 +137,5 @@ const Profile = () => {
     </div>
   );
 };
-export default Profile;
+
+export default ProfileForm;

@@ -67,25 +67,6 @@ const PostDocs = () => {
           />
         </div>
         <div>
-          <label htmlFor="description">Description:</label>
-          <textarea
-            value={form.description}
-            onChange={changeHandler}
-            name="description"
-            id="description"
-          />
-        </div>
-        <div>
-          <label htmlFor="specialty">Specialty:</label>
-          <input
-            type="text"
-            value={form.specialty}
-            onChange={changeHandler}
-            name="specialty"
-            id="specialty"
-          />
-        </div>
-        <div>
           <label htmlFor="image">Image:</label>
           <input
             type="file"
@@ -93,6 +74,33 @@ const PostDocs = () => {
             onChange={handleImageChange}
             name="image"
             id="image"
+          />
+        </div>
+        <div>
+          <label htmlFor="specialty">Specialty:</label>
+          <select
+            value={form.specialty}
+            onChange={changeHandler} // Asociar el evento a la selección
+            name="specialty"
+            id="specialty"
+          >
+            <option value="Dermatology">Dermatology</option>
+            <option value="Rheumatology">Rheumatology</option>
+            <option value="Psychiatry">Psychiatry</option>
+            <option value="Gastroenterology">Gastroenterology</option>
+            <option value="Endocrinology">Endocrinology</option>
+            <option value="Radiology">Radiology</option>
+            <option value="Urology">Urology</option>
+            <option value="Cardiology">Cardiology</option>
+          </select>
+        </div>
+        <div>
+          <label htmlFor="description">Description:</label>
+          <textarea
+            value={form.description}
+            onChange={changeHandler}
+            name="description"
+            id="description"
           />
         </div>
         <button type="submit">Submit</button>

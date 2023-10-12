@@ -54,7 +54,7 @@ const PostUsers = () => {
 
   return (
     <div>
-      <h1>POST DOCTORS</h1>
+      <h1>POST USERS</h1>
       <form onSubmit={submitHandler}>
         <div>
           <label htmlFor="name">Name:</label>
