@@ -229,8 +229,14 @@
 
     },
     "NAV": {
-        "HOME BUTTON": "PÁGINA PRINCIPAL",
-        "HEALTHPLUS": "HEALTHPLUS"
+        "HOME BUTTON": "REGRESAR",
+        "HEALTHPLUS": "HEALTHPLUS",
+        "WELCOME": "Bienvenido/a",
+        "LOGIN": {
+            "PROFILE": "Perfil",
+            "DATES": "Mis citas",
+            "LOG OUT": "Salir"
+        }
     },
 
     "PLAN": {
