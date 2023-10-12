@@ -16,6 +16,13 @@ export default function SearchBar() {
     name.length === 0 ? dispatch(getDoctors()) : dispatch(getDoctorName(name)); //name es lo q está escribiendo el usuario
     setName("");
   }
+
+  const handleKeyPress = (event) => {
+    if (event.key === "Enter") {
+      dispatch(getDoctorName(name));
+      setName("");
+    }
+  };
   return (
     <div
       type="search"
@@ -27,6 +34,7 @@ export default function SearchBar() {
         value={name}
         className="bg-gray-100 rounded-lg h-10 w-[300px] mr-3 mt-1 px-1"
         style={{ fontFamily: "Open Sans, sans-serif" }}
+        onKeyDown={handleKeyPress}
       />
       <button
         type="submit"

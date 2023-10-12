@@ -12,13 +12,9 @@ import { useTranslation } from "react-i18next";
 const Specialties = () => {
   const { t } = useTranslation();
 
-  const zoomInStyle = {
-    transform: "scale(1.1)",
-    transition: "transform 0.3s ease-in-out",
-  };
   return (
     <div
-      className="flex flex-wrap justify-center items-center text-center h-[1000px]"
+      className="flex flex-wrap justify-center items-center text-center h-[800px]"
       style={{
         backgroundImage:
           'url("https://images.pexels.com/photos/3376790/pexels-photo-3376790.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")',
@@ -26,9 +22,9 @@ const Specialties = () => {
         backgroundSize: "cover",
       }}>
       {/* Contenido de Servicios */}
-      <div style={{ backdropFilter: "blur(1px)" }} className="mb-[95px]">
+      <div style={{ backdropFilter: "blur(1px)" }}>
         <h3
-          className="text-[58px] text-white font-semibold"
+          className="text-[58px] text-white font-semibold "
           style={{ fontFamily: "Rubik, sans-serif" }}>
           {t("LANDING PAGE.SPECIALTIES.OUR SERVICES")}
         </h3>
@@ -45,7 +41,6 @@ const Specialties = () => {
             className="bg-white/50 group-hover:scale-110 hover:scale-100 cursor-pointer mb-2 w-[250px] h-[250px] rounded-2xl transition-transform duration-300 ease-in-out"
             style={{
               fontFamily: "Open Sans, sans-serif",
-              ...zoomInStyle,
             }}>
             <div className="flex justify-center items-center mt-2">
               <FaHandHoldingMedical />
@@ -63,7 +58,6 @@ const Specialties = () => {
             className="bg-white/50 group-hover:scale-110 hover:scale-100 cursor-pointer mb-2 w-[250px] h-[250px] rounded-2xl transition-transform duration-300 ease-in-out"
             style={{
               fontFamily: "Open Sans, sans-serif",
-              ...zoomInStyle,
             }}>
             <div className="flex justify-center items-center mt-2">
               <GiMedicalDrip />
@@ -81,7 +75,6 @@ const Specialties = () => {
             className="bg-white/50 group-hover:scale-110 hover:scale-100 cursor-pointer mb-2 w-[250px] h-[250px] rounded-2xl transition-transform duration-300 ease-in-out"
             style={{
               fontFamily: "Open Sans, sans-serif",
-              ...zoomInStyle,
             }}>
             <div className="flex justify-center items-center mt-2">
               <GiBrain />
@@ -99,7 +92,6 @@ const Specialties = () => {
             className="bg-white/50 group-hover:scale-110 hover:scale-100 cursor-pointer mb-2 w-[250px] h-[250px] rounded-2xl transition-transform duration-300 ease-in-out"
             style={{
               fontFamily: "Open Sans, sans-serif",
-              ...zoomInStyle,
             }}>
             <div className="flex justify-center items-center mt-2 ">
               <GiStomach />
@@ -119,7 +111,6 @@ const Specialties = () => {
             className="bg-white/50 group-hover:scale-110 hover:scale-100 cursor-pointer mb-2 w-[250px] h-[250px] rounded-2xl transition-transform duration-300 ease-in-out"
             style={{
               fontFamily: "Open Sans, sans-serif",
-              ...zoomInStyle,
             }}>
             <div className="flex justify-center items-center mt-2 ">
               <MdOutlineBloodtype />
@@ -137,7 +128,6 @@ const Specialties = () => {
             className="bg-white/50 group-hover:scale-110 hover:scale-100 cursor-pointer mb-2 w-[250px] h-[250px] rounded-2xl transition-transform duration-300 ease-in-out"
             style={{
               fontFamily: "Open Sans, sans-serif",
-              ...zoomInStyle,
             }}>
             <div className="flex justify-center items-center mt-2">
               <AiFillSecurityScan />
@@ -155,7 +145,6 @@ const Specialties = () => {
             className="bg-white/50 group-hover:scale-110 hover:scale-100 cursor-pointer mb-2 w-[250px] h-[250px] rounded-2xl transition-transform duration-300 ease-in-out"
             style={{
               fontFamily: "Open Sans, sans-serif",
-              ...zoomInStyle,
             }}>
             <div className="flex justify-center items-center mt-2">
               <IoBody />
@@ -173,7 +162,6 @@ const Specialties = () => {
             className="bg-white/50 group-hover:scale-110 hover:scale-100 cursor-pointer mb-2 w-[250px] h-[250px] rounded-2xl transition-transform duration-300 ease-in-out"
             style={{
               fontFamily: "Open Sans, sans-serif",
-              ...zoomInStyle,
             }}>
             <div className="flex justify-center items-center mt-2">
               <BsFillClipboardHeartFill />

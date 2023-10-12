@@ -227,7 +227,21 @@
             "BUTTON": "Leer más"
         }
 
+    },
+    "NAV": {
+        "HOME BUTTON": "PÁGINA PRINCIPAL",
+        "HEALTHPLUS": "HEALTHPLUS"
+    },
 
+    "PLAN": {
+        "DESCRIPTION 1": "¡La mejor opción para tu salud!",
+        "PRODUCTS": {
+            "PREMIUM": {
+                "TITLE": "Premium",
+                "DESCRIPTION": "¡Incluye todas las especialidades, turnos virtuales y más!"
+            }
+        }, 
+        "BUTTON": "Comprar"
 
     }
 }

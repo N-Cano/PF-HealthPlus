@@ -223,7 +223,23 @@
         "NEWS": {
             "TITLE": "NEWS",
             "BUTTON": "Read more"
-        }
-        
+        }  
+    },
+
+    "NAV": {
+        "HOME BUTTON": "HOME",
+        "HEALTHPLUS": "HEALTHPLUS"
+    }, 
+
+    "PLAN": {
+        "DESCRIPTION 1": "The best option for your Health!",
+        "PRODUCTS": {
+            "PREMIUM": {
+                "TITLE": "Premium",
+                "DESCRIPTION": "Includes all specialties, virtual appointments and more!"
+            }
+        },
+         "BUTTON": "Buy"
+
     }
 }
