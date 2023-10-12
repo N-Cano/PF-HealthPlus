@@ -70,7 +70,7 @@ const NavHome = () => {
                       className="text-white hover:bg-gray-700 hover:text-white rounded-md px-4 py-2 text-sm font-medium"
                       style={{ fontFamily: "Rubik, sans-serif" }}
                     >
-                      SCHEDULE
+                   {t("HOME PAGE.NAVBAR.SCHEDULE")}
 
                     </a>
                   </Link>
@@ -81,13 +81,11 @@ const NavHome = () => {
 
                   <div className="flex items-center">
                     <h3
-
-                      className="ml-[400px] font-semibold"
+                      className="ml-[100px] font-semibold"
                       style={{ fontFamily: "Rubik, sans-serif" }}
-                    >
-                      Welcome, {user ? user.displayName || user.email : ""}
-
-                  
+                 >
+                      {t("HOME PAGE.NAVBAR.WELCOME")},<br></br>
+                      {user ? user.displayName || user.email : ""}
 
                     </h3>
                   </div>
@@ -120,9 +118,11 @@ const NavHome = () => {
                   <a
                     href="#"
 
+
+
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                   >
-                    Profile
+                    {t("HOME PAGE.NAVBAR.LOGIN.PROFILE")}
 
                   </a>
                 </Link>
@@ -130,9 +130,10 @@ const NavHome = () => {
                   <a
                     href="#"
 
+
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                   >
-                    My Dates
+                    {t("HOME PAGE.NAVBAR.LOGIN.DATES")}
 
                   </a>
                 </Link>
@@ -141,7 +142,10 @@ const NavHome = () => {
                   className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                   onClick={logOutWithGoogle}
                 >
-                  Log Out
+
+
+
+                  {t("HOME PAGE.NAVBAR.LOGIN.LOG OUT")}
 
                 </a>
               </div>

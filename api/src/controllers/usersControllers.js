@@ -22,6 +22,7 @@ const signUpUser = async ({ email, uid, photo }) => {
     } catch (error) {
         throw new Error(error);
     }
+
 };
 
 //   --- Bring all users ---
@@ -58,8 +59,6 @@ const bringUserByName = async (name) => {
 }
 
 
-
-
 // --- Bring an user by id from data base ---
 
 const bringUserById = async (id) => {
@@ -76,6 +75,7 @@ const bringUserById = async (id) => {
     } catch (error) {
         throw new Error(error);
     }
+
 };
 
 // --- Delete an user from data base ---
