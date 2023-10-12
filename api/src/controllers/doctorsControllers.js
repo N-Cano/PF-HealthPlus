@@ -153,7 +153,7 @@ const putComments = async (data) => {
             date: data.date,
             userName: `${user.name} ${user.lastName}`,
             comment: data.comment,
-            punctuation: data.punctuation            
+            punctuation: data.punctuation
         }
 
         const { doctorId } = data
@@ -170,19 +170,21 @@ const putComments = async (data) => {
 const updateDoctor = async (id, data) => {
     try {
         const doctorRef = await db.collection('doctors').doc(id).get();
-        
+
         const doctor = {
-            id: doctorRef.id,
             ...doctorRef.data()
         };
-        if(!doctor.name) throw new Error(`doctor with id ${id} not found`);
-        
-        // Delete prev image
-        if(data.photo) {
-            await deleteImage(doctor.photo.public_id)
-        }
+        if (!doctor.name) throw new Error(`doctor with id ${id} not found`);
+
+        // Delete cloudinary image only if it's not the placeholder
+        if (doctor.photo?.public_id ||
+            doctor.photo.secure_url !== 'https://res.cloudinary.com/drpge2a0c/image/upload/v1697037341/userImages/blank-profile-picture-973460_960_720_sgp40b.webp') {
+            await deleteImage(doctor.photo.public_id);
+        };
         await db.collection('doctors').doc(id).update(data);
-        return doctor;
+        return {
+            data
+        };
     } catch (error) {
         throw new Error(error)
     }
