@@ -1,3 +1,4 @@
+const { deleteImage } = require('../../utils/cloudinary');
 const { db } = require('../firebase');
 
 const { FieldValue } = require('firebase-admin/firestore');
@@ -165,6 +166,28 @@ const putComments = async (data) => {
     }
 };
 
+// --- Edit doctor info ---
+const updateDoctor = async (id, data) => {
+    try {
+        const doctorRef = await db.collection('doctors').doc(id).get();
+        
+        const doctor = {
+            id: doctorRef.id,
+            ...doctorRef.data()
+        };
+        if(!doctor.name) throw new Error(`doctor with id ${id} not found`);
+        
+        // Delete prev image
+        if(data.photo) {
+            await deleteImage(doctor.photo.public_id)
+        }
+        await db.collection('doctors').doc(id).update(data);
+        return doctor;
+    } catch (error) {
+        throw new Error(error)
+    }
+};
 
-module.exports = { putComments, bringDoctors, bringDoctorById, createDoctor, bringDoctorByName, deleteDoctor, disableDoctor, enableDoctor };
+
+module.exports = { putComments, bringDoctors, bringDoctorById, createDoctor, bringDoctorByName, deleteDoctor, disableDoctor, enableDoctor, updateDoctor };
 

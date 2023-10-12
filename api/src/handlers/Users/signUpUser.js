@@ -9,7 +9,7 @@ const createUser = async (req, res) => {
             secure_url: 'https://res.cloudinary.com/drpge2a0c/image/upload/v1697037341/userImages/blank-profile-picture-973460_960_720_sgp40b.webp'
         }
         const data = { email, uid, photo };
-        const newUser = signUpUser(data);
+        const newUser = await signUpUser(data);
         res.status(201).json({
             status: 'created',
             newUser

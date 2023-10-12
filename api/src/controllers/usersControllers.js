@@ -18,7 +18,11 @@ const signUpUser = async ({ email, uid, photo }) => {
             reviews: []
         });
 
-        return userRef.id;
+        const newUser = {
+            email,
+            uid
+        }
+        return newUser;
     } catch (error) {
         throw new Error(error);
     }
@@ -81,22 +85,20 @@ const bringUserById = async (id) => {
 // --- Delete an user from data base ---
 
 const deleteUser = async (id) => {
-  try {
-    const userRef = await db.collection("users").doc(id).get();
-    const user = {
-      id: userRef.id,
-      ...userRef.data(),
-    };
-    if (!user.email) throw new Error(`No user matched with UID: ${id}`);
-    await db.collection("users").doc(id).delete();
-    return user;
-    // Falta tirar error al no encontrar usuario
-  } catch (error) {
-    console.log(error);
-    throw new Error(error);
-  }
-};
 
+    try {
+        const userRef = await db.collection('users').doc(id).get();
+        const user = {
+            id: userRef.id,
+            ...userRef.data()
+        }
+        if (!user.email) throw new Error(`No user matched with UID: ${id}`)
+        await db.collection('users').doc(id).delete()
+        return user
+    } catch (error) {
+        throw new Error(error)
+    }
+}
 // --- Enable an user ---
 
 const enableUser = async (id) => {
@@ -156,19 +158,31 @@ const updateUser = async (data) => {
     }
 };
 
-// --- Bring user's dates ---
+//  --- Update user ---
+const updateUser = async (uid, data) => {
+    try {
+        const userRef = await db.collection('users').doc(uid).get();
 
-const bringUserDates = async (id) => {
-  try {
-    const userRef = await db.collection("users").doc(id).get();
-    const user = {
-      ...userRef.data(),
-    };
-    if (!user.email) throw new Error(`user with ID: ${id} not found`);
-    return user.dates;
-  } catch (error) {
-    throw new Error(error);
-  }
+        const user = {
+            ...userRef.data()
+        };
+        if (!user.email) throw new Error(`user with di: ${uid} not found`);
+
+        // Delete cloudinary image only if it's not the placeholder
+        if (user.photo?.public_id ||
+            user.photo.secure_url !== 'https://res.cloudinary.com/drpge2a0c/image/upload/v1697037341/userImages/blank-profile-picture-973460_960_720_sgp40b.webp') {
+            await deleteImage(user.photo.public_id);
+        };
+
+        // delete
+        await db.collection("users").doc(uid).update(data);
+        return {
+            data
+        }
+    } catch (error) {
+        throw new Error(error);
+    }
+
 };
 
 
