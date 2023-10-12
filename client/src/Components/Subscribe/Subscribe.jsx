@@ -36,7 +36,6 @@ const Subscribe = () => {
               {t("HOME PAGE.SUBSCRIBE.DESCRIPTION 2")}
             </p>
             <strong className="text-lg block mb-2">
-              {" "}
               {t("HOME PAGE.SUBSCRIBE.PRICE")}
             </strong>
           </div>

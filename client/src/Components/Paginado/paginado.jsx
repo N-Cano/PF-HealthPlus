@@ -1,10 +1,19 @@
 /* eslint-disable react/prop-types */
 import style from "./Paginado.module.css"; // Importa el archivo CSS con los estilos.
 
-const Paginado = ({ currentPage, totalPages, onPageChange }) => {
+const Paginado = ({
+  currentPage,
+  totalPages,
+  onPageChange,
+  itemsPerPage,
+  totalCards,
+}) => {
   const showFirstButton = currentPage > 2; //Estas variables determinan si se deben mostrar los botones de "Primera página", "Página anterior", "Página siguiente" y "Última página", respectivamente.
   const showPrevButton = currentPage > 1;
-  const showNextButton = currentPage < totalPages;
+  // const showNextButton = currentPage < totalPages;
+  const showNextButton =
+    currentPage < totalPages && currentPage * itemsPerPage < totalCards;
+
   const showLastButton = currentPage < totalPages - 1;
 
   return (
