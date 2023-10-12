@@ -88,14 +88,15 @@ const Profile = () => {
                   <button
                     className="font-bold w-60 bg-blue-400 hover:bg-indigo-500 hover:scale-110 rounded-2xl transition ease-in-out duration-300 mt-12 absolute bottom-0 m-auto"
                     type="submit"
-                    style={{ fontFamily: "Open Sans, sans-serif" }}>
+                    style={{ fontFamily: "Open Sans, sans-serif" }}
+                  >
                     Modify Profile
                   </button>
                 </Link>
                 <div className="w-96 content-center mt-2 absolute top-0 right-0">
                   <img
                     className="object-cover w-full mt-4 hover:scale-110 transition ease-in-out duration-300 rounded-full"
-                    src={img}
+                    src={patient.photo?.secure_url || img}
                     alt="profile photo"
                   />
                 </div>
