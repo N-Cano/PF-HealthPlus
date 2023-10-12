@@ -166,9 +166,9 @@
             "ORDER": "Order",
             "AZ":"A-Z",
             "ZA": "Z-A",
-            "PRICE": "Price",
-            "TOP PRICE": "Top Price",
-            "LOW PRICE": "Low Price"
+            "RATING": "Rating",
+            "TOP RATING": "Top Rating",
+            "LOW RATING": "Low Rating"
         },
 
         "SPECIALTIES HOME": {
@@ -246,6 +246,18 @@
             }
         },
          "BUTTON": "Buy"
+    },
 
+    "DETAIL": {
+        "HEADERS": {
+            "SPECIALTY": "Specialty",
+            "REVIEWS": "Reviews",
+            "DESCRIPTION": "Description"
+        }
+    },
+
+    "CARDS": {
+        "SPECIALTY": "Specialty",
+        "BUTTON": "More"
     }
 }

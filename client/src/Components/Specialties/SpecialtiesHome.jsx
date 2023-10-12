@@ -25,7 +25,7 @@ const SpecialtiesHome = () => {
       />
 
       {/* Contenido */}
-      <div className=" relative w-full h-full z-1 flex flex-col justify-center items-center pt-0 ">
+      <div className="relative w-full h-full z-1 flex flex-col justify-center items-center pt-0 mt-8">
         <h3
           className="text-4xl font-semibold text-center text-blue-600 mt-4 bg-white-400/90  p-0 rounded-lg w-1/4"
           style={{ fontFamily: "Rubik, sans-serif" }}>
