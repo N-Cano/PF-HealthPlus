@@ -1,63 +1,86 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-// import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getDoctor } from "../../redux/actions";
 import styles from "./Detail.module.css";
 import Footer from "../../Components/Footer/Footer";
 import Nav from "../../Components/NavBar/Nav";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 
 const Detail = () => {
   const { t } = useTranslation();
 
+  const [loading, setLoading] = useState(true);
   const [detail, setDetail] = useState({});
-
   const { id } = useParams();
   const dispatch = useDispatch();
   const doctor = useSelector((state) => state.doctor);
+
   useEffect(() => {
-    dispatch(getDoctor(id));
+    const fetchData = async () => {
+      await dispatch(getDoctor(id));
+      setLoading(false);
+    };
+
+    fetchData();
+  }, [dispatch, id]);
+
+  useEffect(() => {
     setDetail(doctor);
-  }, []);
-  console.log(detail);
+  }, [doctor]);
 
   return (
     <>
       <Nav />
       <div className={styles.nuevo}>
         <div className={styles.container}>
-          <h1>Dr.{`${detail.name}`}</h1>
-          <img
-            src={
-              detail.photo
-                ? detail.photo.secure_url
-                : "https://fakeimg.pl/208x208/fa0848/909090?text=ERROR"
-            }
-          />
-          <div>
-            <h2>
-              <strong>{t("DETAIL.HEADERS.SPECIALTY")}</strong>
-              <br></br>
-              {detail.specialty}
-            </h2>
-          </div>
-          <div>
-            <h2>
-              <strong>{t("DETAIL.HEADERS.REVIEWS")}</strong>
-            </h2>
-          </div>
-          <div>
-            <h2>
-              <strong>{t("DETAIL.HEADERS.DESCRIPTION")}</strong>
-              <br></br>
-              {detail.description}
-            </h2>
-          </div>
+          {loading ? (
+            <p>Cargando información...</p>
+          ) : (
+            <>
+              <h1>Dr. {detail.name}</h1>
+              <img
+                src={
+                  detail.photo
+                    ? detail.photo.secure_url
+                    : "https://fakeimg.pl/208x208/fa0848/909090?text=ERROR"
+                }
+              />
+              <div>
+                <h2>
+                  <strong>{t("DETAIL.HEADERS.SPECIALTY")}</strong>
+                  <br></br>
+                  {detail.specialty}
+                </h2>
+              </div>
+              <div>
+                <h2>
+                  <strong>{t("DETAIL.HEADERS.REVIEWS")}</strong>
+                </h2>
+              </div>
+              <div>
+                <h2>
+                  <strong>{t("DETAIL.HEADERS.DESCRIPTION")}</strong>
+                  <br></br>
+                  {detail.description}
+                </h2>
+              </div>
+              <Link to="/home">
+                <button
+                  class="bg-black text-white h-10 w-20 rounded-2xl mt-2   mb-2"
+                  type="button"
+                >
+                  Home
+                </button>
+              </Link>
+            </>
+          )}
         </div>
       </div>
       <Footer />
     </>
   );
 };
+
 export default Detail;

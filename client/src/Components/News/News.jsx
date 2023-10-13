@@ -8,7 +8,7 @@ const News = () => {
 
   const [news, setNews] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 6;
+  const itemsPerPage = 4;
   const totalItems = news.length;
   const totalPages = Math.ceil(totalItems / itemsPerPage);
   const startIndex = (currentPage - 1) * itemsPerPage;
@@ -41,7 +41,8 @@ const News = () => {
       {console.log(currentGame)}
       <h3
         className="mt-5 text-center text-2xl text-white font-bold"
-        style={{ fontFamily: "Rubik, sans-serif" }}>
+        style={{ fontFamily: "Rubik, sans-serif" }}
+      >
         {t("HOME PAGE.NEWS.TITLE")}
       </h3>
       <div className="flex flex-wrap justify-center">
@@ -64,7 +65,8 @@ const News = () => {
                   href={article.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-3 text-blue-500">
+                  className="mt-3 text-blue-500"
+                >
                   {t("HOME PAGE.NEWS.BUTTON")}
                 </a>
               </div>
@@ -72,7 +74,7 @@ const News = () => {
           </div>
         ))}
       </div>
-      <div className="flex justify-center mt-4">
+      <div className="flex justify-center mt-4 pb-4">
         <Paginado
           currentPage={currentPage}
           totalPages={totalPages}
