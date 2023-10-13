@@ -7,6 +7,7 @@ const PostDocs = () => {
     description: "",
     specialty: "",
     image: null,
+    email: "",
   });
 
   const [error, setError] = useState(null);
@@ -66,6 +67,16 @@ const PostDocs = () => {
             id="name"
           />
         </div>
+        <div>
+          <label htmlFor="name">Email:</label>
+          <input
+            type="text"
+            value={form.email}
+            onChange={changeHandler}
+            name="email"
+            id="email"
+          />
+        </div>{" "}
         <div>
           <label htmlFor="image">Image:</label>
           <input

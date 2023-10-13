@@ -5,12 +5,24 @@ const Docs = (props) => {
   return (
     <div>
       <Link to={`/detail2/${props.id}`} key={props.id}>
-        <div className="mt-5 mb-5  text-center  border-2 w-400 h-400  bg-blue-200 w-56 h-full ">
-          <p className="mt-6" style={{ fontFamily: "Open Sans, sans-serif" }}>
-            Dr: {props.name}
+        <div className="rounded-2xl mt-5 py-6 text-center w-full h-400 transition ease-in-out duration-300 bg-blue-100 hover:scale-110 hover:bg-blue-300 h-full flex flex-row justify-around">
+          <p
+            className="w-[300px]"
+            style={{ fontFamily: "Open Sans, sans-serif" }}
+          >
+            {props.name}
           </p>
-          <p style={{ fontFamily: "Open Sans, sans-serif" }}>
-            Specialty: {props.specialty}
+          <p
+            className="w-[300px]"
+            style={{ fontFamily: "Open Sans, sans-serif" }}
+          >
+            {props.specialty}
+          </p>
+          <p
+            className="w-[300px]"
+            style={{ fontFamily: "Open Sans, sans-serif" }}
+          >
+            {props.email}
           </p>
         </div>
       </Link>
