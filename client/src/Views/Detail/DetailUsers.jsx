@@ -1,29 +1,44 @@
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useParams, Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getPatient } from "../../redux/actions";
+import { getPatient } from "../../redux/actions"; // Asegúrate de que getPatient esté definida
 import styles from "./Detail.module.css";
 import Footer from "../../Components/Footer/Footer";
 import axios from "axios";
-const DeatilUsers = () => {
-  const [detail, setDetail] = useState({});
+import NavBarDesp from "../../Components/NavBar/NavBarDesp";
 
+const DetailUsers = () => {
+  const [detail, setDetail] = useState({});
+  const [loading, setLoading] = useState(true);
   const { id } = useParams();
   const dispatch = useDispatch();
   const patient = useSelector((state) => state.patient);
-  useEffect(() => {
-    dispatch(getPatient(id));
-    setDetail(patient);
-  }, []);
-  console.log(detail);
 
-  const deleteDoc = async () => {
-    await axios.delete(`http://localhost:3001/users/${id}`);
+  useEffect(() => {
+    const fetchData = async () => {
+      await dispatch(getPatient(id)); // Asegúrate de que getPatient esté definida
+      setLoading(false);
+    };
+
+    fetchData();
+  }, [dispatch, id]);
+
+  useEffect(() => {
+    setDetail(patient);
+  }, [patient]);
+
+  const deleteUser = async () => {
+    try {
+      await axios.delete(`http://localhost:3001/users/${id}`);
+      // Puedes agregar una redirección o un mensaje de confirmación aquí
+    } catch (error) {
+      console.error("Error deleting user:", error);
+    }
   };
 
   return (
     <>
+      <NavBarDesp />
       <div className={styles.nuevo}>
         <div className={styles.container}>
           <h1>{`${detail.name}`}</h1>
@@ -33,28 +48,37 @@ const DeatilUsers = () => {
                 ? detail.photo.secure_url
                 : "https://fakeimg.pl/208x208/fa0848/909090?text=ERROR"
             }
+            alt={`${detail.name}'s Photo`}
           />
           <div>
-            <h2>lastName:{detail.lastName}</h2>
+            <h2>Last Name: {detail.lastName}</h2>
           </div>
           <div>
             <h2>DNI: {detail.userId}</h2>
           </div>
           <div>
-            <h2>date:{detail.date}</h2>
+            <h2>Date: {detail.date}</h2>
           </div>
           <div className={styles.inputbox}>
             <Link to="/dashboard">
-              <button>Home</button>
+              <button class="bg-blue-500 text-white h-10 w-20 rounded-2xl mt-2   mb-2">
+                Home
+              </button>
             </Link>
           </div>
+          <Link to="/dashboardusers">
+            <button
+              class="bg-black text-white h-10 w-20 rounded-2xl mt-2   mb-2"
+              onClick={deleteUser}
+            >
+              Delete
+            </button>
+          </Link>
         </div>
-        <Link to="/dashboard">
-          <button onClick={deleteDoc}>Delete Usuario</button>
-        </Link>
       </div>
       <Footer />
     </>
   );
 };
-export default DeatilUsers;
+
+export default DetailUsers;
