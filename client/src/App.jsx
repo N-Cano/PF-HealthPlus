@@ -25,8 +25,9 @@ import "tailwindcss/tailwind.css";
 import { UserAuth } from "./context/AuthContext";
 import { Navigate } from "react-router-dom";
 import DashBoard from "./Views/DashBoard/dashboard";
-import Bridge from "./Views/Brige/Bridge";
+import Bridge from "./Views/Bridge/Bridge";
 import DetailUsers from "./Views/Detail/DetailUsers";
+import Graphics from "./Views/Grafics/Graphics";
 
 const App = () => {
   const { user } = UserAuth();
@@ -60,10 +61,10 @@ const App = () => {
         <Route path="/myDates" element={<MyDates />} />
         <Route path="/dashboard" element={<DashBoard />} />
         <Route path="/dashboardusers" element={<DashBoardUsers />} />
-
         <Route path="/postdocs" element={<PostDocs />} />
         <Route path="/postusers" element={<PostUsers />} />
         <Route path="/confirm" element={<Bridge />} />
+        <Route path="/graphics" element={<Graphics />} />
       </Routes>
     </div>
   );
