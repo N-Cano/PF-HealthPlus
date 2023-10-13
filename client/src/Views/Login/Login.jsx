@@ -13,7 +13,7 @@ const Login = () => {
     handleSubmit,
     control,
     formState: { errors },
-    setValue,
+    // setValue,
   } = useForm();
 
   //-------------------------------Google Auth-----------------------------------------
@@ -57,15 +57,17 @@ const Login = () => {
         <Link to="/">
           <button
             className="bg-slate-950 ml-8 mt-12 text-neutral-50 w-24 p-2 rounded-2xl hover:bg-slate-700 hover:scale-110 transition duration-300 ease-in-out mb-1"
-            style={{ fontFamily: "Rubik, sans-serif" }}>
+            style={{ fontFamily: "Rubik, sans-serif" }}
+          >
             Back
           </button>
         </Link>
-        <div className='flex justify-center items-center h-4/5'>
+        <div className="flex justify-center items-center h-4/5">
           <div className="bg-blue-400 rounded-2xl mt-10 text-center p-8 max-w-[552px] w-full z-10">
             <h2
               className="text-3xl mb-8 font-bold text-neutral-50 bg-gray-950 rounded-2xl p-2"
-              style={{ fontFamily: "Rubik, sans-serif" }}>
+              style={{ fontFamily: "Rubik, sans-serif" }}
+            >
               Sign In
             </h2>
 
@@ -124,9 +126,12 @@ const Login = () => {
                         className="w-full p-2 pl-4 placeholder-slate-600 rounded-2xl focus:outline-none"
                       />
                       <i
-                        className={`bx ${showPassword ? "bx-show-alt" : "bx-hide"
-                          }`}
+                        className={`bx ${
+                          showPassword ? "bx-show-alt" : "bx-hide"
+                        }`}
+
                         onClick={togglePassword}></i>
+
                       <link
                         href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
                         rel="stylesheet"
@@ -143,21 +148,24 @@ const Login = () => {
                 <div className="flex text-xs w-full justify-between mb-4">
                   <Link
                     to="/forgotPassword"
-                    className="hover:text-gray-600 hover:scale-110 transition duration-300 ease-in-out">
+                    className="hover:text-gray-600 hover:scale-110 transition duration-300 ease-in-out"
+                  >
                     Forgot Password
                   </Link>
 
                   <Link
                     to="/signUp"
                     className="hover:text-gray-600 hover:scale-110 transition duration-300 ease-in-out"
-                    style={{ fontFamily: "Rubik, sans-serif" }}>
+                    style={{ fontFamily: "Rubik, sans-serif" }}
+                  >
                     Sign Up
                   </Link>
                 </div>
                 <button
                   type="submit"
                   className="bg-slate-950 text-neutral-50 w-24 p-2 rounded-2xl hover:bg-slate-700 hover:scale-110 transition duration-300 ease-in-out mb-4"
-                  style={{ fontFamily: "Rubik, sans-serif" }}>
+                  style={{ fontFamily: "Rubik, sans-serif" }}
+                >
                   Sign In
                 </button>
               </div>
@@ -165,7 +173,8 @@ const Login = () => {
             <button
               onClick={loginWithGoogle}
               className="bg-white p-2 rounded-2xl mb-4 w-56 flex items-center hover:text-gray-600 hover:scale-110 transition duration-300 ease-in-out m-auto"
-              style={{ fontFamily: "Rubik, sans-serif" }}>
+              style={{ fontFamily: "Rubik, sans-serif" }}
+            >
               <img className="w-5 m-2" src={logoGoogle} alt="" /> Sign in with
               Google
             </button>

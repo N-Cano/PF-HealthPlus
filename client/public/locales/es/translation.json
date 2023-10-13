@@ -169,9 +169,9 @@
             "ORDER": "Orden",
             "AZ":"A-Z",
             "ZA": "Z-A",
-            "PRICE": "Precio",
-            "TOP PRICE": "Precio Máximo",
-            "LOW PRICE": "Precio Bajo"
+            "RATING": "Puntaje",
+            "TOP RATING": "Puntaje Alto",
+            "LOW RATING": "Puntaje Bajo"
         },
 
         "SPECIALTIES HOME": {
@@ -248,6 +248,17 @@
             }
         }, 
         "BUTTON": "Comprar"
+    },
+    "DETAIL": {
+        "HEADERS": {
+            "SPECIALTY": "Especialidades",
+            "REVIEWS": "Reseñas",
+            "DESCRIPTION": "Descripción"
+        }
+    },
 
+    "CARDS": {
+        "SPECIALTY": "Especialidad",
+        "BUTTON": "Más"
     }
 }

@@ -1,13 +1,16 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getDoctor } from "../../redux/actions";
 import styles from "./Detail.module.css";
 import Footer from "../../Components/Footer/Footer";
 import Nav from "../../Components/NavBar/Nav";
+import { useTranslation } from "react-i18next";
 
 const Detail = () => {
+  const { t } = useTranslation();
+
   const [detail, setDetail] = useState({});
 
   const { id } = useParams();
@@ -34,20 +37,19 @@ const Detail = () => {
           />
           <div>
             <h2>
-              {" "}
-              <strong>Specialty</strong>
+              <strong>{t("DETAIL.HEADERS.SPECIALTY")}</strong>
               <br></br>
               {detail.specialty}
             </h2>
           </div>
           <div>
             <h2>
-              <strong>Reviews</strong>
+              <strong>{t("DETAIL.HEADERS.REVIEWS")}</strong>
             </h2>
           </div>
           <div>
             <h2>
-              <strong>Description</strong>
+              <strong>{t("DETAIL.HEADERS.DESCRIPTION")}</strong>
               <br></br>
               {detail.description}
             </h2>

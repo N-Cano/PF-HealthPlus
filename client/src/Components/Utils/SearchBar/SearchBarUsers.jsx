@@ -16,7 +16,7 @@ export default function SearchBarUsers() {
   }
 
   return (
-    <div className="flex flex-col items-center justify-center mx-1">
+    <div className="flex flex-row items-center justify-center m-4">
       <input
         placeholder="Search by breed name"
         onChange={handleInputChange}
