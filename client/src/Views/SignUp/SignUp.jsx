@@ -4,13 +4,17 @@ import { useNavigate } from "react-router-dom";
 import { postEmail } from "../../functions/post";
 
 const SignUp = () => {
-  const { handleSubmit, control, formState: { errors } } = useForm();
+  const {
+    handleSubmit,
+    control,
+    formState: { errors },
+  } = useForm();
   const navigate = useNavigate();
 
   const onSubmit = async (data) => {
     try {
       const response = await postEmail(data);
-      navigate("/login");
+      navigate("/home");
       console.log(response);
       return response;
     } catch (error) {
@@ -28,9 +32,9 @@ const SignUp = () => {
       </Link>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="flex justify-center items-center flex-col gap-2 rounded-2xl m-12 max-w-md w-full h-5/6 bg-blue-400">
-          <h2
-            className="text-3xl text-center mt-8 max-w-xs w-full font-bold text-neutral-50 bg-gray-950 rounded-2xl p-2"
-          >Sign Up</h2>
+          <h2 className="text-3xl text-center mt-8 max-w-xs w-full font-bold text-neutral-50 bg-gray-950 rounded-2xl p-2">
+            Sign Up
+          </h2>
           <div className="flex flex-col gap-4 p-8 text-center w-full">
             <label className="text-xl">Email</label>
             <Controller
@@ -53,7 +57,9 @@ const SignUp = () => {
                 />
               )}
             />
-            {errors.email && <p className='text-red-800'>{errors.email.message}</p>}
+            {errors.email && (
+              <p className="text-red-800">{errors.email.message}</p>
+            )}
 
             <label className="text-xl">Password</label>
             <Controller
@@ -76,8 +82,9 @@ const SignUp = () => {
                 />
               )}
             />
-            {errors.password && <p className='text-red-800'>{errors.password.message}</p>}
-
+            {errors.password && (
+              <p className="text-red-800">{errors.password.message}</p>
+            )}
           </div>
 
           <button
