@@ -10,6 +10,9 @@ import {
   Legend,
   Bar,
 } from "recharts";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getUsers } from "../../../redux/actions";
 
 const data = [
   { name: "Jose", age: 10, weight: 50 },
@@ -20,11 +23,17 @@ const data = [
 ];
 
 const Pilas = () => {
+  const dispatch = useDispatch();
+  const users = useSelector((state) => state.users);
+
+  useEffect(() => {
+    dispatch(getUsers());
+  }, [dispatch]);
   return (
     <div className="w-5/5 ">
       <ResponsiveContainer aspect={2}>
         <BarChart
-          data={data}
+          data={users}
           width={500}
           height={300}
           margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
@@ -37,8 +46,8 @@ const Pilas = () => {
             verticalAlign="bottom"
             wrapperStyle={{ lineHeight: "40px" }}
           />
-          <Bar dataKey="weight" fill="#1abc9c" />
-          <Bar dataKey="age" fill="#1ee3cf" />
+          <Bar dataKey="name" fill="#1abc9c" />
+          <Bar dataKey="date" fill="#1ee3cf" />
         </BarChart>
       </ResponsiveContainer>
     </div>
