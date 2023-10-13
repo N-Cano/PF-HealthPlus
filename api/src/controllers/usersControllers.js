@@ -10,6 +10,7 @@ const signUpUser = async ({ email, uid, photo }) => {
         await userRef.set({
             email,
             name: '',
+            lastName: '',
             userId: '',
             photo,
             dates: [],
@@ -205,6 +206,6 @@ const reviewDoctor = async ({ userId, doctorId, dateId, comment, punctuation, da
     }
 };
 
-module.exports = { bringUsers, bringUserById, deleteUser, disableUser, signUpUser, updateUser, enableUser, reviewDoctor, bringUserByName, reviewDoctor }
+module.exports = { bringUsers, bringUserById, deleteUser, disableUser, signUpUser, updateUser, enableUser, bringUserByName, reviewDoctor }
 
 
