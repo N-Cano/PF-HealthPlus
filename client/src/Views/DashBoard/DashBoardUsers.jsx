@@ -19,19 +19,16 @@ const DashBoardUsers = () => {
   };
 
   return (
-    <div className="bg-blue-200">
+    <div className="bg-blue-200 h-screen flex flex-col justify-between">
       <div
         id="doctors"
         className="flex flex-col md:flex-row md:items-center md:justify-center"
       >
         <div>
-          <h3
-            className="mt-5 text-center text-2xl font-bold"
-            style={{ fontFamily: "Rubik, sans-serif" }}>
+          <h3 className="mt-5 text-center text-2xl font-bold font-['Rubik, sans-serif']">
             USERS
           </h3>
 
-          {/* AQUI VAN LAS CARDS Y CON CLICK MAS DETALLES DEL DOCTOR */}
           <div className="mb-8">
             <SearchBarUsers />
           </div>

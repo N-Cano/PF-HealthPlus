@@ -57,18 +57,13 @@ const NavHome = () => {
         <div className="relative flex h-16 items-center justify-between">
           <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
             <div className="flex flex-shrink-0 items-center">
-
               <img className="h-10 w-auto" src={logo3} alt="Logo" />
-
             </div>
             <div className="hidden sm:ml-6 sm:block">
               <div className="flex space-x-4">
-                {/* Contenedor de botones del componente Scroll */}
-                <div className="flex items-center space-x-4 ml-auto ">
-                  {/* Botones del componente Scroll */}
+                <div className="flex items-center space-x-4 ml-auto">
                   <ScrollHome />
                 </div>
-
                 <div className="flex items-center">
                   <Link to="/create">
                     <a
@@ -76,30 +71,25 @@ const NavHome = () => {
                       className="text-white hover:bg-gray-700 hover:text-white rounded-md px-4 py-2 text-sm font-medium"
                       style={{ fontFamily: "Rubik, sans-serif" }}
                     >
-                   {t("HOME PAGE.NAVBAR.SCHEDULE")}
-
+                      {t("HOME PAGE.NAVBAR.SCHEDULE")}
                     </a>
                   </Link>
-
                   <div className="ml-[170px]">
                     <LanguageSwitcher />
                   </div>
-
                   <div className="flex items-center">
                     <h3
                       className="ml-[100px] font-semibold"
                       style={{ fontFamily: "Rubik, sans-serif" }}
-                 >
+                    >
                       {t("HOME PAGE.NAVBAR.WELCOME")},<br></br>
                       {user ? user.displayName || user.email : ""}
-
                     </h3>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-
           <div className="relative ml-3">
             <div>
               <button
@@ -117,7 +107,6 @@ const NavHome = () => {
                 />
               </button>
             </div>
-            {/* Muestra el menú solo si isMenuOpen es true */}
             {isMenuOpen && (
               <div className="absolute right-0 mt-2 w-48 bg-white border border-gray-200 divide-y divide-gray-100 rounded-md shadow-lg">
                 <Link to="/profile">
@@ -128,29 +117,33 @@ const NavHome = () => {
                     {t("HOME PAGE.NAVBAR.LOGIN.PROFILE")}
 
                   </button>
+
                 </Link>
                 <Link to="/myDates">
                   <a
                     href="#"
-
-
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                    className="block px-4 py-2 text-sm text-gray-700 hover.bg-gray-100"
                   >
                     {t("HOME PAGE.NAVBAR.LOGIN.DATES")}
-
                   </a>
                 </Link>
                 <a
                   href="#"
-                  className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                  className="block px-4 py-2 text-sm text-gray-700 hover.bg-gray-100"
                   onClick={logOutWithGoogle}
                 >
-
-
-
                   {t("HOME PAGE.NAVBAR.LOGIN.LOG OUT")}
-
                 </a>
+                {user?.email === "admin@admin.com" && (
+                  <Link to="/dashboard">
+                    <a
+                      href="#"
+                      className="block px-4 py-2 text-sm text-gray-700 hover.bg-gray-100"
+                    >
+                      Dashboard
+                    </a>
+                  </Link>
+                )}
               </div>
             )}
           </div>

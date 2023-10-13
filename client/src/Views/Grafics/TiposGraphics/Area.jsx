@@ -11,6 +11,9 @@ import {
   AreaChart,
   Area,
 } from "recharts";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getDoctors } from "../../../redux/actions";
 
 const data = [
   { name: "Jose", age: 10, weight: 50 },
@@ -21,11 +24,18 @@ const data = [
 ];
 
 const StackedAreaCharts = () => {
+  const dispatch = useDispatch();
+  const doctors = useSelector((state) => state.doctors);
+
+  useEffect(() => {
+    dispatch(getDoctors());
+  }, [dispatch]);
+
   return (
     <div className="w-5/5 ">
       <ResponsiveContainer aspect={2}>
         <AreaChart
-          data={data}
+          data={doctors}
           width={500}
           height={300}
           margin={{ top: 5, right: 30, left: 0, bottom: 0 }}
@@ -36,14 +46,14 @@ const StackedAreaCharts = () => {
           <Tooltip />
           <Area
             type="monotone"
-            dataKey="age"
+            dataKey="name"
             stackId="1"
             stroke="#8884d8"
             fill="#"
           />
           <Area
             type="monotone"
-            dataKey="weight"
+            dataKey="specialty"
             stackId="1"
             stroke="#82caed"
             fill="#fad3cf"

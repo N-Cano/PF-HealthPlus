@@ -4,7 +4,6 @@ const { db } = require("../firebase");
 //  --- Sign up ---
 
 const signUpUser = async ({ email, uid, photo }) => {
-
     try {
         const userRef = db.collection('users').doc(uid);
 
@@ -19,16 +18,6 @@ const signUpUser = async ({ email, uid, photo }) => {
             enable: false,
             reviews: []
         });
-
-        const newUser = {
-            email,
-            uid
-        }
-        return newUser;
-    } catch (error) {
-        throw new Error(error);
-    }
-
 
     const newUser = {
       email,
@@ -148,7 +137,6 @@ const disableUser = async (id) => {
     } catch (error) {
         throw new Error(error);
     }
-
 };
 
 //  --- Update user ---
@@ -181,7 +169,6 @@ const updateUser = async (uid, data) => {
 };
 
 // --- Post a review ---
-
 const reviewDoctor = async ({ userId, doctorId, dateId, comment, punctuation, date }) => {
     try {
         const review = {
@@ -215,5 +202,7 @@ const reviewDoctor = async ({ userId, doctorId, dateId, comment, punctuation, da
 };
 
 module.exports = { bringUsers, bringUserById, deleteUser, disableUser, signUpUser, updateUser, enableUser, bringUserByName, reviewDoctor }
+
+
 
 
