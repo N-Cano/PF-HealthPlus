@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import {
   Home,
   Landing,
@@ -16,16 +15,14 @@ import {
 
 import { Route, Routes } from "react-router-dom";
 import DashBoardUsers from "./Views/DashBoard/DashBoardUsers";
-// import { useLocation } from "react-router-dom";
 import Detail2 from "./Views/Detail/DetailDash";
-// import NavBar from "./Components/NavBar/NavBar";
 import PostDocs from "./Components/Create/PostDocs/PostDocs";
 import PostUsers from "./Components/Create/PostUsers/PostUsers";
 import "tailwindcss/tailwind.css";
 import { UserAuth } from "./context/AuthContext";
 import { Navigate } from "react-router-dom";
 import DashBoard from "./Views/DashBoard/Dashboard";
-import Bridge from "./Views/Brige/Bridge";
+import Bridge from "./Views/Bridge/Bridge";
 import DetailUsers from "./Views/Detail/DetailUsers";
 import Graphics from "./Views/Grafics/Graphics";
 
