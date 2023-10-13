@@ -3,7 +3,7 @@ import ScrollToTop from "react-scroll-to-top";
 import Footer from "../../Components/Footer/Footer";
 import News from "../../Components/News/News";
 import Cards from "../../Components/CardsComponent/Cards/Cards";
-import { filterSpeciality, orderCards, priceCards } from "../../redux/actions";
+import { filterSpeciality, orderCards, ratingCards } from "../../redux/actions";
 import SearchBar from "../../Components/Utils/SearchBar/SearchBar";
 import SearchBarUsers from "../../Components/Utils/SearchBar/SearchBarUsers";
 import { useDispatch } from "react-redux";
@@ -24,8 +24,8 @@ const DashBoard = () => {
     //dispatch del asc y desc
     dispatch(orderCards(e.target.value));
   };
-  const handlePrice = (event) => {
-    dispatch(priceCards(event.target.value));
+  const handleRating = (event) => {
+    dispatch(ratingCards(event.target.value));
   };
 
   return (
@@ -141,33 +141,6 @@ const DashBoard = () => {
                 style={{ fontFamily: "Open Sans, sans-serif" }}
               >
                 Z-A
-              </option>
-            </select>
-
-            <select
-              className="bg-sky-200/100 ... rounded-lg w-[100px]"
-              onChange={handlePrice}
-              style={{ fontFamily: "Open Sans, sans-serif" }}
-            >
-              <option
-                className="font-bold text-center"
-                style={{ fontFamily: "Open Sans, sans-serif" }}
-              >
-                Price
-              </option>
-              <option
-                value="Top"
-                className="font-bold text-center"
-                style={{ fontFamily: "Open Sans, sans-serif" }}
-              >
-                Price Top
-              </option>
-              <option
-                value="Low"
-                className="font-bold text-center"
-                style={{ fontFamily: "Open Sans, sans-serif" }}
-              >
-                Price Low
               </option>
             </select>
           </div>

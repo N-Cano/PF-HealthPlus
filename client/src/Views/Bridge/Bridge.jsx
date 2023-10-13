@@ -27,7 +27,7 @@ const Bridge = () => {
       axios
         .put(`http://localhost:3001/users/enable/${form.uid}`)
         .then(() => {
-          navigate("/login");
+          navigate("/home");
         })
         .catch((error) => {
           console.error("Error al cargar los datos del paciente:", error);
