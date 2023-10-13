@@ -28,6 +28,16 @@ export const postEmail = async (data) => {
     return response;
 };
 
+export const authEmail = async (user) => {
+    if (user.created) return
+    await axios.post('http://localhost:3001/users/signup', {
+        uid: user.uid,
+        email: user.email
+    })
+    user.created = true
+
+};
+
 export const postDate = async (data) => {
     // Formatear la fecha antes de enviarla al servidor
     const dateParts = data.date.split('-'); // Dividir la fecha por guiones
