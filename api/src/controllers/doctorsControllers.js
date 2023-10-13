@@ -44,6 +44,7 @@ const createDoctor = async (data) => {
             ...data,
             enable: true,
             rol: 'doctor',
+            email:'',
             comments: [],
             dates: []
         });
