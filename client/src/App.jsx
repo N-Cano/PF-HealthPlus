@@ -25,7 +25,7 @@ import "tailwindcss/tailwind.css";
 import { UserAuth } from "./context/AuthContext";
 import { Navigate } from "react-router-dom";
 import DashBoard from "./Views/DashBoard/Dashboard";
-import Bridge from "./Views/Brige/Bridge";
+import Bridge from "./Views/Bridge/Bridge";
 import DetailUsers from "./Views/Detail/DetailUsers";
 import Graphics from "./Views/Grafics/Graphics";
 

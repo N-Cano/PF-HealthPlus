@@ -29,14 +29,12 @@ const DashBoard = () => {
   };
 
   return (
-    <div
-      style={{
-        background: "linear-gradient(45deg, #71b7e6, #f6f6f6)",
-        boxShadow: "7px 6px 30px #8ccef5",
-      }}
-    >
-      <div id="doctors">
-        <div className="flex-1 p-4 rounded-lg shadow-md my-7 mx-2 md:my-6 md:mr-2 md:ml-2 md:pb-12 h-10">
+    <div className="bg-blue-200">
+      <div
+        id="doctors"
+        className="flex flex-col md:flex-row md:items-center md:justify-center"
+      >
+        <div>
           <h3
             className="mt-5 text-center text-2xl font-bold"
             style={{ fontFamily: "Rubik, sans-serif" }}
@@ -45,125 +43,22 @@ const DashBoard = () => {
           </h3>
 
           {/* AQUI VAN LAS CARDS Y CON CLICK MAS DETALLES DEL DOCTOR */}
-          <div>
+          <div className="mb-8">
             <SearchBar />
-
-            <select
-              className="bg-sky-200/100 ... rounded-lg w-[100px]"
-              onChange={filterSpecial}
-              style={{ fontFamily: "Open Sans, sans-serif" }}
-            >
-              <option
-                value="allDocs"
-                className="font-bold text-center"
-                style={{ fontFamily: "Open Sans, sans-serif" }}
-              >
-                allDocs
-              </option>
-              <option
-                value="Dermatology"
-                className="font-bold text-center"
-                style={{ fontFamily: "Open Sans, sans-serif" }}
-              >
-                Dermatology
-              </option>
-              <option
-                value="Rheumatology"
-                className="font-bold"
-                style={{ fontFamily: "Open Sans, sans-serif" }}
-              >
-                Rheumatology
-              </option>
-              <option
-                value="Psychiatry"
-                className="font-bold text-center"
-                style={{ fontFamily: "Open Sans, sans-serif" }}
-              >
-                Psychiatry
-              </option>
-              <option
-                value="Gastroenterology"
-                className="font-bold text-center"
-                style={{ fontFamily: "Open Sans, sans-serif" }}
-              >
-                Gastroenterology
-              </option>
-              <option
-                value="Endocrinology"
-                className="font-bold text-center"
-                style={{ fontFamily: "Open Sans, sans-serif" }}
-              >
-                Endocrinology
-              </option>
-              <option
-                value="Radiology"
-                className="font-bold text-center"
-                style={{ fontFamily: "Open Sans, sans-serif" }}
-              >
-                Radiology
-              </option>
-              <option
-                value="Urology"
-                className="font-bold text-center"
-                style={{ fontFamily: "Open Sans, sans-serif" }}
-              >
-                Urology
-              </option>
-              <option
-                value="cardiology"
-                className="font-bold text-center"
-                style={{ fontFamily: "Open Sans, sans-serif" }}
-              >
-                Cardiology
-              </option>
-            </select>
-            <select
-              className="bg-sky-200/100 ... rounded-lg w-[100px]"
-              onChange={handleOrder}
-              style={{ fontFamily: "Open Sans, sans-serif" }}
-            >
-              <option
-                className="font-bold text-center"
-                style={{ fontFamily: "Open Sans, sans-serif" }}
-              >
-                Order
-              </option>
-              <option
-                value="A"
-                className="font-bold text-center"
-                style={{ fontFamily: "Open Sans, sans-serif" }}
-              >
-                A-Z
-              </option>
-              <option
-                value="D"
-                className="font-bold text-center"
-                style={{ fontFamily: "Open Sans, sans-serif" }}
-              >
-                Z-A
-              </option>
-            </select>
           </div>
-          <div className="bg-blue-200 ... rounded-lg "></div>
+          <Link to={"/postdocs"}>
+            <button>Create Doctor</button>
+          </Link>
+          <div className="flex flex-row justify-around bg-blue-400 py-6 rounded-2xl font-bold text-center">
+            <p className="text-xl w-[300px]">Profesional</p>
+            <p className="text-xl w-[300px]">Specialty</p>
+            <p className="text-xl w-[300px]">Email</p>
+          </div>
           <DocsCards />
         </div>
       </div>
-      <div>
-        <Link to={"/postdocs"}>
-          <button>CREAR DOCTOR</button>
-        </Link>
-      </div>
-      <div
-        id="doctors"
-        className="flex flex-col md:flex-row mt-80 md:items-center md:justify-center"
-      >
-        <div>
-          {/* AQUI VAN LAS CARDS Y CON CLICK MAS DETALLES DEL DOCTOR */}
-          <div></div>
-        </div>
-      </div>
-
       <SideNavbar />
+
       <Footer />
     </div>
   );
