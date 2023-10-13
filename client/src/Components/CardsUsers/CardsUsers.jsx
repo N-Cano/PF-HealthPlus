@@ -13,7 +13,7 @@ const CardsUsers = () => {
 
   return (
     <div className="w-full flex flex-col mb-8">
-      <div className="border-2 flex justify-center item bg-blue-100 rounded-2xl gap-6 h-50">
+      <div className="flex flex-col justify-center rounded-2xl w-[900px]">
         {users.map((u) => (
           <Users
             name={u.name}
