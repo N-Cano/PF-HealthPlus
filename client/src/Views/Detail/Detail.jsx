@@ -10,53 +10,68 @@ import { useTranslation } from "react-i18next";
 const Detail = () => {
   const { t } = useTranslation();
 
+  const [loading, setLoading] = useState(true);
   const [detail, setDetail] = useState({});
-
   const { id } = useParams();
   const dispatch = useDispatch();
   const doctor = useSelector((state) => state.doctor);
+
   useEffect(() => {
-    dispatch(getDoctor(id));
+    const fetchData = async () => {
+      await dispatch(getDoctor(id));
+      setLoading(false);
+    };
+
+    fetchData();
+  }, [dispatch, id]);
+
+  useEffect(() => {
     setDetail(doctor);
-  }, []);
-  console.log(detail);
+  }, [doctor]);
 
   return (
     <>
       <Nav />
       <div className={styles.nuevo}>
         <div className={styles.container}>
-          <h1>Dr.{`${detail.name}`}</h1>
-          <img
-            src={
-              detail.photo
-                ? detail.photo.secure_url
-                : "https://fakeimg.pl/208x208/fa0848/909090?text=ERROR"
-            }
-          />
-          <div>
-            <h2>
-              <strong>{t("DETAIL.HEADERS.SPECIALTY")}</strong>
-              <br></br>
-              {detail.specialty}
-            </h2>
-          </div>
-          <div>
-            <h2>
-              <strong>{t("DETAIL.HEADERS.REVIEWS")}</strong>
-            </h2>
-          </div>
-          <div>
-            <h2>
-              <strong>{t("DETAIL.HEADERS.DESCRIPTION")}</strong>
-              <br></br>
-              {detail.description}
-            </h2>
-          </div>
+          {loading ? (
+            <p>Cargando información...</p>
+          ) : (
+            <>
+              <h1>Dr. {detail.name}</h1>
+              <img
+                src={
+                  detail.photo
+                    ? detail.photo.secure_url
+                    : "https://fakeimg.pl/208x208/fa0848/909090?text=ERROR"
+                }
+              />
+              <div>
+                <h2>
+                  <strong>{t("DETAIL.HEADERS.SPECIALTY")}</strong>
+                  <br></br>
+                  {detail.specialty}
+                </h2>
+              </div>
+              <div>
+                <h2>
+                  <strong>{t("DETAIL.HEADERS.REVIEWS")}</strong>
+                </h2>
+              </div>
+              <div>
+                <h2>
+                  <strong>{t("DETAIL.HEADERS.DESCRIPTION")}</strong>
+                  <br></br>
+                  {detail.description}
+                </h2>
+              </div>
+            </>
+          )}
         </div>
       </div>
       <Footer />
     </>
   );
 };
+
 export default Detail;
