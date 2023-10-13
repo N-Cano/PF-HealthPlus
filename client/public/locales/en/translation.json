@@ -166,9 +166,9 @@
             "ORDER": "Order",
             "AZ":"A-Z",
             "ZA": "Z-A",
-            "PRICE": "Price",
-            "TOP PRICE": "Top Price",
-            "LOW PRICE": "Low Price"
+            "RATING": "Rating",
+            "TOP RATING": "Top Rating",
+            "LOW RATING": "Low Rating"
         },
 
         "SPECIALTIES HOME": {
@@ -223,7 +223,41 @@
         "NEWS": {
             "TITLE": "NEWS",
             "BUTTON": "Read more"
+        }  
+    },
+
+    "NAV": {
+        "HOME BUTTON": "HOME",
+        "HEALTHPLUS": "HEALTHPLUS",
+        "WELCOME": "Welcome",
+        "LOGIN": {
+            "PROFILE": "Profile",
+            "DATES": "My Dates",
+            "LOG OUT": "Log Out"
         }
-        
+    }, 
+
+    "PLAN": {
+        "DESCRIPTION 1": "The best option for your Health!",
+        "PRODUCTS": {
+            "PREMIUM": {
+                "TITLE": "Premium",
+                "DESCRIPTION": "Includes all specialties, virtual appointments and more!"
+            }
+        },
+         "BUTTON": "Buy"
+    },
+
+    "DETAIL": {
+        "HEADERS": {
+            "SPECIALTY": "Specialty",
+            "REVIEWS": "Reviews",
+            "DESCRIPTION": "Description"
+        }
+    },
+
+    "CARDS": {
+        "SPECIALTY": "Specialty",
+        "BUTTON": "More"
     }
 }

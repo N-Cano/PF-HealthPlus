@@ -6,7 +6,7 @@ import {
   GET_PATIENT,
   FILTER_SPECIAL,
   ORDER,
-  PRICE,
+  RATING,
   GET_DATE_ID,
   SUBSCRIBE_NEWSLETTER,
   GET_USERS,
@@ -113,10 +113,10 @@ export const orderCards = (orden) => {
     payload: orden,
   };
 };
-export const priceCards = (price) => {
+export const ratingCards = (rating) => {
   return {
-    type: PRICE,
-    payload: price,
+    type: RATING,
+    payload: rating,
   };
 };
 
@@ -154,14 +154,17 @@ export const setImage = (imageSrc) => ({
 export const subscribeNewsletter = (email) => {
   return async (dispatch) => {
     try {
-      const data = { email }
-      const response = await axios.post("http://localhost:3001/newsletter", data);
+      const data = { email };
+      const response = await axios.post(
+        "http://localhost:3001/newsletter",
+        data
+      );
       dispatch({
         type: SUBSCRIBE_NEWSLETTER,
-        payload: response.data, 
+        payload: response.data,
       });
     } catch (error) {
       throw new Error(error);
     }
-  }
+  };
 };

@@ -17,17 +17,19 @@ const Cards = () => {
   const itemsPerPage = 5; //cant de elem por pag
   const totalItems = doctors.length;
   const totalPages = Math.ceil(totalItems / itemsPerPage); //calcula el total de elementos
+
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber); //esta func se encarga de pasar de pag
   };
   const startIndex = (currentPage - 1) * itemsPerPage; //calcula los indices de inicio
   const endIndex = startIndex + itemsPerPage; //y fin
-  const currentGame = doctors.slice(startIndex, endIndex);
+  const currentDoctors = doctors.slice(startIndex, endIndex);
 
   return (
-    <div className="w-full flex flex-col mb-8">
-      <div className="border-2 flex justify-center item bg-gray-100 rounded-2xl gap-6 h-96">
-        {currentGame.map((doc) => (
+    <div className="flex flex-col max-w-screen-xl mx-auto mb-0">
+      {/* {console.log("total doctors", doctors)} */}
+      <div className=" flex justify-center bg-blue-900 item rounded-2xl gap-6 h-70 mb-5 flex-wrap">
+        {currentDoctors.map((doc) => (
           <Card
             name={doc.name}
             specialty={doc.specialty}
@@ -44,6 +46,8 @@ const Cards = () => {
           currentPage={currentPage}
           totalPages={totalPages}
           onPageChange={handlePageChange}
+          itemsPerPage={itemsPerPage}
+          totalCards={totalItems}
         />
       </div>
     </div>

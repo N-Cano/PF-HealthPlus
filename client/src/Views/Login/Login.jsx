@@ -13,7 +13,7 @@ const Login = () => {
     handleSubmit,
     control,
     formState: { errors },
-    setValue,
+    // setValue,
   } = useForm();
 
   //-------------------------------Google Auth-----------------------------------------
@@ -129,8 +129,9 @@ const Login = () => {
                         className={`bx ${
                           showPassword ? "bx-show-alt" : "bx-hide"
                         }`}
-                        onClick={togglePassword}
-                      ></i>
+
+                        onClick={togglePassword}></i>
+
                       <link
                         href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
                         rel="stylesheet"

@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import {
   Home,
   Landing,
@@ -12,8 +13,10 @@ import {
   Profile,
   MyDates,
 } from "./Views";
+
+import { Route, Routes } from "react-router-dom";
 import DashBoardUsers from "./Views/DashBoard/DashBoardUsers";
-import { Route, Routes, useLocation } from "react-router-dom";
+// import { useLocation } from "react-router-dom";
 import Detail2 from "./Views/Detail/DetailDash";
 // import NavBar from "./Components/NavBar/NavBar";
 import PostDocs from "./Components/Create/PostDocs/PostDocs";
