@@ -4,28 +4,29 @@ const { db } = require("../firebase");
 //  --- Sign up ---
 
 const signUpUser = async ({ email, uid, photo }) => {
-  try {
-    const userRef = db.collection("users").doc(uid);
+    try {
+        const userRef = db.collection('users').doc(uid);
 
-    await userRef.set({
-      email,
-      name: "",
-      userId: "",
-      photo,
-      dates: [],
-      rol: "user",
-      enable: false,
-      reviews: [],
-    });
+        await userRef.set({
+            email,
+            name: '',
+            lastName: '',
+            userId: '',
+            photo,
+            dates: [],
+            rol: 'user',
+            enable: false,
+            reviews: []
+        });
 
-    const newUser = {
-      email,
-      uid,
-    };
-    return newUser;
-  } catch (error) {
-    throw new Error(error);
-  }
+        const newUser = {
+            email,
+            uid
+        }
+        return newUser;
+    } catch (error) {
+        throw new Error(error);
+    }
 };
 
 //   --- Bring all users ---
