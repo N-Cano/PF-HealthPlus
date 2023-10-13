@@ -6,6 +6,7 @@ import styles from "./Detail.module.css";
 import Footer from "../../Components/Footer/Footer";
 import Nav from "../../Components/NavBar/Nav";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 
 const Detail = () => {
   const { t } = useTranslation();
@@ -65,6 +66,14 @@ const Detail = () => {
                   {detail.description}
                 </h2>
               </div>
+              <Link to="/home">
+                <button
+                  class="bg-black text-white h-10 w-20 rounded-2xl mt-2   mb-2"
+                  type="button"
+                >
+                  Home
+                </button>
+              </Link>
             </>
           )}
         </div>
