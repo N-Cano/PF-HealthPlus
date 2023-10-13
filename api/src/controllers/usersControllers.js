@@ -19,14 +19,14 @@ const signUpUser = async ({ email, uid, photo }) => {
             reviews: []
         });
 
-        const newUser = {
-            email,
-            uid
-        }
-        return newUser;
-    } catch (error) {
-        throw new Error(error);
-    }
+    const newUser = {
+      email,
+      uid,
+    };
+    return newUser;
+  } catch (error) {
+    throw new Error(error);
+  }
 };
 
 //   --- Bring all users ---
@@ -120,7 +120,6 @@ const enableUser = async (id) => {
 // --- Disable an user from data base ---
 
 const disableUser = async (id) => {
-
     try {
         const disabledUser = await db.collection("users").doc(id).get();
         const user = {
@@ -138,7 +137,6 @@ const disableUser = async (id) => {
     } catch (error) {
         throw new Error(error);
     }
-
 };
 
 //  --- Update user ---
@@ -171,8 +169,6 @@ const updateUser = async (uid, data) => {
 };
 
 // --- Post a review ---
-
-
 const reviewDoctor = async ({ userId, doctorId, dateId, comment, punctuation, date }) => {
     try {
         const review = {
@@ -206,6 +202,7 @@ const reviewDoctor = async ({ userId, doctorId, dateId, comment, punctuation, da
 };
 
 module.exports = { bringUsers, bringUserById, deleteUser, disableUser, signUpUser, updateUser, enableUser, bringUserByName, reviewDoctor }
+
 
 
 

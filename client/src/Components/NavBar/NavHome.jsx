@@ -7,6 +7,7 @@ import { auth } from "../../firebase/firebase.config";
 import { UserAuth } from "../../context/AuthContext";
 import LanguageSwitcher from "../LanguageSwitcher/LanguageSwitcher";
 import { useTranslation } from "react-i18next";
+import { authEmail } from "../../functions/post";
 
 const NavHome = () => {
   const { t } = useTranslation();
@@ -44,6 +45,12 @@ const NavHome = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const checkAuth = () => {
+    const user = auth.currentUser;
+    authEmail(user)
+  };
+
+  
   return (
     <nav className="bg-blue-900 text-white">
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
@@ -103,12 +110,14 @@ const NavHome = () => {
             {isMenuOpen && (
               <div className="absolute right-0 mt-2 w-48 bg-white border border-gray-200 divide-y divide-gray-100 rounded-md shadow-lg">
                 <Link to="/profile">
-                  <a
-                    href="#"
-                    className="block px-4 py-2 text-sm text-gray-700 hover.bg-gray-100"
+                  <button
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                    onClick={checkAuth}
                   >
                     {t("HOME PAGE.NAVBAR.LOGIN.PROFILE")}
-                  </a>
+
+                  </button>
+
                 </Link>
                 <Link to="/myDates">
                   <a
