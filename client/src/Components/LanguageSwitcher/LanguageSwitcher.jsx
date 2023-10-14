@@ -1,4 +1,5 @@
 import { useTranslation } from "react-i18next";
+import { useEffect } from "react";
 
 const languages = {
   en: { nativeName: "English", surname: "ENG" },
@@ -7,10 +8,19 @@ const languages = {
 const LanguageSwitcher = () => {
   const { i18n } = useTranslation();
 
+
+
+  useEffect(() => {
+    const storedLanguage = localStorage.getItem("lng");
+    if (storedLanguage) {
+      i18n.changeLanguage(storedLanguage);
+    }
+  }, [i18n]);
+
   // Se puede implementar localstorage
   const handleChangeLanguage = (lng) => {
     i18n.changeLanguage(lng);
-    // localStorage.setItem("lng", lng);
+    localStorage.setItem("lng", lng);
   };
 
   return (
@@ -29,6 +39,6 @@ const LanguageSwitcher = () => {
       ))}
     </div>
   );
-};
 
+}
 export default LanguageSwitcher;
