@@ -80,11 +80,11 @@ const Form = () => {
       unsubscribe();
     };
   }, [setValue]);
-
-  useEffect(() => {
-    // Guardar en el localStorage cada vez que el formulario cambia
-    localStorage.setItem("form", JSON.stringify(getValues()));
-  }, [getValues]);
+  //localStorage que no usamos por ahora.
+  // useEffect(() => {
+  //   // Guardar en el localStorage cada vez que el formulario cambia
+  //   localStorage.setItem("form", JSON.stringify(getValues()));
+  // }, [getValues]);
 
   return (
     <>
