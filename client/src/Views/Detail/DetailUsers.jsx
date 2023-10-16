@@ -60,7 +60,7 @@ const DetailUsers = () => {
             <h2>Date: {detail.date}</h2>
           </div>
           <div className={styles.inputbox}>
-            <Link to="/dashboard">
+            <Link to="/dashboardusers">
               <button class="bg-blue-500 text-white h-10 w-20 rounded-2xl mt-2   mb-2">
                 Home
               </button>
