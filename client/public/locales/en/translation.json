@@ -259,5 +259,21 @@
     "CARDS": {
         "SPECIALTY": "Specialty",
         "BUTTON": "More"
+    },
+
+    "LOGIN": {
+        "BUTTONBACK": "BACK",
+        "SIGN IN": "Sign In",
+        "FORGOT PASSWORD": "Forgot Password",
+        "SIGN UP": "Sign Up",
+        "SIGN IN WITH GOOGLE": "Sign in with Google",
+        "FORM": {
+            "EMAIL": "Email",
+             "PASSWORD": "Password",
+             "PLACEHOLDERS": {
+               "EMAIL": "Email...",
+                "PASSWORD": "Password..."
+             }
+        }
     }
 }

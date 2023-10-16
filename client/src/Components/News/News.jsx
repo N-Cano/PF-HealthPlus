@@ -37,7 +37,7 @@ const News = () => {
   };
 
   return (
-    <div className="bg-blue-900 w-full">
+    <div className="bg-blue-900 w-full pb-2">
       {console.log(currentGame)}
       <h3
         className="mt-5 text-center text-2xl text-white font-bold"

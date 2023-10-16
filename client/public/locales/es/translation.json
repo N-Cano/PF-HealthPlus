@@ -260,5 +260,21 @@
     "CARDS": {
         "SPECIALTY": "Especialidad",
         "BUTTON": "Más"
+    },
+
+    "LOGIN": {
+        "BUTTONBACK": "REGRESAR",
+        "SIGN IN": "Ingresar",
+        "FORGOT PASSWORD": "Olvidé mi constraseña",
+        "SIGN UP": "Registrarme",
+        "SIGN IN WITH GOOGLE": "Ingresar con Google",
+        "FORM": {
+            "EMAIL": "Correo Electrónico",
+             "PASSWORD": "Contraseña",
+             "PLACEHOLDERS": {
+               "EMAIL": "Correo Electrónico...",
+                "PASSWORD": "Contraseña..."
+             }
+        }
     }
 }

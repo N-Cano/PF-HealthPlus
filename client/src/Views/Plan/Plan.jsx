@@ -2,10 +2,12 @@ import axios from "axios";
 import Nav from "../../Components/NavBar/Nav";
 import Footer from "../../Components/Footer/Footer";
 import { useTranslation } from "react-i18next";
+import { useTheme } from "../../contextAPI/ThemeContext";
 import styles from "./Plan.module.css";
 
 const Plan = () => {
   const { t } = useTranslation();
+  const { darkMode } = useTheme();
 
   const products = [
     {
@@ -18,8 +20,10 @@ const Plan = () => {
   ];
 
   return (
-    <div className="text-center">
-      <div className={styles.contains}>
+    <div>
+      <div
+        className={styles.contains}
+        style={{ background: darkMode ? "#00519C" : "" }}>
         <Nav />
 
         <h1
@@ -104,7 +108,7 @@ const Plan = () => {
                   event.target.style.backgroundColor = "darkgreen";
                 }}
                 onMouseLeave={(event) => {
-                  event.target.style.backgroundColor = "green";
+                  event.target.style.backgroundColor = "#114899";
                 }}>
                 {t("PLAN.BUTTON")}
               </button>

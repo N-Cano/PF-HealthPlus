@@ -6,7 +6,7 @@ import MapLeaflet from "./MapLeaflet/MapLeaflet";
 const Location = () => {
   return (
     <div className="flex flex-col items-center justify-center pr-6 border-none">
-      <div className="p-4 shadow-md grid grid-cols-1 md:grid-cols-2 gap-3">
+      <div className="p-4 grid grid-cols-1 md:grid-cols-2 gap-3">
         <div className="bg-blue-950 ml-[68px]  md:h-[400px] w-[400px] md:w-[400px] flex flex-col gap-3 items-center justify-center rounded-3xl mt-[45px]pt-2 md:mb-[5px] text-white">
           <FaMapLocationDot size={21} />
           <p className="text-1xl" style={{ fontFamily: "Rubik, sans-serif" }}>

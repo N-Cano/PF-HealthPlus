@@ -7,9 +7,11 @@ import styles from "./Detail.module.css";
 import Footer from "../../Components/Footer/Footer";
 import Nav from "../../Components/NavBar/Nav";
 import { useTranslation } from "react-i18next";
+import { useTheme } from "../../contextAPI/ThemeContext";
 
 const Detail = () => {
   const { t } = useTranslation();
+  const { darkMode } = useTheme();
 
   const [detail, setDetail] = useState({});
 
@@ -25,9 +27,16 @@ const Detail = () => {
   return (
     <>
       <Nav />
-      <div className={styles.nuevo}>
-        <div className={styles.container}>
-          <h1>Dr.{`${detail.name}`}</h1>
+      <div
+        className={styles.nuevo}
+        style={{ background: darkMode ? "#00519C" : "" }}>
+        <div
+          className={styles.container}
+          style={{
+            background: darkMode ? "black" : "",
+            color: darkMode ? "grey" : "",
+          }}>
+          <h1>Dr. {`${detail.name}`}</h1>
           <img
             src={
               detail.photo

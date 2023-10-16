@@ -4,14 +4,17 @@ import Footer from "../../Components/Footer/Footer";
 import News from "../../Components/News/News";
 import Cards from "../../Components/CardsComponent/Cards/Cards";
 import { filterSpeciality, orderCards, ratingCards } from "../../redux/actions";
-import SearchBar from "../../Components/Utils/SearchBar/SearchBar";
+import SearchBar from "../../Components/SearchBar/SearchBar";
 import { useDispatch } from "react-redux";
 import Subscribe from "../../Components/Subscribe/Subscribe";
 import SpecialtiesHome from "../../Components/Specialties/SpecialtiesHome";
 import { useTranslation } from "react-i18next";
+import { useTheme } from "../../contextAPI/ThemeContext";
 
 const Home = () => {
   const { t } = useTranslation();
+  const { darkMode } = useTheme();
+
   const dispatch = useDispatch();
 
   const filterSpecial = (event) => {
@@ -27,10 +30,11 @@ const Home = () => {
 
   return (
     <div
-      style={{
-        background: "linear-gradient(45deg, #71b7e6, #f6f6f6)",
-        boxShadow: "7px 6px 30px #8ccef5",
-      }}>
+      className={
+        darkMode
+          ? "dark-mode"
+          : "bg-gradient-to-br from-blue-300 to-gray-100 shadow-lg"
+      }>
       <NavHome />
 
       <div
@@ -48,16 +52,22 @@ const Home = () => {
             {t("HOME PAGE.PROFESSIONALS.DESCRIPTION 1")}
           </p>
           {/* AQUI VAN LAS CARDS Y CON CLICK MAS DETALLES DEL DOCTOR */}
-          <div className="flex  justify-center items-center mb-4 gap-3">
+          <div className="flex  justify-center items-center gap-3 mb-2">
             <SearchBar />
             <select
               className="bg-sky-200/100 ... rounded-lg w-[200px] h-[42px]"
               onChange={filterSpecial}
-              style={{ fontFamily: "Open Sans, sans-serif" }}>
+              style={{
+                fontFamily: "Open Sans, sans-serif",
+                background: darkMode ? "#00519C" : "",
+              }}>
               <option
                 value="allDocs"
                 className="font-bold text-center"
-                style={{ fontFamily: "Open Sans, sans-serif" }}>
+                style={{
+                  fontFamily: "Open Sans, sans-serif",
+                  background: darkMode ? "#00519C" : "",
+                }}>
                 {t("HOME PAGE.SELECTS.ALL")}
               </option>
               <option
@@ -112,7 +122,10 @@ const Home = () => {
             <select
               className="bg-sky-200/100 ... rounded-lg w-[150px] h-[42px]"
               onChange={handleOrder}
-              style={{ fontFamily: "Open Sans, sans-serif" }}>
+              style={{
+                fontFamily: "Open Sans, sans-serif",
+                background: darkMode ? "#00519C" : "",
+              }}>
               <option
                 className="font-bold text-center"
                 style={{ fontFamily: "Open Sans, sans-serif" }}>
@@ -135,7 +148,10 @@ const Home = () => {
             <select
               className="bg-sky-200/100 ... rounded-lg w-[200px] h-[42px]"
               onChange={handleRating}
-              style={{ fontFamily: "Open Sans, sans-serif" }}>
+              style={{
+                fontFamily: "Open Sans, sans-serif",
+                background: darkMode ? "#00519C" : "",
+              }}>
               <option
                 className="font-bold text-center"
                 style={{ fontFamily: "Open Sans, sans-serif" }}>

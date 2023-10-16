@@ -5,11 +5,18 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../../firebase/firebase.config";
 import { UserAuth } from "../../context/AuthContext";
+//Traducción
 import LanguageSwitcher from "../LanguageSwitcher/LanguageSwitcher";
 import { useTranslation } from "react-i18next";
+// Darkmode
+import { useTheme } from "../../contextAPI/ThemeContext";
+// Iconos para el botón darkmode
+import { FaRegSun } from "react-icons/fa";
+import { FaRegMoon } from "react-icons/fa";
 
 const NavHome = () => {
   const { t } = useTranslation();
+  const { darkMode, toggleDarkMode } = useTheme();
 
   const navigate = useNavigate();
   const { signOutWithGoogle } = UserAuth();
@@ -45,15 +52,15 @@ const NavHome = () => {
   };
 
   return (
-    <nav className="bg-blue-900 text-white">
+    <nav
+      className="bg-blue-900 text-white"
+      style={{ background: darkMode ? "black" : "" }}>
       {/* {console.log(user)} */}
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
         <div className="relative flex h-16 items-center justify-between">
           <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
             <div className="flex flex-shrink-0 items-center">
-
               <img className="h-10 w-auto" src={logo3} alt="Logo" />
-
             </div>
             <div className="hidden sm:ml-6 sm:block">
               <div className="flex space-x-4">
@@ -68,25 +75,33 @@ const NavHome = () => {
                     <a
                       href="#"
                       className="text-white hover:bg-gray-700 hover:text-white rounded-md px-4 py-2 text-sm font-medium"
-                      style={{ fontFamily: "Rubik, sans-serif" }}
-                    >
-                   {t("HOME PAGE.NAVBAR.SCHEDULE")}
-
+                      style={{ fontFamily: "Rubik, sans-serif" }}>
+                      {t("HOME PAGE.NAVBAR.SCHEDULE")}
                     </a>
                   </Link>
 
-                  <div className="ml-[170px]">
+                  <div className="ml-auto">
+                    <button
+                      onClick={toggleDarkMode}
+                      className="p-2 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">
+                      {darkMode ? (
+                        <FaRegSun className="inline-block text-yellow" />
+                      ) : (
+                        <FaRegMoon className="inline-block text-white" />
+                      )}
+                    </button>
+                  </div>
+
+                  <div className="ml-auto">
                     <LanguageSwitcher />
                   </div>
 
-                  <div className="flex items-center">
+                  <div className="flex items-center text-center">
                     <h3
-                      className="ml-[100px] font-semibold"
-                      style={{ fontFamily: "Rubik, sans-serif" }}
-                 >
-                      {t("HOME PAGE.NAVBAR.WELCOME")},<br></br>
+                      className="ml-auto font-semibold"
+                      style={{ fontFamily: "Rubik, sans-serif" }}>
+                      {t("HOME PAGE.NAVBAR.WELCOME")},<br />
                       {user ? user.displayName || user.email : ""}
-
                     </h3>
                   </div>
                 </div>
@@ -102,8 +117,7 @@ const NavHome = () => {
                 id="user-menu-button"
                 aria-expanded="false"
                 aria-haspopup="true"
-                onClick={toggleMenu}
-              >
+                onClick={toggleMenu}>
                 <img
                   className="h-8 w-8 rounded-full"
                   src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
@@ -117,36 +131,22 @@ const NavHome = () => {
                 <Link to="/profile">
                   <a
                     href="#"
-
-
-
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                  >
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
                     {t("HOME PAGE.NAVBAR.LOGIN.PROFILE")}
-
                   </a>
                 </Link>
                 <Link to="/myDates">
                   <a
                     href="#"
-
-
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                  >
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
                     {t("HOME PAGE.NAVBAR.LOGIN.DATES")}
-
                   </a>
                 </Link>
                 <a
                   href="#"
                   className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                  onClick={logOutWithGoogle}
-                >
-
-
-
+                  onClick={logOutWithGoogle}>
                   {t("HOME PAGE.NAVBAR.LOGIN.LOG OUT")}
-
                 </a>
               </div>
             )}
