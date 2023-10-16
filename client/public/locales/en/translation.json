@@ -285,5 +285,15 @@
         "BIRTHDAY": "Birthday",
         "DNI": "DNI",
         "MODIFYPROFILE": "Modify Profile"
+    }, 
+
+    "PROFILEFORM": {
+        "MODIFYPROFILE":"Modify Profile",
+        "SELECT IMG": "Select img",
+        "NAME": "Name",
+        "LASTNAME": "Last Name",
+        "BIRTHDAY": "Birthday",
+        "DNI": "DNI",
+        "SAVE": "Save"
     }
 }
