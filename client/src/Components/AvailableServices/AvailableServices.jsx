@@ -13,7 +13,7 @@ const AvailableServices = () => {
         style={{ fontFamily: "Rubik, sans-serif" }}>
         {t("LANDING PAGE.AVAILABLE SERVICES.AVAILABLE SERVICES")}
       </h2>
-      <div className="grid grid-cols-3 h-[400px] text-center">
+      <div className="grid grid-cols-3 h-[200px] text-center">
         <div className=" flex flex-col justify-center items-center">
           <FaUserDoctor />
           <h3

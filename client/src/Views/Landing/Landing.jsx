@@ -15,26 +15,31 @@ import NavBar from "../../Components/NavBar/NavBar";
 import Specialties from "../../Components/Specialties/Specialties";
 import Cards from "../../Components/CardsComponent/Cards/Cards";
 import { useTranslation } from "react-i18next";
+import { useTheme } from "../../contextAPI/ThemeContext";
+import "../../contextAPI/DarkMode.css";
 
 const Landing = () => {
   const { t } = useTranslation();
+  const { darkMode } = useTheme();
 
   return (
     <div
-      style={{
-        background: "linear-gradient(45deg, #71b7e6, #f6f6f6)",
-        boxShadow: "7px 6px 30px #8ccef5",
-      }}>
+      className={
+        darkMode
+          ? "dark-mode"
+          : "bg-gradient-to-br from-blue-300 to-gray-100 shadow-lg"
+      }>
       <NavBar />
 
       {/* BANNER COMO SLIDES */}
       <SlidesBanner />
-
       {/* ABOUT US  1*/}
       <div
         id="about"
         className="flex flex-col md:flex-row md:items-center md:justify-center">
-        <div className="flex-1 bg-blue-200 p-4 rounded-lg shadow-md my-2 mx-2 md:my-6 md:mr-2 md:ml-2 md:pb-12 h-48">
+        <div
+          className="flex-1 p-4 bg-blue-200 rounded-lg shadow-md my-2 mx-1 md:my-6 md:mr-2 md:ml-2 md:pb-12 h-48"
+          style={{ backgroundColor: darkMode ? "#00519C" : "" }}>
           <h3
             className="mt-5 text-center text-2xl"
             style={{ fontFamily: "Rubik, sans-serif" }}>
@@ -48,7 +53,9 @@ const Landing = () => {
           </p>
         </div>
 
-        <div className="flex-1 bg-blue-200 p-4 rounded-lg shadow-md my-2 mx-2 md:my-6 md:mr-2 md:ml-2 md:flex md:flex-col md:justify-center md:pb-12 h-48">
+        <div
+          className="flex-1 bg-blue-200 p-4 rounded-lg shadow-md my-2 mx-2 md:my-6 md:mr-2 md:ml-2 md:flex md:flex-col md:justify-center md:pb-12 h-48"
+          style={{ backgroundColor: darkMode ? "#00519C" : "" }}>
           <h3
             className="mt-5 text-center text-2xl"
             style={{ fontFamily: "Rubik, sans-serif" }}>
@@ -62,7 +69,9 @@ const Landing = () => {
           <div className="flex-grow"></div>
         </div>
 
-        <div className="flex-1 bg-blue-200 p-4 rounded-lg shadow-md my-2 mx-2 md:my-6 md:mr-2 md:ml-2 md:flex md:flex-col md:justify-center md:pb-12 h-48">
+        <div
+          className="flex-1 bg-blue-200 p-4 rounded-lg shadow-md my-2 mx-2 md:my-6 md:mr-2 md:ml-2 md:flex md:flex-col md:justify-center md:pb-12 h-48"
+          style={{ backgroundColor: darkMode ? "#00519C" : "" }}>
           <h3
             className="mt-5 text-center text-2xl"
             style={{ fontFamily: "Rubik, sans-serif" }}>
@@ -76,9 +85,8 @@ const Landing = () => {
           <div className="flex-grow"></div>
         </div>
       </div>
-
       {/* ABOUT US 2*/}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 py-1 ">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 py-1">
         <div
           className="relative rounded-lg shadow-md overflow-hidden transform transition-transform hover:scale-105 h-auto md:h-96"
           style={{
@@ -113,12 +121,15 @@ const Landing = () => {
           </div>
         </div>
       </div>
-
       {/*  SERVICES */}
-      <div id="doctors" className="grid grid-cols-3 gap-4">
-        <div className="bg-white p-4 rounded-lg shadow-md flex flex-col items-center justify-center">
+      <div id="doctors" className="grid grid-cols-3 gap-2 mt-1">
+        <div
+          className="bg-white p-4 rounded-lg shadow-md flex flex-col items-center justify-center"
+          style={{ backgroundColor: darkMode ? "#1E3144" : "" }}>
           <div>
-            <div className="bg-blue-900 w-full rounded-lg h-12 flex items-center justify-center">
+            <div
+              className="bg-blue-900 w-full rounded-lg h-12 flex items-center justify-center"
+              style={{ backgroundColor: darkMode ? "#325372" : "" }}>
               <h2
                 className="text-white text-center"
                 style={{ fontFamily: "Rubik, sans-serif" }}>
@@ -129,19 +140,27 @@ const Landing = () => {
               src={availableService1}
               alt="doctor"
               className="w-full h-full ps-0 rounded-lg"
+              style={{ opacity: darkMode ? 0.7 : 1 }}
             />
           </div>
           <Link to="/login">
             <button
-              className="bg-black text-white h-12 w-28 rounded-2xl mt-0 hover:bg-white hover:text-black"
-              style={{ fontFamily: "Open Sans, sans-serif" }}>
+              className="bg-black text-white h-12 w-28 rounded-2xl  hover:bg-white hover:text-black -mt-8"
+              style={{
+                fontFamily: "Open Sans, sans-serif",
+                opacity: darkMode ? 0.8 : 1,
+              }}>
               {t("LANDING PAGE.SERVICES.APPOINTMENTS.BUTTON")}
             </button>
           </Link>
         </div>
-        <div className="bg-white p-4 rounded-lg shadow-md flex flex-col items-center justify-center">
+        <div
+          className="bg-white p-4 rounded-lg shadow-md flex flex-col items-center justify-center"
+          style={{ backgroundColor: darkMode ? "#1E3144" : "" }}>
           <div>
-            <div className="bg-blue-900 w-full rounded-lg h-12 flex items-center justify-center">
+            <div
+              className="bg-blue-900 w-full rounded-lg h-12 flex items-center justify-center"
+              style={{ backgroundColor: darkMode ? "#325372" : "" }}>
               <h2
                 className="text-white text-center"
                 style={{ fontFamily: "Rubik, sans-serif" }}>
@@ -152,22 +171,33 @@ const Landing = () => {
               src={availableService2}
               alt="doctor"
               className="w-[100%] h-full ps-0 rounded-md"
+              style={{ opacity: darkMode ? 0.7 : 1 }}
             />
           </div>
           <Link to="/login">
             <button
-              className="bg-black text-white h-12 w-28 rounded-2xl mt-0 hover:bg-white hover:text-black"
-              style={{ fontFamily: "Open Sans, sans-serif" }}>
+              className="bg-black text-white h-12 w-28 rounded-2xl  hover:bg-white hover:text-black -mt-8"
+              style={{
+                fontFamily: "Open Sans, sans-serif",
+                opacity: darkMode ? 0.8 : 1,
+              }}>
               {t("LANDING PAGE.SERVICES.PROFESSIONALS.BUTTON")}
             </button>
           </Link>
         </div>
-        <div className="bg-white p-4 rounded-lg shadow-md flex flex-col items-center justify-center">
+        <div
+          className="bg-white p-4 rounded-lg shadow-md flex flex-col items-center justify-center"
+          style={{ backgroundColor: darkMode ? "#1E3144" : "" }}>
           <div>
-            <div className="bg-blue-900 w-full rounded-md h-12 flex items-center justify-center">
+            <div
+              className="bg-blue-900 w-full rounded-md h-12 flex items-center justify-center"
+              style={{ backgroundColor: darkMode ? "#325372" : "" }}>
               <h2
                 className="text-white text-center"
-                style={{ fontFamily: "Rubik, sans-serif" }}>
+                style={{
+                  fontFamily: "Rubik, sans-serif",
+                  opacity: darkMode ? 0.8 : 1,
+                }}>
                 {t("LANDING PAGE.SERVICES.CHECKOUT.TITLE")}
               </h2>
             </div>
@@ -175,35 +205,39 @@ const Landing = () => {
               src={availableService3}
               alt="doctor"
               className="w-full h-full ps-0 rounded-lg"
+              style={{ opacity: darkMode ? 0.7 : 1 }}
             />
           </div>
           <Link to="/login">
             <button
-              className="bg-black text-white h-12 w-28 rounded-2xl mt-0 hover:bg-white hover:text-black"
-              style={{ fontFamily: "Open Sans, sans-serif" }}>
+              className="bg-black text-white h-12 w-28 rounded-2xl  hover:bg-white hover:text-black -mt-8"
+              style={{
+                fontFamily: "Open Sans, sans-serif",
+                opacity: darkMode ? 0.8 : 1,
+              }}>
               {t("LANDING PAGE.SERVICES.CHECKOUT.BUTTON")}
             </button>
           </Link>
         </div>
       </div>
-
       {/* AVAILABLE SERVICES */}
-      <div className="h-[450px]">
+      <div className="h-[250px]">
         <AvailableServices />
       </div>
-
       {/* SPECIALTIES */}
       <div>
         <Specialties />
       </div>
-
       {/*  SECCIÓN DE DOCTORES SE RENDERIZAN LAS CARDS CON EFECTO HOVER AL HACER CLICK NOS LLEVA AL DETAIL DE CADA DOCTOR */}
       <div
         id="services"
         className="p-4 max-w-screen-xl  mx-auto h-[200px] flex flex-col items-center ">
         <h3
           className="text-black text-[30px] text-center pt-1 mb-1 font-semibold"
-          style={{ fontFamily: "Rubik, sans-serif" }}>
+          style={{
+            fontFamily: "Rubik, sans-serif",
+            color: darkMode ? "white" : "",
+          }}>
           {t("LANDING PAGE.DOCTORS CARDS.DESCRIPTION 1")}
         </h3>
         <p
@@ -217,18 +251,15 @@ const Landing = () => {
       <div>
         <Sponsors />
       </div>
-
       {/*  LOCATIONS */}
       <div id="locations">
         <Location />
       </div>
-
       {/*SECCIÓN DE NEWSLETTER */}
       <div className="max-w-full w-full">
         <Newsletter />
       </div>
       <ScrollToTop smooth />
-
       {/*  SOCIAL MEDIA */}
       <Footer />
     </div>
