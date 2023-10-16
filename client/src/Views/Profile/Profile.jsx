@@ -7,8 +7,13 @@ import { useEffect, useState } from "react";
 import { auth } from "../../firebase/firebase.config";
 import img from "../../assets/blank-profile-picture-973460_960_720.webp";
 import Footer from "../../Components/Footer/Footer";
+import { useTranslation } from "react-i18next";
+import { useTheme } from "../../contextAPI/ThemeContext";
 
 const Profile = () => {
+  const { t } = useTranslation();
+  const { darkMode } = useTheme();
+
   const [form, setForm] = useState({
     datos: "",
   });
@@ -44,17 +49,26 @@ const Profile = () => {
 
   return (
     <>
-      <div className="w-full h-screen bg-[#daf1f8]">
+      <div
+        className="w-full h-screen bg-[#daf1f8]"
+        style={{ background: darkMode ? "#00519C" : "" }}>
         <Nav />
         <h2 className="text-3xl mb-8 font-bold text-neutral-50 bg-gray-950 rounded-2xl p-2 text-center max-w-md m-auto mt-8">
-          Your Profile
+          {t("PROFILE.YOURPROFILE")}
         </h2>
-        <div className={styles.container}>
+        <div
+          className={styles.container}
+          style={{
+            fontFamily: "Rubik, sans-serif",
+            background: darkMode ? "#00519C" : "",
+          }}>
           <div
             className={styles.title}
-            style={{ fontFamily: "Rubik, sans-serif" }}>
+            style={{
+              fontFamily: "Rubik, sans-serif",
+            }}>
             {isLoading ? (
-              <div>Loading...</div>
+              <div>{t("PROFILE.LOADING")}</div>
             ) : (
               <>
                 <div className="max-h-[500px] h-full flex flex-col justify-center">
@@ -63,24 +77,32 @@ const Profile = () => {
                     <h1 />
                   </div>
 
-                  <div className="mb-4 bg-blue-200 max-w-2xl p-2 rounded-2xl">
+                  <div
+                    className="mb-4 bg-blue-200 max-w-2xl p-2 rounded-2xl"
+                    style={{ background: darkMode ? "black" : "" }}>
                     <label style={{ fontFamily: "Open Sans, sans-serif" }}>
-                      Name: {patient.name}
+                      {t("PROFILE.NAME")}: {patient.name}
                     </label>
                   </div>
-                  <div className="mb-4 bg-blue-200 max-w-2xl p-2 rounded-2xl">
+                  <div
+                    className="mb-4 bg-blue-200 max-w-2xl p-2 rounded-2xl"
+                    style={{ background: darkMode ? "black" : "" }}>
                     <label style={{ fontFamily: "Open Sans, sans-serif" }}>
-                      LastName: {patient.lastName}
+                      {t("PROFILE.LASTNAME")}: {patient.lastName}
                     </label>
                   </div>
-                  <div className="mb-4 bg-blue-200 max-w-2xl p-2 rounded-2xl">
+                  <div
+                    className="mb-4 bg-blue-200 max-w-2xl p-2 rounded-2xl"
+                    style={{ background: darkMode ? "black" : "" }}>
                     <label style={{ fontFamily: "Open Sans, sans-serif" }}>
-                      Birthday: {patient.date}
+                      {t("PROFILE.BIRTHDAY")}: {patient.date}
                     </label>
                   </div>
-                  <div className="mb-4 bg-blue-200 max-w-2xl p-2 rounded-2xl">
+                  <div
+                    className="mb-4 bg-blue-200 max-w-2xl p-2 rounded-2xl"
+                    style={{ background: darkMode ? "black" : "" }}>
                     <label style={{ fontFamily: "Open Sans, sans-serif" }}>
-                      DNI: {patient.userId}
+                      {t("PROFILE.DNI")}: {patient.userId}
                     </label>
                   </div>
                 </div>
@@ -88,9 +110,8 @@ const Profile = () => {
                   <button
                     className="font-bold w-60 bg-blue-400 hover:bg-indigo-500 hover:scale-110 rounded-2xl transition ease-in-out duration-300 mt-12 absolute bottom-0 m-auto"
                     type="submit"
-                    style={{ fontFamily: "Open Sans, sans-serif" }}
-                  >
-                    Modify Profile
+                    style={{ fontFamily: "Open Sans, sans-serif" }}>
+                    {t("PROFILE.MODIFYPROFILE")}
                   </button>
                 </Link>
                 <div className="w-96 content-center mt-2 absolute top-0 right-0">
