@@ -286,5 +286,15 @@
         "BIRTHDAY": "Fecha de nacimiento",
         "DNI": "DNI",
         "MODIFYPROFILE": "Editar perfil"
+    },
+
+    "PROFILEFORM": {
+        "MODIFYPROFILE":"Editar Perfil",
+        "SELECT IMG": "Seleccionar imagen",
+        "NAME": "Nombre",
+        "LASTNAME": "Apellido",
+        "BIRTHDAY": "Fecha de nacimiento",
+        "DNI": "DNI",
+        "SAVE": "Guardar"
     }
 }
