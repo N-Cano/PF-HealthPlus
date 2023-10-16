@@ -19,7 +19,7 @@ const DashBoardUsers = () => {
   };
 
   return (
-    <div className="bg-blue-200 h-screen flex flex-col justify-between">
+    <div className="bg-blue-200 h-full flex flex-col justify-between">
       <div
         id="doctors"
         className="flex flex-col md:flex-row md:items-center md:justify-center"
