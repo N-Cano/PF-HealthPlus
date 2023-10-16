@@ -6,9 +6,14 @@ import { auth } from "../../firebase/firebase.config";
 import { UserAuth } from "../../context/AuthContext";
 import { useTranslation } from "react-i18next";
 import LanguageSwitcher from "../LanguageSwitcher/LanguageSwitcher";
+import { useTheme } from "../../contextAPI/ThemeContext";
+import { FaRegSun } from "react-icons/fa";
+import { FaRegMoon } from "react-icons/fa";
 
 const Nav = () => {
   const { t } = useTranslation();
+  const { darkMode, toggleDarkMode } = useTheme();
+
   const navigate = useNavigate();
   const { signOutWithGoogle } = UserAuth();
   const [user, setUser] = useState(null); // Estado local para el usuario autenticado
@@ -42,7 +47,9 @@ const Nav = () => {
     setIsMenuOpen(!isMenuOpen);
   };
   return (
-    <nav className="bg-blue-900 text-white">
+    <nav
+      className="bg-blue-900 text-white"
+      style={{ background: darkMode ? "black" : "" }}>
       {/* {console.log(user)} */}
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
         <div className="relative flex h-16 items-center justify-between">
@@ -66,15 +73,26 @@ const Nav = () => {
                       {t("NAV.HOME BUTTON")}
                     </a>
                   </Link>
+                  <div className="ml-auto">
+                    <button
+                      onClick={toggleDarkMode}
+                      className="p-2 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">
+                      {darkMode ? (
+                        <FaRegSun className="inline-block text-yellow" />
+                      ) : (
+                        <FaRegMoon className="inline-block text-white" />
+                      )}
+                    </button>
+                  </div>
                   <div className="mr-[450px]">
                     <LanguageSwitcher />
                   </div>
 
                   <div className="flex items-center">
                     <h3
-                      className="ml-[250px] font-semibold"
+                      className="ml-auto font-semibold"
                       style={{ fontFamily: "Rubik, sans-serif" }}>
-                      {t("NAV.WELCOME")},{" "}
+                      {t("NAV.WELCOME")}, <br />
                       {user ? user.displayName || user.email : ""}
                     </h3>
                   </div>
@@ -99,6 +117,7 @@ const Nav = () => {
                 />
               </button>
             </div>
+
             {/* Muestra el menú solo si isMenuOpen es true */}
             {isMenuOpen && (
               <div className="absolute right-0 mt-2 w-48 bg-white border border-gray-200 divide-y divide-gray-100 rounded-md shadow-lg">

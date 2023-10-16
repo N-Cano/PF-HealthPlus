@@ -6,10 +6,12 @@ import styles from "./Detail.module.css";
 import Footer from "../../Components/Footer/Footer";
 import Nav from "../../Components/NavBar/Nav";
 import { useTranslation } from "react-i18next";
+import { useTheme } from "../../contextAPI/ThemeContext";
 import { Link } from "react-router-dom";
 
 const Detail = () => {
   const { t } = useTranslation();
+  const { darkMode } = useTheme();
 
   const [loading, setLoading] = useState(true);
   const [detail, setDetail] = useState({});
@@ -33,8 +35,15 @@ const Detail = () => {
   return (
     <>
       <Nav />
-      <div className={styles.nuevo}>
-        <div className={styles.container}>
+      <div
+        className={styles.nuevo}
+        style={{ background: darkMode ? "#00519C" : "" }}>
+        <div
+          className={styles.container}
+          style={{
+            background: darkMode ? "black" : "",
+            color: darkMode ? "grey" : "",
+          }}>
           {loading ? (
             <p>Cargando información...</p>
           ) : (
@@ -68,9 +77,8 @@ const Detail = () => {
               </div>
               <Link to="/home">
                 <button
-                  class="bg-black text-white h-10 w-20 rounded-2xl mt-2   mb-2"
-                  type="button"
-                >
+                  className="bg-black text-white h-10 w-20 rounded-2xl mt-2   mb-2"
+                  type="button">
                   Home
                 </button>
               </Link>

@@ -5,7 +5,6 @@
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
   font-size: 16px;
- 
 }
 
 .nuevo {
@@ -24,7 +23,6 @@
 .container {
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, #71b7e6, #f6f6f6);
   padding: 25px 30px;
   display: flex;
   height: 100%;
@@ -66,7 +64,6 @@
 }
 
 .inputbox {
-  background: #b5e8fc;
   border-radius: 10px;
   box-shadow: 7px 6px 30px #5edbf1;
   font-size: 14px; /* Uniform font size */

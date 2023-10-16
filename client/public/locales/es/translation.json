@@ -48,7 +48,7 @@
                 "BUTTON": "Comenzar"
             },
             "CHECKOUT": {
-                "TITLE": "APARTA TU TURNO GRATIS",
+                "TITLE": "SOLICITA TUS TURNOS",
                 "BUTTON": "Comenzar"
             }
         },
@@ -260,5 +260,31 @@
     "CARDS": {
         "SPECIALTY": "Especialidad",
         "BUTTON": "Más"
+    },
+
+    "LOGIN": {
+        "BUTTONBACK": "REGRESAR",
+        "SIGN IN": "Ingresar",
+        "FORGOT PASSWORD": "Olvidé mi constraseña",
+        "SIGN UP": "Registrarme",
+        "SIGN IN WITH GOOGLE": "Ingresar con Google",
+        "FORM": {
+            "EMAIL": "Correo Electrónico",
+             "PASSWORD": "Contraseña",
+             "PLACEHOLDERS": {
+               "EMAIL": "Correo Electrónico...",
+                "PASSWORD": "Contraseña..."
+             }
+        }
+    },
+
+    "PROFILE": {
+        "YOURPROFILE": "Tu Perfil", 
+        "LOADING": "Cargando...",
+        "NAME": "Nombre",
+        "LASTNAME": "Apellido",
+        "BIRTHDAY": "Fecha de nacimiento",
+        "DNI": "DNI",
+        "MODIFYPROFILE": "Editar perfil"
     }
 }

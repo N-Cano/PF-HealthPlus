@@ -7,8 +7,12 @@ import { useSelector, useDispatch } from "react-redux";
 import { setImage } from "../../redux/actions";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { useTheme } from "../../contextAPI/ThemeContext";
+import { Footer } from "../../Components";
 
 const ProfileForm = () => {
+  const { darkMode } = useTheme();
+
   const navigate = useNavigate();
   const [form, setForm] = useState({
     lastName: "",
@@ -36,7 +40,7 @@ const ProfileForm = () => {
     const value = event.target.value;
     setForm({ ...form, [property]: value });
 
-    if (event.target.name === 'image') {
+    if (event.target.name === "image") {
       setForm({ ...form, image: event.target.files[0] });
       const imageUrl = URL.createObjectURL(event.target.files[0]);
       dispatch(setImage(imageUrl));
@@ -56,8 +60,8 @@ const ProfileForm = () => {
     try {
       await axios.put("http://localhost:3001/users/profile", formData, {
         headers: {
-          'Content-Type': 'multipart/form-data', // Set content type to handle form data
-        }
+          "Content-Type": "multipart/form-data", // Set content type to handle form data
+        },
       });
       console.log("Datos Cargados");
       navigate("/profile");
@@ -71,15 +75,18 @@ const ProfileForm = () => {
   const dispatch = useDispatch();
 
   return (
-    <div className='w-full h-full bg-[#daf1f8] flex flex-col justify-between'>
+    <div
+      className="w-full h-full bg-[#daf1f8] flex flex-col justify-between"
+      style={{ background: darkMode ? "#00519C" : "" }}>
       <Nav />
-      <h2 className='text-3xl mb-8 font-bold text-neutral-50 bg-gray-950 rounded-2xl p-2 text-center max-w-md m-auto mt-8'>Modify Profile</h2>
-      <div className='flex justify-center'>
+      <h2 className="text-3xl mb-8 font-bold text-neutral-50 bg-gray-950 rounded-2xl p-2 text-center max-w-md m-auto mt-8">
+        Modify Profile
+      </h2>
+      <div className="flex justify-center">
         <div className={styles.title}>
-          {" "}
           <div className={styles.userdetails}>
             <form onSubmit={submitHandler}>
-              <div className='mb-4'>
+              <div className="mb-4">
                 <label>Select img:</label>
                 <img src={imageSrc} alt="" />
                 <input
@@ -127,13 +134,16 @@ const ProfileForm = () => {
                 />
               </div>
 
-              <button className='font-bold w-60 bg-blue-400 hover:bg-indigo-500 hover:scale-110 rounded-2xl transition ease-in-out duration-300 m-24 py-4' type="submit">
+              <button
+                className="font-bold w-60 bg-blue-400 hover:bg-indigo-500 hover:scale-110 rounded-2xl transition ease-in-out duration-300 m-24 py-4"
+                type="submit">
                 Save
               </button>
             </form>
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

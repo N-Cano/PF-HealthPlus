@@ -7,10 +7,14 @@ import { auth } from "../../firebase/firebase.config";
 import { UserAuth } from "../../context/AuthContext";
 import LanguageSwitcher from "../LanguageSwitcher/LanguageSwitcher";
 import { useTranslation } from "react-i18next";
+import { useTheme } from "../../contextAPI/ThemeContext";
+import { FaRegSun } from "react-icons/fa";
+import { FaRegMoon } from "react-icons/fa";
 import { authEmail } from "../../functions/post";
 
 const NavHome = () => {
   const { t } = useTranslation();
+  const { darkMode, toggleDarkMode } = useTheme();
 
   const navigate = useNavigate();
   const { signOutWithGoogle } = UserAuth();
@@ -47,12 +51,14 @@ const NavHome = () => {
 
   const checkAuth = () => {
     const user = auth.currentUser;
-    authEmail(user)
+    authEmail(user);
   };
 
-  
   return (
-    <nav className="bg-blue-900 text-white">
+    <nav
+      className="bg-blue-900 text-white"
+      style={{ background: darkMode ? "black" : "" }}>
+      {/* {console.log(user)} */}
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
         <div className="relative flex h-16 items-center justify-between">
           <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
@@ -69,20 +75,32 @@ const NavHome = () => {
                     <a
                       href="#"
                       className="text-white hover:bg-gray-700 hover:text-white rounded-md px-4 py-2 text-sm font-medium"
-                      style={{ fontFamily: "Rubik, sans-serif" }}
-                    >
+                      style={{ fontFamily: "Rubik, sans-serif" }}>
                       {t("HOME PAGE.NAVBAR.SCHEDULE")}
                     </a>
                   </Link>
-                  <div className="ml-[170px]">
+
+                  <div className="ml-auto">
+                    <button
+                      onClick={toggleDarkMode}
+                      className="p-2 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">
+                      {darkMode ? (
+                        <FaRegSun className="inline-block text-yellow" />
+                      ) : (
+                        <FaRegMoon className="inline-block text-white" />
+                      )}
+                    </button>
+                  </div>
+
+                  <div className="ml-auto">
                     <LanguageSwitcher />
                   </div>
-                  <div className="flex items-center">
+
+                  <div className="flex items-center text-center">
                     <h3
-                      className="ml-[100px] font-semibold"
-                      style={{ fontFamily: "Rubik, sans-serif" }}
-                    >
-                      {t("HOME PAGE.NAVBAR.WELCOME")},<br></br>
+                      className="ml-auto font-semibold"
+                      style={{ fontFamily: "Rubik, sans-serif" }}>
+                      {t("HOME PAGE.NAVBAR.WELCOME")},<br />
                       {user ? user.displayName || user.email : ""}
                     </h3>
                   </div>
@@ -98,8 +116,7 @@ const NavHome = () => {
                 id="user-menu-button"
                 aria-expanded="false"
                 aria-haspopup="true"
-                onClick={toggleMenu}
-              >
+                onClick={toggleMenu}>
                 <img
                   className="h-8 w-8 rounded-full"
                   src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
@@ -112,34 +129,28 @@ const NavHome = () => {
                 <Link to="/profile">
                   <button
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                    onClick={checkAuth}
-                  >
+                    onClick={checkAuth}>
                     {t("HOME PAGE.NAVBAR.LOGIN.PROFILE")}
-
                   </button>
-
                 </Link>
                 <Link to="/myDates">
                   <a
                     href="#"
-                    className="block px-4 py-2 text-sm text-gray-700 hover.bg-gray-100"
-                  >
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
                     {t("HOME PAGE.NAVBAR.LOGIN.DATES")}
                   </a>
                 </Link>
                 <a
                   href="#"
-                  className="block px-4 py-2 text-sm text-gray-700 hover.bg-gray-100"
-                  onClick={logOutWithGoogle}
-                >
+                  className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                  onClick={logOutWithGoogle}>
                   {t("HOME PAGE.NAVBAR.LOGIN.LOG OUT")}
                 </a>
                 {user?.email === "admin@admin.com" && (
                   <Link to="/dashboard">
                     <a
                       href="#"
-                      className="block px-4 py-2 text-sm text-gray-700 hover.bg-gray-100"
-                    >
+                      className="block px-4 py-2 text-sm text-gray-700 hover.bg-gray-100">
                       Dashboard
                     </a>
                   </Link>

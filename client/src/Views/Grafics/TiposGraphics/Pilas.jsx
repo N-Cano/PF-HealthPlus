@@ -13,6 +13,7 @@ import {
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getUsers } from "../../../redux/actions";
+import { getDoctors } from "../../../redux/actions";
 
 const data = [
   { name: "Jose", age: 10, weight: 50 },
@@ -24,16 +25,16 @@ const data = [
 
 const Pilas = () => {
   const dispatch = useDispatch();
-  const users = useSelector((state) => state.users);
+  const doctors = useSelector((state) => state.doctors);
 
   useEffect(() => {
-    dispatch(getUsers());
+    dispatch(getDoctors());
   }, [dispatch]);
   return (
     <div className="w-5/5 ">
       <ResponsiveContainer aspect={2}>
         <BarChart
-          data={users}
+          data={doctors}
           width={500}
           height={300}
           margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
@@ -47,7 +48,7 @@ const Pilas = () => {
             wrapperStyle={{ lineHeight: "40px" }}
           />
           <Bar dataKey="name" fill="#1abc9c" />
-          <Bar dataKey="date" fill="#1ee3cf" />
+          <Bar dataKey="rating" fill="#1ee3cf" />
         </BarChart>
       </ResponsiveContainer>
     </div>
