@@ -18,8 +18,12 @@ const createDate = async ({ userId, doctorId, date, schedule, email }) => {
       ...userData.data(),
     };
 
-    if (!user.email) throw new Error(`No user matched with ID: ${userId}`);
-    if (!user.enable) throw new Error(`User with ID: ${userId} not subscribed`);
+    if (!user.email)
+      throw new Error(`No user matched with ID: ${userId}`);
+    if (!user.enable)
+      throw new Error(`User with ID: ${userId} is not subscribed`);
+    if (!user.name || !user.lastName || !user.userId || !user.date)
+      throw new Error('All profile information must be completed in order to make an appointment.')
 
     const newDate = {
       user: user.name,
@@ -119,7 +123,7 @@ const cancelDate = async (dateId, userId, doctorId) => {
 
 // --- Finish a date ---
 
-const successDate = async (dateId, userId) => {
+const successDate = async (dateId, userId, doctorId) => {
   try {
     const dateRef = await db.collection("dates").doc(dateId).get();
     const date = {
@@ -140,6 +144,9 @@ const successDate = async (dateId, userId) => {
       throw new Error(`date with ID: ${dateId} has been canceled`);
     else date.status = "taken";
 
+    // Adding review posibility
+    date.reviewed = false;
+
     filteredDates.push(date);
 
     // Marking user's date as taken
@@ -148,7 +155,7 @@ const successDate = async (dateId, userId) => {
     });
 
     // Marking doctor's date as taken
-    await db.collection("doctors").doc(userId).update({
+    await db.collection("doctors").doc(doctorId).update({
       dates: filteredDates,
     });
 

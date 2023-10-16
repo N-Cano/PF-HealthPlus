@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import {
   Home,
   Landing,
@@ -16,21 +15,18 @@ import {
 
 import { Route, Routes } from "react-router-dom";
 import DashBoardUsers from "./Views/DashBoard/DashBoardUsers";
-// import { useLocation } from "react-router-dom";
 import Detail2 from "./Views/Detail/DetailDash";
-// import NavBar from "./Components/NavBar/NavBar";
 import PostDocs from "./Components/Create/PostDocs/PostDocs";
 import PostUsers from "./Components/Create/PostUsers/PostUsers";
 import { UserAuth } from "./context/AuthContext";
 import { Navigate } from "react-router-dom";
-import DashBoard from "./Views/DashBoard/dashboard";
-import Bridge from "./Views/Brige/Bridge";
+import DashBoard from "./Views/DashBoard/Dashboard";
+import Bridge from "./Views/Bridge/Bridge";
 import DetailUsers from "./Views/Detail/DetailUsers";
 import "tailwindcss/tailwind.css";
-
-// Darkmode
 import { useTheme } from "./contextAPI/ThemeContext";
 import "./contextAPI/DarkMode.css";
+import Graphics from "./Views/Grafics/Graphics";
 
 const App = () => {
   const { darkMode } = useTheme();
@@ -66,10 +62,10 @@ const App = () => {
         <Route path="/myDates" element={<MyDates />} />
         <Route path="/dashboard" element={<DashBoard />} />
         <Route path="/dashboardusers" element={<DashBoardUsers />} />
-
         <Route path="/postdocs" element={<PostDocs />} />
         <Route path="/postusers" element={<PostUsers />} />
         <Route path="/confirm" element={<Bridge />} />
+        <Route path="/graphics" element={<Graphics />} />
       </Routes>
     </div>
   );

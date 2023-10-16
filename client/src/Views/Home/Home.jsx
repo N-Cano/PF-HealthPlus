@@ -1,6 +1,5 @@
 import NavHome from "../../Components/NavBar/NavHome";
 import ScrollToTop from "react-scroll-to-top";
-import Footer from "../../Components/Footer/Footer";
 import News from "../../Components/News/News";
 import Cards from "../../Components/CardsComponent/Cards/Cards";
 import { filterSpeciality, orderCards, ratingCards } from "../../redux/actions";
@@ -10,6 +9,7 @@ import Subscribe from "../../Components/Subscribe/Subscribe";
 import SpecialtiesHome from "../../Components/Specialties/SpecialtiesHome";
 import { useTranslation } from "react-i18next";
 import { useTheme } from "../../contextAPI/ThemeContext";
+import { Footer, Sponsors, Location } from "../../Components/index";
 
 const Home = () => {
   const { t } = useTranslation();
@@ -144,7 +144,6 @@ const Home = () => {
                 {t("HOME PAGE.SELECTS.ZA")}
               </option>
             </select>
-
             <select
               className="bg-sky-200/100 ... rounded-lg w-[200px] h-[42px]"
               onChange={handleRating}
@@ -182,6 +181,14 @@ const Home = () => {
 
       <div id="subscribe">
         <Subscribe />
+      </div>
+
+      {/*  SPONSORS */}
+      <div>
+        <Sponsors />
+      </div>
+      <div id="locations">
+        <Location />
       </div>
 
       <div

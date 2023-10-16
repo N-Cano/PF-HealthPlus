@@ -71,7 +71,7 @@ const ProfileForm = () => {
   const dispatch = useDispatch();
 
   return (
-    <div className='w-full h-screen bg-[#daf1f8] flex flex-col justify-between'>
+    <div className='w-full h-full bg-[#daf1f8] flex flex-col justify-between'>
       <Nav />
       <h2 className='text-3xl mb-8 font-bold text-neutral-50 bg-gray-950 rounded-2xl p-2 text-center max-w-md m-auto mt-8'>Modify Profile</h2>
       <div className='flex justify-center'>

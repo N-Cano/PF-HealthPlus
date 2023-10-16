@@ -6,9 +6,10 @@ const PostDocs = () => {
     name: "",
     description: "",
     specialty: "",
+    email: "",
     image: null,
   });
-
+  console.log(form);
   const [error, setError] = useState(null);
 
   const changeHandler = (event) => {
@@ -30,6 +31,8 @@ const PostDocs = () => {
       formData.append("name", form.name);
       formData.append("description", form.description);
       formData.append("specialty", form.specialty);
+      formData.append("email", form.email);
+
       if (form.image) {
         formData.append("image", form.image);
       }
@@ -64,6 +67,16 @@ const PostDocs = () => {
             onChange={changeHandler}
             name="name"
             id="name"
+          />
+        </div>
+        <div>
+          <label htmlFor="email">Email:</label>
+          <input
+            type="text"
+            value={form.email}
+            onChange={changeHandler}
+            name="email"
+            id="email"
           />
         </div>
         <div>

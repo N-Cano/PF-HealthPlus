@@ -1,17 +1,8 @@
-import NavHome from "../../Components/NavBar/NavHome";
-import ScrollToTop from "react-scroll-to-top";
 import Footer from "../../Components/Footer/Footer";
-import News from "../../Components/News/News";
-import Cards from "../../Components/CardsComponent/Cards/Cards";
 import { filterSpeciality, orderCards, ratingCards } from "../../redux/actions";
-import SearchBar from "../../Components/SearchBar/SearchBar";
 import SearchBarUsers from "../../Components/SearchBar/SearchBarUsers";
 import { useDispatch } from "react-redux";
-import Subscribe from "../../Components/Subscribe/Subscribe";
-import SpecialtiesHome from "../../Components/Specialties/SpecialtiesHome";
-import DocsCards from "../../Components/CardsDocDash/DocsCards";
 import CardsUsers from "../../Components/CardsUsers/CardsUsers";
-import { Link } from "react-router-dom";
 import SideNavbar from "../../Components/NavBar/NavBarDesp";
 const DashBoardUsers = () => {
   const dispatch = useDispatch();
@@ -28,28 +19,22 @@ const DashBoardUsers = () => {
   };
 
   return (
-    <div
-      style={{
-        background: "linear-gradient(45deg, #71b7e6, #f6f6f6)",
-        boxShadow: "7px 6px 30px #8ccef5",
-      }}>
-      <div id="doctors">
-        <div className="flex-1 p-4 rounded-lg shadow-md my-7 mx-2 md:my-6 md:mr-2 md:ml-2 md:pb-12 h-10"></div>
-      </div>
-
+    <div className="bg-blue-200 h-full flex flex-col justify-between">
       <div
         id="doctors"
-        className="flex flex-col md:flex-row mt-10 md:items-center md:justify-center">
+        className="flex flex-col md:flex-row md:items-center md:justify-center">
         <div>
-          <h3
-            className="mt-5 text-center text-2xl font-bold"
-            style={{ fontFamily: "Rubik, sans-serif" }}>
+          <h3 className="mt-5 text-center text-2xl font-bold font-['Rubik, sans-serif']">
             USERS
           </h3>
 
-          {/* AQUI VAN LAS CARDS Y CON CLICK MAS DETALLES DEL DOCTOR */}
-          <div>
+          <div className="mb-8">
             <SearchBarUsers />
+          </div>
+          <div className="flex flex-row justify-around bg-blue-400 py-6 rounded-2xl font-bold text-center">
+            <p className="text-xl w-[300px]">Name</p>
+            <p className="text-xl w-[300px]">Last Name</p>
+            <p className="text-xl w-[300px]">Email</p>
           </div>
           <CardsUsers />
         </div>

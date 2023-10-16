@@ -5,7 +5,7 @@ import styles from "./Schedule.module.css";
 import { auth } from "../../firebase/firebase.config";
 import { useEffect } from "react";
 import { postDate } from "../../functions/post";
-import SelectDoctor from "./SelectDoctor";
+import SelectDoctor from './SelectDoctor'
 import ScheduleWithCalendar from "./ScheduleWithCalendar";
 import Footer from "../../Components/Footer/Footer";
 import { ToastContainer, toast } from "react-toastify";
@@ -87,11 +87,11 @@ const Form = () => {
       unsubscribe();
     };
   }, [setValue]);
-
-  useEffect(() => {
-    // Guardar en el localStorage cada vez que el formulario cambia
-    localStorage.setItem("form", JSON.stringify(getValues()));
-  }, [getValues]);
+  //localStorage que no usamos por ahora.
+  // useEffect(() => {
+  //   // Guardar en el localStorage cada vez que el formulario cambia
+  //   localStorage.setItem("form", JSON.stringify(getValues()));
+  // }, [getValues]);
 
   return (
     <>

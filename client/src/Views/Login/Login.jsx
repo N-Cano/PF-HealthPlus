@@ -65,46 +65,21 @@ const Login = () => {
   }, [user]);
 
   return (
-    <>
-      <div
-        className="max-h-full max-w-full justify-center items-center flex-col relative bg-gradient-to-br from-blue-300 to-gray-100 shadow-lg"
-        style={{ background: darkMode ? "black" : "" }}>
-        <div className="bg-blue-900 flex justify-center items-center gap-1 p-4">
-          <Link to="/">
-            <a
-              href="#"
-              className="text-white hover:bg-gray-700 hover:text-white rounded-md px-4 py-2 text-sm font-medium mr-auto"
-              style={{ fontFamily: "Rubik, sans-serif" }}>
-              {t("LOGIN.BUTTONBACK")}
-            </a>
-          </Link>
-          <div className="ml-auto flex justify-center items-center">
-            <LanguageSwitcher />
-            <button
-              onClick={toggleDarkMode}
-              className="p-2 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">
-              {darkMode ? (
-                <FaRegSun className="inline-block text-yellow" />
-              ) : (
-                <FaRegMoon className="inline-block text-white" />
-              )}
-            </button>
-          </div>
-        </div>
-
-        <div className="flex justify-center items-center h-screen">
-          <div
-            className="bg-blue-400 rounded-2xl text-center p-8 max-w-[552px] w-full z-10"
-            style={{
-              background: darkMode ? "#1E3144" : "",
-            }}>
+    <div>
+      <div className="h-screen justify-center items-center flex-col relative bg-blue-200">
+        <Link to="/">
+          <button
+            className="bg-slate-950 ml-8 mt-12 text-neutral-50 w-24 p-2 rounded-2xl hover:bg-slate-700 hover:scale-110 transition duration-300 ease-in-out mb-1"
+            style={{ fontFamily: "Rubik, sans-serif" }}>
+            Back
+          </button>
+        </Link>
+        <div className="flex justify-center items-center h-4/5">
+          <div className="bg-blue-400 rounded-2xl mt-10 text-center p-8 max-w-[552px] w-full z-10">
             <h2
               className="text-3xl mb-8 font-bold text-neutral-50 bg-gray-950 rounded-2xl p-2"
-              style={{
-                fontFamily: "Rubik, sans-serif",
-                background: darkMode ? "#325372" : "",
-              }}>
-              {t("LOGIN.SIGN IN")}
+              style={{ fontFamily: "Rubik, sans-serif" }}>
+              Sign In
             </h2>
             <form onSubmit={handleSubmit(loginWithEmailPassword)}>
               <div className="flex flex-col gap-2 mb-6">
@@ -168,7 +143,9 @@ const Login = () => {
                         className={`bx ${
                           showPassword ? "bx-show-alt" : "bx-hide"
                         }`}
+
                         onClick={togglePassword}></i>
+
                       <link
                         href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
                         rel="stylesheet"
@@ -186,36 +163,30 @@ const Login = () => {
                   <Link
                     to="/forgotPassword"
                     className="hover:text-gray-600 hover:scale-110 transition duration-300 ease-in-out">
-                    {t("LOGIN.FORGOT PASSWORD")}
+                    Forgot Password
                   </Link>
 
                   <Link
                     to="/signUp"
                     className="hover:text-gray-600 hover:scale-110 transition duration-300 ease-in-out"
                     style={{ fontFamily: "Rubik, sans-serif" }}>
-                    {t("LOGIN.SIGN UP")}
+                    Sign Up
                   </Link>
                 </div>
                 <button
                   type="submit"
                   className="bg-slate-950 text-neutral-50 w-24 p-2 rounded-2xl hover:bg-slate-700 hover:scale-110 transition duration-300 ease-in-out mb-4"
-                  style={{
-                    fontFamily: "Rubik, sans-serif",
-                    background: darkMode ? "#325372" : "",
-                  }}>
-                  {t("LOGIN.SIGN IN")}
+                  style={{ fontFamily: "Rubik, sans-serif" }}>
+                  Sign In
                 </button>
               </div>
             </form>
             <button
               onClick={loginWithGoogle}
               className="bg-white p-2 rounded-2xl mb-4 w-56 flex items-center hover:text-gray-600 hover:scale-110 transition duration-300 ease-in-out m-auto"
-              style={{
-                fontFamily: "Rubik, sans-serif",
-                background: darkMode ? "#00519C" : "",
-              }}>
-              <img className="w-5 m-2" src={logoGoogle} alt="" />
-              {t("LOGIN.SIGN IN WITH GOOGLE")}
+              style={{ fontFamily: "Rubik, sans-serif" }}>
+              <img className="w-5 m-2" src={logoGoogle} alt="" /> Sign in with
+              Google
             </button>
           </div>
 

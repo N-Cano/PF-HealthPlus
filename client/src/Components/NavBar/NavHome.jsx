@@ -5,14 +5,12 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../../firebase/firebase.config";
 import { UserAuth } from "../../context/AuthContext";
-//Traducción
 import LanguageSwitcher from "../LanguageSwitcher/LanguageSwitcher";
 import { useTranslation } from "react-i18next";
-// Darkmode
 import { useTheme } from "../../contextAPI/ThemeContext";
-// Iconos para el botón darkmode
 import { FaRegSun } from "react-icons/fa";
 import { FaRegMoon } from "react-icons/fa";
+import { authEmail } from "../../functions/post";
 
 const NavHome = () => {
   const { t } = useTranslation();
@@ -51,6 +49,11 @@ const NavHome = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const checkAuth = () => {
+    const user = auth.currentUser;
+    authEmail(user);
+  };
+
   return (
     <nav
       className="bg-blue-900 text-white"
@@ -64,12 +67,9 @@ const NavHome = () => {
             </div>
             <div className="hidden sm:ml-6 sm:block">
               <div className="flex space-x-4">
-                {/* Contenedor de botones del componente Scroll */}
-                <div className="flex items-center space-x-4 ml-auto ">
-                  {/* Botones del componente Scroll */}
+                <div className="flex items-center space-x-4 ml-auto">
                   <ScrollHome />
                 </div>
-
                 <div className="flex items-center">
                   <Link to="/create">
                     <a
@@ -108,7 +108,6 @@ const NavHome = () => {
               </div>
             </div>
           </div>
-
           <div className="relative ml-3">
             <div>
               <button
@@ -125,15 +124,14 @@ const NavHome = () => {
                 />
               </button>
             </div>
-            {/* Muestra el menú solo si isMenuOpen es true */}
             {isMenuOpen && (
               <div className="absolute right-0 mt-2 w-48 bg-white border border-gray-200 divide-y divide-gray-100 rounded-md shadow-lg">
                 <Link to="/profile">
-                  <a
-                    href="#"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                  <button
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                    onClick={checkAuth}>
                     {t("HOME PAGE.NAVBAR.LOGIN.PROFILE")}
-                  </a>
+                  </button>
                 </Link>
                 <Link to="/myDates">
                   <a
@@ -148,6 +146,15 @@ const NavHome = () => {
                   onClick={logOutWithGoogle}>
                   {t("HOME PAGE.NAVBAR.LOGIN.LOG OUT")}
                 </a>
+                {user?.email === "admin@admin.com" && (
+                  <Link to="/dashboard">
+                    <a
+                      href="#"
+                      className="block px-4 py-2 text-sm text-gray-700 hover.bg-gray-100">
+                      Dashboard
+                    </a>
+                  </Link>
+                )}
               </div>
             )}
           </div>

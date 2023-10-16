@@ -16,12 +16,12 @@ export default function SearchBarUsers() {
   }
 
   return (
-    <div className="flex flex-col items-center justify-center mx-1">
+    <div className="flex flex-row items-center justify-center m-4">
       <input
         placeholder="Search by breed name"
         onChange={handleInputChange}
         value={name}
-        className="bg-gray-100 rounded-lg h-10 w-[300px] mr-3 mt-1 px-1"
+        className="bg-sky-200/100 rounded-2xl h-[42px] flex-grow mr-3 mt-1 px-2 w-[300px]"
         style={{ fontFamily: "Open Sans, sans-serif" }}
       />
       <button

@@ -4,19 +4,20 @@ const { db } = require("../firebase");
 //  --- Sign up ---
 
 const signUpUser = async ({ email, uid, photo }) => {
-  try {
-    const userRef = db.collection("users").doc(uid);
+    try {
+        const userRef = db.collection('users').doc(uid);
 
-    await userRef.set({
-      email,
-      name: "",
-      userId: "",
-      photo,
-      dates: [],
-      rol: "user",
-      enable: false,
-      reviews: [],
-    });
+        await userRef.set({
+            email,
+            name: '',
+            lastName: '',
+            userId: '',
+            photo,
+            dates: [],
+            rol: 'user',
+            enable: false,
+            reviews: []
+        });
 
     const newUser = {
       email,
@@ -26,6 +27,21 @@ const signUpUser = async ({ email, uid, photo }) => {
   } catch (error) {
     throw new Error(error);
   }
+};
+
+const bringUserDates = async (id) => {
+    try {
+        const userRef = await db.collection('users').doc(id).get();
+        const userData = {
+            ...userRef.data()
+        };
+        if (!userData.email)
+            throw new Error(`User with ID: ${id} not found`)
+        const userDates = userData.dates
+        return userDates;
+    } catch (error) {
+        throw new Error(error);
+    }
 };
 
 //   --- Bring all users ---
@@ -97,45 +113,45 @@ const deleteUser = async (id) => {
 // --- Enable an user ---
 
 const enableUser = async (id) => {
-  try {
-    const enabledUser = await db.collection("users").doc(id).get();
-    const user = {
-      id: enabledUser.id,
-      ...enabledUser.data(),
-    };
-    if (!user.email) throw new Error(`user with id ${id} not found`);
-    if (user.enable) throw new Error(`user with ID ${id} already enabled`);
+    try {
+        const enabledUser = await db.collection("users").doc(id).get();
+        const user = {
+            id: enabledUser.id,
+            ...enabledUser.data(),
+        };
+        if (!user.email) throw new Error(`user with id ${id} not found`);
+        if (user.enable) throw new Error(`user with ID ${id} already enabled`);
 
-    await db.collection("users").doc(id).update({
-      enable: true,
-    });
-    user.enable = true;
-    return user;
-  } catch (error) {
-    throw new Error(error);
-  }
+        await db.collection("users").doc(id).update({
+            enable: true,
+        });
+        user.enable = true;
+        return user;
+    } catch (error) {
+        throw new Error(error);
+    }
 };
 
 // --- Disable an user from data base ---
 
 const disableUser = async (id) => {
-  try {
-    const disabledUser = await db.collection("users").doc(id).get();
-    const user = {
-      id: disabledUser.id,
-      ...disabledUser.data(),
-    };
-    if (!user.email) throw new Error(`user with ID ${id} not found`);
-    if (!user.enable) throw new Error(`user with ID ${id} already disabled`);
+    try {
+        const disabledUser = await db.collection("users").doc(id).get();
+        const user = {
+            id: disabledUser.id,
+            ...disabledUser.data(),
+        };
+        if (!user.email) throw new Error(`user with ID ${id} not found`);
+        if (!user.enable) throw new Error(`user with ID ${id} already disabled`);
 
-    await db.collection("users").doc(id).update({
-      enable: false,
-    });
-    user.enable = false;
-    return user;
-  } catch (error) {
-    throw new Error(error);
-  }
+        await db.collection("users").doc(id).update({
+            enable: false,
+        });
+        user.enable = false;
+        return user;
+    } catch (error) {
+        throw new Error(error);
+    }
 };
 
 //  --- Update user ---
@@ -168,41 +184,40 @@ const updateUser = async (uid, data) => {
 };
 
 // --- Post a review ---
+const reviewDoctor = async ({ userId, doctorId, dateId, comment, punctuation, date }) => {
+    try {
+        const review = {
+            doctorId,
+            comment,
+            date,
+            punctuation
+        }
 
-const reviewDoctor = async ({
-  userId,
-  doctorId,
-  comment,
-  punctuation,
-  date,
-}) => {
-  try {
-    const review = {
-      doctorId,
-      comment,
-      date,
-      punctuation,
-    };
-    await db
-      .collection("users")
-      .doc(userId)
-      .update({
-        reviews: FieldValue.arrayUnion(review),
-      });
-  } catch (error) {
-    throw new Error(error);
-  }
+        const userRef = await db.collection('users').doc(userId).get();
+
+        const user = {
+            ...userRef.data()
+        };
+
+        const reviewedDate = user.dates.find(date => date.id === dateId);
+        if (reviewedDate.reviewed === true)
+            throw new Error('the appointment has already been reviewed')
+        reviewedDate.reviewed = true;
+
+        const filteredDates = user.dates.filter(date => date.id !== dateId);
+        filteredDates.push(reviewedDate);
+
+        db.collection('users').doc(userId).update({
+            reviews: FieldValue.arrayUnion(review),
+            dates: filteredDates
+        })
+    } catch (error) {
+        throw new Error(error)
+    }
 };
 
-module.exports = {
-  bringUsers,
-  bringUserById,
-  deleteUser,
-  disableUser,
-  signUpUser,
-  updateUser,
-  enableUser,
-  //   bringUserDates,
-  reviewDoctor,
-  bringUserByName,
-};
+module.exports = { bringUsers, bringUserById, bringUserDates, deleteUser, disableUser, signUpUser, updateUser, enableUser, bringUserByName, reviewDoctor }
+
+
+
+
