@@ -275,5 +275,15 @@
                 "PASSWORD": "Password..."
              }
         }
+    }, 
+
+    "PROFILE": {
+        "YOURPROFILE": "Your Profile", 
+        "LOADING": "Loading...",
+        "NAME": "Name",
+        "LASTNAME": "Last Name",
+        "BIRTHDAY": "Birthday",
+        "DNI": "DNI",
+        "MODIFYPROFILE": "Modify Profile"
     }
 }

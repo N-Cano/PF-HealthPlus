@@ -6,8 +6,10 @@ import { auth } from "../../firebase/firebase.config";
 import { useDispatch, useSelector } from "react-redux";
 import { dateById } from "../../redux/actions";
 import Footer from "../../Components/Footer/Footer";
+import { useTheme } from "../../contextAPI/ThemeContext";
 
 const MyDates = () => {
+  const { darkMode } = useTheme();
   const dispatch = useDispatch();
   const date = useSelector((state) => state.dateById);
 
@@ -24,7 +26,7 @@ const MyDates = () => {
     };
   }, [dispatch]);
   return (
-    <div>
+    <div style={{ background: darkMode ? "#00519C" : "" }}>
       <Nav />
       <CardsDates dates={date} />
       <Footer />

@@ -276,5 +276,15 @@
                 "PASSWORD": "Contraseña..."
              }
         }
+    },
+
+    "PROFILE": {
+        "YOURPROFILE": "Tu Perfil", 
+        "LOADING": "Cargando...",
+        "NAME": "Nombre",
+        "LASTNAME": "Apellido",
+        "BIRTHDAY": "Fecha de nacimiento",
+        "DNI": "DNI",
+        "MODIFYPROFILE": "Editar perfil"
     }
 }
