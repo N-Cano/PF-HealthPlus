@@ -63,12 +63,19 @@ useEffect(() => {
     axios
       .get(`http://localhost:3001/users/${form.uid}`)
       .then((response) => {
-        return response.data;
+        const data = response.data;
+        console.log(data);
+        if (!data) {
+          checkAuth(); 
+          setUserCreated(true);
+        } else {
+          return; 
+        }
       })
       .catch((error) => {
         console.error(error);
         checkAuth(); 
-        setUserCreated(true);
+          setUserCreated(true);
       });
   }
 }, [userCreated]);
