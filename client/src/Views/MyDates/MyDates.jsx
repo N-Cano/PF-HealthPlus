@@ -1,6 +1,5 @@
 import Nav from "../../Components/NavBar/Nav";
-import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import CardsDates from "../../Components/CardsDates/CardsDates";
 import { auth } from "../../firebase/firebase.config";
 import { useDispatch, useSelector } from "react-redux";
@@ -26,11 +25,13 @@ const MyDates = () => {
     };
   }, [dispatch]);
   return (
-    <div style={{ background: darkMode ? "#00519C" : "" }}>
-      <Nav />
-      <CardsDates dates={date} />
+    <>
+      <div style={{ background: darkMode ? "#00519C" : "" }}>
+        <Nav />
+        <CardsDates dates={date} />
+      </div>
       <Footer />
-    </div>
+    </>
   );
 };
 

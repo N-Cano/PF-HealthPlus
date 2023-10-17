@@ -251,9 +251,12 @@
     },
     "DETAIL": {
         "HEADERS": {
+            "LOADING": "Cargando información...",
+            "HOME": "Regresar",
             "SPECIALTY": "Especialidades",
             "REVIEWS": "Reseñas",
-            "DESCRIPTION": "Descripción"
+            "DESCRIPTION": "Descripción",
+            "NOCOMMENTS": "Sin comentarios por el momento"
         }
     },
 

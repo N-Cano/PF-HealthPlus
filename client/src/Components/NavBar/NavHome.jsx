@@ -125,10 +125,15 @@ const NavHome = () => {
               </button>
             </div>
             {isMenuOpen && (
-              <div className="absolute right-0 mt-2 w-48 bg-white border border-gray-200 divide-y divide-gray-100 rounded-md shadow-lg">
+              <div
+                className="absolute right-0 mt-2 w-48 bg-white border border-gray-200 divide-y divide-gray-100 rounded-md shadow-lg"
+                style={{
+                  background: darkMode ? "#00519C" : "",
+                  color: darkMode ? "white" : "",
+                }}>
                 <Link to="/profile">
                   <button
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                    className="block px-4 py-2 text-sm  hover:bg-gray-100"
                     onClick={checkAuth}>
                     {t("HOME PAGE.NAVBAR.LOGIN.PROFILE")}
                   </button>
@@ -136,21 +141,24 @@ const NavHome = () => {
                 <Link to="/myDates">
                   <a
                     href="#"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                    className="block px-4 py-2 text-sm  hover:bg-gray-100">
                     {t("HOME PAGE.NAVBAR.LOGIN.DATES")}
                   </a>
                 </Link>
                 <a
                   href="#"
-                  className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                  onClick={logOutWithGoogle}>
+                  className="block px-4 py-2 text-sm  hover:bg-gray-100"
+                  onClick={logOutWithGoogle}
+                  style={{
+                    background: darkMode ? "black" : "",
+                  }}>
                   {t("HOME PAGE.NAVBAR.LOGIN.LOG OUT")}
                 </a>
                 {user?.email === "admin@admin.com" && (
                   <Link to="/dashboard">
                     <a
                       href="#"
-                      className="block px-4 py-2 text-sm text-gray-700 hover.bg-gray-100">
+                      className="block px-4 py-2 text-sm  hover.bg-gray-100">
                       Dashboard
                     </a>
                   </Link>

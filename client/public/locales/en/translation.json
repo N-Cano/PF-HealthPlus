@@ -250,9 +250,12 @@
 
     "DETAIL": {
         "HEADERS": {
+            "LOADING": "Loading...",
+            "HOME": "Home",
             "SPECIALTY": "Specialty",
             "REVIEWS": "Reviews",
-            "DESCRIPTION": "Description"
+            "DESCRIPTION": "Description",
+            "NOCOMMENTS": "No comments for the moment"
         }
     },
 
