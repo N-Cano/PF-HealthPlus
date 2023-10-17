@@ -27,6 +27,7 @@ import "tailwindcss/tailwind.css";
 import { useTheme } from "./contextAPI/ThemeContext";
 import "./contextAPI/DarkMode.css";
 import Graphics from "./Views/Grafics/Graphics";
+import Review from "./Views/Review/Review";
 
 const App = () => {
   const { darkMode } = useTheme();
@@ -66,6 +67,7 @@ const App = () => {
         <Route path="/postusers" element={<PostUsers />} />
         <Route path="/confirm" element={<Bridge />} />
         <Route path="/graphics" element={<Graphics />} />
+        <Route path="/review/:dateId" element={<Review />} />
       </Routes>
     </div>
   );

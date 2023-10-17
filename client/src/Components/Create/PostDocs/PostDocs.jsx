@@ -55,7 +55,6 @@ const PostDocs = () => {
             POST DOCTORS
           </h2>
 
-
           <form onSubmit={submitHandler}>
             <div>
               <label htmlFor="name">Name:</label>
@@ -123,13 +122,17 @@ const PostDocs = () => {
                 id="espDescription"
               />
             </div>
+            <button
+              className="font-bold w-60 bg-blue-400 hover:bg-indigo-500 hover:scale-110 rounded-2xl transition ease-in-out duration-300 m-24 py-4"
+              type="submit"
+            >
+              Submit
+            </button>
+            {error && <p className="error">{error}</p>}
           </form>
-
         </div>
-        </form> 
       </div>
     </div>
-  </div>
   );
 };
 

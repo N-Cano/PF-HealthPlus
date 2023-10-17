@@ -36,13 +36,18 @@ const DashBoard = () => {
           <div className="mb-8">
             <SearchBar />
           </div>
-          <Link to={"/postdocs"} className="flex items-center justify-center mb-8">
-            <button className="bg-gray-600 p-4 rounded-2xl font-bold text-white hover:bg-gray-400 hover:scale-110 transition ease-in-out duration-300">Create Doctor</button>
+          <Link
+            to={"/postdocs"}
+            className="flex items-center justify-center mb-8"
+          >
+            <button className="bg-gray-600 p-4 rounded-2xl font-bold text-white hover:bg-gray-400 hover:scale-110 transition ease-in-out duration-300">
+              Create Doctor
+            </button>
           </Link>
           <div className="flex flex-row justify-around bg-blue-400 py-6 rounded-2xl font-bold text-center">
             <p className="text-xl w-[300px]">Profesional</p>
             <p className="text-xl w-[300px]">Specialty</p>
-            <p className="text-xl w-[300px]">Email</p>
+            <p className="text-xl w-[300px]">Id:</p>
           </div>
           <DocsCards />
         </div>
