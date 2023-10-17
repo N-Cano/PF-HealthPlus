@@ -18,12 +18,12 @@ export default function SearchBarUsers() {
   }
 
   return (
-    <div className="flex flex-row items-center justify-center m-4">
+    <div className="flex items-center mx-1">
       <input
         placeholder="Search by breed name"
         onChange={handleInputChange}
         value={name}
-        className="bg-sky-200/100 rounded-2xl h-[42px] flex-grow mr-3 mt-1 px-2 w-[300px]"
+        className="bg-sky-300/100 rounded-2xl h-[42px] flex-grow mr-3 mt-1 px-2 w-[300px] font-['Open Sans', sans-serif]"
         style={{
           fontFamily: "Open Sans, sans-serif",
           background: darkMode ? "#00519C" : "",
@@ -33,7 +33,7 @@ export default function SearchBarUsers() {
         type="button"
         onClick={handleSubmit}
         style={{ fontFamily: "Open Sans, sans-serif" }}
-        className="bg-black rounded-lg text-white mt-2 w-[75px] py-1"
+        className="bg-black rounded-2xl text-white ml-[-85px] mt-1 h-[40px] w-[73px] py-1 font-['Open Sans', sans-serif]"
       >
         Search
       </button>

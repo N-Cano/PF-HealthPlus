@@ -8,7 +8,6 @@ import NavBarDesp from "../../Components/NavBar/NavBarDesp";
 import { useTheme } from "../../contextAPI/ThemeContext";
 import { deleteUser } from "./deleteUsers";
 
-
 const DetailUsers = () => {
   const [detail, setDetail] = useState({});
   const [loading, setLoading] = useState(true);

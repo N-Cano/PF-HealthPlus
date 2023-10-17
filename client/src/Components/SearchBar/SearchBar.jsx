@@ -32,7 +32,7 @@ export default function SearchBar() {
         onChange={handleInputChange}
         type="search"
         value={name}
-        className="bg-sky-200/100 rounded-2xl h-[42px] flex-grow mr-3 mt-1 px-2 w-[300px] font-['Open Sans', sans-serif]"
+        className="bg-sky-300/100 rounded-2xl h-[42px] flex-grow mr-3 mt-1 px-2 w-[300px] font-['Open Sans', sans-serif]"
         style={{
           background: darkMode ? "#00519C" : "",
         }}
@@ -42,7 +42,8 @@ export default function SearchBar() {
         type="submit"
         onClick={handleSubmit}
         style={{ fontFamily: "Open Sans, sans-serif" }}
-        className="bg-black rounded-2xl text-white ml-[-85px] mt-1 h-[40px] w-[73px] py-1 font-['Open Sans', sans-serif]">
+        className="bg-black rounded-2xl text-white ml-[-85px] mt-1 h-[40px] w-[73px] py-1 font-['Open Sans', sans-serif]"
+      >
         {t("HOME PAGE.SEARCHBAR.BUTTON")}
       </button>
     </div>

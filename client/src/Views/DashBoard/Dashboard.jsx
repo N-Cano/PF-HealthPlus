@@ -1,4 +1,3 @@
-import Footer from "../../Components/Footer/Footer";
 import { filterSpeciality, orderCards, ratingCards } from "../../redux/actions";
 import SearchBar from "../../Components/SearchBar/SearchBar";
 import { useDispatch } from "react-redux";
@@ -61,8 +60,6 @@ const DashBoard = () => {
         </div>
       </div>
       <SideNavbar />
-
-      <Footer />
     </div>
   );
 };

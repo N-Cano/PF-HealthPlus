@@ -1,9 +1,10 @@
 import { useState } from "react";
-import styles from "./PostDocs.module.css";
 import NavBarDesp from "../../NavBar/NavBarDesp";
 import { postData } from "./postDataDocs";
+import { useTheme } from "../../../contextAPI/ThemeContext";
 
 const PostDocs = () => {
+  const { darkMode } = useTheme();
   const [form, setForm] = useState({
     name: "",
     engDescription: "",
@@ -47,53 +48,76 @@ const PostDocs = () => {
   };
 
   return (
-    <div>
+    <>
       <NavBarDesp />
-      <div className="bg-blue-400 w-full h-full flex items-center justify-center">
-        <div className="w-full h-full bg-[#daf1f8] flex flex-col justify-between max-w-md p-4 rounded-lg">
-          <h2 className="text-3xl mb-8 font-bold text-neutral-50 bg-gray-950 rounded-2xl p-2 text-center mt-8">
+      <div
+        className="bg-blue-400 w-full h-screen flex items-center justify-center"
+        style={{ background: darkMode ? "#00519C" : "" }}
+      >
+        <div
+          className="w-full bg-blue-300 flex flex-col justify-between max-w-md p-4 mt-10 mb-10 rounded-2xl"
+          style={{ background: darkMode ? "black" : "" }}
+        >
+          <h2
+            className="text-3xl mb-8 font-bold text-neutral-50 bg-gray-950 rounded-2xl p-2 text-center mt-8"
+            style={{ background: darkMode ? "#1E3453" : "" }}
+          >
             POST DOCTORS
           </h2>
 
-
-          <form onSubmit={submitHandler}>
-            <div>
-              <label htmlFor="name">Name:</label>
+          <form
+            onSubmit={submitHandler}
+            className="flex flex-col items-center gap-3"
+          >
+            <div className="flex items-center mb-2">
+              <label htmlFor="name" className="w-1/3 text-right pr-4">
+                Name:
+              </label>
               <input
                 type="text"
                 value={form.name}
                 onChange={changeHandler}
                 name="name"
                 id="name"
+                className="rounded-2xl ml-4"
               />
             </div>
-            <div>
-              <label htmlFor="email">Email:</label>
+            <div className="flex items-center mb-2">
+              <label htmlFor="name" className="w-1/3 text-right pr-4">
+                Email:
+              </label>
               <input
                 type="text"
                 value={form.email}
                 onChange={changeHandler}
                 name="email"
                 id="email"
+                className="rounded-2xl ml-4"
               />
             </div>
-            <div>
-              <label htmlFor="image">Image:</label>
+            <div className="flex items-center ml-[35px] mb-2">
+              <label htmlFor="image" className="w-1/3 text-right pr-4">
+                Image:{" "}
+              </label>
               <input
                 type="file"
                 accept="image/*"
                 onChange={handleImageChange}
                 name="image"
                 id="image"
+                className="ml-4"
               />
             </div>
-            <div>
-              <label htmlFor="specialty">Specialty:</label>
+            <div className="flex items-center mb-2">
+              <label htmlFor="specialty" className="w-1/3 text-right pr-4">
+                Specialty:
+              </label>
               <select
                 value={form.specialty}
-                onChange={changeHandler} // Asociar el evento a la selección
+                onChange={changeHandler}
                 name="specialty"
                 id="specialty"
+                className="rounded-2xl ml-2 h-[25px] w-[197px]"
               >
                 <option value="Dermatology">Dermatology</option>
                 <option value="Rheumatology">Rheumatology</option>
@@ -105,31 +129,38 @@ const PostDocs = () => {
                 <option value="Cardiology">Cardiology</option>
               </select>
             </div>
-            <div>
+            <div className="flex items-center mb-2">
               <label htmlFor="engDescription">English description:</label>
               <textarea
                 value={form.engDescription}
                 onChange={changeHandler}
                 name="engDescription"
                 id="engDescription"
+                className="w-2/3 rounded-2xl -ml-10"
               />
             </div>
-            <div>
+            <div className="flex items-center mb-2">
               <label htmlFor="espDescription">Spanish description:</label>
               <textarea
                 value={form.espDescription}
                 onChange={changeHandler}
                 name="espDescription"
                 id="espDescription"
+                className="w-2/3 rounded-2xl -ml-10"
               />
             </div>
+            <button
+              className="font-bold h-10 w-20 bg-blue-400 hover:bg-indigo-500 hover:scale-110 rounded-2xl transition ease-in-out duration-300 py-0 mt-18"
+              type="submit"
+              style={{ background: darkMode ? "#00519C" : "" }}
+            >
+              Submit
+            </button>
+            {error && <p className="error">{error}</p>}
           </form>
-
         </div>
-        </form> 
       </div>
-    </div>
-  </div>
+    </>
   );
 };
 
