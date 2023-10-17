@@ -1,10 +1,16 @@
 import { useState } from "react";
-import { useTranslation } from "react-i18next";
+//Iconos
 import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
 import { RxDotFilled } from "react-icons/rx";
+//Traducción
+import { useTranslation } from "react-i18next";
+// Darkmode
+import { useTheme } from "../../contextAPI/ThemeContext";
 
 const SlidesBanner = () => {
   const { t } = useTranslation();
+  const { darkMode } = useTheme();
+
   const slides = [
     {
       url: "https://images.unsplash.com/photo-1527613426441-4da17471b66d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2052&q=80",
@@ -56,9 +62,10 @@ const SlidesBanner = () => {
             backdropFilter: "blur(1px)",
           }}>
           <p
-            className="text-black text-4xl lg:text-3xl xl:text-4xl text-center font-extrabold"
+            className="text-black text-6xl lg:text-3xl xl:text-4xl text-center font-extrabold"
             style={{
               fontFamily: "Rubik, sans-serif",
+              color: darkMode ? "#00519C" : "black",
               backdropFilter: "blur(100%)",
             }}>
             {slides[currentIndex].msg}

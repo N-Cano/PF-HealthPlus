@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { getUsersName, getUsers } from "../../../redux/actions";
+import { getUsersName, getUsers } from "../../redux/actions";
 
 export default function SearchBarUsers() {
   const dispatch = useDispatch();
@@ -25,11 +25,10 @@ export default function SearchBarUsers() {
         style={{ fontFamily: "Open Sans, sans-serif" }}
       />
       <button
-        type="button" // Cambiado a type="button"
+        type="button"
         onClick={handleSubmit}
         style={{ fontFamily: "Open Sans, sans-serif" }}
-        className="bg-black rounded-2xl text-white ml-[-85px] mt-1 h-[40px] w-[73px] py-1"
-      >
+        className="bg-black rounded-lg text-white mt-2 w-[75px] py-1">
         Search
       </button>
     </div>

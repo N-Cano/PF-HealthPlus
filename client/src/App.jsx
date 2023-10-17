@@ -18,22 +18,26 @@ import DashBoardUsers from "./Views/DashBoard/DashBoardUsers";
 import Detail2 from "./Views/Detail/DetailDash";
 import PostDocs from "./Components/Create/PostDocs/PostDocs";
 import PostUsers from "./Components/Create/PostUsers/PostUsers";
-import "tailwindcss/tailwind.css";
 import { UserAuth } from "./context/AuthContext";
 import { Navigate } from "react-router-dom";
 import DashBoard from "./Views/DashBoard/Dashboard";
 import Bridge from "./Views/Bridge/Bridge";
 import DetailUsers from "./Views/Detail/DetailUsers";
+import "tailwindcss/tailwind.css";
+import { useTheme } from "./contextAPI/ThemeContext";
+import "./contextAPI/DarkMode.css";
 import Graphics from "./Views/Grafics/Graphics";
 
 const App = () => {
+  const { darkMode } = useTheme();
+
   const { user } = UserAuth();
   const RequireAuth = ({ children }) => {
     return user ? children : <Navigate to={"/login"} />;
   };
 
   return (
-    <div>
+    <div className={darkMode ? "dark-mode" : ""}>
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/login" element={<Login />} />

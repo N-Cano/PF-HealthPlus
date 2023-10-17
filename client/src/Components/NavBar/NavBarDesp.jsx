@@ -27,9 +27,8 @@ function SideNavbar() {
           <GiHamburgerMenu className="block  h-6 w-6" aria-hidden="true" />
         </Disclosure.Button>
         <div
-          className={`transition-transform transform ${
-            open ? "translate-x-0" : "-translate-x-full"
-          } p-6 w-1/2 h-screen bg-blue-100 hover:bg-indigo-100 z-20 fixed top-0 lg:w-60 peer-focus:left-0 peer:transition ease-out delay-150 duration-200`}
+          className={`transition-transform transform ${open ? "translate-x-0" : "-translate-x-full"
+            } p-6 w-1/2 h-screen bg-blue-100 hover:bg-indigo-100 z-20 fixed top-0 lg:w-60 peer-focus:left-0 peer:transition ease-out delay-150 duration-200`}
         >
           <div className="flex flex-col justify-start item-center">
             <h1 className="text-base text-center cursor-pointer font-bold text-blue-900 border-b border-gray-100 pb-4 w-full">
@@ -63,7 +62,6 @@ function SideNavbar() {
               </Link>
             </div>
 
-            {/* logout */}
             <Link to="/home">
               <div className=" my-4">
                 <div className="flex mb-2 justify-start items-center gap-4 pl-5 border border-gray-200  hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">

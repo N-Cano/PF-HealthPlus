@@ -8,10 +8,14 @@ import { postDate } from "../../functions/post";
 import SelectDoctor from './SelectDoctor'
 import ScheduleWithCalendar from "./ScheduleWithCalendar";
 import Footer from "../../Components/Footer/Footer";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { useTheme } from "../../contextAPI/ThemeContext";
+import { useTranslation } from "react-i18next";
 
 const Form = () => {
+  const { darkMode } = useTheme();
+
   const {
     control,
     handleSubmit,
@@ -46,10 +50,13 @@ const Form = () => {
   };
 
   function generateScheduleOptions() {
+    const { t } = useTranslation();
+    const { darkMode } = useTheme();
+
     const options = [];
-    const startTime = 8 * 60; // 8 a.m. en minutos
-    const endTime = 16 * 60; // 4 p.m. en minutos
-    const interval = 30; // Intervalo de 30 minutos
+    const startTime = 8 * 60;
+    const endTime = 16 * 60;
+    const interval = 30;
 
     for (let time = startTime; time <= endTime; time += interval) {
       const hours = Math.floor(time / 60)
@@ -80,126 +87,144 @@ const Form = () => {
       unsubscribe();
     };
   }, [setValue]);
-  //localStorage que no usamos por ahora.
-  // useEffect(() => {
-  //   // Guardar en el localStorage cada vez que el formulario cambia
-  //   localStorage.setItem("form", JSON.stringify(getValues()));
-  // }, [getValues]);
 
   return (
     <>
-      <div className={styles.nuevo}>
-        <div className="w-full">
+      <div
+        className="bg-gradient-to-br from-blue-300 to-gray-100 shadow-lg"
+        style={{ background: darkMode ? "#00519C" : "" }}>
+        <div className="w-full mb-6">
           <Nav />
         </div>
-        <div className={styles.container}>
-          <Cards />
-          <div className="flex flex-row justify-around">
-            <div className={styles.title}>
-              <p className="font-bold mb-1"></p>
-              <div className={styles.userdetails}>
-                <form onSubmit={handleSubmit(onSubmit)}>
-                  <div className={styles.inputbox}>
-                    <label className="mr-4">Doctor</label>
-                    <Controller
-                      name="doctorId"
-                      control={control}
-                      defaultValue=""
-                      rules={{
-                        required: "You must choose a doctor",
-                      }}
-                      className="mb-2"
-                      render={({ field }) => (
-                        <select
-                          className={styles.button2}
-                          {...field}
-                          onChange={(e) => {
-                            field.onChange(e);
-                            handleChange("doctorId", e.target.value);
-                            selectDoctor(e.target.value);
-                          }}
-                        >
-                          <SelectDoctor selectDoctor={selectDoctor} />
-                        </select>
-                      )}
-                    />
-                    {errors.doctorId && (
-                      <p className="text-red-800">{errors.doctorId.message}</p>
-                    )}
-                  </div>
 
-                  <div className={styles.inputbox}>
-                    <label>User ID</label>
-                    <Controller
-                      name="userId"
-                      control={control}
-                      defaultValue=""
-                      rules={{
-                        required: "You must add your DNI",
-                      }}
-                      render={({ field }) => (
-                        <input type="text" {...field} disabled />
-                      )}
-                    />
-                    {errors.userId && (
-                      <p className="text-red-800">{errors.userId.message}</p>
+        <Cards />
+        <div className="flex flex-row justify-around">
+          <div className={styles.title}>
+            <p className="font-bold mb-1"></p>
+            <div
+              className={styles.userdetails}
+              style={{ background: darkMode ? "#00519C" : "" }}>
+              <form onSubmit={handleSubmit(onSubmit)}>
+                <div
+                  className={styles.inputbox}
+                  style={{ background: darkMode ? "black" : "#b5e8fc" }}>
+                  <label className="mr-4">Doctor</label>
+                  <Controller
+                    name="doctorId"
+                    control={control}
+                    defaultValue=""
+                    rules={{
+                      required: "You must choose a doctor",
+                    }}
+                    className="mb-2"
+                    render={({ field }) => (
+                      <select
+                        className={styles.button2}
+                        {...field}
+                        onChange={(e) => {
+                          field.onChange(e);
+                          handleChange("doctorId", e.target.value);
+                          selectDoctor(e.target.value);
+                        }}
+                        style={{ background: darkMode ? "#00519C" : "" }}>
+                        <SelectDoctor selectDoctor={selectDoctor} />
+                      </select>
                     )}
-                  </div>
+                  />
+                  {errors.doctorId && (
+                    <p className="text-red-800">{errors.doctorId.message}</p>
+                  )}
+                </div>
 
-                  <div className={styles.inputbox}>
-                    <label>Schedule</label>
-                    <Controller
-                      name="schedule"
-                      control={control}
-                      defaultValue=""
-                      rules={{
-                        required: "You must choose a business hours",
-                      }}
-                      className="mb-2"
-                      render={({ field }) => (
-                        <select
-                          {...field}
-                          className="flex flex-col w-full h-11 outline-none rounded-md border-gray-300 pl-4 pt-2 border-b-2 transition ease-in-out duration-300"
-                        >
-                          <option value="">-- Select a Schedule --</option>
-                          {generateScheduleOptions()}
-                        </select>
-                      )}
-                    />
-                    {errors.schedule && (
-                      <p className="text-red-800">{errors.schedule.message}</p>
+                <div
+                  className={styles.inputbox}
+                  style={{ background: darkMode ? "black" : "#b5e8fc" }}>
+                  <label>User ID</label>
+                  <Controller
+                    name="userId"
+                    control={control}
+                    defaultValue=""
+                    rules={{
+                      required: "You must add your DNI",
+                    }}
+                    render={({ field }) => (
+                      <input
+                        type="text"
+                        {...field}
+                        disabled
+                        style={{ background: darkMode ? "#00519C" : "" }}
+                      />
                     )}
-                  </div>
+                  />
+                  {errors.userId && (
+                    <p className="text-red-800">{errors.userId.message}</p>
+                  )}
+                </div>
 
-                  <div className={styles.inputbox}>
-                    <label>Date</label>
-                    <Controller
-                      name="date"
-                      control={control}
-                      defaultValue=""
-                      rules={{
-                        required: "You must choose a date",
-                      }}
-                      render={({ field }) => <input type="date" {...field} />}
-                    />
-                    {errors.date && (
-                      <p className="text-red-800">{errors.date.message}</p>
+                <div
+                  className={styles.inputbox}
+                  style={{ background: darkMode ? "black" : "#b5e8fc" }}>
+                  <label>Schedule</label>
+                  <Controller
+                    name="schedule"
+                    control={control}
+                    defaultValue=""
+                    rules={{
+                      required: "You must choose a business hours",
+                    }}
+                    className="mb-2"
+                    render={({ field }) => (
+                      <select
+                        {...field}
+                        className="flex flex-col w-full h-11 outline-none rounded-md border-gray-300 pl-4 pt-2 border-b-2 transition ease-in-out duration-300"
+                        style={{ background: darkMode ? "#00519C" : "" }}>
+                        <option value="">-- Select a Schedule --</option>
+                        {generateScheduleOptions()}
+                      </select>
                     )}
-                  </div>
+                  />
+                  {errors.schedule && (
+                    <p className="text-red-800">{errors.schedule.message}</p>
+                  )}
+                </div>
 
-                  <button
-                    className="w-40 font-bold bg-blue-400 hover:bg-indigo-500 hover:scale-110 rounded-2xl transition ease-in-out duration-300"
-                    type="submit"
-                  >
-                    Save
-                  </button>
-                </form>
-              </div>
+                <div
+                  className={styles.inputbox}
+                  style={{ background: darkMode ? "black" : "#b5e8fc" }}>
+                  <label>Date</label>
+                  <Controller
+                    name="date"
+                    control={control}
+                    defaultValue=""
+                    rules={{
+                      required: "You must choose a date",
+                    }}
+                    render={({ field }) => (
+                      <input
+                        type="date"
+                        {...field}
+                        style={{ background: darkMode ? "#00519C" : "" }}
+                      />
+                    )}
+                  />
+                  {errors.date && (
+                    <p className="text-red-800">{errors.date.message}</p>
+                  )}
+                </div>
+
+                <button
+                  className="w-40 font-bold bg-blue-400 hover:bg-indigo-500 hover:scale-110 rounded-2xl transition ease-in-out duration-300 mb-2"
+                  type="submit"
+                  style={{ background: darkMode ? "black" : "" }}>
+                  Save
+                </button>
+              </form>
             </div>
-            <ScheduleWithCalendar />
           </div>
+          <ScheduleWithCalendar />
         </div>
       </div>
+
       <Footer />
       <ToastContainer />
     </>

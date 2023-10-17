@@ -1,4 +1,5 @@
-import axios from "axios";
+import { deleteDate } from "./deleteDate";
+
 const Dates = (props) => {
 
   const cancelDate = () => {
@@ -12,6 +13,7 @@ const Dates = (props) => {
   const reviewDate = () => {
     alert('emulo que llevo al form')
   };
+
   return (
     <div className="w-full bg-blue-200 p-8 " key={props.dateId}>
       {
@@ -46,6 +48,7 @@ const Dates = (props) => {
         <p >
           status: {props.status}
         </p>
+
       </div>
     </div>
   );

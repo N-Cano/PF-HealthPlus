@@ -1,6 +1,6 @@
 import Footer from "../../Components/Footer/Footer";
 import { filterSpeciality, orderCards, ratingCards } from "../../redux/actions";
-import SearchBarUsers from "../../Components/Utils/SearchBar/SearchBarUsers";
+import SearchBarUsers from "../../Components/SearchBar/SearchBarUsers";
 import { useDispatch } from "react-redux";
 import CardsUsers from "../../Components/CardsUsers/CardsUsers";
 import SideNavbar from "../../Components/NavBar/NavBarDesp";
@@ -8,7 +8,7 @@ const DashBoardUsers = () => {
   const dispatch = useDispatch();
 
   const filterSpecial = (event) => {
-    dispatch(filterSpeciality(event.target.value)); //llama a las funciones con el valor dado
+    dispatch(filterSpeciality(event.target.value));
   };
   const handleOrder = (e) => {
     //dispatch del asc y desc
@@ -22,8 +22,7 @@ const DashBoardUsers = () => {
     <div className="bg-blue-200 h-full flex flex-col justify-between">
       <div
         id="doctors"
-        className="flex flex-col md:flex-row md:items-center md:justify-center"
-      >
+        className="flex flex-col md:flex-row md:items-center md:justify-center">
         <div>
           <h3 className="mt-5 text-center text-2xl font-bold font-['Rubik, sans-serif']">
             USERS

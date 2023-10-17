@@ -1,5 +1,7 @@
-import React, { useState } from "react";
-import axios from "axios";
+import { useState } from "react";
+import styles from "./PostDocs.module.css";
+import NavBarDesp from "../../NavBar/NavBarDesp";
+import { postData } from "./postDataDocs";
 
 const PostDocs = () => {
   const [form, setForm] = useState({
@@ -10,7 +12,6 @@ const PostDocs = () => {
     email: "",
     image: null,
   });
-  console.log(form);
   const [error, setError] = useState(null);
 
   const changeHandler = (event) => {
@@ -37,29 +38,23 @@ const PostDocs = () => {
       if (form.image) {
         formData.append("image", form.image);
       }
-      
-      console.log(formData);
-      const response = await axios.post(
-        "http://localhost:3001/doctors",
-        formData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      );
+      await postData(formData);
 
-      console.log(response.data);
-      setError(null); // Limpiar cualquier error anterior
+      setError(null);
     } catch (error) {
-      console.error(error);
       setError("Error al enviar el formulario");
     }
   };
 
   return (
     <div>
-      <h1>POST DOCTORS</h1>
+    <NavBarDesp />
+      <div className="bg-blue-400 w-full h-full flex items-center justify-center">
+        <div className="w-full h-full bg-[#daf1f8] flex flex-col justify-between max-w-md p-4 rounded-lg">
+          <h2 className="text-3xl mb-8 font-bold text-neutral-50 bg-gray-950 rounded-2xl p-2 text-center mt-8">
+            POST DOCTORS
+          </h2>
+ 
       <form onSubmit={submitHandler}>
         <div>
           <label htmlFor="name">Name:</label>
@@ -127,9 +122,7 @@ const PostDocs = () => {
             id="espDescription"
           />
         </div>
-        <button type="submit">Submit</button>
-        {error && <p className="error">{error}</p>}
-      </form>
+      </div>
     </div>
   );
 };
