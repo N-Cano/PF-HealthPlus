@@ -17,6 +17,7 @@ import Cards from "../../Components/CardsComponent/Cards/Cards";
 import { useTranslation } from "react-i18next";
 import { useTheme } from "../../contextAPI/ThemeContext";
 import "../../contextAPI/DarkMode.css";
+import Chatbot from "../../Components/ChatBot/ChatBot";
 
 const Landing = () => {
   const { t } = useTranslation();
@@ -30,7 +31,7 @@ const Landing = () => {
           : "bg-gradient-to-br from-blue-300 to-gray-100 shadow-lg"
       }>
       <NavBar />
-
+      <Chatbot />
       {/* BANNER COMO SLIDES */}
       <SlidesBanner />
       {/* ABOUT US  1*/}

@@ -1,7 +1,7 @@
 {
     "LANDING PAGE": {
         "NAVBAR": {
-            "SCROLL":{
+            "SCROLL": {
                 "ABOUT": "CONÓCENOS",
                 "SERVICES": "SERVICIOS",
                 "PROFESSIONALS": "PROFESIONALES",
@@ -9,15 +9,12 @@
             },
             "LOGIN": "INGRESAR"
         },
-
         "SLIDESBANNER": {
             "MSG 1": "Ofrecemos una gran variedad de servicios para satisfacer tus necesidades, te ayudamos a cuidarte",
             "MSG 2": "Aquí te ofrecemos las mejores promociones y los especialistas que necesitas",
             "MSG 3": "Contamos con la tecnología necesaria",
             "MSG 4": "Poseemos la mejor atención para ti y tu familia"
-
         },
-
         "ABOUT US 1": {
             "WHAT DO WE DO": {
                 "TITLE": "¿QUIÉNES SOMOS?",
@@ -32,19 +29,17 @@
                 "DESCRIPTION": "Nos puedes encontrar en nuestras redes sociales."
             }
         },
-
         "ABOUT US 2": {
             "DESCRIPTION 1": "HealthPlus es una empresa privada enfocada en servir a los pacientes con las mejores tecnologías y los mejores especialistas",
-            "DESCRIPTION 2":"HealthPlus te ofrece una nueva experiencia en el cuidado de tu salud, puedes unirte a nosotros en cualquier momento."
+            "DESCRIPTION 2": "HealthPlus te ofrece una nueva experiencia en el cuidado de tu salud, puedes unirte a nosotros en cualquier momento."
         },
-
         "SERVICES": {
             "APPOINTMENTS": {
                 "TITLE": "TURNOS",
                 "BUTTON": "Comenzar"
             },
             "PROFESSIONALS": {
-                "TITLE":"PROFESIONALES",
+                "TITLE": "PROFESIONALES",
                 "BUTTON": "Comenzar"
             },
             "CHECKOUT": {
@@ -52,92 +47,81 @@
                 "BUTTON": "Comenzar"
             }
         },
-
         "AVAILABLE SERVICES": {
             "AVAILABLE SERVICES": "SERVICIOS DISPONIBLES",
             "GENERAL PRACTICES": "PRÁCTICAS GENERALES",
             "DIAGNOSIS": "DIAGNÓSTICO",
             "TREATMENT": "TRATAMIENTO"
         },
-
-        
         "SPECIALTIES": {
-            "OUR SERVICES":"Nuestros Servicios",
+            "OUR SERVICES": "Nuestros Servicios",
             "DESCRIPTION 1": "En HealthPlus ayudamos a nuestros clientes con la mejor atención según sus necesidades.",
             "TAGLINE": "¡Te ayudamos a cuidarte!",
             "SERVICES": {
-                "DERMATOLOGY":{
+                "DERMATOLOGY": {
                     "TITLE": "Dermatología",
                     "DESCRIPTION": "La piel es el órgano más grande del cuerpo humano y es una de las cosas más preciadas que tiene un ser humano en cuanto a su salud y bienestar. Las afecciones de la piel pueden convertirse en un problema importante con el tiempo si no se tratan, y los dermatólogos ayudan a los pacientes a superar algunas de las complicaciones que podrían surgir."
                 },
-                "RHEUMATOLOGY":{
+                "RHEUMATOLOGY": {
                     "TITLE": "Reumatología",
                     "DESCRIPTION": "Un reumatólogo es un médico de medicina interna con formación subespecializada en reumatología. Esta especialidad médica se ocupa de las afecciones musculoesqueléticas, así como de las afecciones autoinmunes e inflamatorias en personas de todas las edades."
                 },
-                "PSYCHIATRY":{
+                "PSYCHIATRY": {
                     "TITLE": "Psiquiatría",
                     "DESCRIPTION": "La gente busca ayuda psiquiátrica por muchas razones. Los problemas pueden ser repentinos, como un ataque de pánico, alucinaciones aterradoras o pensamientos suicidas. La psicoterapia, a veces llamada terapia de conversación, es un tratamiento que implica una relación de conversación entre un terapeuta y un paciente."
                 },
-                "GASTROENTEROLOGY":{
+                "GASTROENTEROLOGY": {
                     "TITLE": "Gastroenterología",
                     "DESCRIPTION": "Gastroenterología especialidad médica que se ocupa del aparato digestivo y sus enfermedades. Los gastroenterólogos diagnostican y tratan las enfermedades y trastornos del esófago, el estómago, los intestinos, el hígado, el tracto biliar y el páncreas."
                 },
-                "ENDOCRINOLOGY":{
+                "ENDOCRINOLOGY": {
                     "TITLE": "Endocrinología",
                     "DESCRIPTION": "Los endocrinólogos están cualificados para diagnosticar y tratar afecciones como diabetes, enfermedades tiroideas, infertilidad, problemas de crecimiento, trastornos metabólicos, osteoporosis, algunos cánceres y trastornos en las glándulas suprarrenales e hipófisis productoras de hormonas."
                 },
-                "RADIOLOGY":{
+                "RADIOLOGY": {
                     "TITLE": "Radiología",
                     "DESCRIPTION": "La radiología, también conocida como diagnóstico por imagen, es una serie de pruebas que toman fotografías o imágenes de partes del cuerpo. El campo abarca dos áreas -radiología diagnóstica y radiología intervencionista- que utilizan energía radiante para diagnosticar y tratar enfermedades."
                 },
-                "UROLOGY":{
+                "UROLOGY": {
                     "TITLE": "Urología",
                     "DESCRIPTION": "Un urólogo es un médico especializado en afecciones que afectan al tracto urinario en hombres, mujeres y niños, y en enfermedades que afectan al aparato reproductor. Estas afecciones van desde orinar demasiado o demasiado poco hasta no poder engendrar un hijo."
                 },
-                "CARDIOLOGY":{
+                "CARDIOLOGY": {
                     "TITLE": "Cardiología",
                     "DESCRIPTION": "Cardiología, es una especialidad médica que se ocupa del diagnóstico y tratamiento de las enfermedades y anomalías que afectan al corazón y a los vasos sanguíneos.Los cardiólogos proporcionan el cuidado continuado de los pacientes con enfermedades cardiovasculares, realizando estudios básicos de la función cardiaca."
                 }
-
             }
         },
-
         "DOCTORS CARDS": {
             "DESCRIPTION 1": "Los mejores doctores cuidan de ti",
             "DESCRIPTION 2": "Entrega, profesionalismo y trabajo duro son la esencia de nuestro equipo de profesionales, enfermeras y asistentes."
         },
-
         "SPONSORS": {
             "OUR SPONSORS": "Nuestros Patrocinadores"
         },
-
         "LOCATION": {
-            "MAP":{
+            "MAP": {
                 "OUR FACILITY": "Nuestras instalaciones",
                 "USER": "Tú estás aquí",
                 "BUTTON": "Mi ubicación"
             }
-
         },
-
         "NEWSLETTER": {
-            "DESCRIPTION 1":"Únete a nuestra newsletter para recibir las mejores ofertas para cuidar de tu salud",
-            "DESCRIPTION 2":"Puedes cancelar en cuaquier momento",
+            "DESCRIPTION 1": "Únete a nuestra newsletter para recibir las mejores ofertas para cuidar de tu salud",
+            "DESCRIPTION 2": "Puedes cancelar en cuaquier momento",
             "BUTTON": "Suscríbete",
             "PLACEHOLDER": "Correo aquí"
-
         }
     },
-
     "HOME PAGE": {
         "NAVBAR": {
-            "SCROLL HOME":{
+            "SCROLL HOME": {
                 "NEWS": "NOTICIAS",
                 "SERVICES": "SERVICIOS",
                 "PROFESSIONALS": "PROFESIONALES",
                 "SUBSCRIBE": "SUSCRÍBETE"
             },
-            "SCHEDULE": "MI TURNO", 
+            "SCHEDULE": "MI TURNO",
             "WELCOME": "Bienvenido/a",
             "LOGIN": {
                 "PROFILE": "Perfil",
@@ -145,75 +129,70 @@
                 "LOG OUT": "Salir"
             }
         },
-
         "PROFESSIONALS": {
             "TITLE": "PROFESIONALES",
             "DESCRIPTION 1": "Trabajamos con especialistas en diferentes áreas, aquí puedes encontrar al que necesitas. Haz click para más información"
         },
-
         "SEARCHBAR": {
             "PLACEHOLDER": "Buscar por nombre",
             "BUTTON": "Buscar"
         },
-
         "SELECTS": {
             "ALL": "Todos",
             "DERMATOLOGY": "Dermatología",
             "RHEUMATOLOGY": "Reumatología",
-            "PSYCHIATRY" : "Psiquiatría",
+            "PSYCHIATRY": "Psiquiatría",
             "GASTROENTEROLOGY": "Gastroenterología",
             "ENDOCRINOLOGY": "Endocrinología",
             "RADIOLOGY": "Radiología",
             "UROLOGY": "Urología",
             "CARDIOLOGY": "Cardiología",
             "ORDER": "Orden",
-            "AZ":"A-Z",
+            "AZ": "A-Z",
             "ZA": "Z-A",
             "RATING": "Puntaje",
             "TOP RATING": "Puntaje Alto",
             "LOW RATING": "Puntaje Bajo"
         },
-
         "SPECIALTIES HOME": {
-            "OUR SERVICES":"Nuestros Servicios",
+            "OUR SERVICES": "Nuestros Servicios",
             "DESCRIPTION 1": "En HealthPlus ayudamos a nuestros clientes con la mejor atención según sus necesidades.",
             "TAGLINE": "¡Te ayudamos a cuidarte!",
             "SERVICES": {
-                "DERMATOLOGY":{
+                "DERMATOLOGY": {
                     "TITLE": "Dermatología",
                     "DESCRIPTION": "La piel es el órgano más grande del cuerpo humano y es una de las cosas más preciadas que tiene un ser humano en cuanto a su salud y bienestar. Las afecciones de la piel pueden convertirse en un problema importante con el tiempo si no se tratan, y los dermatólogos ayudan a los pacientes a superar algunas de las complicaciones que podrían surgir."
                 },
-                "RHEUMATOLOGY":{
+                "RHEUMATOLOGY": {
                     "TITLE": "Reumatología",
                     "DESCRIPTION": "Un reumatólogo es un médico de medicina interna con formación subespecializada en reumatología. Esta especialidad médica se ocupa de las afecciones musculoesqueléticas, así como de las afecciones autoinmunes e inflamatorias en personas de todas las edades."
                 },
-                "PSYCHIATRY":{
+                "PSYCHIATRY": {
                     "TITLE": "Psiquiatría",
                     "DESCRIPTION": "La gente busca ayuda psiquiátrica por muchas razones. Los problemas pueden ser repentinos, como un ataque de pánico, alucinaciones aterradoras o pensamientos suicidas. La psicoterapia, a veces llamada terapia de conversación, es un tratamiento que implica una relación de conversación entre un terapeuta y un paciente."
                 },
-                "GASTROENTEROLOGY":{
+                "GASTROENTEROLOGY": {
                     "TITLE": "Gastroenterología",
                     "DESCRIPTION": "Gastroenterología especialidad médica que se ocupa del aparato digestivo y sus enfermedades. Los gastroenterólogos diagnostican y tratan las enfermedades y trastornos del esófago, el estómago, los intestinos, el hígado, el tracto biliar y el páncreas."
                 },
-                "ENDOCRINOLOGY":{
+                "ENDOCRINOLOGY": {
                     "TITLE": "Endocrinología",
                     "DESCRIPTION": "Los endocrinólogos están cualificados para diagnosticar y tratar afecciones como diabetes, enfermedades tiroideas, infertilidad, problemas de crecimiento, trastornos metabólicos, osteoporosis, algunos cánceres y trastornos en las glándulas suprarrenales e hipófisis productoras de hormonas."
                 },
-                "RADIOLOGY":{
+                "RADIOLOGY": {
                     "TITLE": "Radiología",
                     "DESCRIPTION": "La radiología, también conocida como diagnóstico por imagen, es una serie de pruebas que toman fotografías o imágenes de partes del cuerpo. El campo abarca dos áreas -radiología diagnóstica y radiología intervencionista- que utilizan energía radiante para diagnosticar y tratar enfermedades."
                 },
-                "UROLOGY":{
+                "UROLOGY": {
                     "TITLE": "Urología",
                     "DESCRIPTION": "Un urólogo es un médico especializado en afecciones que afectan al tracto urinario en hombres, mujeres y niños, y en enfermedades que afectan al aparato reproductor. Estas afecciones van desde orinar demasiado o demasiado poco hasta no poder engendrar un hijo."
                 },
-                "CARDIOLOGY":{
+                "CARDIOLOGY": {
                     "TITLE": "Cardiología",
                     "DESCRIPTION": "Cardiología, es una especialidad médica que se ocupa del diagnóstico y tratamiento de las enfermedades y anomalías que afectan al corazón y a los vasos sanguíneos.Los cardiólogos proporcionan el cuidado continuado de los pacientes con enfermedades cardiovasculares, realizando estudios básicos de la función cardiaca."
                 }
             }
         },
-
         "SUBSCRIBE": {
             "TAGLINE": "Te ayudamos a cuidarte",
             "DESCRIPTION 1": "En HealthPlus entendemos que su salud es su bien más preciado. Por eso hemos diseñado nuestro Plan Integral de Asistencia Sanitaria Mensual para ofrecerle a usted y a su familia un acceso incomparable a una asistencia médica de primera categoría. Este plan todo incluido está diseñado para satisfacer sus necesidades sanitarias únicas, garantizando su bienestar en todo momento.",
@@ -221,12 +200,10 @@
             "PRICE": "POR SOLO $200",
             "BUTTON": "Más información"
         },
-
         "NEWS": {
             "TITLE": "NOTICIAS",
             "BUTTON": "Leer más"
         }
-
     },
     "NAV": {
         "HOME BUTTON": "REGRESAR",
@@ -238,7 +215,6 @@
             "LOG OUT": "Salir"
         }
     },
-
     "PLAN": {
         "DESCRIPTION 1": "¡La mejor opción para tu salud!",
         "PRODUCTS": {
@@ -246,7 +222,7 @@
                 "TITLE": "Premium",
                 "DESCRIPTION": "¡Incluye todas las especialidades, turnos virtuales y más!"
             }
-        }, 
+        },
         "BUTTON": "Comprar"
     },
     "DETAIL": {
@@ -256,12 +232,10 @@
             "DESCRIPTION": "Descripción"
         }
     },
-
     "CARDS": {
         "SPECIALTY": "Especialidad",
         "BUTTON": "Más"
     },
-
     "LOGIN": {
         "BUTTONBACK": "REGRESAR",
         "SIGN IN": "Ingresar",
@@ -270,21 +244,69 @@
         "SIGN IN WITH GOOGLE": "Ingresar con Google",
         "FORM": {
             "EMAIL": "Correo Electrónico",
-             "PASSWORD": "Contraseña",
-             "PLACEHOLDERS": {
-               "EMAIL": "Correo Electrónico...",
+            "PASSWORD": "Contraseña",
+            "PLACEHOLDERS": {
+                "EMAIL": "Correo Electrónico...",
                 "PASSWORD": "Contraseña..."
-             }
+            }
         }
     },
-
     "PROFILE": {
-        "YOURPROFILE": "Tu Perfil", 
+        "YOURPROFILE": "Tu Perfil",
         "LOADING": "Cargando...",
         "NAME": "Nombre",
         "LASTNAME": "Apellido",
         "BIRTHDAY": "Fecha de nacimiento",
         "DNI": "DNI",
         "MODIFYPROFILE": "Editar perfil"
+    },
+    "CHATBOT": {
+        "GREET": {
+            "MESSAGE": "Hola, bienvenido a nuestro sitio web."
+        },
+        "ASK NAME": {
+            "MESSAGE": "por favor, escribe tu nombre"
+        },
+        "NAME": {
+            "MESSAGE": "Hola {previousValue}"
+        },
+        "HELP1": {
+            "MESSAGE": "Dime ¿Cómo puedo ayudarte?"
+        },
+        "OPTIONS": {
+            "SERVICES": "Servicios",
+            "LOGUIN": "Logueo",
+            "SUBSCRIBES": "Subscripción",
+            "SCHEDULE": "Turnos",
+            "DATES": "Citas",
+            "PROFILE": "Perfil"
+        },
+        "LOGUIN": {
+            "MESSAGE": "Al hacer clic en 'Ingresar', puedes elegir 'Ingresar con Google' o registrarse gratis haciendo clic en 'Registrarme'."
+        },
+        "SERVICES": {
+            "MESSAGE": "Nuestros servicios incluyen consultas médicas con especialistas en Urología, Cardiología, Radiología, Endocrinología, Gastroenterología, Psiquiatría, Reumatología y Dermatología. Para ver más detalles te recomendamos hacer clic en 'Servicios' en nuestra página principal"
+        },
+        "SUBSCRIBES": {
+            "MESSAGE": "Debes iniciar sesión y hacer clic en el botón 'Suscribir' >> 'Más información' >> 'Comprar', y completar los campos con tu tarjeta de crédito/débito. Recuerda que la suscripción es mensual y te permitirá concertar una cita médica con nuestros especialistas."
+        },
+        "SCHEDULE": {
+            "MESSAGE": "Después de iniciar sesión y suscribirte, puedes solicitar una cita médica haciendo clic en el botón 'Mi Turno'. Deberás elegir Médico, Horario y Fecha. Recuerde que la confirmación te llegará por correo electrónico."
+        },
+        "DATES": {
+            "MESSAGE": "Para ver tus citas médicas, debes hacer clic en tu foto de perfil (está ubicada en la parte superior derecha) y luego ir a 'Mis citas'."
+        },
+        "PROFILE": {
+            "MESSAGE": "Para cambiar la información de tu perfil, debes hacer clic en tu foto de perfil (está ubicada en la parte superior derecha) y luego ir a 'Perfil'. Allí podrás modificar tu foto de perfil, nombre, apellido, fecha de nacimiento y DNI, haciendo clic en 'Modificar Perfil'."
+        },
+        "HELP2": {
+            "MESSAGE": "¿Puedo ayudarte con algo mas?"
+        },
+        "OPTIONS2": {
+            "YES": "Si"
+        },
+        "NO": {
+            "MESSAGE": "Me alegro de haberte ayudado. Recuerda que puedes contactarnos telefónicamente al +54 9 351 6867775 o al correo electrónico healthplus@gmail.com, ¡adiós!"
+        }
     }
 }

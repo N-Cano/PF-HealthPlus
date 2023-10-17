@@ -1,15 +1,17 @@
+import { useTranslation } from "react-i18next";
 import ChatBot from 'react-simple-chatbot';
 
 const Chatbot = () => {
+    const { t } = useTranslation();
     const steps = [
         {
             id: 'Greet',
-            message: 'Hello, Welcome to our website',
+            message: t("CHATBOT.GREET.MESSAGE"),
             trigger: 'Ask Name'
         },
         {
             id: 'Ask Name',
-            message: ' Please enter your name',
+            message: t("CHATBOT.ASK NAME.MESSAGE"),
             trigger: 'waiting1'
         },
         {
@@ -19,64 +21,64 @@ const Chatbot = () => {
         },
         {
             id: 'Name',
-            message: 'Hi {previousValue}',
+            message: t("CHATBOT.NAME.MESSAGE"),
             trigger: 'Help1'
         },
         {
             id: 'Help1',
-            message: ' Tell me how I can help you?',
+            message: t("CHATBOT.HELP1.MESSAGE"),
             trigger: 'options'
         },
         {
             id: 'options',
             options: [
-                { value: 'Services', label: 'Services', trigger: 'Services' },
-                { value: "Login", label: 'Login', trigger: 'Login' },
-                { value: 'Payments', label: 'Payments', trigger: 'Payments' },
-                { value: "Appointments", label: 'Appointments', trigger: 'Appointments' },
-                { value: "Dates", label: 'Dates', trigger: 'Dates' },
-                { value: "Profile", label: 'Profile', trigger: 'Profile' },
+                { value: 'Services', label: t("CHATBOT.OPTIONS.SERVICES"), trigger: 'Services' },
+                { value: "Login", label: t("CHATBOT.OPTIONS.LOGUIN"), trigger: 'Login' },
+                { value: 'Subscribes', label: t("CHATBOT.OPTIONS.SUBSCRIBES"), trigger: 'Subscribes' },
+                { value: "Schedule", label: t("CHATBOT.OPTIONS.SCHEDULE"), trigger: 'Schedule' },
+                { value: "Dates", label: t("CHATBOT.OPTIONS.DATES"), trigger: 'Dates' },
+                { value: "Profile", label: t("CHATBOT.OPTIONS.PROFILE"), trigger: 'Profile' },
             ]
         },
         {
             id: 'Login',
-            message: 'By clicking "Login", you can choose "Sing in whith Google" or sign up free by clicking "Sing Up"',
+            message: t("CHATBOT.LOGUIN.MESSAGE"),
             trigger: 'Help2'
         },
         {
             id: 'Services',
-            message: ' Our services include medical consultations with specialists in Urology, Cardiology, Radiology, Endocrinology, Gastroenterology, Psychiatry, Rheumatology and Dermatology. To see more details we recommend you click on "Services" on our main page',
+            message: t("CHATBOT.SERVICES.MESSAGE"),
             trigger: 'Help2'
         },
         {
-            id: 'Payments',
-            message: ' You must log in and click the button "Subscribe" >> "Learn More" >> "Buy", and complete the fields with your credit/debit card. Remember that the subscription is monthly and will allow you to get a medical appointment with our specialists.',
+            id: 'Subscribes',
+            message: t("CHATBOT.SUBSCRIBES.MESSAGE"),
             trigger: 'Help2'
         },
         {
-            id: 'Appointments',
-            message: ' After you have logged in and subscribed, you can request a medical appointment by clicking the "Schedule" button. You will need to choose Doctor, Schedule and Date. Remember that confirmation will come to you by email.',
+            id: 'Schedule',
+            message: t("CHATBOT.SCHEDULE.MESSAGE"),
             trigger: 'Help2'
         },
         {
             id: 'Dates',
-            message: ' To see your medical appointments, you must click on your profile photo (it is located at the top right) and then go to "My Dates."',
+            message: t("CHATBOT.DATES.MESSAGE"),
             trigger: 'Help2'
         },
         {
             id: 'Profile',
-            message: ' To change your profile information, you must click on your profile photo (it is located at the top right) and then go to "Profile". There you can modify your profile photo, name, surname, birthday and ID, by clicking on "Modify Profile".',
+            message: t("CHATBOT.PROFILE.MESSAGE"),
             trigger: 'Help2'
         },
         {
             id: 'Help2',
-            message: ' Can I help you with anything else?',
+            message: t("CHATBOT.HELP2.MESSAGE"),
             trigger: 'options2'
         },
         {
             id: 'options2',
             options: [
-                { value: 'Yes', label: 'Yes', trigger: 'Yes' },
+                { value: 'Yes', label: t("CHATBOT.OPTIONS2.YES"), trigger: 'Yes' },
                 { value: "No", label: 'No', trigger: 'No' },
             ]
         },
@@ -87,8 +89,8 @@ const Chatbot = () => {
         },
         {
             id: 'No',
-            message: ' I am glad I helped you. Remember that you can contact us by phone at +54 9 351 6867775 or by email at healthplus@gmail.com, goodbye!',
-            end:true
+            message: t("CHATBOT.NO.MESSAGE"),
+            end: true
         }
     ]
     return (
