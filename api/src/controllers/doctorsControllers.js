@@ -58,35 +58,31 @@ const createDoctor = async (data) => {
 };
 
 // --- Bring doctor by name ---
-
 const bringDoctorByName = async (name) => {
     try {
         const doctorRef = await db.collection('doctors').get();
-        const doctors = [];
+        let foundDoctor = null;
+
         doctorRef.forEach((doc) => {
-            doctors.push({
+            const doctorData = {
                 id: doc.id,
                 ...doc.data()
-            })
-        });
-        const lowerName = name.toLowerCase()
-        const matchDoctors = [];
-        doctors.forEach((doctor) => {
-            if (doctor.name
-                .toLowerCase()
-                .includes(lowerName)) {
-                matchDoctors.push(doctor)
-            }
-        })
-        return {
-            doctorsMatched: matchDoctors.length,
-            matchDoctors
-        }
+            };
 
+            if (doctorData.name.toLowerCase().includes(name.toLowerCase())) {
+                foundDoctor = doctorData;
+                return; 
+            }
+        });
+
+        if (foundDoctor) {
+            return foundDoctor;
+        } else throw new Error(`No doctor matched with name: ${name}`) 
     } catch (error) {
-        throw new Error(error)
+        throw new Error(error);
     }
 };
+
 
 // --- Delete a doctor ---
 

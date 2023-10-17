@@ -5,12 +5,12 @@ import { getPatient } from "../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { auth } from "../../firebase/firebase.config";
-import img from "../../assets/blank-profile-picture-973460_960_720.webp";
 import Footer from "../../Components/Footer/Footer";
 import { useTranslation } from "react-i18next";
 import { useTheme } from "../../contextAPI/ThemeContext";
 
 const Profile = () => {
+  const img = 'https://res.cloudinary.com/drpge2a0c/image/upload/v1697037341/userImages/blank-profile-picture-973460_960_720_sgp40b.webp'
   const { t } = useTranslation();
   const { darkMode } = useTheme();
 

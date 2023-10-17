@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import logo2 from "../../assets/logo2sinfond0.png";
 import Scroll from "../Scroll/Scroll";
 import LanguageSwitcher from "../LanguageSwitcher/LanguageSwitcher";
 import { useTranslation } from "react-i18next";
@@ -19,7 +18,7 @@ const NavBar = ({ children }) => {
         <div className="flex h-16 items-center justify-between">
           <div className="flex items-center">
             <div className="flex-shrink-0">
-              <img className="h-10 w-auto" src={logo2} alt="Logo" />
+              <img className="h-10 w-auto" src='https://res.cloudinary.com/drpge2a0c/image/upload/v1697553463/assets/logo2sinfond0_od1ox8.png' alt="Logo" />
             </div>
 
             <div className="hidden sm:flex items-center ml-4">

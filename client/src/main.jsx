@@ -14,6 +14,7 @@ import { Suspense } from "react";
 
 //Darkmode
 import { ThemeProvider } from "./contextAPI/ThemeContext.jsx";
+import Chatbot from "./Components/ChatBot/ChatBot.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <Provider store={store}>
@@ -22,6 +23,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <Suspense>
           <ThemeProvider>
             <App />
+            <Chatbot />
           </ThemeProvider>
         </Suspense>
       </BrowserRouter>

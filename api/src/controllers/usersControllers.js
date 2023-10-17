@@ -61,33 +61,29 @@ const bringUsers = async () => {
 const bringUsersByName = async (name) => {
   try {
     const userRef = await db.collection('users').get();
-    const users = [];
+    let foundUser = null;
+
     userRef.forEach((user) => {
-      users.push({
+      const userData = {
         id: user.id,
         ...user.data()
-      })
-    });
-    const lowerName = name.toLowerCase()
-    const matchUsers = [];
-    users.forEach((user) => {
-      if (user.name
-        .toLowerCase()
-        .includes(lowerName)
-        || user.lastName
-          .toLowerCase()
-          .includes(lowerName)) {
-        matchUsers.push(user)
+      };
+
+      if (userData.name.toLowerCase().includes(name.toLowerCase()) || userData.lastName.toLowerCase().includes(name.toLowerCase())) {
+        foundUser = userData;
+        return;
       }
-    })
-    return {
-      usersMatched: matchUsers.length,
-      matchUsers
-    }
+    });
+
+    if (foundUser) {
+      return foundUser;
+    } else throw new Error(`No user matched with name: ${name}`)
+
   } catch (error) {
-    throw new Error(error)
+    throw new Error(error);
   }
 };
+
 
 // --- Bring an user by id from data base ---
 
