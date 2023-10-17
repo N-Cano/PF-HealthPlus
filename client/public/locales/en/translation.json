@@ -1,7 +1,7 @@
 {
     "LANDING PAGE": {
         "NAVBAR": {
-            "SCROLL":{
+            "SCROLL": {
                 "ABOUT": "ABOUT",
                 "SERVICES": "SERVICES",
                 "PROFESSIONALS": "PROFESSIONALS",
@@ -9,14 +9,12 @@
             },
             "LOGIN": "LOGIN"
         },
-
         "SLIDESBANNER": {
             "MSG 1": "We offer a wide variety of services to comply with your need! Because if you care, we care.",
             "MSG 2": "Here you can find the best services! Because if you care, we care.",
             "MSG 3": "We have the best tools",
             "MSG 4": "We have the best attention"
         },
-
         "ABOUT US 1": {
             "WHAT DO WE DO": {
                 "TITLE": "WHAT DO WE DO?",
@@ -31,20 +29,17 @@
                 "DESCRIPTION": "Here you can get in touch with us."
             }
         },
-
         "ABOUT US 2": {
             "DESCRIPTION 1": "HealthPlus is a private medical center that focuses on serving its associates by providing the best services.",
-            "DESCRIPTION 2":"HealthPlus offers you a new experience in healthcare, and you can become part of our family at any time."
-
+            "DESCRIPTION 2": "HealthPlus offers you a new experience in healthcare, and you can become part of our family at any time."
         },
-
         "SERVICES": {
             "APPOINTMENTS": {
                 "TITLE": "APPOINTMENTS",
                 "BUTTON": "Get started"
             },
             "PROFESSIONALS": {
-                "TITLE":"PROFESSIONALS",
+                "TITLE": "PROFESSIONALS",
                 "BUTTON": "Get started"
             },
             "CHECKOUT": {
@@ -52,83 +47,75 @@
                 "BUTTON": "Get started"
             }
         },
-
         "AVAILABLE SERVICES": {
             "AVAILABLE SERVICES": "AVAILABLE SERVICES",
             "GENERAL PRACTICES": "GENERAL PRACTICES",
             "DIAGNOSIS": "DIAGNOSIS",
             "TREATMENT": "TREATMENT"
         },
-
         "SPECIALTIES": {
-            "OUR SERVICES":"Our Services",
+            "OUR SERVICES": "Our Services",
             "DESCRIPTION 1": "At HealthPlus we offer a wide variety of services to help you take care of yourself.",
             "TAGLINE": "Because if you care, we care!",
             "SERVICES": {
-                "DERMATOLOGY":{
+                "DERMATOLOGY": {
                     "TITLE": "Dermatology",
                     "DESCRIPTION": "Skin is the largest organ of the human body and is one of the most precious things that a human has in terms of their health and well-being. Skin conditions can become a major issue over time if left untreated, and dermatologists help patients overcome some of the complications that might arise."
                 },
-                "RHEUMATOLOGY":{
+                "RHEUMATOLOGY": {
                     "TITLE": "Rheumatology",
                     "DESCRIPTION": " A rheumatologist is an internal medicine physician with subspecialized training in rheumatology. This medical specialty deals with musculoskeletal conditions, as well as autoimmune and inflammatory conditions in people of all ages."
                 },
-                "PSYCHIATRY":{
+                "PSYCHIATRY": {
                     "TITLE": "Psychiatry",
                     "DESCRIPTION": "People seek psychiatric help for many reasons. The problems can be sudden, such as a panic attack, frightening hallucinations, or thoughts of suicide. Psychotherapy, sometimes called talk therapy, is a treatment that involves a talking relationship between a therapist and patient."
                 },
-                "GASTROENTEROLOGY":{
+                "GASTROENTEROLOGY": {
                     "TITLE": "Gastroenterology",
                     "DESCRIPTION": "Gastroenterology medical specialty concerned with the digestive system and its diseases. Gastroenterologists diagnose and treat the diseases and disorders of the esophagus, stomach, intestines, liver, biliary tract, and pancreas."
                 },
-                "ENDOCRINOLOGY":{
+                "ENDOCRINOLOGY": {
                     "TITLE": "Endocrinology",
                     "DESCRIPTION": "Endocrinologists are qualified to diagnose and treat conditions like diabetes, thyroid diseases, infertility, growth issues, metabolic disorders, osteoporosis, some cancers, and disorders in the hormone-producing adrenal glands and pituitary glands."
                 },
-                "RADIOLOGY":{
+                "RADIOLOGY": {
                     "TITLE": "Radiology",
                     "DESCRIPTION": "Radiology, also known as diagnostic imaging, is a series of tests that take pictures or images of parts of the body. The field encompasses two areas — diagnostic radiology and interventional radiology — that both use radiant energy to diagnose and treat diseases."
                 },
-                "UROLOGY":{
+                "UROLOGY": {
                     "TITLE": "Urology",
-                    "DESCRIPTION":"A urologist is a medical doctor specializing in conditions that affect the urinary tract in men, women and children, and diseases that affect the reproductive system. These conditions range from peeing too much or too little to being unable to father a child."
+                    "DESCRIPTION": "A urologist is a medical doctor specializing in conditions that affect the urinary tract in men, women and children, and diseases that affect the reproductive system. These conditions range from peeing too much or too little to being unable to father a child."
                 },
-                "CARDIOLOGY":{
+                "CARDIOLOGY": {
                     "TITLE": "Cardiology",
-                    "DESCRIPTION":"Cardiology, is a medical specialty dealing with the diagnosis and treatment of diseases and abnormalities involving the heart and blood vessels.Cardiologists provide the continuing care of patients with cardiovascular disease, performing basic studies of heart function."
+                    "DESCRIPTION": "Cardiology, is a medical specialty dealing with the diagnosis and treatment of diseases and abnormalities involving the heart and blood vessels.Cardiologists provide the continuing care of patients with cardiovascular disease, performing basic studies of heart function."
                 }
             }
         },
-
         "DOCTORS CARDS": {
             "DESCRIPTION 1": "The best doctors give you the best care",
             "DESCRIPTION 2": "Devotion, professionalism and hard work are the essence of our team of experienced doctors, nurses and care assistants."
         },
-
         "SPONSORS": {
             "OUR SPONSORS": "Our Sponsors"
         },
-        
         "LOCATION": {
-            "MAP":{
+            "MAP": {
                 "OUR FACILITY": "Our facility",
                 "USER": "You are here",
                 "BUTTON": "Find my location"
             }
-
         },
-
         "NEWSLETTER": {
-            "DESCRIPTION 1":"Join our newsletter to receive our best offers to take care of your health",
-            "DESCRIPTION 2":"You can unsubscribe at any time",
+            "DESCRIPTION 1": "Join our newsletter to receive our best offers to take care of your health",
+            "DESCRIPTION 2": "You can unsubscribe at any time",
             "BUTTON": "Subscribe",
             "PLACEHOLDER": "Your email"
         }
     },
-
     "HOME PAGE": {
         "NAVBAR": {
-            "SCROLL HOME":{
+            "SCROLL HOME": {
                 "NEWS": "NEWS",
                 "PROFESSIONALS": "PROFESSIONALS",
                 "SERVICES": "SERVICES",
@@ -142,76 +129,70 @@
                 "LOG OUT": "Log Out"
             }
         },
-
         "PROFESSIONALS": {
             "TITLE": "PROFESSIONALS",
             "DESCRIPTION 1": "We work with a wide varierty of specialist, here you can find the best doctor to fit your needs. Click for more information"
         },
-
         "SEARCHBAR": {
             "PLACEHOLDER": "Search by name",
             "BUTTON": "Search"
         },
-
         "SELECTS": {
             "ALL": "All",
             "DERMATOLOGY": "Dermatology",
             "RHEUMATOLOGY": "Rheumatology",
-            "PSYCHIATRY" : "Psychiatry",
+            "PSYCHIATRY": "Psychiatry",
             "GASTROENTEROLOGY": "Gastroenterology",
             "ENDOCRINOLOGY": "Endocrinology",
             "RADIOLOGY": "Radiology",
             "UROLOGY": "Urology",
             "CARDIOLOGY": "Cardiology",
             "ORDER": "Order",
-            "AZ":"A-Z",
+            "AZ": "A-Z",
             "ZA": "Z-A",
             "RATING": "Rating",
             "TOP RATING": "Top Rating",
             "LOW RATING": "Low Rating"
         },
-
         "SPECIALTIES HOME": {
-            "OUR SERVICES":"Our Services",
+            "OUR SERVICES": "Our Services",
             "DESCRIPTION 1": "At HealthPlus we offer a wide variety of services to help you take care of yourself.",
             "TAGLINE": "Because if you care, we care!",
             "SERVICES": {
-                "DERMATOLOGY":{
+                "DERMATOLOGY": {
                     "TITLE": "Dermatology",
                     "DESCRIPTION": "Skin is the largest organ of the human body and is one of the most precious things that a human has in terms of their health and well-being. Skin conditions can become a major issue over time if left untreated, and dermatologists help patients overcome some of the complications that might arise."
                 },
-                "RHEUMATOLOGY":{
+                "RHEUMATOLOGY": {
                     "TITLE": "Rheumatology",
                     "DESCRIPTION": " A rheumatologist is an internal medicine physician with subspecialized training in rheumatology. This medical specialty deals with musculoskeletal conditions, as well as autoimmune and inflammatory conditions in people of all ages."
                 },
-                "PSYCHIATRY":{
+                "PSYCHIATRY": {
                     "TITLE": "Psychiatry",
                     "DESCRIPTION": "People seek psychiatric help for many reasons. The problems can be sudden, such as a panic attack, frightening hallucinations, or thoughts of suicide. Psychotherapy, sometimes called talk therapy, is a treatment that involves a talking relationship between a therapist and patient."
                 },
-                "GASTROENTEROLOGY":{
+                "GASTROENTEROLOGY": {
                     "TITLE": "Gastroenterology",
                     "DESCRIPTION": "Gastroenterology medical specialty concerned with the digestive system and its diseases. Gastroenterologists diagnose and treat the diseases and disorders of the esophagus, stomach, intestines, liver, biliary tract, and pancreas."
                 },
-                "ENDOCRINOLOGY":{
+                "ENDOCRINOLOGY": {
                     "TITLE": "Endocrinology",
                     "DESCRIPTION": "Endocrinologists are qualified to diagnose and treat conditions like diabetes, thyroid diseases, infertility, growth issues, metabolic disorders, osteoporosis, some cancers, and disorders in the hormone-producing adrenal glands and pituitary glands."
                 },
-                "RADIOLOGY":{
+                "RADIOLOGY": {
                     "TITLE": "Radiology",
                     "DESCRIPTION": "Radiology, also known as diagnostic imaging, is a series of tests that take pictures or images of parts of the body. The field encompasses two areas — diagnostic radiology and interventional radiology — that both use radiant energy to diagnose and treat diseases."
                 },
-                "UROLOGY":{
+                "UROLOGY": {
                     "TITLE": "Urology",
-                    "DESCRIPTION":"A urologist is a medical doctor specializing in conditions that affect the urinary tract in men, women and children, and diseases that affect the reproductive system. These conditions range from peeing too much or too little to being unable to father a child."
+                    "DESCRIPTION": "A urologist is a medical doctor specializing in conditions that affect the urinary tract in men, women and children, and diseases that affect the reproductive system. These conditions range from peeing too much or too little to being unable to father a child."
                 },
-                "CARDIOLOGY":{
+                "CARDIOLOGY": {
                     "TITLE": "Cardiology",
-                    "DESCRIPTION":"Cardiology, is a medical specialty dealing with the diagnosis and treatment of diseases and abnormalities involving the heart and blood vessels.Cardiologists provide the continuing care of patients with cardiovascular disease, performing basic studies of heart function."
+                    "DESCRIPTION": "Cardiology, is a medical specialty dealing with the diagnosis and treatment of diseases and abnormalities involving the heart and blood vessels.Cardiologists provide the continuing care of patients with cardiovascular disease, performing basic studies of heart function."
                 }
             }
-            
         },
-
         "SUBSCRIBE": {
             "TAGLINE": "Because if you care, we care!",
             "DESCRIPTION 1": "At HealthPlus, we understand that your health is your most valuable asset. That's why we've designed our Comprehensive Monthly Healthcare Plan to provide you and your family with unparalleled access to top-notch medical care. This all-inclusive plan is tailored to meet your unique healthcare needs, ensuring your well-being every step of the way.",
@@ -219,13 +200,11 @@
             "PRICE": "ONLY $200",
             "BUTTON": "Learn More"
         },
-
         "NEWS": {
             "TITLE": "NEWS",
             "BUTTON": "Read more"
-        }  
+        }
     },
-
     "NAV": {
         "HOME BUTTON": "HOME",
         "HEALTHPLUS": "HEALTHPLUS",
@@ -235,8 +214,7 @@
             "DATES": "My Dates",
             "LOG OUT": "Log Out"
         }
-    }, 
-
+    },
     "PLAN": {
         "DESCRIPTION 1": "The best option for your Health!",
         "PRODUCTS": {
@@ -245,9 +223,8 @@
                 "DESCRIPTION": "Includes all specialties, virtual appointments and more!"
             }
         },
-         "BUTTON": "Buy"
+        "BUTTON": "Buy"
     },
-
     "DETAIL": {
         "HEADERS": {
             "LOADING": "Loading...",
@@ -258,12 +235,10 @@
             "NOCOMMENTS": "No comments for the moment"
         }
     },
-
     "CARDS": {
         "SPECIALTY": "Specialty",
         "BUTTON": "More"
     },
-
     "LOGIN": {
         "BUTTONBACK": "BACK",
         "SIGN IN": "Sign In",
@@ -272,22 +247,71 @@
         "SIGN IN WITH GOOGLE": "Sign in with Google",
         "FORM": {
             "EMAIL": "Email",
-             "PASSWORD": "Password",
-             "PLACEHOLDERS": {
-               "EMAIL": "Email...",
+            "PASSWORD": "Password",
+            "PLACEHOLDERS": {
+                "EMAIL": "Email...",
                 "PASSWORD": "Password..."
-             }
+            }
         }
-    }, 
-
+    },
     "PROFILE": {
-        "YOURPROFILE": "Your Profile", 
+        "YOURPROFILE": "Your Profile",
         "LOADING": "Loading...",
         "NAME": "Name",
         "LASTNAME": "Last Name",
         "BIRTHDAY": "Birthday",
         "DNI": "DNI",
         "MODIFYPROFILE": "Modify Profile"
+
+    },
+    "CHATBOT": {
+        "GREET": {
+            "MESSAGE": "Hello, Welcome to our website"
+        },
+        "ASK NAME": {
+            "MESSAGE": "Please enter your name"
+        },
+        "NAME": {
+            "MESSAGE": "Hi {previousValue}"
+        },
+        "HELP1": {
+            "MESSAGE": "Tell me how I can help you?"
+        },
+        "OPTIONS": {
+            "SERVICES": "Services",
+            "LOGUIN": "Loguin",
+            "SUBSCRIBES": "Subscribes",
+            "SCHEDULE": "Schedule",
+            "DATES": "Dates",
+            "PROFILE": "Profile"
+        },
+        "LOGUIN": {
+            "MESSAGE": "By clicking 'Login', you can choose 'Sing in whith Google' or sign up free by clicking 'Sing Up'."
+        },
+        "SERVICES": {
+            "MESSAGE": "Our services include medical consultations with specialists in Urology, Cardiology, Radiology, Endocrinology, Gastroenterology, Psychiatry, Rheumatology and Dermatology. To see more details we recommend you click on 'Services' on our main page"
+        },
+        "SUBSCRIBES": {
+            "MESSAGE": "You must log in and click the button 'Subscribe' >> 'Learn More' >> 'Buy', and complete the fields with your credit/debit card. Remember that the subscription is monthly and will allow you to get a medical appointment with our specialists."
+        },
+        "SCHEDULE": {
+            "MESSAGE": "After you have logged in and subscribed, you can request a medical appointment by clicking the 'Schedule' button. You will need to choose Doctor, Schedule and Date. Remember that confirmation will come to you by email."
+        },
+        "DATES": {
+            "MESSAGE": "To see your medical appointments, you must click on your profile photo (it is located at the top right) and then go to 'My Dates'."
+        },
+        "PROFILE": {
+            "MESSAGE": "To change your profile information, you must click on your profile photo (it is located at the top right) and then go to 'Profile'. There you can modify your profile photo, name, surname, birthday and ID, by clicking on 'Modify Profile'."
+        },
+        "HELP2": {
+            "MESSAGE": "Can I help you with anything else?"
+        },
+        "OPTIONS2": {
+            "YES": "Yes"
+        },
+        "NO": {
+            "MESSAGE": "I am glad I helped you. Remember that you can contact us by phone at +54 9 351 6867775 or by email at healthplus@gmail.com, goodbye!"
+        }
     }, 
 
     "PROFILEFORM": {
@@ -298,5 +322,6 @@
         "BIRTHDAY": "Birthday",
         "DNI": "DNI",
         "SAVE": "Save"
+
     }
 }
