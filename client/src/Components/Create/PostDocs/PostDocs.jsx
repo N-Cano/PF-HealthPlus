@@ -55,73 +55,76 @@ const PostDocs = () => {
             POST DOCTORS
           </h2>
 
-          <form onSubmit={submitHandler}> </form>
-          <div>
-            <label htmlFor="name">Name:</label>
-            <input
-              type="text"
-              value={form.name}
-              onChange={changeHandler}
-              name="name"
-              id="name"
-            />
-          </div>
-          <div>
-            <label htmlFor="email">Email:</label>
-            <input
-              type="text"
-              value={form.email}
-              onChange={changeHandler}
-              name="email"
-              id="email"
-            />
-          </div>
-          <div>
-            <label htmlFor="image">Image:</label>
-            <input
-              type="file"
-              accept="image/*"
-              onChange={handleImageChange}
-              name="image"
-              id="image"
-            />
-          </div>
-          <div>
-            <label htmlFor="specialty">Specialty:</label>
-            <select
-              value={form.specialty}
-              onChange={changeHandler} // Asociar el evento a la selección
-              name="specialty"
-              id="specialty"
-            >
-              <option value="Dermatology">Dermatology</option>
-              <option value="Rheumatology">Rheumatology</option>
-              <option value="Psychiatry">Psychiatry</option>
-              <option value="Gastroenterology">Gastroenterology</option>
-              <option value="Endocrinology">Endocrinology</option>
-              <option value="Radiology">Radiology</option>
-              <option value="Urology">Urology</option>
-              <option value="Cardiology">Cardiology</option>
-            </select>
-          </div>
-          <div>
-            <label htmlFor="engDescription">English description:</label>
-            <textarea
-              value={form.engDescription}
-              onChange={changeHandler}
-              name="engDescription"
-              id="engDescription"
-            />
-          </div>
-          <div>
-            <label htmlFor="espDescription">Spanish description:</label>
-            <textarea
-              value={form.espDescription}
-              onChange={changeHandler}
-              name="espDescription"
-              id="espDescription"
-            />
-          </div>
+
+          <form onSubmit={submitHandler}>
+            <div>
+              <label htmlFor="name">Name:</label>
+              <input
+                type="text"
+                value={form.name}
+                onChange={changeHandler}
+                name="name"
+                id="name"
+              />
+            </div>
+            <div>
+              <label htmlFor="email">Email:</label>
+              <input
+                type="text"
+                value={form.email}
+                onChange={changeHandler}
+                name="email"
+                id="email"
+              />
+            </div>
+            <div>
+              <label htmlFor="image">Image:</label>
+              <input
+                type="file"
+                accept="image/*"
+                onChange={handleImageChange}
+                name="image"
+                id="image"
+              />
+            </div>
+            <div>
+              <label htmlFor="specialty">Specialty:</label>
+              <select
+                value={form.specialty}
+                onChange={changeHandler} // Asociar el evento a la selección
+                name="specialty"
+                id="specialty"
+              >
+                <option value="Dermatology">Dermatology</option>
+                <option value="Rheumatology">Rheumatology</option>
+                <option value="Psychiatry">Psychiatry</option>
+                <option value="Gastroenterology">Gastroenterology</option>
+                <option value="Endocrinology">Endocrinology</option>
+                <option value="Radiology">Radiology</option>
+                <option value="Urology">Urology</option>
+                <option value="Cardiology">Cardiology</option>
+              </select>
+            </div>
+            <div>
+              <label htmlFor="engDescription">English description:</label>
+              <textarea
+                value={form.engDescription}
+                onChange={changeHandler}
+                name="engDescription"
+                id="engDescription"
+              />
+            </div>
+            <div>
+              <label htmlFor="espDescription">Spanish description:</label>
+              <textarea
+                value={form.espDescription}
+                onChange={changeHandler}
+                name="espDescription"
+                id="espDescription"
+              />
+            </div>
+          </form>
+
         </div>
         </form> 
       </div>
