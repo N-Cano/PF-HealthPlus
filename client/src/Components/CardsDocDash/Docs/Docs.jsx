@@ -1,6 +1,10 @@
 import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import { useTheme } from "../../../contextAPI/ThemeContext";
 
 const Docs = (props) => {
+  const { darkMode } = useTheme();
+
   return (
     <div>
       <Link to={`/detail2/${props.id}`} key={props.id}>

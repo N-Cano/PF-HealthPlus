@@ -5,8 +5,10 @@ import { useDispatch } from "react-redux";
 import DocsCards from "../../Components/CardsDocDash/DocsCards";
 import { Link } from "react-router-dom";
 import SideNavbar from "../../Components/NavBar/NavBarDesp";
+import { useTheme } from "../../contextAPI/ThemeContext";
 
 const DashBoard = () => {
+  const { darkMode } = useTheme();
   const dispatch = useDispatch();
 
   const filterSpecial = (event) => {
@@ -20,7 +22,10 @@ const DashBoard = () => {
   };
 
   return (
-    <div className="bg-blue-200">
+    <div
+      className="bg-blue-200"
+      style={{ background: darkMode ? "#1E3453" : "" }}
+    >
       <div
         id="doctors"
         className="flex flex-col md:flex-row md:items-center md:justify-center"
@@ -44,7 +49,10 @@ const DashBoard = () => {
               Create Doctor
             </button>
           </Link>
-          <div className="flex flex-row justify-around bg-blue-400 py-6 rounded-2xl font-bold text-center">
+          <div
+            className="flex flex-row justify-around bg-blue-400 py-6 rounded-2xl font-bold text-center"
+            style={{ background: darkMode ? "black" : "" }}
+          >
             <p className="text-xl w-[300px]">Profesional</p>
             <p className="text-xl w-[300px]">Specialty</p>
             <p className="text-xl w-[300px]">Id:</p>
