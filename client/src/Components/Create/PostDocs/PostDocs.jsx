@@ -65,6 +65,7 @@ const PostDocs = () => {
             POST DOCTORS
           </h2>
 
+
           <form
             onSubmit={submitHandler}
             className="flex flex-col items-center gap-3"
@@ -160,7 +161,7 @@ const PostDocs = () => {
           </form>
         </div>
       </div>
-    </>
+   </>
   );
 };
 

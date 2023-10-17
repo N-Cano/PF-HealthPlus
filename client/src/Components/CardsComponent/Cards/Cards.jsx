@@ -9,6 +9,7 @@ const Cards = () => {
   const { darkMode } = useTheme();
   const dispatch = useDispatch();
   const doctors = useSelector((state) => state.doctors);
+  console.log(doctors);
 
   useEffect(() => {
     dispatch(getDoctors());
@@ -32,7 +33,8 @@ const Cards = () => {
         className="flex bg-blue-900 justify-center item rounded-2xl gap-6 h-70 mb-5 flex-wrap"
         style={{
           backgroundColor: darkMode ? "#325372" : "",
-        }}>
+        }}
+      >
         <div className="flex flex-col max-w-screen-xl mx-auto mb-0">
           <div className="flex justify-center  item rounded-2xl gap-6 h-70 mb-5 flex-wrap">
             {currentDoctors.map((doc) => (

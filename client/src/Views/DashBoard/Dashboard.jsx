@@ -54,7 +54,7 @@ const DashBoard = () => {
           >
             <p className="text-xl w-[300px]">Profesional</p>
             <p className="text-xl w-[300px]">Specialty</p>
-            <p className="text-xl w-[300px]">Email</p>
+            <p className="text-xl w-[300px]">Id:</p>
           </div>
           <DocsCards />
         </div>
