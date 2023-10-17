@@ -1,9 +1,18 @@
+
+import { deleteDate } from "./deleteDate";
+import { useTheme } from "../../../contextAPI/ThemeContext";
 import { Link } from "react-router-dom";
 import { auth } from "../../../firebase/firebase.config";
 import axios from "axios";
 import { useState } from "react";
 import { useEffect } from "react";
+
+
+
+
 const Dates = (props) => {
+  const { darkMode } = useTheme();
+  
   const cancelDate = () => {
     axios.put(`http://localhost:3001/dates/cancel`, {
       userId: props.userId,
@@ -12,6 +21,11 @@ const Dates = (props) => {
     });
     alert("llevar a un forn para dejar un mensaje?");
   };
+
+  const reviewDate = () => {
+    alert("emulo que llevo al form")
+  };
+    
   const [form, setForm] = useState({
     punctuation: "",
     comment: "",
@@ -60,7 +74,14 @@ const Dates = (props) => {
   const [review, setReview] = useState(false);
 
   return (
-    <div className="w-full bg-blue-200 p-8 " key={props.dateId}>
+    <div
+      className="w-full bg-blue-200 p-8 "
+      key={props.dateId}
+      style={{
+        backgroundColor: darkMode ? "#00519C" : "",
+        color: darkMode ? "white" : "",
+      }}
+    >
       {props.status === "pending" ? (
         <button
           onClick={cancelDate}

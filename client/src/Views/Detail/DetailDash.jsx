@@ -8,7 +8,6 @@ import NavBarDesp from "../../Components/NavBar/NavBarDesp";
 import { useTheme } from "../../contextAPI/ThemeContext";
 import { deleteDoctor } from "./deleteDoctor";
 
-
 const Detail2 = () => {
   const [detail, setDetail] = useState({});
   const [loading, setLoading] = useState(true);
@@ -88,4 +87,3 @@ const Detail2 = () => {
 };
 
 export default Detail2;
-
