@@ -1,13 +1,18 @@
 /* eslint-disable react/prop-types */
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
 
 const ThemeContext = createContext();
 
 export function ThemeProvider({ children }) {
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(() => {
+    const storedDarkMode = localStorage.getItem("darkMode");
+    return storedDarkMode ? JSON.parse(storedDarkMode) : false;
+  });
 
   const toggleDarkMode = () => {
+    const newDarkMode = !darkMode;
     setDarkMode(!darkMode);
+    localStorage.setItem("darkMode", JSON.stringify(newDarkMode));
   };
 
   return (

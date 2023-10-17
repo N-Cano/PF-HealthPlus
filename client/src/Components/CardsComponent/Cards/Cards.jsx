@@ -28,7 +28,6 @@ const Cards = () => {
 
   return (
     <div className="flex flex-col max-w-screen-xl mx-auto mb-2">
-      {/* {console.log("total doctors", doctors)} */}
       <div
         className="flex bg-blue-900 justify-center item rounded-2xl gap-6 h-70 mb-5 flex-wrap"
         style={{

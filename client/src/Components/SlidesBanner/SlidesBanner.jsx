@@ -13,20 +13,20 @@ const SlidesBanner = () => {
 
   const slides = [
     {
-      url: "https://images.unsplash.com/photo-1527613426441-4da17471b66d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2052&q=80",
+      url: "https://res.cloudinary.com/drpge2a0c/image/upload/v1697553469/assets/banner/banner_f7fs36.avif",
       msg: t("LANDING PAGE.SLIDESBANNER.MSG 1"),
     },
     {
-      url: "https://images.unsplash.com/photo-1579684453423-f84349ef60b0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=891&q=80",
+      url: "https://res.cloudinary.com/drpge2a0c/image/upload/v1697553463/assets/banner/banner2_wufgap.avif",
       msg: t("LANDING PAGE.SLIDESBANNER.MSG 2"),
     },
     {
-      url: "https://images.unsplash.com/photo-1537368910025-700350fe46c7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
+      url: "https://res.cloudinary.com/drpge2a0c/image/upload/v1697553463/assets/banner/banner3_umu90b.avif",
       msg: t("LANDING PAGE.SLIDESBANNER.MSG 3"),
     },
 
     {
-      url: "https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1932&q=80",
+      url: "https://res.cloudinary.com/drpge2a0c/image/upload/v1697553469/assets/banner/banner4_ghjaex.avif",
       msg: t("LANDING PAGE.SLIDESBANNER.MSG 4"),
     },
   ];

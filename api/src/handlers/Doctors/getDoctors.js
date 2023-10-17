@@ -3,7 +3,6 @@ const { bringDoctors,bringDoctorByName } = require('../../controllers/doctorsCon
 const getDoctors = async (req, res) => {
 
     const { name } = req.query;
-
     if (name) {
         try {
             const doctor = await bringDoctorByName(name);
@@ -11,7 +10,6 @@ const getDoctors = async (req, res) => {
         } catch (error) {
             res.status(404).json(error.message)
         }
-
     } else {    
         try {
             const doctors = await bringDoctors()

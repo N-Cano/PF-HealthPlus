@@ -5,19 +5,19 @@ import { getPatient } from "../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { auth } from "../../firebase/firebase.config";
-import img from "../../assets/blank-profile-picture-973460_960_720.webp";
 import Footer from "../../Components/Footer/Footer";
 import { useTranslation } from "react-i18next";
 import { useTheme } from "../../contextAPI/ThemeContext";
 
 const Profile = () => {
+  const img = 'https://res.cloudinary.com/drpge2a0c/image/upload/v1697037341/userImages/blank-profile-picture-973460_960_720_sgp40b.webp'
   const { t } = useTranslation();
   const { darkMode } = useTheme();
 
   const [form, setForm] = useState({
     datos: "",
   });
-  const [isLoading, setIsLoading] = useState(true); // Nuevo estado para indicar la carga
+  const [isLoading, setIsLoading] = useState(true);
   const [detail, setDetail] = useState({});
   const id = form.datos;
   const dispatch = useDispatch();
@@ -58,15 +58,8 @@ const Profile = () => {
         </h2>
         <div
           className={styles.container}
-          style={{
-            fontFamily: "Rubik, sans-serif",
-            background: darkMode ? "#00519C" : "",
-          }}>
-          <div
-            className={styles.title}
-            style={{
-              fontFamily: "Rubik, sans-serif",
-            }}>
+          style={{ background: darkMode ? "#00519C" : "", }}>
+          <div className={styles.title}>
             {isLoading ? (
               <div>{t("PROFILE.LOADING")}</div>
             ) : (
@@ -80,28 +73,28 @@ const Profile = () => {
                   <div
                     className="mb-4 bg-blue-200 max-w-2xl p-2 rounded-2xl"
                     style={{ background: darkMode ? "black" : "" }}>
-                    <label style={{ fontFamily: "Open Sans, sans-serif" }}>
+                    <label>
                       {t("PROFILE.NAME")}: {patient.name}
                     </label>
                   </div>
                   <div
                     className="mb-4 bg-blue-200 max-w-2xl p-2 rounded-2xl"
                     style={{ background: darkMode ? "black" : "" }}>
-                    <label style={{ fontFamily: "Open Sans, sans-serif" }}>
+                    <label>
                       {t("PROFILE.LASTNAME")}: {patient.lastName}
                     </label>
                   </div>
                   <div
                     className="mb-4 bg-blue-200 max-w-2xl p-2 rounded-2xl"
                     style={{ background: darkMode ? "black" : "" }}>
-                    <label style={{ fontFamily: "Open Sans, sans-serif" }}>
+                    <label >
                       {t("PROFILE.BIRTHDAY")}: {patient.date}
                     </label>
                   </div>
                   <div
                     className="mb-4 bg-blue-200 max-w-2xl p-2 rounded-2xl"
                     style={{ background: darkMode ? "black" : "" }}>
-                    <label style={{ fontFamily: "Open Sans, sans-serif" }}>
+                    <label>
                       {t("PROFILE.DNI")}: {patient.userId}
                     </label>
                   </div>
@@ -110,7 +103,7 @@ const Profile = () => {
                   <button
                     className="font-bold w-60 bg-blue-400 hover:bg-indigo-500 hover:scale-110 rounded-2xl transition ease-in-out duration-300 mt-12 absolute bottom-0 m-auto"
                     type="submit"
-                    style={{ fontFamily: "Open Sans, sans-serif" }}>
+                  >
                     {t("PROFILE.MODIFYPROFILE")}
                   </button>
                 </Link>

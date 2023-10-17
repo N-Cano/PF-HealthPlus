@@ -18,16 +18,10 @@ const Docs = (props) => {
           >
             {props.name}
           </p>
-          <p
-            className="w-[300px]"
-            style={{ fontFamily: "Open Sans, sans-serif" }}
-          >
+          <p className="w-[300px]">
             {props.specialty}
           </p>
-          <p
-            className="w-[300px]"
-            style={{ fontFamily: "Open Sans, sans-serif" }}
-          >
+          <p className="w-[300px]">
             {props.email}
           </p>
         </div>

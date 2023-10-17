@@ -1,12 +1,12 @@
-const { bringUsers, bringUserByName } = require("../../controllers/usersControllers");
+const { bringUsers, bringUsersByName } = require("../../controllers/usersControllers");
 
 const bringUsersHandler = async (req, res) => {
 
-    const { name } = req.body;
+    const { name } = req.query;
 
     if (name) {
         try {
-            const user = await bringUserByName(name);
+            const user = await bringUsersByName(name);
             res.status(200).json(user);
         } catch (error) {
             res.status(404).json(error.message)
@@ -16,7 +16,7 @@ const bringUsersHandler = async (req, res) => {
             const users = await bringUsers();
             res.status(200).json(users)
         } catch (error) {
-            res.status(400).json(error.message)
+            res.status(404).json(error.message)
         }
     }
 };

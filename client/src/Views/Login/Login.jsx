@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import logoGoogle from "../../assets/logoGoogle.png";
 import { UserAuth } from "../../context/AuthContext";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
@@ -21,10 +20,8 @@ const Login = () => {
     handleSubmit,
     control,
     formState: { errors },
-    // setValue,
   } = useForm();
 
-  //-------------------------------Google Auth-----------------------------------------
   const navigate = useNavigate();
   const { user, signInWithGoogle } = UserAuth();
 
@@ -36,7 +33,6 @@ const Login = () => {
     }
   };
 
-  //----------------------Email and Password Auth-------------------------------------
   const loginWithEmailPassword = async (data) => {
     try {
       await signInWithEmailAndPassword(auth, data.email, data.password);
@@ -46,7 +42,6 @@ const Login = () => {
     }
   };
 
-  //---------------------Mostrar Contraseña-------------------------------------------
   const [showPassword, setShowPassword] = useState(false);
 
   const togglePassword = () => {
@@ -160,9 +155,8 @@ const Login = () => {
                         className="w-full p-2 pl-4 placeholder-slate-600 rounded-2xl focus:outline-none"
                       />
                       <i
-                        className={`bx ${
-                          showPassword ? "bx-show-alt" : "bx-hide"
-                        }`}
+                        className={`bx ${showPassword ? "bx-show-alt" : "bx-hide"
+                          }`}
                         onClick={togglePassword}></i>
                       <link
                         href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
@@ -209,16 +203,10 @@ const Login = () => {
                 fontFamily: "Rubik, sans-serif",
                 background: darkMode ? "#00519C" : "",
               }}>
-              <img className="w-5 m-2" src={logoGoogle} alt="" />
+              <img className="w-5 m-2" src='https://res.cloudinary.com/drpge2a0c/image/upload/v1697553463/assets/logoGoogle_o2crac.png' alt="" />
               {t("LOGIN.SIGN IN WITH GOOGLE")}
             </button>
           </div>
-
-          {/* <img
-            src={doctors}
-            className="w-[50rem] absolute bottom-0 right-10 hidden lg:block"
-            alt="Doctors"
-          /> */}
         </div>
       </div>
       <Footer />

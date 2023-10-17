@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import logo3 from "../../assets/logo2sinfond0.png";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../../firebase/firebase.config";
@@ -16,7 +15,7 @@ const Nav = () => {
 
   const navigate = useNavigate();
   const { signOutWithGoogle } = UserAuth();
-  const [user, setUser] = useState(null); // Estado local para el usuario autenticado
+  const [user, setUser] = useState(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const logOutWithGoogle = async () => {
@@ -27,19 +26,15 @@ const Nav = () => {
     }
   };
 
-  // Observador de cambios de autenticación de Firebase
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((authUser) => {
       if (authUser) {
-        // Usuario autenticado, establecer el estado local
         setUser(authUser);
       } else {
-        // Usuario no autenticado, redirigir a la página de inicio de sesión u otra acción
         navigate("/");
       }
     });
 
-    // Limpia el observador cuando el componente se desmonta
     return () => unsubscribe();
   }, [navigate]);
 
@@ -51,20 +46,14 @@ const Nav = () => {
       className="bg-blue-900 text-white"
       style={{ background: darkMode ? "black" : "" }}
     >
-      {/* {console.log(user)} */}
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
         <div className="relative flex h-16 items-center justify-between">
           <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
             <div className="flex flex-shrink-0 items-center">
-              <img className="h-10 w-auto" src={logo3} alt="Logo" />
+              <img className="h-10 w-auto" src='https://res.cloudinary.com/drpge2a0c/image/upload/v1697553463/assets/logo2sinfond0_od1ox8.png' alt="Logo" />
             </div>
             <div className="hidden sm:ml-6 sm:block">
               <div className="flex space-x-4">
-                {/* Contenedor de botones del componente Scroll */}
-                <div className="flex items-center space-x-4 ml-auto ">
-                  {/* Botones del componente Scroll */}
-                </div>
-
                 <div className="flex items-center">
                   <Link to="/home">
                     <a
@@ -123,7 +112,6 @@ const Nav = () => {
               </button>
             </div>
 
-            {/* Muestra el menú solo si isMenuOpen es true */}
             {isMenuOpen && (
               <div
                 className="absolute right-0 mt-2 w-48 bg-white border border-gray-200 divide-y divide-gray-100 rounded-md shadow-lg"

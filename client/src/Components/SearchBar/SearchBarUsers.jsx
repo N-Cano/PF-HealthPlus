@@ -30,7 +30,7 @@ export default function SearchBarUsers() {
         }}
       />
       <button
-        type="button" // Cambiado a type="button"
+        type="button"
         onClick={handleSubmit}
         style={{ fontFamily: "Open Sans, sans-serif" }}
         className="bg-black rounded-lg text-white mt-2 w-[75px] py-1"

@@ -37,14 +37,14 @@ const Newsletter = () => {
       {subscribed ? (
         <p
           className="text-lg md:text-xl"
-          style={{ fontFamily: "Rubik, sans-serif" }}>
+        >
           {`Thank you for subscribing! You'll receive our best offers soon.`}
         </p>
       ) : (
         <div className="flex flex-col justify-center items-center text-center">
           <p
             className="text-lg md:text-xl"
-            style={{ fontFamily: "Rubik, sans-serif" }}>
+          >
             {t("LANDING PAGE.NEWSLETTER.DESCRIPTION 1")}
           </p>
           <p className="text-sm">
@@ -56,7 +56,7 @@ const Newsletter = () => {
         {subscribed ? (
           <button
             className="bg-blue-600 text-white py-2 px-4 rounded-md cursor-not-allowed"
-            style={{ fontFamily: "Rubik, sans-serif" }}
+
             type="button"
             disabled>
             Subscribed
@@ -75,7 +75,7 @@ const Newsletter = () => {
             <button
               className="bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring focus:border-blue-300"
               type="submit"
-              style={{ fontFamily: "Rubik, sans-serif" }}>
+            >
               {t("LANDING PAGE.NEWSLETTER.BUTTON")}
             </button>
           </div>

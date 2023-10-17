@@ -5,12 +5,15 @@ const CardsDates = ({ dates }) => {
       <div className="border-2  mt-80 flex flex-col justify-center item-center bg-gray-100 rounded-2xl gap-6 h-96">
         {dates.map((user) => (
           <Dates
-            name={user.doctor}
+            doctorName={user.doctor}
+            docotrId={user.docotrId}
             specialty={user.specialty}
             date={user.date}
+            status={user.status}
             key={user.id}
             schedule={user.schedule}
-            id={user.id}
+            dateId={user.id}
+            userId={user.userId}
           />
         ))}
       </div>

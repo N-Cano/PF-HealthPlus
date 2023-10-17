@@ -1,68 +1,16 @@
 /* eslint-disable react/prop-types */
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet"; //useMap
 import { Icon, divIcon } from "leaflet";
-// import { useMapEvents } from "react-leaflet/hooks";
-// import { useState } from "react";
 import MarkerClusterGroup from "react-leaflet-cluster";
 import { useTranslation } from "react-i18next";
 
 import "leaflet/dist/leaflet.css";
-import logo from "../../../assets/logo2sinfond0.png";
 
 const targetLocation = [4.7109479, -74.1478375]; // Ubicación de la clínica que va a ser el centro
 const myIcon = new Icon({
-  iconUrl: logo,
+  iconUrl: 'https://res.cloudinary.com/drpge2a0c/image/upload/v1697553463/assets/logo2sinfond0_od1ox8.png',
   iconSize: [33, 33],
 });
-
-// // Componente para manejar el marcador con la ubicación del usuario
-// function LocationMarker() {
-//   const { t } = useTranslation();
-//   const [position, setPosition] = useState(null);
-//   const map = useMapEvents({
-//     click() {
-//       map.locate();
-//     },
-//     locationfound(event) {
-//       setPosition(event.latlng);
-//       map.flyTo(event.latlng, map.getZoom());
-//     },
-// //   });
-
-//   return position === null ? (
-//     setPosition(targetLocation)
-//   ) : (
-//     <Marker position={position}>
-//       <Popup>{t("LANDING PAGE.LOCATION.MAP.USER")}</Popup>
-//     </Marker>
-//   );
-// }
-
-// // Componente con botones
-// const Buttons = () => {
-//   const { t } = useTranslation();
-//   const map = useMap();
-//   return (
-//     <>
-//       {/* Para detectar mi ubicación */}
-//       <button
-//         onClick={() => map.getZoom()}
-//         style={{
-//           background: "black",
-//           color: "white",
-//           borderRadius: "3px",
-//           height: "32px",
-//           width: "200px",
-//           position: "absolute",
-//           top: "355px",
-//           left: "48px",
-//           zIndex: 1000,
-//         }}>
-//         {t("LANDING PAGE.LOCATION.MAP.BUTTON")}
-//       </button>
-//     </>
-//   );
-// };
 
 // Componente principal del mapa
 const MapLeaflet = () => {
