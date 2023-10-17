@@ -36,7 +36,7 @@ export const postEmail = async (data) => {
 };
 
 export const authEmail = async (user) => {
-    if (user.created) return
+    if (!user.created) return
     await axios.post('http://localhost:3001/users/signup', {
         uid: user.uid,
         email: user.email
