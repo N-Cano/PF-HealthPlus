@@ -54,9 +54,9 @@ const Form = () => {
     const { darkMode } = useTheme();
 
     const options = [];
-    const startTime = 8 * 60; // 8 a.m. en minutos
-    const endTime = 16 * 60; // 4 p.m. en minutos
-    const interval = 30; // Intervalo de 30 minutos
+    const startTime = 8 * 60;
+    const endTime = 16 * 60;
+    const interval = 30;
 
     for (let time = startTime; time <= endTime; time += interval) {
       const hours = Math.floor(time / 60)
@@ -87,11 +87,6 @@ const Form = () => {
       unsubscribe();
     };
   }, [setValue]);
-  //localStorage que no usamos por ahora.
-  // useEffect(() => {
-  //   // Guardar en el localStorage cada vez que el formulario cambia
-  //   localStorage.setItem("form", JSON.stringify(getValues()));
-  // }, [getValues]);
 
   return (
     <>

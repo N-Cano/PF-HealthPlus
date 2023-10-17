@@ -21,10 +21,8 @@ const Login = () => {
     handleSubmit,
     control,
     formState: { errors },
-    // setValue,
   } = useForm();
 
-  //-------------------------------Google Auth-----------------------------------------
   const navigate = useNavigate();
   const { user, signInWithGoogle } = UserAuth();
 
@@ -36,7 +34,6 @@ const Login = () => {
     }
   };
 
-  //----------------------Email and Password Auth-------------------------------------
   const loginWithEmailPassword = async (data) => {
     try {
       await signInWithEmailAndPassword(auth, data.email, data.password);
@@ -46,7 +43,6 @@ const Login = () => {
     }
   };
 
-  //---------------------Mostrar Contraseña-------------------------------------------
   const [showPassword, setShowPassword] = useState(false);
 
   const togglePassword = () => {
@@ -160,9 +156,8 @@ const Login = () => {
                         className="w-full p-2 pl-4 placeholder-slate-600 rounded-2xl focus:outline-none"
                       />
                       <i
-                        className={`bx ${
-                          showPassword ? "bx-show-alt" : "bx-hide"
-                        }`}
+                        className={`bx ${showPassword ? "bx-show-alt" : "bx-hide"
+                          }`}
                         onClick={togglePassword}></i>
                       <link
                         href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
@@ -213,12 +208,6 @@ const Login = () => {
               {t("LOGIN.SIGN IN WITH GOOGLE")}
             </button>
           </div>
-
-          {/* <img
-            src={doctors}
-            className="w-[50rem] absolute bottom-0 right-10 hidden lg:block"
-            alt="Doctors"
-          /> */}
         </div>
       </div>
       <Footer />

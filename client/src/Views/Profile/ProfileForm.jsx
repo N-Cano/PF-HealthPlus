@@ -1,21 +1,20 @@
-import Nav from "../../Components/NavBar/Nav";
 import { useState, useEffect } from "react";
-import axios from "axios";
 import { auth } from "../../firebase/firebase.config";
-import styles from "./ProfileForm.module.css";
-import { useSelector, useDispatch } from "react-redux";
-import { setImage } from "../../redux/actions";
-import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useTheme } from "../../contextAPI/ThemeContext";
-import { Footer } from "../../Components";
 import { useTranslation } from "react-i18next";
+import { useDispatch, useSelector } from "react-redux";
+import Nav from "../../Components/NavBar/Nav";
+import { setImage } from "../../redux/actions";
+import { Footer } from "../../Components";
+import styles from "./ProfileForm.module.css";
+import { updateProfile } from "./updateProfile";
 
 const ProfileForm = () => {
   const { t } = useTranslation();
   const { darkMode } = useTheme();
-
   const navigate = useNavigate();
+
   const [form, setForm] = useState({
     lastName: "",
     name: "",
@@ -57,18 +56,13 @@ const ProfileForm = () => {
     formData.append("date", form.date);
     formData.append("userId", form.userId);
     formData.append("uid", form.uid);
-    formData.append("image", form.image); // Add the image to the FormData
+    formData.append("image", form.image);
 
     try {
-      await axios.put("http://localhost:3001/users/profile", formData, {
-        headers: {
-          "Content-Type": "multipart/form-data", // Set content type to handle form data
-        },
-      });
+      await updateProfile(formData);
       console.log("Datos Cargados");
       navigate("/profile");
     } catch (error) {
-      // Maneja el error si la solicitud axios falla
       console.error("Error al enviar el formulario:", error);
     }
   };
@@ -79,7 +73,8 @@ const ProfileForm = () => {
   return (
     <div
       className="w-full h-full bg-[#daf1f8] flex flex-col justify-between"
-      style={{ background: darkMode ? "#00519C" : "" }}>
+      style={{ background: darkMode ? "#00519C" : "" }}
+    >
       <Nav />
       <h2 className="text-3xl mb-8 font-bold text-neutral-50 bg-gray-950 rounded-2xl p-2 text-center max-w-md m-auto mt-8">
         {t("PROFILEFORM.MODIFYPROFILE")}
@@ -94,7 +89,7 @@ const ProfileForm = () => {
                 <input
                   type="file"
                   name="image"
-                  accept="image/*" // Add accept attribute to allow only image files
+                  accept="image/*"
                   onChange={changeHandler}
                 />
               </div>
@@ -138,7 +133,8 @@ const ProfileForm = () => {
 
               <button
                 className="font-bold w-60 bg-blue-400 hover:bg-indigo-500 hover:scale-110 rounded-2xl transition ease-in-out duration-300 m-24 py-4"
-                type="submit">
+                type="submit"
+              >
                 {t("PROFILEFORM.SAVE")}
               </button>
             </form>

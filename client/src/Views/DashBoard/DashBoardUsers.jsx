@@ -8,7 +8,7 @@ const DashBoardUsers = () => {
   const dispatch = useDispatch();
 
   const filterSpecial = (event) => {
-    dispatch(filterSpeciality(event.target.value)); //llama a las funciones con el valor dado
+    dispatch(filterSpeciality(event.target.value));
   };
   const handleOrder = (e) => {
     //dispatch del asc y desc

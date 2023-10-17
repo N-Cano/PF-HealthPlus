@@ -1,16 +1,8 @@
-import NavHome from "../../Components/NavBar/NavHome";
-import ScrollToTop from "react-scroll-to-top";
 import Footer from "../../Components/Footer/Footer";
-import News from "../../Components/News/News";
-import Cards from "../../Components/CardsComponent/Cards/Cards";
 import { filterSpeciality, orderCards, ratingCards } from "../../redux/actions";
 import SearchBar from "../../Components/SearchBar/SearchBar";
-import SearchBarUsers from "../../Components/SearchBar/SearchBarUsers";
 import { useDispatch } from "react-redux";
-import Subscribe from "../../Components/Subscribe/Subscribe";
-import SpecialtiesHome from "../../Components/Specialties/SpecialtiesHome";
 import DocsCards from "../../Components/CardsDocDash/DocsCards";
-import CardsUsers from "../../Components/CardsUsers/CardsUsers";
 import { Link } from "react-router-dom";
 import SideNavbar from "../../Components/NavBar/NavBarDesp";
 
@@ -18,10 +10,9 @@ const DashBoard = () => {
   const dispatch = useDispatch();
 
   const filterSpecial = (event) => {
-    dispatch(filterSpeciality(event.target.value)); //llama a las funciones con el valor dado
+    dispatch(filterSpeciality(event.target.value));
   };
   const handleOrder = (e) => {
-    //dispatch del asc y desc
     dispatch(orderCards(e.target.value));
   };
   const handleRating = (event) => {
@@ -42,7 +33,6 @@ const DashBoard = () => {
             DOCTORS
           </h3>
 
-          {/* AQUI VAN LAS CARDS Y CON CLICK MAS DETALLES DEL DOCTOR */}
           <div className="mb-8">
             <SearchBar />
           </div>

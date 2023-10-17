@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getDoctor } from "../../redux/actions";
 import styles from "./Detail.module.css";
 import Footer from "../../Components/Footer/Footer";
-import axios from "axios";
 import NavBarDesp from "../../Components/NavBar/NavBarDesp";
+import { deleteDoctor } from "./deleteDoctor";
 
 const Detail2 = () => {
   const [detail, setDetail] = useState({});
@@ -32,13 +32,8 @@ const Detail2 = () => {
     setDetail(doctor);
   }, [doctor]);
 
-  const deleteDoc = async () => {
-    try {
-      await axios.delete(`http://localhost:3001/doctors/${id}`);
-      // You can add a redirection to the home page or another appropriate action here
-    } catch (error) {
-      console.error("Error deleting doctor:", error);
-    }
+  const handleDelete = async () => {
+    deleteDoctor(id);
   };
 
   return (
@@ -72,7 +67,7 @@ const Detail2 = () => {
           <Link to="/dashboard">
             <button
               class="bg-black text-white h-10 w-20 rounded-2xl mt-2   mb-2"
-              onClick={deleteDoc}
+              onClick={handleDelete}
             >
               Delete
             </button>
@@ -85,3 +80,4 @@ const Detail2 = () => {
 };
 
 export default Detail2;
+
