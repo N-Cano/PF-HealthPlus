@@ -12,6 +12,8 @@ import { FaRegSun } from "react-icons/fa";
 import { FaRegMoon } from "react-icons/fa";
 import { authEmail } from "../../functions/post";
 
+import axios from "axios";
+
 const NavHome = () => {
   const { t } = useTranslation();
   const { darkMode, toggleDarkMode } = useTheme();
@@ -49,11 +51,48 @@ const NavHome = () => {
     const user = auth.currentUser;
     authEmail(user);
   };
+  //----------------------------------------------------
+  const [form, setForm] = useState({
+    uid: "",
+  });
+
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged(function(user) {
+      if (user) {
+        const uid = user.uid;
+        setForm({ uid });
+      }
+    });
+    return () => {
+      unsubscribe();
+    };
+  }, []);
+
+  const [enable, setEnable] = useState(false); // Estado local para controlar "enable"
+
+  useEffect(() => {
+    if (form.uid) {
+      axios
+        .get(`http://localhost:3001/users/${form.uid}`)
+        .then((response) => {
+          const data = response.data;
+          if (data.enable) {
+            setEnable(true); // Establece "enable" en true si la respuesta del servidor es verdadera
+          } else {
+            setEnable(false); // Establece "enable" en false si la respuesta del servidor es falsa
+          }
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    }
+  }, [form.uid]);
 
   return (
     <nav
       className="bg-blue-900 text-white"
-      style={{ background: darkMode ? "black" : "" }}>
+      style={{ background: darkMode ? "black" : "" }}
+    >
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
         <div className="relative flex h-16 items-center justify-between">
           <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
@@ -65,6 +104,19 @@ const NavHome = () => {
                 <div className="flex items-center space-x-4 ml-auto">
                   <ScrollHome />
                 </div>
+
+                <Link to={"/plan"}>
+                  {enable !== true && (
+                    <button
+                      className="text-white hover:bg-gray-700 hover:text-white rounded-md px-3 py-5  text-sm font-medium"
+                      onClick={() => {
+                        scrollTo("subscribe");
+                      }}
+                    >
+                      {t("HOME PAGE.NAVBAR.SCROLL HOME.SUBSCRIBE")}
+                    </button>
+                  )}
+                </Link>
                 <div className="flex items-center">
                   <Link to="/create">
                     <a
@@ -78,7 +130,8 @@ const NavHome = () => {
                   <div className="ml-auto">
                     <button
                       onClick={toggleDarkMode}
-                      className="p-2 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">
+                      className="p-2 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
+                    >
                       {darkMode ? (
                         <FaRegSun className="inline-block text-yellow" />
                       ) : (
@@ -109,7 +162,8 @@ const NavHome = () => {
                 id="user-menu-button"
                 aria-expanded="false"
                 aria-haspopup="true"
-                onClick={toggleMenu}>
+                onClick={toggleMenu}
+              >
                 <img
                   className="h-8 w-8 rounded-full"
                   src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
@@ -123,19 +177,22 @@ const NavHome = () => {
                 className="absolute right-0 mt-2 w-48 bg-white border border-gray-200 divide-y divide-gray-100 rounded-md shadow-lg"
                 style={{
                   background: darkMode ? "#00519C" : "",
-                  color: darkMode ? "white" : "",
-                }}>
+                  color: darkMode ? "white" : "black",
+                }}
+              >
                 <Link to="/profile">
                   <button
                     className="block px-4 py-2 text-sm  hover:bg-gray-100"
-                    onClick={checkAuth}>
+                    onClick={checkAuth}
+                  >
                     {t("HOME PAGE.NAVBAR.LOGIN.PROFILE")}
                   </button>
                 </Link>
                 <Link to="/myDates">
                   <a
                     href="#"
-                    className="block px-4 py-2 text-sm  hover:bg-gray-100">
+                    className="block px-4 py-2 text-sm  hover:bg-gray-100"
+                  >
                     {t("HOME PAGE.NAVBAR.LOGIN.DATES")}
                   </a>
                 </Link>
@@ -145,14 +202,16 @@ const NavHome = () => {
                   onClick={logOutWithGoogle}
                   style={{
                     background: darkMode ? "black" : "",
-                  }}>
+                  }}
+                >
                   {t("HOME PAGE.NAVBAR.LOGIN.LOG OUT")}
                 </a>
                 {user?.email === "admin@admin.com" && (
                   <Link to="/dashboard">
                     <a
                       href="#"
-                      className="block px-4 py-2 text-sm  hover.bg-gray-100">
+                      className="block px-4 py-2 text-sm  hover.bg-gray-100"
+                    >
                       Dashboard
                     </a>
                   </Link>
