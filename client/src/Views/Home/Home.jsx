@@ -124,7 +124,7 @@ const Home = () => {
                 {t("HOME PAGE.SELECTS.UROLOGY")}
               </option>
               <option
-                value="cardiology"
+                value="Cardiology"
                 className="font-bold text-center"
                 style={{ fontFamily: "Open Sans, sans-serif" }}
               >
