@@ -12,7 +12,6 @@ const ScheduleWithCalendar = () => {
   const [appointments, setAppointments] = useState([]);
 
   useEffect(() => {
-    // Obtener las fechas completadas desde la API
     axios
       .get("http://localhost:3001/dates")
       .then((response) => {
@@ -24,17 +23,15 @@ const ScheduleWithCalendar = () => {
   }, []);
 
   useEffect(() => {
-    // Filtrar las citas para la fecha seleccionada
     const selectedDateString = selectedDate.toISOString().split("T")[0];
     const filteredAppointments = completedDates.filter(
       (date) => date === selectedDateString
     );
 
-    // Actualizar el estado de las citas
     setAppointments(filteredAppointments);
   }, [selectedDate, completedDates]);
 
-  // Manejar el cambio de fecha en el calendario
+
   const handleDateChange = (date) => {
     setSelectedDate(date);
   };
@@ -43,7 +40,6 @@ const ScheduleWithCalendar = () => {
     <div className="flex flex-col justify-center items-center text-black">
       <h1 style={{ color: darkMode ? "white" : "" }}>Mis Citas</h1>
 
-      {/* Agregar un evento de cambio de fecha al calendario */}
       <Calendar
         value={selectedDate}
         onChange={handleDateChange}
@@ -54,7 +50,6 @@ const ScheduleWithCalendar = () => {
         Citas para el {selectedDate.toDateString()}:
       </h2>
       <ul>
-        {/* Mostrar las citas correspondientes */}
         {appointments.map((date, index) => (
           <li key={index}>{date}</li>
         ))}

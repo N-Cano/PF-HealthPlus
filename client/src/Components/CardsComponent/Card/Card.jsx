@@ -1,9 +1,6 @@
-/* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { useLocation } from "react-router-dom";
-
-// Darkmode
 import { useTheme } from "../../../contextAPI/ThemeContext";
 
 const Card = (props) => {

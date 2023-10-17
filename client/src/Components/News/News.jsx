@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
 import Paginado from "../Paginado/paginado";
 import { useTranslation } from "react-i18next";
+import { fetchNewsData } from './newsApi'
 
 const News = () => {
   const { t } = useTranslation();
@@ -18,18 +18,7 @@ const News = () => {
     .slice(startIndex, endIndex);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(
-          "https://newsapi.org/v2/top-headlines?country=us&category=health&apiKey=dc9527c75c4c4affbb788da794c77690"
-        );
-        setNews(response.data.articles);
-      } catch (error) {
-        console.error("Error fetching news:", error);
-      }
-    };
-
-    fetchData();
+    fetchNewsData(setCurrentPage, setNews);
   }, [currentPage]);
 
   const handlePageChange = (pageNumber) => {
@@ -38,7 +27,6 @@ const News = () => {
 
   return (
     <div className="bg-blue-900 w-full pb-2">
-      {console.log(currentGame)}
       <h3
         className="mt-5 text-center text-2xl text-white font-bold"
         style={{ fontFamily: "Rubik, sans-serif" }}

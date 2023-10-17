@@ -9,7 +9,6 @@ const Subscribe = () => {
     <div className="mt-3">
       <h2
         className="text-[30px] text-center pt-2 mt-[80px] mb-0 font-semibold"
-        style={{ fontFamily: "Rubik, sans-serif" }}
       >
         {t("HOME PAGE.SUBSCRIBE.TAGLINE")}
       </h2>
@@ -18,7 +17,6 @@ const Subscribe = () => {
           <FaUserDoctor className="text-4xl" />
           <h3
             className="text-xl mt-4 text-left"
-            style={{ fontFamily: "Rubik, sans-serif" }}
           >
             {t("HOME PAGE.SUBSCRIBE.DESCRIPTION 1")}
           </h3>
@@ -34,7 +32,6 @@ const Subscribe = () => {
           <div className="text-center">
             <p
               className="text-base mb-4"
-              style={{ fontFamily: "Rubik, sans-serif" }}
             >
               {t("HOME PAGE.SUBSCRIBE.DESCRIPTION 2")}
             </p>

@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getPatient } from "../../redux/actions"; // Asegúrate de que getPatient esté definida
+import { getPatient } from "../../redux/actions";
 import styles from "./Detail.module.css";
 import Footer from "../../Components/Footer/Footer";
-import axios from "axios";
 import NavBarDesp from "../../Components/NavBar/NavBarDesp";
+import { deleteUser } from "./deleteUsers";
 
 const DetailUsers = () => {
   const [detail, setDetail] = useState({});
@@ -16,7 +16,7 @@ const DetailUsers = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      await dispatch(getPatient(id)); // Asegúrate de que getPatient esté definida
+      await dispatch(getPatient(id));
       setLoading(false);
     };
 
@@ -27,13 +27,8 @@ const DetailUsers = () => {
     setDetail(patient);
   }, [patient]);
 
-  const deleteUser = async () => {
-    try {
-      await axios.delete(`http://localhost:3001/users/${id}`);
-      // Puedes agregar una redirección o un mensaje de confirmación aquí
-    } catch (error) {
-      console.error("Error deleting user:", error);
-    }
+  const handleDelete = async () => {
+    deleteUser(id);
   };
 
   return (
@@ -69,7 +64,7 @@ const DetailUsers = () => {
           <Link to="/dashboardusers">
             <button
               class="bg-black text-white h-10 w-20 rounded-2xl mt-2   mb-2"
-              onClick={deleteUser}
+              onClick={handleDelete}
             >
               Delete
             </button>

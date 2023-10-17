@@ -1,15 +1,9 @@
-/* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
-// Logo sin fondo
 import logo2 from "../../assets/logo2sinfond0.png";
-// Scroll to top
 import Scroll from "../Scroll/Scroll";
-// Traducción
 import LanguageSwitcher from "../LanguageSwitcher/LanguageSwitcher";
 import { useTranslation } from "react-i18next";
-// Darkmode
 import { useTheme } from "../../contextAPI/ThemeContext";
-// Iconos para el botón darkmode
 import { FaRegSun } from "react-icons/fa";
 import { FaRegMoon } from "react-icons/fa";
 
@@ -19,9 +13,8 @@ const NavBar = ({ children }) => {
 
   return (
     <nav
-      className={`dark-mode ${
-        darkMode ? "bg-black text-white" : "bg-blue-900"
-      }`}>
+      className={`dark-mode ${darkMode ? "bg-black text-white" : "bg-blue-900"
+        }`}>
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           <div className="flex items-center">
@@ -29,7 +22,6 @@ const NavBar = ({ children }) => {
               <img className="h-10 w-auto" src={logo2} alt="Logo" />
             </div>
 
-            {/* Botones del componente Scroll con un margen izquierdo de 4 */}
             <div className="hidden sm:flex items-center ml-4">
               <Scroll />
             </div>
@@ -49,7 +41,6 @@ const NavBar = ({ children }) => {
             </div>
           </div>
 
-          {/* Botón de Login */}
           <div className="ml-auto">
             <Link to="/login">
               <a

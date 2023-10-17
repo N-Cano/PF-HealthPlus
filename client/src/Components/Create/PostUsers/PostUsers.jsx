@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import axios from "axios";
+import { useState } from "react";
+import { postDataUser } from "./postDataUser";
 
 const PostUsers = () => {
   const [form, setForm] = useState({
@@ -34,18 +34,10 @@ const PostUsers = () => {
         formData.append("image", form.image);
       }
 
-      const response = await axios.post(
-        "http://localhost:3001/doctors",
-        formData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      );
+      await postDataUser(formData);
 
       console.log(response.data);
-      setError(null); // Limpiar cualquier error anterior
+      setError(null);
     } catch (error) {
       console.error(error);
       setError("Error al enviar el formulario");

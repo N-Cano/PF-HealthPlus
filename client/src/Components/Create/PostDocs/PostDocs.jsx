@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import axios from "axios";
 import styles from "./PostDocs.module.css";
 import NavBarDesp from "../../NavBar/NavBarDesp";
+import { postData } from "./postDataDocs";
+
 const PostDocs = () => {
   const [form, setForm] = useState({
     name: "",
@@ -10,7 +11,6 @@ const PostDocs = () => {
     email: "",
     image: null,
   });
-  console.log(form);
   const [error, setError] = useState(null);
 
   const changeHandler = (event) => {
@@ -38,18 +38,9 @@ const PostDocs = () => {
         formData.append("image", form.image);
       }
 
-      const response = await axios.post(
-        "http://localhost:3001/doctors",
-        formData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      );
+      await postData(formData);
 
-      console.log(response.data);
-      setError(null); // Limpiar cualquier error anterior
+      setError(null);
     } catch (error) {
       console.error(error);
       setError("Error al enviar el formulario");
