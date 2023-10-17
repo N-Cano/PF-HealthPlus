@@ -90,7 +90,7 @@ const Nav = () => {
 
                   <div className="flex items-center">
                     <h3
-                      className="ml-auto font-semibold"
+                      className="-ml-5 font-semibold"
                       style={{ fontFamily: "Rubik, sans-serif" }}>
                       {t("NAV.WELCOME")}, <br />
                       {user ? user.displayName || user.email : ""}
@@ -101,7 +101,7 @@ const Nav = () => {
             </div>
           </div>
 
-          <div className="relative ml-3">
+          <div className="relative ml-auto">
             <div>
               <button
                 type="button"
@@ -120,25 +120,33 @@ const Nav = () => {
 
             {/* Muestra el menú solo si isMenuOpen es true */}
             {isMenuOpen && (
-              <div className="absolute right-0 mt-2 w-48 bg-white border border-gray-200 divide-y divide-gray-100 rounded-md shadow-lg">
+              <div
+                className="absolute right-0 mt-2 w-48 bg-white border border-gray-200 divide-y divide-gray-100 rounded-md shadow-lg"
+                style={{
+                  background: darkMode ? "#00519C" : "",
+                  color: darkMode ? "white" : "",
+                }}>
                 <Link to="/profile">
                   <a
                     href="#"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                    className="block px-4 py-2 text-sm  hover:bg-gray-100">
                     {t("NAV.LOGIN.PROFILE")}
                   </a>
                 </Link>
                 <Link to="/myDates">
                   <a
                     href="#"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                    className="block px-4 py-2 text-sm hover:bg-gray-100">
                     {t("NAV.LOGIN.DATES")}
                   </a>
                 </Link>
                 <a
                   href="#"
-                  className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                  onClick={logOutWithGoogle}>
+                  className="block px-4 py-2 text-sm  hover:bg-gray-100"
+                  onClick={logOutWithGoogle}
+                  style={{
+                    background: darkMode ? "black" : "",
+                  }}>
                   {t("NAV.LOGIN.LOG OUT")}
                 </a>
               </div>

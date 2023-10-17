@@ -9,8 +9,10 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useTheme } from "../../contextAPI/ThemeContext";
 import { Footer } from "../../Components";
+import { useTranslation } from "react-i18next";
 
 const ProfileForm = () => {
+  const { t } = useTranslation();
   const { darkMode } = useTheme();
 
   const navigate = useNavigate();
@@ -80,14 +82,14 @@ const ProfileForm = () => {
       style={{ background: darkMode ? "#00519C" : "" }}>
       <Nav />
       <h2 className="text-3xl mb-8 font-bold text-neutral-50 bg-gray-950 rounded-2xl p-2 text-center max-w-md m-auto mt-8">
-        Modify Profile
+        {t("PROFILEFORM.MODIFYPROFILE")}
       </h2>
       <div className="flex justify-center">
         <div className={styles.title}>
           <div className={styles.userdetails}>
             <form onSubmit={submitHandler}>
               <div className="mb-4">
-                <label>Select img:</label>
+                <label>{t("PROFILEFORM.SELECT IMG")}:</label>
                 <img src={imageSrc} alt="" />
                 <input
                   type="file"
@@ -98,7 +100,7 @@ const ProfileForm = () => {
               </div>
 
               <div className={styles.inputbox}>
-                <label>Name:</label>
+                <label>{t("PROFILEFORM.NAME")}:</label>
                 <input
                   type="text"
                   name="name"
@@ -107,7 +109,7 @@ const ProfileForm = () => {
                 />
               </div>
               <div className={styles.inputbox}>
-                <label>LastName:</label>
+                <label>{t("PROFILEFORM.LASTNAME")}:</label>
                 <input
                   type="text"
                   name="lastName"
@@ -116,7 +118,7 @@ const ProfileForm = () => {
                 />
               </div>
               <div className={styles.inputbox}>
-                <label>Birthday:</label>
+                <label>{t("PROFILEFORM.BIRTHDAY")}:</label>
                 <input
                   type="date"
                   name="date"
@@ -125,7 +127,7 @@ const ProfileForm = () => {
                 />
               </div>
               <div className={styles.inputbox}>
-                <label>DNI:</label>
+                <label>{t("PROFILEFORM.DNI")}:</label>
                 <input
                   type="text"
                   name="userId"
@@ -137,7 +139,7 @@ const ProfileForm = () => {
               <button
                 className="font-bold w-60 bg-blue-400 hover:bg-indigo-500 hover:scale-110 rounded-2xl transition ease-in-out duration-300 m-24 py-4"
                 type="submit">
-                Save
+                {t("PROFILEFORM.SAVE")}
               </button>
             </form>
           </div>
