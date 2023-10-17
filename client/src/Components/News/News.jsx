@@ -1,14 +1,16 @@
 import { useState, useEffect } from "react";
 import Paginado from "../Paginado/paginado";
 import { useTranslation } from "react-i18next";
-import { fetchNewsData } from './newsApi'
+import { fetchNewsData } from "./newsApi";
+import { useTheme } from "../../contextAPI/ThemeContext";
 
 const News = () => {
   const { t } = useTranslation();
+  const { darkMode } = useTheme();
 
   const [news, setNews] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 4;
+  const itemsPerPage = 6;
   const totalItems = news.length;
   const totalPages = Math.ceil(totalItems / itemsPerPage);
   const startIndex = (currentPage - 1) * itemsPerPage;
@@ -36,7 +38,7 @@ const News = () => {
       <div className="flex flex-wrap justify-center">
         {currentGame.map((article, index) => (
           <div key={index} className="max-w-sm m-4">
-            <div className="bg-white rounded-3xl overflow-hidden shadow-md h-[500px]">
+            <div className="bg-white rounded-3xl overflow-hidden shadow-md h-[470px]">
               <img
                 src={
                   article.urlToImage
@@ -46,8 +48,13 @@ const News = () => {
                 alt={article.title}
                 className="w-full h-[180px] object-cover"
               />
-              <div className="p-6">
-                <h2 className="font-bold text-xl mb-2">{article.title}</h2>
+              <div className="p-1">
+                <h2
+                  className="font-bold text-xl -mt-1"
+                  style={{ color: darkMode ? "black" : "" }}
+                >
+                  {article.title}
+                </h2>
                 <p className="text-gray-700 text-base">{article.description}</p>
                 <a
                   href={article.url}
