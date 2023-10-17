@@ -4,7 +4,8 @@ import axios from "axios";
 const PostDocs = () => {
   const [form, setForm] = useState({
     name: "",
-    description: "",
+    engDescription: '',
+    espDescription: '',
     specialty: "",
     email: "",
     image: null,
@@ -25,18 +26,19 @@ const PostDocs = () => {
 
   const submitHandler = async (e) => {
     e.preventDefault();
-
     try {
       const formData = new FormData();
       formData.append("name", form.name);
-      formData.append("description", form.description);
+      formData.append("engDescription", form.engDescription);
+      formData.append("espDescription", form.espDescription);
       formData.append("specialty", form.specialty);
       formData.append("email", form.email);
-
+      
       if (form.image) {
         formData.append("image", form.image);
       }
-
+      
+      console.log(formData);
       const response = await axios.post(
         "http://localhost:3001/doctors",
         formData,
@@ -108,12 +110,21 @@ const PostDocs = () => {
           </select>
         </div>
         <div>
-          <label htmlFor="description">Description:</label>
+          <label htmlFor="engDescription">English description:</label>
           <textarea
-            value={form.description}
+            value={form.engDescription}
             onChange={changeHandler}
-            name="description"
-            id="description"
+            name="engDescription"
+            id="engDescription"
+          />
+        </div>
+        <div>
+          <label htmlFor="espDescription">Spanish description:</label>
+          <textarea
+            value={form.espDescription}
+            onChange={changeHandler}
+            name="espDescription"
+            id="espDescription"
           />
         </div>
         <button type="submit">Submit</button>

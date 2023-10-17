@@ -44,7 +44,7 @@ const createDoctor = async (data) => {
             ...data,
             enable: true,
             rol: 'doctor',
-            email:'',
+            email: '',
             comments: [],
             dates: []
         });
@@ -61,15 +61,27 @@ const createDoctor = async (data) => {
 
 const bringDoctorByName = async (name) => {
     try {
-        const querySnapshot = await db.collection('doctors').where('name', '==', name).get();
+        const doctorRef = await db.collection('doctors').get();
         const doctors = [];
-        querySnapshot.forEach((doc) => {
+        doctorRef.forEach((doc) => {
             doctors.push({
                 id: doc.id,
                 ...doc.data()
             })
+        });
+        const lowerName = name.toLowerCase()
+        const matchDoctors = [];
+        doctors.forEach((doctor) => {
+            if (doctor.name
+                .toLowerCase()
+                .includes(lowerName)) {
+                matchDoctors.push(doctor)
+            }
         })
-        return doctors
+        return {
+            doctorsMatched: matchDoctors.length,
+            matchDoctors
+        }
 
     } catch (error) {
         throw new Error(error)
