@@ -6,14 +6,15 @@ import styles from "./Detail.module.css";
 import Footer from "../../Components/Footer/Footer";
 import axios from "axios";
 import NavBarDesp from "../../Components/NavBar/NavBarDesp";
+import { useTheme } from "../../contextAPI/ThemeContext";
 
 const Detail2 = () => {
   const [detail, setDetail] = useState({});
   const [loading, setLoading] = useState(true);
-
   const { id } = useParams();
   const dispatch = useDispatch();
   const doctor = useSelector((state) => state.doctor);
+  const { darkMode } = useTheme();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -45,8 +46,14 @@ const Detail2 = () => {
     <>
       <NavBarDesp />
 
-      <div className={styles.nuevo}>
-        <div className={styles.container}>
+      <div
+        className={styles.nuevo}
+        style={{ background: darkMode ? "black" : "" }}
+      >
+        <div
+          className={styles.container}
+          style={{ background: darkMode ? "#00519C" : "" }}
+        >
           <h1>{detail.name}</h1>
           <img
             src={
@@ -64,14 +71,14 @@ const Detail2 = () => {
           </div>
           <div className={styles.inputbox}>
             <Link to="/dashboard">
-              <button class="bg-blue-500 text-white h-10 w-20 rounded-2xl mt-2 mb-2">
+              <button className="bg-blue-500 text-white h-10 w-20 rounded-2xl mt-2 mb-2">
                 Home
               </button>
             </Link>
           </div>
           <Link to="/dashboard">
             <button
-              class="bg-black text-white h-10 w-20 rounded-2xl mt-2   mb-2"
+              className="bg-black text-white h-10 w-20 rounded-2xl mt-2   mb-2"
               onClick={deleteDoc}
             >
               Delete

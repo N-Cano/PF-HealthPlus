@@ -4,7 +4,10 @@ import SearchBarUsers from "../../Components/SearchBar/SearchBarUsers";
 import { useDispatch } from "react-redux";
 import CardsUsers from "../../Components/CardsUsers/CardsUsers";
 import SideNavbar from "../../Components/NavBar/NavBarDesp";
+import { useTheme } from "../../contextAPI/ThemeContext";
+
 const DashBoardUsers = () => {
+  const { darkMode } = useTheme();
   const dispatch = useDispatch();
 
   const filterSpecial = (event) => {
@@ -19,10 +22,14 @@ const DashBoardUsers = () => {
   };
 
   return (
-    <div className="bg-blue-200 h-full flex flex-col justify-between">
+    <div
+      className="bg-blue-200 h-full flex flex-col justify-between"
+      style={{ background: darkMode ? "#1E3453" : "" }}
+    >
       <div
         id="doctors"
-        className="flex flex-col md:flex-row md:items-center md:justify-center">
+        className="flex flex-col md:flex-row md:items-center md:justify-center"
+      >
         <div>
           <h3 className="mt-5 text-center text-2xl font-bold font-['Rubik, sans-serif']">
             USERS
@@ -31,7 +38,10 @@ const DashBoardUsers = () => {
           <div className="mb-8">
             <SearchBarUsers />
           </div>
-          <div className="flex flex-row justify-around bg-blue-400 py-6 rounded-2xl font-bold text-center">
+          <div
+            className="flex flex-row justify-around bg-blue-400 py-6 rounded-2xl font-bold text-center"
+            style={{ background: darkMode ? "black" : "" }}
+          >
             <p className="text-xl w-[300px]">Name</p>
             <p className="text-xl w-[300px]">Last Name</p>
             <p className="text-xl w-[300px]">Email</p>

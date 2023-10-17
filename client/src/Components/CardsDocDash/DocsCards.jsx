@@ -2,8 +2,10 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getDoctors } from "../../redux/actions";
 import Docs from "./Docs/Docs";
+import { useTheme } from "../../contextAPI/ThemeContext";
 
 const DocsCards = () => {
+  const { darkMode } = useTheme();
   const dispatch = useDispatch();
   const doctors = useSelector((state) => state.doctors);
 
