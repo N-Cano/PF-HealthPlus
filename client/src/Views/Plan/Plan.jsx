@@ -14,7 +14,7 @@ const Plan = () => {
   const products = [
     {
       image:
-        "https://www.newmedicaleconomics.es/wp-content/uploads/2022/07/medicine-doctor-hand-working-with-modern-computer-interface-1-scaled.jpg",
+        "https://res.cloudinary.com/drpge2a0c/image/upload/v1697555432/assets/medicine-doctor-hand-working-with-modern-computer-interface-1-scaled_sutqh4.jpg",
       title: t("PLAN.PRODUCTS.PREMIUM.TITLE"),
       price: 200,
       description: t("PLAN.PRODUCTS.PREMIUM.DESCRIPTION"),

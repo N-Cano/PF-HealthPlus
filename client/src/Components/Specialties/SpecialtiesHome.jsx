@@ -6,7 +6,6 @@ import { MdOutlineBloodtype } from "react-icons/md"; //Endocrinology
 import { AiFillSecurityScan } from "react-icons/ai"; //Radiology
 import { IoBody } from "react-icons/io5"; //Urology
 import { BsFillClipboardHeartFill } from "react-icons/bs"; //Cardiology
-import video from "../../assets/home video 2.mp4";
 import { useTranslation } from "react-i18next";
 
 const SpecialtiesHome = () => {
@@ -16,7 +15,7 @@ const SpecialtiesHome = () => {
     <div>
       {/* Video */}
       <video
-        src={video}
+        src='https://res.cloudinary.com/drpge2a0c/video/upload/v1697553490/assets/home_video_2_ozzxu8.mp4'
         autoPlay
         loop
         muted

@@ -7,9 +7,6 @@ import {
   AvailableServices,
   Newsletter,
 } from "../../Components/index";
-import availableService1 from "../../assets/backgrounds/doctor_6_1_400x400.jpg";
-import availableService2 from "../../assets/backgrounds/doctor_2_400x400.jpg";
-import availableService3 from "../../assets/backgrounds/doctor_9_400x400.jpg";
 import ScrollToTop from "react-scroll-to-top";
 import NavBar from "../../Components/NavBar/NavBar";
 import Specialties from "../../Components/Specialties/Specialties";
@@ -138,7 +135,7 @@ const Landing = () => {
               </h2>
             </div>
             <img
-              src={availableService1}
+              src='https://res.cloudinary.com/drpge2a0c/image/upload/v1697553463/assets/backgrounds/doctor_6_1_400x400_wasu1j.jpg'
               alt="doctor"
               className="w-full h-full ps-0 rounded-lg"
               style={{ opacity: darkMode ? 0.7 : 1 }}
@@ -169,7 +166,7 @@ const Landing = () => {
               </h2>
             </div>
             <img
-              src={availableService2}
+              src='https://res.cloudinary.com/drpge2a0c/image/upload/v1697553469/assets/backgrounds/doctor_2_400x400_vgevvu.jpg'
               alt="doctor"
               className="w-[100%] h-full ps-0 rounded-md"
               style={{ opacity: darkMode ? 0.7 : 1 }}
@@ -203,7 +200,7 @@ const Landing = () => {
               </h2>
             </div>
             <img
-              src={availableService3}
+              src='https://res.cloudinary.com/drpge2a0c/image/upload/v1697553463/assets/backgrounds/doctor_9_400x400_g3a9hw.jpg'
               alt="doctor"
               className="w-full h-full ps-0 rounded-lg"
               style={{ opacity: darkMode ? 0.7 : 1 }}
