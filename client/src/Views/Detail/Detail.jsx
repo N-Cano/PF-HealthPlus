@@ -6,10 +6,12 @@ import styles from "./Detail.module.css";
 import Footer from "../../Components/Footer/Footer";
 import Nav from "../../Components/NavBar/Nav";
 import { useTranslation } from "react-i18next";
+import { useTheme } from "../../contextAPI/ThemeContext";
 import { Link } from "react-router-dom";
 
 const Detail = () => {
   const { t } = useTranslation();
+  const { darkMode } = useTheme();
 
   const [loading, setLoading] = useState(true);
   const [detail, setDetail] = useState({});
@@ -33,13 +35,22 @@ const Detail = () => {
   return (
     <>
       <Nav />
-      <div className={styles.nuevo}>
-        <div className={styles.container}>
+      <div
+        className={styles.nuevo}
+        style={{ background: darkMode ? "#00519C" : "" }}>
+        <div
+          className={styles.container}
+          style={{
+            background: darkMode ? "black" : "",
+            color: darkMode ? "grey" : "",
+          }}>
           {loading ? (
-            <p>Cargando información...</p>
+            <p>{t("DETAIL.HEADERS.LOADING")}</p>
           ) : (
             <>
-              <h1>Dr. {detail.name}</h1>
+              <h1>
+                <strong>Dr. {detail.name}</strong>
+              </h1>
               <img
                 src={
                   detail.photo
@@ -57,6 +68,21 @@ const Detail = () => {
               <div>
                 <h2>
                   <strong>{t("DETAIL.HEADERS.REVIEWS")}</strong>
+                  {detail.comments && detail.comments.length > 1 ? (
+                    <div>
+                      <span>
+                        <strong>1. </strong>
+                        {detail.comments[0].comment}
+                      </span>
+                      <br />
+                      <span>
+                        <strong>2. </strong>
+                        {detail.comments[1].comment}
+                      </span>
+                    </div>
+                  ) : (
+                    <h3>{t("DETAIL.HEADERS.NOCOMMENTS")}</h3>
+                  )}
                 </h2>
               </div>
               <div>
@@ -68,10 +94,13 @@ const Detail = () => {
               </div>
               <Link to="/home">
                 <button
-                  class="bg-black text-white h-10 w-20 rounded-2xl mt-2   mb-2"
+                  className="bg-black text-white h-10 w-20 rounded-2xl mt-2 mb-2"
                   type="button"
-                >
-                  Home
+                  style={{
+                    background: darkMode ? "#325372" : "",
+                    color: darkMode ? "white" : "",
+                  }}>
+                  {t("DETAIL.HEADERS.HOME")}
                 </button>
               </Link>
             </>
