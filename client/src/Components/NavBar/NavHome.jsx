@@ -121,6 +121,7 @@ const NavHome = () => {
                     <a
                       href="#"
                       className="text-white hover:bg-gray-700 hover:text-white rounded-md px-4 py-2 text-sm font-medium"
+                      style={{ fontFamily: "Rubik, sans-serif" }}
                     >
                       {t("HOME PAGE.NAVBAR.SCHEDULE")}
                     </a>
@@ -144,7 +145,12 @@ const NavHome = () => {
                   </div>
 
                   <div className="flex items-center text-center">
-                    <h3 className="ml-auto font-semibold">
+
+                    <h3
+                      className="ml-auto font-semibold"
+                      style={{ fontFamily: "Rubik, sans-serif" }}
+                    >
+
                       {t("HOME PAGE.NAVBAR.WELCOME")},<br />
                       {user ? user.displayName || user.email : ""}
                     </h3>
@@ -180,28 +186,26 @@ const NavHome = () => {
                 }}
               >
                 <Link to="/profile">
-                  <button
-                    className="block px-4 py-2 text-sm  hover:bg-gray-100"
+                  <a
+                    className="block px-4 py-2 text-sm  hover:bg-gray-100 hover:text-black"
                     onClick={checkAuth}
                   >
                     {t("HOME PAGE.NAVBAR.LOGIN.PROFILE")}
-                  </button>
+                  </a>
+
                 </Link>
                 <Link to="/myDates">
                   <a
                     href="#"
-                    className="block px-4 py-2 text-sm  hover:bg-gray-100"
+                    className="block px-4 py-2 text-sm hover:bg-gray-100 hover:text-black"
                   >
                     {t("HOME PAGE.NAVBAR.LOGIN.DATES")}
                   </a>
                 </Link>
                 <a
                   href="#"
-                  className="block px-4 py-2 text-sm  hover:bg-gray-100"
+                  className="block px-4 py-2 text-sm  hover:bg-gray-100 hover:text-black"
                   onClick={logOutWithGoogle}
-                  style={{
-                    background: darkMode ? "black" : "",
-                  }}
                 >
                   {t("HOME PAGE.NAVBAR.LOGIN.LOG OUT")}
                 </a>
