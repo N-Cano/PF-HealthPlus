@@ -42,7 +42,8 @@ export default function SearchBar() {
         type="submit"
         onClick={handleSubmit}
         style={{ fontFamily: "Open Sans, sans-serif" }}
-        className="bg-black rounded-2xl text-white ml-[-85px] mt-1 h-[40px] w-[73px] py-1 font-['Open Sans', sans-serif]">
+        className="bg-black rounded-2xl text-white ml-[-85px] mt-1 h-[40px] w-[73px] py-1 font-['Open Sans', sans-serif]"
+      >
         {t("HOME PAGE.SEARCHBAR.BUTTON")}
       </button>
     </div>

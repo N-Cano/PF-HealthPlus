@@ -44,7 +44,8 @@ const Nav = () => {
   return (
     <nav
       className="bg-blue-900 text-white"
-      style={{ background: darkMode ? "black" : "" }}>
+      style={{ background: darkMode ? "black" : "" }}
+    >
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
         <div className="relative flex h-16 items-center justify-between">
           <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
@@ -58,6 +59,7 @@ const Nav = () => {
                     <a
                       href="#"
                       className="text-white hover:bg-gray-700 hover:text-white rounded-md px-4 py-2 text-sm font-medium"
+                      style={{ fontFamily: "Rubik, sans-serif" }}
                     >
                       {t("NAV.HOME BUTTON")}
                     </a>
@@ -65,7 +67,8 @@ const Nav = () => {
                   <div className="ml-auto">
                     <button
                       onClick={toggleDarkMode}
-                      className="p-2 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">
+                      className="p-2 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
+                    >
                       {darkMode ? (
                         <FaRegSun className="inline-block text-yellow" />
                       ) : (
@@ -78,7 +81,10 @@ const Nav = () => {
                   </div>
 
                   <div className="flex items-center">
-                    <h3 className="-ml-5 font-semibold">
+                    <h3
+                      className="-ml-5 font-semibold"
+                      style={{ fontFamily: "Rubik, sans-serif" }}
+                    >
                       {t("NAV.WELCOME")}, <br />
                       {user ? user.displayName || user.email : ""}
                     </h3>
@@ -96,7 +102,8 @@ const Nav = () => {
                 id="user-menu-button"
                 aria-expanded="false"
                 aria-haspopup="true"
-                onClick={toggleMenu}>
+                onClick={toggleMenu}
+              >
                 <img
                   className="h-8 w-8 rounded-full"
                   src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
@@ -110,29 +117,30 @@ const Nav = () => {
                 className="absolute right-0 mt-2 w-48 bg-white border border-gray-200 divide-y divide-gray-100 rounded-md shadow-lg"
                 style={{
                   background: darkMode ? "#00519C" : "",
-                  color: darkMode ? "white" : "",
-                }}>
+                  color: darkMode ? "white" : "black",
+                }}
+              >
                 <Link to="/profile">
                   <a
                     href="#"
-                    className="block px-4 py-2 text-sm  hover:bg-gray-100">
+                    className="block px-4 py-2 text-sm  hover:bg-gray-100 hover:text-black"
+                  >
                     {t("NAV.LOGIN.PROFILE")}
                   </a>
                 </Link>
                 <Link to="/myDates">
                   <a
                     href="#"
-                    className="block px-4 py-2 text-sm hover:bg-gray-100">
+                    className="block px-4 py-2 text-sm hover:bg-gray-100 hover:text-black"
+                  >
                     {t("NAV.LOGIN.DATES")}
                   </a>
                 </Link>
                 <a
                   href="#"
-                  className="block px-4 py-2 text-sm  hover:bg-gray-100"
+                  className="block px-4 py-2 text-sm  hover:bg-gray-100 hover:text-black"
                   onClick={logOutWithGoogle}
-                  style={{
-                    background: darkMode ? "black" : "",
-                  }}>
+                >
                   {t("NAV.LOGIN.LOG OUT")}
                 </a>
               </div>

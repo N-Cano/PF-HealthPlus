@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import logo2 from "../../assets/logo2sinfond0.png";
 import Scroll from "../Scroll/Scroll";
 import LanguageSwitcher from "../LanguageSwitcher/LanguageSwitcher";
 import { useTranslation } from "react-i18next";
@@ -12,8 +13,10 @@ const NavBar = ({ children }) => {
 
   return (
     <nav
-      className={`dark-mode ${darkMode ? "bg-black text-white" : "bg-blue-900"
-        }`}>
+      className={`dark-mode ${
+        darkMode ? "bg-black text-white" : "bg-blue-900"
+      }`}
+    >
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           <div className="flex items-center">
@@ -27,7 +30,8 @@ const NavBar = ({ children }) => {
             <div className="ml-auto">
               <button
                 onClick={toggleDarkMode}
-                className="p-2 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">
+                className="p-2 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
+              >
                 {darkMode ? (
                   <FaRegSun className="inline-block text-yellow" />
                 ) : (
@@ -45,7 +49,8 @@ const NavBar = ({ children }) => {
               <a
                 href="#"
                 className="text-white hover:bg-gray-700 hover:text-white rounded-md px-4 py-2 text-sm font-medium"
-                style={{ fontFamily: "Rubik, sans-serif" }}>
+                style={{ fontFamily: "Rubik, sans-serif" }}
+              >
                 {t("LANDING PAGE.NAVBAR.LOGIN")}
               </a>
             </Link>
