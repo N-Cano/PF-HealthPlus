@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import logoGoogle from "../../assets/logoGoogle.png";
 import { UserAuth } from "../../context/AuthContext";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
@@ -204,7 +203,7 @@ const Login = () => {
                 fontFamily: "Rubik, sans-serif",
                 background: darkMode ? "#00519C" : "",
               }}>
-              <img className="w-5 m-2" src={logoGoogle} alt="" />
+              <img className="w-5 m-2" src='https://res.cloudinary.com/drpge2a0c/image/upload/v1697553463/assets/logoGoogle_o2crac.png' alt="" />
               {t("LOGIN.SIGN IN WITH GOOGLE")}
             </button>
           </div>

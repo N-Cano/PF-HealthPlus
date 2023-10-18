@@ -9,6 +9,7 @@ import {
   GET_DATE_ID,
   GET_USERS,
   GET_USERS_NAME,
+  RATING,
 } from "./actions-types";
 
 const initialState = {
@@ -67,7 +68,7 @@ const rootReducer = (state = initialState, actions) => {
       const sortName =
         actions.payload === "A"
           ? [
-              ...state.doctors.sort(function (a, b) {
+              ...state.doctors.sort(function(a, b) {
                 if (a.name > b.name) {
                   return 1;
                 }
@@ -78,7 +79,7 @@ const rootReducer = (state = initialState, actions) => {
               }),
             ]
           : [
-              ...state.doctors.sort(function (a, b) {
+              ...state.doctors.sort(function(a, b) {
                 if (a.name > b.name) {
                   return -1;
                 }
@@ -93,35 +94,35 @@ const rootReducer = (state = initialState, actions) => {
         doctors: sortName,
       };
 
-    // case RATING:
-    //   const sortRating =
-    //     actions.payload === "Low"
-    //       ? [
-    //           ...state.doctors.sort(function (a, b) {
-    //             if (a.price > b.price) {
-    //               return 1;
-    //             }
-    //             if (b.price > a.price) {
-    //               return -1;
-    //             }
-    //             return 0;
-    //           }),
-    //         ]
-    //       : [
-    //           ...state.doctors.sort(function (a, b) {
-    //             if (a.price > b.price) {
-    //               return -1;
-    //             }
-    //             if (b.price > a.price) {
-    //               return 1;
-    //             }
-    //             return 0;
-    //           }),
-    //         ];
-    //   return {
-    //     ...state,
-    //     doctors: sortRating,
-    //   };
+    case RATING:
+      const sortRating =
+        actions.payload === "Low"
+          ? [
+              ...state.doctors.sort(function(a, b) {
+                if (a.rating > b.rating) {
+                  return 1;
+                }
+                if (b.rating > a.rating) {
+                  return -1;
+                }
+                return 0;
+              }),
+            ]
+          : [
+              ...state.doctors.sort(function(a, b) {
+                if (a.rating > b.rating) {
+                  return -1;
+                }
+                if (b.rating > a.rating) {
+                  return 1;
+                }
+                return 0;
+              }),
+            ];
+      return {
+        ...state,
+        doctors: sortRating,
+      };
     case "SET_IMAGE":
       return { ...state, imageSrc: actions.payload };
 

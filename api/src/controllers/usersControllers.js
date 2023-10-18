@@ -5,18 +5,18 @@ const { db } = require("../firebase");
 
 const signUpUser = async ({ email, uid, photo }) => {
   try {
-    const userRef = db.collection('users').doc(uid);
+    const userRef = db.collection("users").doc(uid);
 
     await userRef.set({
       email,
-      name: '',
-      lastName: '',
-      userId: '',
+      name: "",
+      lastName: "",
+      userId: "",
       photo,
       dates: [],
-      rol: 'user',
+      rol: "user",
       enable: false,
-      reviews: []
+      reviews: [],
     });
 
     const newUser = {
@@ -31,13 +31,12 @@ const signUpUser = async ({ email, uid, photo }) => {
 
 const bringUserDates = async (id) => {
   try {
-    const userRef = await db.collection('users').doc(id).get();
+    const userRef = await db.collection("users").doc(id).get();
     const userData = {
-      ...userRef.data()
+      ...userRef.data(),
     };
-    if (!userData.email)
-      throw new Error(`User with ID: ${id} not found`)
-    const userDates = userData.dates
+    if (!userData.email) throw new Error(`User with ID: ${id} not found`);
+    const userDates = userData.dates;
     return userDates;
   } catch (error) {
     throw new Error(error);
@@ -60,32 +59,30 @@ const bringUsers = async () => {
 // --- Bring an user by name from data base --
 const bringUsersByName = async (name) => {
   try {
-    const userRef = await db.collection('users').get();
+    const userRef = await db.collection("users").get();
     const users = [];
     userRef.forEach((user) => {
       users.push({
         id: user.id,
-        ...user.data()
-      })
+        ...user.data(),
+      });
     });
-    const lowerName = name.toLowerCase()
+    const lowerName = name.toLowerCase();
     const matchUsers = [];
     users.forEach((user) => {
-      if (user.name
-        .toLowerCase()
-        .includes(lowerName)
-        || user.lastName
-          .toLowerCase()
-          .includes(lowerName)) {
-        matchUsers.push(user)
+      if (
+        user.name.toLowerCase().includes(lowerName) ||
+        user.lastName.toLowerCase().includes(lowerName)
+      ) {
+        matchUsers.push(user);
       }
-    })
+    });
     return {
       usersMatched: matchUsers.length,
-      matchUsers
-    }
+      matchUsers,
+    };
   } catch (error) {
-    throw new Error(error)
+    throw new Error(error);
   }
 };
 
@@ -180,7 +177,7 @@ const updateUser = async (uid, data) => {
     if (
       user.photo?.public_id ||
       user.photo.secure_url !==
-      "https://res.cloudinary.com/drpge2a0c/image/upload/v1697037341/userImages/blank-profile-picture-973460_960_720_sgp40b.webp"
+        "https://res.cloudinary.com/drpge2a0c/image/upload/v1697037341/userImages/blank-profile-picture-973460_960_720_sgp40b.webp"
     ) {
       await deleteImage(user.photo.public_id);
     }
@@ -196,40 +193,56 @@ const updateUser = async (uid, data) => {
 };
 
 // --- Post a review ---
-const reviewDoctor = async ({ userId, doctorId, dateId, comment, punctuation, date }) => {
+const reviewDoctor = async ({
+  userId,
+  doctorId,
+  dateId,
+  comment,
+  punctuation,
+  date,
+}) => {
   try {
     const review = {
       doctorId,
       comment,
       date,
-      punctuation
-    }
-
-    const userRef = await db.collection('users').doc(userId).get();
-
-    const user = {
-      ...userRef.data()
+      punctuation,
     };
 
-    const reviewedDate = user.dates.find(date => date.id === dateId);
+    const userRef = await db.collection("users").doc(userId).get();
+
+    const user = {
+      ...userRef.data(),
+    };
+
+    const reviewedDate = user.dates.find((date) => date.id === dateId);
     if (reviewedDate.reviewed === true)
-      throw new Error('the appointment has already been reviewed')
+      throw new Error("the appointment has already been reviewed");
     reviewedDate.reviewed = true;
 
-    const filteredDates = user.dates.filter(date => date.id !== dateId);
+    const filteredDates = user.dates.filter((date) => date.id !== dateId);
     filteredDates.push(reviewedDate);
 
-    db.collection('users').doc(userId).update({
-      reviews: FieldValue.arrayUnion(review),
-      dates: filteredDates
-    })
+    db.collection("users")
+      .doc(userId)
+      .update({
+        reviews: FieldValue.arrayUnion(review),
+        dates: filteredDates,
+      });
   } catch (error) {
-    throw new Error(error)
+    throw new Error(error);
   }
 };
 
-module.exports = { bringUsers, bringUserById, bringUserDates, deleteUser, disableUser, signUpUser, updateUser, enableUser, bringUsersByName, reviewDoctor }
-
-
-
-
+module.exports = {
+  bringUsers,
+  bringUserById,
+  bringUserDates,
+  deleteUser,
+  disableUser,
+  signUpUser,
+  updateUser,
+  enableUser,
+  bringUsersByName,
+  reviewDoctor,
+};

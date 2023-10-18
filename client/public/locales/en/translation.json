@@ -323,5 +323,17 @@
         "DNI": "DNI",
         "SAVE": "Save"
 
+    },
+
+    "DASHBOARD": {
+        "POSTDOCTORS": {
+            "POST": "POST DOCTORS",
+            "NAME": "Name",
+            "EMAIL": "Email",
+            "IMAGE": "Image",
+            "SPECIALTY": "Specialty",
+            "ENGDESCRIPTION": "English Description",
+            "ESPDESCRIPTION": "Spanish Description"
+        }
     }
 }

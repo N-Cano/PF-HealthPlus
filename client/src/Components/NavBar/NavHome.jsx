@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import logo from "../../assets/logo2sinfond0.png";
 import ScrollHome from "../Scroll/ScrollHome";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../../firebase/firebase.config";
@@ -11,6 +10,8 @@ import { useTheme } from "../../contextAPI/ThemeContext";
 import { FaRegSun } from "react-icons/fa";
 import { FaRegMoon } from "react-icons/fa";
 import { authEmail } from "../../functions/post";
+
+import axios from "axios";
 
 const NavHome = () => {
   const { t } = useTranslation();
@@ -45,18 +46,55 @@ const NavHome = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  const checkAuth = () => {
-    const user = auth.currentUser;
-    authEmail(user);
-  };
+  //----------------------------------------------------
+  const [form, setForm] = useState({
+    uid: "",
+  });
+
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged(function(user) {
+      if (user) {
+        const uid = user.uid;
+        setForm({ uid });
+      }
+    });
+    return () => {
+      unsubscribe();
+    };
+  }, []);
+
+  const [enable, setEnable] = useState(false); // Estado local para controlar "enable"
+
+  useEffect(() => {
+    if (form.uid) {
+      axios
+        .get(`http://localhost:3001/users/${form.uid}`)
+        .then((response) => {
+          const data = response.data;
+          if (data.enable) {
+            setEnable(true); // Establece "enable" en true si la respuesta del servidor es verdadera
+          } else {
+            setEnable(false); // Establece "enable" en false si la respuesta del servidor es falsa
+          }
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    }
+  }, [form.uid]);
 
   return (
-    <nav className={`bg-blue-900 text-white ${darkMode ? "dark-mode" : ""}`}>
+
+    <nav
+      className="bg-blue-900 text-white"
+      style={{ background: darkMode ? "black" : "" }}
+    >
+
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
         <div className="relative flex h-16 items-center justify-end">
           <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
             <div className="flex flex-shrink-0 items-center">
-              <img className="h-10 w-auto" src={logo} alt="Logo" />
+              <img className="h-10 w-auto" src='https://res.cloudinary.com/drpge2a0c/image/upload/v1697553463/assets/logo2sinfond0_od1ox8.png' alt="Logo" />
             </div>
             <div className="hidden sm:ml-6 sm:block">
               <div className="flex space-x-4">
@@ -64,11 +102,28 @@ const NavHome = () => {
                   <ScrollHome />
                 </div>
 
+
                 <div className="flex items-center ml-auto">
+
+                <Link to={"/plan"}>
+                  {enable !== true && (
+                    <button
+                      className="text-white hover:bg-gray-700 hover:text-white rounded-md px-3 py-5  text-sm font-medium"
+                      onClick={() => {
+                        scrollTo("subscribe");
+                      }}
+                    >
+                      {t("HOME PAGE.NAVBAR.SCROLL HOME.SUBSCRIBE")}
+                    </button>
+                  )}
+                </Link>
+                <div className="flex items-center">
+
                   <Link to="/create">
                     <a
                       href="#"
                       className="text-white hover:bg-gray-700 hover:text-white rounded-md px-4 py-2 text-sm font-medium"
+                      style={{ fontFamily: "Rubik, sans-serif" }}
                     >
                       {t("HOME PAGE.NAVBAR.SCHEDULE")}
                     </a>
@@ -92,7 +147,13 @@ const NavHome = () => {
                   </div>
 
                   <div className="flex items-center text-center">
-                    <h3 className="ml-auto font-semibold text-sm">
+
+
+                    <h3
+                      className="ml-auto font-semibold"
+                      style={{ fontFamily: "Rubik, sans-serif" }}
+                    >
+
                       {t("HOME PAGE.NAVBAR.WELCOME")},<br />
                       {user ? user.displayName || user.email : ""}
                     </h3>
@@ -124,32 +185,38 @@ const NavHome = () => {
                 className="absolute right-0 mt-2 w-48 bg-white border border-gray-200 divide-y divide-gray-100 rounded-md shadow-lg"
                 style={{
                   background: darkMode ? "#00519C" : "",
-                  color: darkMode ? "white" : "",
+
+                  color: darkMode ? "white" : "black",
                 }}
               >
                 <Link to="/profile">
-                  <button
-                    className="block px-4 py-2 text-sm  hover:bg-gray-100"
-                    onClick={checkAuth}
+                  <a
+                    className="block px-4 py-2 text-sm  hover:bg-gray-100 hover:text-black"
+
                   >
                     {t("HOME PAGE.NAVBAR.LOGIN.PROFILE")}
-                  </button>
+                  </a>
+
                 </Link>
                 <Link to="/myDates">
                   <a
                     href="#"
-                    className="block px-4 py-2 text-sm  hover:bg-gray-100"
+
+                    className="block px-4 py-2 text-sm hover:bg-gray-100 hover:text-black"
+
                   >
                     {t("HOME PAGE.NAVBAR.LOGIN.DATES")}
                   </a>
                 </Link>
                 <a
                   href="#"
-                  className="block px-4 py-2 text-sm  hover:bg-gray-100"
+                  className="block px-4 py-2 text-sm  hover:bg-gray-100 hover:text-black"
                   onClick={logOutWithGoogle}
+
                   style={{
                     background: darkMode ? "black" : "",
                   }}
+
                 >
                   {t("HOME PAGE.NAVBAR.LOGIN.LOG OUT")}
                 </a>
