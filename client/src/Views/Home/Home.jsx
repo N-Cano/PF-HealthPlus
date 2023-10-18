@@ -47,7 +47,6 @@ useEffect(() => {
 const unsubscribe = auth.onAuthStateChanged(function(user) {
   if (user) {
     const uid = user.uid;
-    console.log(uid);
     setForm({ uid });
   }
 });
