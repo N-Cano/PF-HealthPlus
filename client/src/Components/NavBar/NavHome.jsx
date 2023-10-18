@@ -96,7 +96,11 @@ const NavHome = () => {
         <div className="relative flex h-16 items-center justify-between">
           <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
             <div className="flex flex-shrink-0 items-center">
-              <img className="h-10 w-auto" src='https://res.cloudinary.com/drpge2a0c/image/upload/v1697553463/assets/logo2sinfond0_od1ox8.png' alt="Logo" />
+              <img
+                className="h-10 w-auto"
+                src="https://res.cloudinary.com/drpge2a0c/image/upload/v1697553463/assets/logo2sinfond0_od1ox8.png"
+                alt="Logo"
+              />
             </div>
             <div className="hidden sm:ml-6 sm:block">
               <div className="flex space-x-4">
@@ -108,6 +112,7 @@ const NavHome = () => {
                   {enable !== true && (
                     <button
                       className="text-white hover:bg-gray-700 hover:text-white rounded-md px-3 py-5  text-sm font-medium"
+                      style={{ fontFamily: "Rubik, sans-serif" }}
                       onClick={() => {
                         scrollTo("subscribe");
                       }}
@@ -145,12 +150,10 @@ const NavHome = () => {
                   </div>
 
                   <div className="flex items-center text-center">
-
                     <h3
                       className="ml-auto font-semibold"
                       style={{ fontFamily: "Rubik, sans-serif" }}
                     >
-
                       {t("HOME PAGE.NAVBAR.WELCOME")},<br />
                       {user ? user.displayName || user.email : ""}
                     </h3>
@@ -192,7 +195,6 @@ const NavHome = () => {
                   >
                     {t("HOME PAGE.NAVBAR.LOGIN.PROFILE")}
                   </a>
-
                 </Link>
                 <Link to="/myDates">
                   <a

@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
 import Scroll from "../Scroll/Scroll";
 import LanguageSwitcher from "../LanguageSwitcher/LanguageSwitcher";
