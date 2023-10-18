@@ -21,7 +21,7 @@ const Newsletter = () => {
     dispatch(subscribeNewsletter(email));
     setSubscribed(true);
     //toast-notification
-    toast(`Request sent. Wait for confirmation in your email`, {
+    toast(t("LANDING PAGE.NEWSLETTER.TOAST"), {
       position: "top-right",
       autoClose: 3000,
       hideProgressBar: false,
@@ -88,4 +88,4 @@ const Newsletter = () => {
 
 export default Newsletter;
 
-//https://www.youtube.com/watch?v=bHN65tbYqBw
+
