@@ -198,9 +198,7 @@ const NavHome = () => {
                   <img
                     className="h-8 w-8 rounded-full"
 
-
                     src={updatedImageUrl}
-
                     alt="User"
                   />
                 </button>
@@ -217,10 +215,11 @@ const NavHome = () => {
                   }}
                 >
                   <Link to="/profile">
-                    <a className="block px-4 py-2 text-sm hover:bg-gray-100 hover:text-black">
+
+                    <a className="block px-4 py-2 text-sm  hover:bg-gray-100 hover:text-black">
+
                       {t("HOME PAGE.NAVBAR.LOGIN.PROFILE")}
                     </a>
-
                   </Link>
                   <Link to="/myDates">
                     <a
