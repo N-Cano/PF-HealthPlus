@@ -110,7 +110,8 @@
             "DESCRIPTION 1": "Únete a nuestra newsletter para recibir las mejores ofertas para cuidar de tu salud",
             "DESCRIPTION 2": "Puedes cancelar en cuaquier momento",
             "BUTTON": "Suscríbete",
-            "PLACEHOLDER": "Correo aquí"
+            "PLACEHOLDER": "Correo aquí",
+            "TOAST":"Solicitud enviada. Espere la confirmación en su correo electrónico"
         }
     },
     "HOME PAGE": {
@@ -204,6 +205,9 @@
             "TITLE": "NOTICIAS",
             "BUTTON": "Leer más"
         }
+    },
+    "SCHEDULE PAGE": {
+        "TOAST": "Solicitud enviada. Espere la confirmación en su correo electrónico"
     },
     "NAV": {
         "HOME BUTTON": "REGRESAR",

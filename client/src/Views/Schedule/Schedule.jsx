@@ -15,7 +15,7 @@ import { useTranslation } from "react-i18next";
 
 const Form = () => {
   const { darkMode } = useTheme();
-
+  const { t } = useTranslation();
   const {
     control,
     handleSubmit,
@@ -32,7 +32,7 @@ const Form = () => {
   const onSubmit = async (data) => {
     postDate(data);
     //toast-notification
-    toast(`Request sent. Wait for confirmation in your email`, {
+    toast(t("SCHEDULE PAGE.TOAST"), {
       position: "top-right",
       autoClose: 3000,
       hideProgressBar: false,

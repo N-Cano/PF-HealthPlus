@@ -110,7 +110,8 @@
             "DESCRIPTION 1": "Join our newsletter to receive our best offers to take care of your health",
             "DESCRIPTION 2": "You can unsubscribe at any time",
             "BUTTON": "Subscribe",
-            "PLACEHOLDER": "Your email"
+            "PLACEHOLDER": "Your email",
+            "TOAST": "Request sent. Wait for confirmation in your email"
         }
     },
     "HOME PAGE": {
@@ -205,6 +206,9 @@
             "BUTTON": "Read more"
         }
     },
+    "SCHEDULE PAGE": {
+        "TOAST": "Request sent. Wait for confirmation in your email"
+    },
     "NAV": {
         "HOME BUTTON": "HOME",
         "HEALTHPLUS": "HEALTHPLUS",
@@ -263,7 +267,6 @@
         "BIRTHDAY": "Birthday",
         "DNI": "DNI",
         "MODIFYPROFILE": "Modify Profile"
-
     },
     "CHATBOT": {
         "GREET": {
@@ -313,19 +316,16 @@
         "NO": {
             "MESSAGE": "I am glad I helped you. Remember that you can contact us by phone at +54 9 351 6867775 or by email at healthplus@gmail.com, goodbye!"
         }
-    }, 
-
+    },
     "PROFILEFORM": {
-        "MODIFYPROFILE":"Modify Profile",
+        "MODIFYPROFILE": "Modify Profile",
         "SELECT IMG": "Select img",
         "NAME": "Name",
         "LASTNAME": "Last Name",
         "BIRTHDAY": "Birthday",
         "DNI": "DNI",
         "SAVE": "Save"
-
     },
-
     "DASHBOARD": {
         "POSTDOCTORS": {
             "POST": "POST DOCTORS",
