@@ -1,5 +1,3 @@
-
-import { deleteDate } from "./deleteDate";
 import { useTheme } from "../../../contextAPI/ThemeContext";
 import { Link } from "react-router-dom";
 import { auth } from "../../../firebase/firebase.config";
@@ -10,9 +8,7 @@ import { useEffect } from "react";
 import { cancelDate } from "./deleteDate";
 
 const Dates = (props) => {
-
   const { darkMode } = useTheme();
-  
 
   const [form, setForm] = useState({
     punctuation: "",
