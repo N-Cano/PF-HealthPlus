@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import Dates from "./Dates/Dates";
 const CardsDates = ({ dates }) => {
   return (

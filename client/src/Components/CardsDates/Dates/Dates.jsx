@@ -1,11 +1,19 @@
+
+import { deleteDate } from "./deleteDate";
+import { useTheme } from "../../../contextAPI/ThemeContext";
 import { Link } from "react-router-dom";
 import { auth } from "../../../firebase/firebase.config";
 import axios from "axios";
 import { useState } from "react";
 import { useEffect } from "react";
+
 import { cancelDate } from "./deleteDate";
 
 const Dates = (props) => {
+
+  const { darkMode } = useTheme();
+  
+
   const [form, setForm] = useState({
     punctuation: "",
     comment: "",
@@ -48,7 +56,14 @@ const Dates = (props) => {
   const [review, setReview] = useState(false);
 
   return (
-    <div className="w-full bg-blue-200 p-8 " key={props.dateId}>
+    <div
+      className="w-full bg-blue-200 p-8 "
+      key={props.dateId}
+      style={{
+        backgroundColor: darkMode ? "#00519C" : "",
+        color: darkMode ? "white" : "",
+      }}
+    >
       {props.status === "pending" ? (
         <button
           onClick={cancelDate}

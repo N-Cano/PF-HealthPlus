@@ -136,12 +136,12 @@ const Landing = () => {
       {/*  SERVICES */}
       <div id="doctors" className="grid grid-cols-3 gap-2 mt-1">
         <div
-          className="bg-white p-4 rounded-lg shadow-md flex flex-col items-center justify-center"
-          style={{ backgroundColor: darkMode ? "#1E3144" : "" }}
+          className="bg-white p-4 rounded-lg flex flex-col items-center justify-center"
+          style={{ backgroundColor: darkMode ? "#1e3453" : "" }}
         >
           <div>
             <div
-              className="bg-blue-900 w-full rounded-lg h-12 flex items-center justify-center"
+              className="bg-blue-900 w-full rounded-2xl h-12 flex items-center justify-center"
               style={{ backgroundColor: darkMode ? "#325372" : "" }}
             >
               <h2
@@ -152,9 +152,9 @@ const Landing = () => {
               </h2>
             </div>
             <img
-              src='https://res.cloudinary.com/drpge2a0c/image/upload/v1697553463/assets/backgrounds/doctor_6_1_400x400_wasu1j.jpg'
+              src="https://res.cloudinary.com/drpge2a0c/image/upload/v1697553463/assets/backgrounds/doctor_6_1_400x400_wasu1j.jpg"
               alt="doctor"
-              className="w-full h-full ps-0 rounded-lg"
+              className="w-full h-full ps-0 rounded-2xl"
               style={{ opacity: darkMode ? 0.7 : 1 }}
             />
           </div>
@@ -171,12 +171,12 @@ const Landing = () => {
           </Link>
         </div>
         <div
-          className="bg-white p-4 rounded-lg shadow-md flex flex-col items-center justify-center"
-          style={{ backgroundColor: darkMode ? "#1E3144" : "" }}
+          className="bg-white p-4 rounded-lg flex flex-col items-center justify-center"
+          style={{ backgroundColor: darkMode ? "#1e3453" : "" }}
         >
           <div>
             <div
-              className="bg-blue-900 w-full rounded-lg h-12 flex items-center justify-center"
+              className="bg-blue-900 w-full rounded-2xl h-12 flex items-center justify-center"
               style={{ backgroundColor: darkMode ? "#325372" : "" }}
             >
               <h2
@@ -187,9 +187,9 @@ const Landing = () => {
               </h2>
             </div>
             <img
-              src='https://res.cloudinary.com/drpge2a0c/image/upload/v1697553469/assets/backgrounds/doctor_2_400x400_vgevvu.jpg'
+              src="https://res.cloudinary.com/drpge2a0c/image/upload/v1697553469/assets/backgrounds/doctor_2_400x400_vgevvu.jpg"
               alt="doctor"
-              className="w-[100%] h-full ps-0 rounded-md"
+              className="w-[100%] h-full ps-0 rounded-2xl"
               style={{ opacity: darkMode ? 0.7 : 1 }}
             />
           </div>
@@ -206,12 +206,12 @@ const Landing = () => {
           </Link>
         </div>
         <div
-          className="bg-white p-4 rounded-lg shadow-md flex flex-col items-center justify-center"
-          style={{ backgroundColor: darkMode ? "#1E3144" : "" }}
+          className="bg-white p-4 rounded-lg  flex flex-col items-center justify-center"
+          style={{ backgroundColor: darkMode ? "#1e3453" : "" }}
         >
           <div>
             <div
-              className="bg-blue-900 w-full rounded-md h-12 flex items-center justify-center"
+              className="bg-blue-900 w-full rounded-2xl h-12 flex items-center justify-center"
               style={{ backgroundColor: darkMode ? "#325372" : "" }}
             >
               <h2
@@ -225,9 +225,9 @@ const Landing = () => {
               </h2>
             </div>
             <img
-              src='https://res.cloudinary.com/drpge2a0c/image/upload/v1697553463/assets/backgrounds/doctor_9_400x400_g3a9hw.jpg'
+              src="https://res.cloudinary.com/drpge2a0c/image/upload/v1697553463/assets/backgrounds/doctor_9_400x400_g3a9hw.jpg"
               alt="doctor"
-              className="w-full h-full ps-0 rounded-lg"
+              className="w-full h-full ps-0 rounded-2xl"
               style={{ opacity: darkMode ? 0.7 : 1 }}
             />
           </div>

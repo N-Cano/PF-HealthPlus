@@ -228,11 +228,12 @@
     "DETAIL": {
         "HEADERS": {
             "LOADING": "Loading...",
-            "HOME": "Home",
+            "HOME": "Back",
             "SPECIALTY": "Specialty",
             "REVIEWS": "Reviews",
             "DESCRIPTION": "Description",
-            "NOCOMMENTS": "No comments for the moment"
+            "NOCOMMENTS": "No comments for the moment",
+            "MORE REVIEWS": "More Reviews"
         }
     },
     "CARDS": {
@@ -323,5 +324,17 @@
         "DNI": "DNI",
         "SAVE": "Save"
 
+    },
+
+    "DASHBOARD": {
+        "POSTDOCTORS": {
+            "POST": "POST DOCTORS",
+            "NAME": "Name",
+            "EMAIL": "Email",
+            "IMAGE": "Image",
+            "SPECIALTY": "Specialty",
+            "ENGDESCRIPTION": "English Description",
+            "ESPDESCRIPTION": "Spanish Description"
+        }
     }
 }

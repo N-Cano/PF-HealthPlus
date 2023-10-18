@@ -1,5 +1,6 @@
+/* eslint-disable react/prop-types */
+import React from "react";
 import { Link } from "react-router-dom";
-
 import Scroll from "../Scroll/Scroll";
 import LanguageSwitcher from "../LanguageSwitcher/LanguageSwitcher";
 import { useTranslation } from "react-i18next";
@@ -20,6 +21,7 @@ const NavBar = ({ children }) => {
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           <div className="flex items-center">
+
             <div className="flex-shrink-0">
               <img
                 className="h-10 w-auto"
@@ -28,10 +30,18 @@ const NavBar = ({ children }) => {
               />
             </div>
 
+
             <div className="hidden sm:flex items-center ml-4">
               <Scroll />
             </div>
-            <div className="ml-auto">
+          </div>
+
+          <div className="flex items-center ml-auto">
+            <div className="mr-4">
+              <LanguageSwitcher />
+            </div>
+
+            <div className="mr-4">
               <button
                 onClick={toggleDarkMode}
                 className="p-2 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
@@ -43,12 +53,7 @@ const NavBar = ({ children }) => {
                 )}
               </button>
             </div>
-            <div className="ml-auto">
-              <LanguageSwitcher />
-            </div>
-          </div>
 
-          <div className="ml-auto">
             <Link to="/login">
               <a
                 href="#"
