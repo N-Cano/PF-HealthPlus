@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import {
   Home,
   Landing,
@@ -11,6 +12,7 @@ import {
   Detail,
   Profile,
   MyDates,
+  DetailReviews,
 } from "./Views";
 
 import { Route, Routes } from "react-router-dom";
@@ -59,6 +61,7 @@ const App = () => {
         <Route path="/signUp" element={<SignUp />} />
         <Route path="/detail/:id" element={<Detail />} />
         <Route path="/detail2/:id" element={<Detail2 />} />
+        <Route path="/detailReviews/:id" element={<DetailReviews />} />
         <Route path="/DetailUsers/:id" element={<DetailUsers />} />
         <Route path="/myDates" element={<MyDates />} />
         <Route path="/dashboard" element={<DashBoard />} />

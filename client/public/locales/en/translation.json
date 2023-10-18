@@ -232,11 +232,12 @@
     "DETAIL": {
         "HEADERS": {
             "LOADING": "Loading...",
-            "HOME": "Home",
+            "HOME": "Back",
             "SPECIALTY": "Specialty",
             "REVIEWS": "Reviews",
             "DESCRIPTION": "Description",
-            "NOCOMMENTS": "No comments for the moment"
+            "NOCOMMENTS": "No comments for the moment",
+            "MORE REVIEWS": "More Reviews"
         }
     },
     "CARDS": {

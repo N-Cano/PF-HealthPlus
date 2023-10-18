@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import ScrollHome from "../Scroll/ScrollHome";
 import { useNavigate } from "react-router-dom";
@@ -106,17 +106,19 @@ const NavHome = () => {
   }, [form.uid]);
 
   return (
-
     <nav
       className="bg-blue-900 text-white"
       style={{ background: darkMode ? "black" : "" }}
     >
-
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
         <div className="relative flex h-16 items-center justify-end">
           <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
             <div className="flex flex-shrink-0 items-center">
-              <img className="h-10 w-auto" src='https://res.cloudinary.com/drpge2a0c/image/upload/v1697553463/assets/logo2sinfond0_od1ox8.png' alt="Logo" />
+              <img
+                className="h-10 w-auto"
+                src="https://res.cloudinary.com/drpge2a0c/image/upload/v1697553463/assets/logo2sinfond0_od1ox8.png"
+                alt="Logo"
+              />
             </div>
             <div className="hidden sm:ml-6 sm:block">
               <div className="flex space-x-4">
@@ -124,13 +126,12 @@ const NavHome = () => {
                   <ScrollHome />
                 </div>
 
-
                 <div className="flex items-center ml-auto">
-
                   <Link to={"/plan"}>
                     {enable !== true && (
                       <button
                         className="text-white hover:bg-gray-700 hover:text-white rounded-md px-3 py-5  text-sm font-medium"
+                        style={{ fontFamily: "Rubik, sans-serif" }}
                         onClick={() => {
                           scrollTo("subscribe");
                         }}
@@ -140,7 +141,6 @@ const NavHome = () => {
                     )}
                   </Link>
                   <div className="flex items-center">
-
                     <Link to="/create">
                       <a
                         href="#"
@@ -169,13 +169,10 @@ const NavHome = () => {
                     </div>
 
                     <div className="flex items-center text-center">
-
-
                       <h3
                         className="ml-auto font-semibold"
                         style={{ fontFamily: "Rubik, sans-serif" }}
                       >
-
                         {t("HOME PAGE.NAVBAR.WELCOME")},<br />
                         {user ? user.displayName || user.email : ""}
                       </h3>
@@ -196,7 +193,9 @@ const NavHome = () => {
                 >
                   <img
                     className="h-8 w-8 rounded-full"
+
                     src={updatedImageUrl}
+
                     alt="User"
                   />
                 </button>
@@ -212,10 +211,8 @@ const NavHome = () => {
                   }}
                 >
                   <Link to="/profile">
-                    <a
-                      className="block px-4 py-2 text-sm  hover:bg-gray-100 hover:text-black"
 
-                    >
+                    <a className="block px-4 py-2 text-sm  hover:bg-gray-100 hover:text-black">
                       {t("HOME PAGE.NAVBAR.LOGIN.PROFILE")}
                     </a>
 
@@ -223,7 +220,6 @@ const NavHome = () => {
                   <Link to="/myDates">
                     <a
                       href="#"
-
                       className="block px-4 py-2 text-sm hover:bg-gray-100 hover:text-black"
 
                     >
@@ -234,11 +230,9 @@ const NavHome = () => {
                     href="#"
                     className="block px-4 py-2 text-sm  hover:bg-gray-100 hover:text-black"
                     onClick={logOutWithGoogle}
-
                     style={{
                       background: darkMode ? "black" : "",
                     }}
-
                   >
                     {t("HOME PAGE.NAVBAR.LOGIN.LOG OUT")}
                   </a>
