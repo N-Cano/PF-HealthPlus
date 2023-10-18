@@ -30,20 +30,17 @@ const DetailReviews = () => {
           </h1>
 
           <p className="mt-7 text-center">These are some of the reviews:</p>
-          {detail.comments
-            ? detail.comments.map((comment, index) => (
-                <div
-                  key={index}
-                  className="ml-8 max-w-[1200] mx-auto py-[30px] grid lg:grid-cols-4 sm:grid-cols-2 gap-6 text-black grid-flow-col-dense"
-                >
-                  <div className="shadow-lg p-4 text-center">
+          <div className="max-w-[1200] py-[30px] grid lg:grid-cols-5 sm:grid-cols-5 gap-6 text-black">
+            {detail.comments
+              ? detail.comments.slice(0, 25).map((comment, index) => (
+                  <div key={index} className="shadow-lg p-4 text-center">
                     <h3 className="text-xl py-2">{comment.userName}</h3>
                     <p>{comment.comment}</p>
                     <span>{comment.date}</span>
                   </div>
-                </div>
-              ))
-            : null}
+                ))
+              : null}
+          </div>
           <div className="flex justify-center items-center">
             <Link to="/home">
               <button

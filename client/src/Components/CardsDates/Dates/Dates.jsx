@@ -1,7 +1,5 @@
-
-import { deleteDate } from "./deleteDate";
+/* eslint-disable react/prop-types */
 import { useTheme } from "../../../contextAPI/ThemeContext";
-import { Link } from "react-router-dom";
 import { auth } from "../../../firebase/firebase.config";
 import axios from "axios";
 import { useState } from "react";
@@ -10,9 +8,7 @@ import { useEffect } from "react";
 import { cancelDate } from "./deleteDate";
 
 const Dates = (props) => {
-
   const { darkMode } = useTheme();
-  
 
   const [form, setForm] = useState({
     punctuation: "",
