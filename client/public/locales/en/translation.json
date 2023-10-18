@@ -336,5 +336,28 @@
             "ENGDESCRIPTION": "English Description",
             "ESPDESCRIPTION": "Spanish Description"
         }
+    },
+
+    "SIGNUP": {
+        "TITLE": "SING UP",
+        "BACK": "Back",
+        "EMAIL": "Email",
+        "PASSWORD": "Password",
+        "BTNSIGNUP": "Sign Up",
+        "PLACEHOLDEREMAIL": "Email...",
+        "PLACEHOLDEREPASS": "Password..."
+
+    },
+
+    "FORGOTPASSWORD": {
+        "BACK": "Back",
+        "EMAIL": "Email",
+        "SEND": "Send",
+        "PLACEHOLDEREMAIL": "Email..."
+        
+    },
+     
+    "DETAILREVIEW" : {
+        "MSG": "These are some of the reviews:"
     }
 }
