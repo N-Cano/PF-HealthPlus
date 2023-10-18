@@ -1,7 +1,7 @@
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../assets/logo2sinfond0.png";
 import ScrollHome from "../Scroll/ScrollHome";
-import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../../firebase/firebase.config";
 import { UserAuth } from "../../context/AuthContext";
@@ -51,21 +51,20 @@ const NavHome = () => {
   };
 
   return (
-    <nav
-      className="bg-blue-900 text-white"
-      style={{ background: darkMode ? "black" : "" }}>
+    <nav className={`bg-blue-900 text-white ${darkMode ? "dark-mode" : ""}`}>
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
-        <div className="relative flex h-16 items-center justify-between">
+        <div className="relative flex h-16 items-center justify-end">
           <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
             <div className="flex flex-shrink-0 items-center">
               <img className="h-10 w-auto" src={logo} alt="Logo" />
             </div>
             <div className="hidden sm:ml-6 sm:block">
               <div className="flex space-x-4">
-                <div className="flex items-center space-x-4 ml-auto">
+                <div className="flex items-center space-x-4">
                   <ScrollHome />
                 </div>
-                <div className="flex items-center">
+
+                <div className="flex items-center ml-auto">
                   <Link to="/create">
                     <a
                       href="#"
@@ -75,10 +74,11 @@ const NavHome = () => {
                     </a>
                   </Link>
 
-                  <div className="ml-auto">
+                  <div className="mr-4">
                     <button
                       onClick={toggleDarkMode}
-                      className="p-2 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">
+                      className="p-2 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
+                    >
                       {darkMode ? (
                         <FaRegSun className="inline-block text-yellow" />
                       ) : (
@@ -87,12 +87,12 @@ const NavHome = () => {
                     </button>
                   </div>
 
-                  <div className="ml-auto">
+                  <div className="mr-4">
                     <LanguageSwitcher />
                   </div>
 
                   <div className="flex items-center text-center">
-                    <h3 className="ml-auto font-semibold">
+                    <h3 className="ml-auto font-semibold text-sm">
                       {t("HOME PAGE.NAVBAR.WELCOME")},<br />
                       {user ? user.displayName || user.email : ""}
                     </h3>
@@ -109,7 +109,8 @@ const NavHome = () => {
                 id="user-menu-button"
                 aria-expanded="false"
                 aria-haspopup="true"
-                onClick={toggleMenu}>
+                onClick={toggleMenu}
+              >
                 <img
                   className="h-8 w-8 rounded-full"
                   src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
@@ -124,18 +125,21 @@ const NavHome = () => {
                 style={{
                   background: darkMode ? "#00519C" : "",
                   color: darkMode ? "white" : "",
-                }}>
+                }}
+              >
                 <Link to="/profile">
                   <button
                     className="block px-4 py-2 text-sm  hover:bg-gray-100"
-                    onClick={checkAuth}>
+                    onClick={checkAuth}
+                  >
                     {t("HOME PAGE.NAVBAR.LOGIN.PROFILE")}
                   </button>
                 </Link>
                 <Link to="/myDates">
                   <a
                     href="#"
-                    className="block px-4 py-2 text-sm  hover:bg-gray-100">
+                    className="block px-4 py-2 text-sm  hover:bg-gray-100"
+                  >
                     {t("HOME PAGE.NAVBAR.LOGIN.DATES")}
                   </a>
                 </Link>
@@ -145,14 +149,16 @@ const NavHome = () => {
                   onClick={logOutWithGoogle}
                   style={{
                     background: darkMode ? "black" : "",
-                  }}>
+                  }}
+                >
                   {t("HOME PAGE.NAVBAR.LOGIN.LOG OUT")}
                 </a>
                 {user?.email === "admin@admin.com" && (
                   <Link to="/dashboard">
                     <a
                       href="#"
-                      className="block px-4 py-2 text-sm  hover.bg-gray-100">
+                      className="block px-4 py-2 text-sm  hover.bg-gray-100"
+                    >
                       Dashboard
                     </a>
                   </Link>

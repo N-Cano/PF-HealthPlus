@@ -14,23 +14,26 @@ const Specialties = () => {
 
   return (
     <div
-      className="flex flex-wrap justify-center items-center text-center py-0 px-0 h-[900px]"
+      className="flex flex-wrap justify-center items-center text-center py-0 px-0"
       style={{
         backgroundImage:
           'url("https://images.pexels.com/photos/3376790/pexels-photo-3376790.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")',
-
         backgroundSize: "cover",
-      }}>
+        flexDirection: "column",
+      }}
+    >
       {/* Contenido de Servicios */}
       <div style={{ backdropFilter: "blur(1px)" }}>
         <h3
           className="text-[58px] text-white font-semibold "
-          style={{ fontFamily: "Rubik, sans-serif" }}>
+          style={{ fontFamily: "Rubik, sans-serif" }}
+        >
           {t("LANDING PAGE.SPECIALTIES.OUR SERVICES")}
         </h3>
         <p
           className="text-lg text-white mb-4"
-          style={{ fontFamily: "Open Sans, sans-serif" }}>
+          style={{ fontFamily: "Open Sans, sans-serif" }}
+        >
           {t("LANDING PAGE.SPECIALTIES.DESCRIPTION 1")}
         </p>
 
@@ -38,10 +41,11 @@ const Specialties = () => {
         <div className="text-blue-900 font-semibold flex gap-12 flex-wrap justify-center items-center h-[550px]">
           {/* Tarjeta Dermatology */}
           <div
-            className="bg-white/50 group-hover:scale-110 hover:scale-100 cursor-pointer mb-2 w-[250px] h-[250px] rounded-2xl transition-transform duration-300 ease-in-out"
+            className="bg-white/50 group-hover:scale-110 hover:scale-100 cursor-pointer mb-2 w-[30%] md:w-[250px] md:h-[250px] rounded-2xl transition-transform duration-300 ease-in-out"
             style={{
               fontFamily: "Open Sans, sans-serif",
-            }}>
+            }}
+          >
             <div className="flex justify-center items-center mt-2">
               <FaHandHoldingMedical />
             </div>
@@ -50,15 +54,17 @@ const Specialties = () => {
             </h4>
             <p
               className="text-[13px] text-black text-left ml-3"
-              style={{ fontFamily: "Open Sans, sans-serif" }}>
+              style={{ fontFamily: "Open Sans, sans-serif" }}
+            >
               {t("LANDING PAGE.SPECIALTIES.SERVICES.DERMATOLOGY.DESCRIPTION")}
             </p>
           </div>
           <div
-            className="bg-white/50 group-hover:scale-110 hover:scale-100 cursor-pointer mb-2 w-[250px] h-[250px] rounded-2xl transition-transform duration-300 ease-in-out"
+            className="bg-white/50 group-hover:scale-110 hover:scale-100 cursor-pointer mb-2 w-[30%] md:w-[250px] md:h-[250px] rounded-2xl transition-transform duration-300 ease-in-out"
             style={{
               fontFamily: "Open Sans, sans-serif",
-            }}>
+            }}
+          >
             <div className="flex justify-center items-center mt-2">
               <GiMedicalDrip />
             </div>
@@ -67,15 +73,17 @@ const Specialties = () => {
             </h4>
             <p
               className="text-[13px] text-black text-left ml-3"
-              style={{ fontFamily: "Open Sans, sans-serif" }}>
+              style={{ fontFamily: "Open Sans, sans-serif" }}
+            >
               {t("LANDING PAGE.SPECIALTIES.SERVICES.RHEUMATOLOGY.DESCRIPTION")}
             </p>
           </div>
           <div
-            className="bg-white/50 group-hover:scale-110 hover:scale-100 cursor-pointer mb-2 w-[250px] h-[250px] rounded-2xl transition-transform duration-300 ease-in-out"
+            className="bg-white/50 group-hover:scale-110 hover:scale-100 cursor-pointer mb-2 w-[30%] md:w-[250px] md:h-[250px] rounded-2xl transition-transform duration-300 ease-in-out"
             style={{
               fontFamily: "Open Sans, sans-serif",
-            }}>
+            }}
+          >
             <div className="flex justify-center items-center mt-2">
               <GiBrain />
             </div>
@@ -84,15 +92,17 @@ const Specialties = () => {
             </h4>
             <p
               className="text-[13px] text-black text-left ml-3"
-              style={{ fontFamily: "Open Sans, sans-serif" }}>
+              style={{ fontFamily: "Open Sans, sans-serif" }}
+            >
               {t("LANDING PAGE.SPECIALTIES.SERVICES.PSYCHIATRY.DESCRIPTION")}
             </p>
           </div>
           <div
-            className="bg-white/50 group-hover:scale-110 hover:scale-100 cursor-pointer mb-2 w-[250px] h-[250px] rounded-2xl transition-transform duration-300 ease-in-out"
+            className="bg-white/50 group-hover:scale-110 hover:scale-100 cursor-pointer mb-2 w-[30%] md:w-[250px] md:h-[250px] rounded-2xl transition-transform duration-300 ease-in-out"
             style={{
               fontFamily: "Open Sans, sans-serif",
-            }}>
+            }}
+          >
             <div className="flex justify-center items-center mt-2 ">
               <GiStomach />
             </div>
@@ -101,17 +111,19 @@ const Specialties = () => {
             </h4>
             <p
               className="text-[13px] text-black text-left ml-3"
-              style={{ fontFamily: "Open Sans, sans-serif" }}>
+              style={{ fontFamily: "Open Sans, sans-serif" }}
+            >
               {t(
                 "LANDING PAGE.SPECIALTIES.SERVICES.GASTROENTEROLOGY.DESCRIPTION"
               )}
             </p>
           </div>
           <div
-            className="bg-white/50 group-hover:scale-110 hover:scale-100 cursor-pointer mb-2 w-[250px] h-[250px] rounded-2xl transition-transform duration-300 ease-in-out"
+            className="bg-white/50 group-hover:scale-110 hover:scale-100 cursor-pointer mb-2 w-[30%] md:w-[250px] md:h-[250px] rounded-2xl transition-transform duration-300 ease-in-out"
             style={{
               fontFamily: "Open Sans, sans-serif",
-            }}>
+            }}
+          >
             <div className="flex justify-center items-center mt-2 ">
               <MdOutlineBloodtype />
             </div>
@@ -120,15 +132,17 @@ const Specialties = () => {
             </h4>
             <p
               className="text-[13px] text-black text-left ml-3"
-              style={{ fontFamily: "Open Sans, sans-serif" }}>
+              style={{ fontFamily: "Open Sans, sans-serif" }}
+            >
               {t("LANDING PAGE.SPECIALTIES.SERVICES.ENDOCRINOLOGY.DESCRIPTION")}
             </p>
           </div>
           <div
-            className="bg-white/50 group-hover:scale-110 hover:scale-100 cursor-pointer mb-2 w-[250px] h-[250px] rounded-2xl transition-transform duration-300 ease-in-out"
+            className="bg-white/50 group-hover:scale-110 hover:scale-100 cursor-pointer mb-2 w-[30%] md:w-[250px] md:h-[250px] rounded-2xl transition-transform duration-300 ease-in-out"
             style={{
               fontFamily: "Open Sans, sans-serif",
-            }}>
+            }}
+          >
             <div className="flex justify-center items-center mt-2">
               <AiFillSecurityScan />
             </div>
@@ -137,15 +151,17 @@ const Specialties = () => {
             </h4>
             <p
               className="text-[13px] text-black text-left ml-3"
-              style={{ fontFamily: "Open Sans, sans-serif" }}>
+              style={{ fontFamily: "Open Sans, sans-serif" }}
+            >
               {t("LANDING PAGE.SPECIALTIES.SERVICES.RADIOLOGY.DESCRIPTION")}
             </p>
           </div>
           <div
-            className="bg-white/50 group-hover:scale-110 hover:scale-100 cursor-pointer mb-2 w-[250px] h-[250px] rounded-2xl transition-transform duration-300 ease-in-out"
+            className="bg-white/50 group-hover:scale-110 hover:scale-100 cursor-pointer mb-2 w-[30%] md:w-[250px] md:h-[250px] rounded-2xl transition-transform duration-300 ease-in-out"
             style={{
               fontFamily: "Open Sans, sans-serif",
-            }}>
+            }}
+          >
             <div className="flex justify-center items-center mt-2">
               <IoBody />
             </div>
@@ -154,15 +170,17 @@ const Specialties = () => {
             </h4>
             <p
               className="text-[13px] text-black text-left ml-3"
-              style={{ fontFamily: "Open Sans, sans-serif" }}>
+              style={{ fontFamily: "Open Sans, sans-serif" }}
+            >
               {t("LANDING PAGE.SPECIALTIES.SERVICES.UROLOGY.DESCRIPTION")}
             </p>
           </div>
           <div
-            className="bg-white/50 group-hover:scale-110 hover:scale-100 cursor-pointer mb-2 w-[250px] h-[250px] rounded-2xl transition-transform duration-300 ease-in-out"
+            className="bg-white/50 group-hover:scale-110 hover:scale-100 cursor-pointer mb-2 w-[30%] md:w-[250px] md:h-[250px] rounded-2xl transition-transform duration-300 ease-in-out"
             style={{
               fontFamily: "Open Sans, sans-serif",
-            }}>
+            }}
+          >
             <div className="flex justify-center items-center mt-2">
               <BsFillClipboardHeartFill />
             </div>
@@ -171,7 +189,8 @@ const Specialties = () => {
             </h4>
             <p
               className="text-[13px] text-black text-left ml-3"
-              style={{ fontFamily: "Open Sans, sans-serif" }}>
+              style={{ fontFamily: "Open Sans, sans-serif" }}
+            >
               {t("LANDING PAGE.SPECIALTIES.SERVICES.CARDIOLOGY.DESCRIPTION")}
             </p>
           </div>
@@ -180,7 +199,8 @@ const Specialties = () => {
         {/* Mensaje Adicional */}
         <p
           className="text-2xl text-white font-semibold mt-12 mb-2 hidden sm-custom:block"
-          style={{ fontFamily: "Open Sans, sans-serif" }}>
+          style={{ fontFamily: "Open Sans, sans-serif" }}
+        >
           {t("LANDING PAGE.SPECIALTIES.TAGLINE")}
         </p>
       </div>

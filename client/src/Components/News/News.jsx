@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import Paginado from "../Paginado/paginado";
 import { useTranslation } from "react-i18next";
-import { fetchNewsData } from './newsApi'
+import { fetchNewsData } from "./newsApi";
 
 const News = () => {
   const { t } = useTranslation();
@@ -39,8 +39,8 @@ const News = () => {
             <div className="bg-white rounded-3xl overflow-hidden shadow-md h-[500px]">
               <img
                 src={
-                  article.urlToImage
-                    ? article.urlToImage
+                  article.image_url
+                    ? article.image_url
                     : "https://fakeimg.pl/553x253/85c5f2/000000?text=No+image"
                 }
                 alt={article.title}
