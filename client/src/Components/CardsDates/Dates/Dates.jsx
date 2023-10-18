@@ -7,33 +7,22 @@ import axios from "axios";
 import { useState } from "react";
 import { useEffect } from "react";
 
-
-
+import { cancelDate } from "./deleteDate";
 
 const Dates = (props) => {
+
   const { darkMode } = useTheme();
   
-  const cancelDate = () => {
-    axios.put(`http://localhost:3001/dates/cancel`, {
-      userId: props.userId,
-      dateId: props.dateId,
-      doctorId: props.doctorId,
-    });
-    alert("llevar a un forn para dejar un mensaje?");
-  };
 
-  const reviewDate = () => {
-    alert("emulo que llevo al form")
-  };
-    
   const [form, setForm] = useState({
     punctuation: "",
     comment: "",
     date: "",
-    userId: "",
-    doctorId: "",
-    dateId: "",
+    userId: props.userId,
+    doctorId: props.doctorId,
+    dateId: props.dateId,
   });
+  console.log(form);
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(function(user) {
@@ -55,18 +44,11 @@ const Dates = (props) => {
 
   const submitHandler = async (event) => {
     event.preventDefault();
-    const formData = new FormData();
-    formData.append("punctuation", form.punctuation);
-    formData.append("comment", form.comment);
-    formData.append("date", form.date);
-    formData.append("userId", form.userId);
-    formData.append("doctorId", form.doctorId);
-    formData.append("dateId", form.dateId);
 
     try {
-      await updateProfile(formData);
-      console.log("Datos Cargados");
-      navigate("/profile");
+      await axios.post("http://localhost:3001/doctors/comment", form);
+      setReview(false);
+      console.log(" Comentario Cargado");
     } catch (error) {
       console.error("Error al enviar el formulario:", error);
     }
@@ -122,7 +104,7 @@ const Dates = (props) => {
               <input
                 type="text"
                 name="punctuation"
-                value={form.punctuation}
+                value={Number(form.punctuation)}
                 onChange={changeHandler}
               />
             </div>
@@ -140,7 +122,6 @@ const Dates = (props) => {
               className="font-bold w-60 bg-blue-400 hover:bg-indigo-500 hover:scale-110 rounded-2xl transition ease-in-out duration-300 m-24 py-4"
               type="submit"
               onSubmit={submitHandler}
-              onClick={() => setReview(false)}
             >
               X
             </button>

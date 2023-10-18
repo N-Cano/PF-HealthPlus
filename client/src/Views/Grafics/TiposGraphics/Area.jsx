@@ -53,7 +53,7 @@ const StackedAreaCharts = () => {
           />
           <Area
             type="monotone"
-            dataKey="specialty"
+            dataKey="rating"
             stackId="1"
             stroke="#82caed"
             fill="#fad3cf"
