@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import logoGoogle from "../../assets/logoGoogle.png";
 import { UserAuth } from "../../context/AuthContext";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
@@ -59,13 +58,15 @@ const Login = () => {
     <>
       <div
         className="max-h-full max-w-full justify-center items-center flex-col relative bg-gradient-to-br from-blue-300 to-gray-100 shadow-lg"
-        style={{ background: darkMode ? "black" : "" }}>
+        style={{ background: darkMode ? "black" : "" }}
+      >
         <div className="bg-blue-900 flex justify-center items-center gap-1 p-4">
           <Link to="/">
             <a
               href="#"
               className="text-white hover:bg-gray-700 hover:text-white rounded-md px-4 py-2 text-sm font-medium mr-auto"
-              style={{ fontFamily: "Rubik, sans-serif" }}>
+              style={{ fontFamily: "Rubik, sans-serif" }}
+            >
               {t("LOGIN.BUTTONBACK")}
             </a>
           </Link>
@@ -73,7 +74,8 @@ const Login = () => {
             <LanguageSwitcher />
             <button
               onClick={toggleDarkMode}
-              className="p-2 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">
+              className="p-2 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
+            >
               {darkMode ? (
                 <FaRegSun className="inline-block text-yellow" />
               ) : (
@@ -88,13 +90,15 @@ const Login = () => {
             className="bg-blue-400 rounded-2xl text-center p-8 max-w-[552px] w-full z-10"
             style={{
               background: darkMode ? "#1E3144" : "",
-            }}>
+            }}
+          >
             <h2
               className="text-3xl mb-8 font-bold text-neutral-50 bg-gray-950 rounded-2xl p-2"
               style={{
                 fontFamily: "Rubik, sans-serif",
                 background: darkMode ? "#325372" : "",
-              }}>
+              }}
+            >
               {t("LOGIN.SIGN IN")}
             </h2>
             <form onSubmit={handleSubmit(loginWithEmailPassword)}>
@@ -119,6 +123,7 @@ const Login = () => {
                       type="text"
                       placeholder={t("LOGIN.FORM.PLACEHOLDERS.EMAIL")}
                       className="p-2 pl-4 placeholder-slate-600 rounded-2xl focus:outline-none"
+                      style={{ color: darkMode ? "black" : "" }}
                     />
                   )}
                 />
@@ -154,11 +159,14 @@ const Login = () => {
                         type={showPassword ? "text" : "password"}
                         placeholder={t("LOGIN.FORM.PLACEHOLDERS.PASSWORD")}
                         className="w-full p-2 pl-4 placeholder-slate-600 rounded-2xl focus:outline-none"
+                        style={{ color: darkMode ? "black" : "" }}
                       />
                       <i
-                        className={`bx ${showPassword ? "bx-show-alt" : "bx-hide"
-                          }`}
-                        onClick={togglePassword}></i>
+                        className={`bx ${
+                          showPassword ? "bx-show-alt" : "bx-hide"
+                        }`}
+                        onClick={togglePassword}
+                      ></i>
                       <link
                         href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
                         rel="stylesheet"
@@ -175,14 +183,16 @@ const Login = () => {
                 <div className="flex text-xs w-full justify-between mb-4">
                   <Link
                     to="/forgotPassword"
-                    className="hover:text-gray-600 hover:scale-110 transition duration-300 ease-in-out">
+                    className="hover:text-gray-600 hover:scale-110 transition duration-300 ease-in-out"
+                  >
                     {t("LOGIN.FORGOT PASSWORD")}
                   </Link>
 
                   <Link
                     to="/signUp"
                     className="hover:text-gray-600 hover:scale-110 transition duration-300 ease-in-out"
-                    style={{ fontFamily: "Rubik, sans-serif" }}>
+                    style={{ fontFamily: "Rubik, sans-serif" }}
+                  >
                     {t("LOGIN.SIGN UP")}
                   </Link>
                 </div>
@@ -192,7 +202,8 @@ const Login = () => {
                   style={{
                     fontFamily: "Rubik, sans-serif",
                     background: darkMode ? "#325372" : "",
-                  }}>
+                  }}
+                >
                   {t("LOGIN.SIGN IN")}
                 </button>
               </div>
@@ -203,8 +214,13 @@ const Login = () => {
               style={{
                 fontFamily: "Rubik, sans-serif",
                 background: darkMode ? "#00519C" : "",
-              }}>
-              <img className="w-5 m-2" src={logoGoogle} alt="" />
+              }}
+            >
+              <img
+                className="w-5 m-2"
+                src="https://res.cloudinary.com/drpge2a0c/image/upload/v1697553463/assets/logoGoogle_o2crac.png"
+                alt=""
+              />
               {t("LOGIN.SIGN IN WITH GOOGLE")}
             </button>
           </div>

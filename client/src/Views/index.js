@@ -10,6 +10,7 @@ import SignUp from "./SignUp/SignUp.jsx";
 import Detail from "./Detail/Detail.jsx";
 import Profile from "./Profile/Profile.jsx";
 import MyDates from "./MyDates/MyDates.jsx";
+import DetailReviews from "./Detail/DetailReviews.jsx";
 
 export {
   Home,
@@ -24,4 +25,5 @@ export {
   SignUp,
   Detail,
   MyDates,
+  DetailReviews,
 };

@@ -17,7 +17,10 @@ const Specialties = () => {
       className="flex flex-wrap justify-center items-center text-center py-0 px-0"
       style={{
         backgroundImage:
-          'url("https://images.pexels.com/photos/3376790/pexels-photo-3376790.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")',
+
+          'url("https://res.cloudinary.com/drpge2a0c/image/upload/v1697554297/assets/backgrounds/pexels-photo-3376790_nvxqzj.webp")',
+
+
         backgroundSize: "cover",
         flexDirection: "column",
       }}

@@ -49,10 +49,10 @@ export const getDoctorName = (name) => {
       let json = await axios.get(`http://localhost:3001/doctors?name=${name}`);
       return dispatch({
         type: GET_DOCTORS_NAME,
-        payload: json.data, //es lo q devuelve la ruta una vez q le asigno algo por name
+        payload: json.data.matchDoctors, //es lo q devuelve la ruta una vez q le asigno algo por name
       });
     } catch (error) {
-      alert("Game not found 😕");
+      alert("Doctor not found 😕");
     }
   };
 };
@@ -62,10 +62,10 @@ export const getUsersName = (name) => {
       let json = await axios.get(`http://localhost:3001/users?name=${name}`);
       return dispatch({
         type: GET_USERS_NAME,
-        payload: json.data, //es lo q devuelve la ruta una vez q le asigno algo por name
+        payload: json.data.matchUsers, //es lo q devuelve la ruta una vez q le asigno algo por name
       });
     } catch (error) {
-      alert("Game not found 😕");
+      alert("Doctor not found 😕");
     }
   };
 };

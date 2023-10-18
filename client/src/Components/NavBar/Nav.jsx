@@ -8,6 +8,7 @@ import LanguageSwitcher from "../LanguageSwitcher/LanguageSwitcher";
 import { useTheme } from "../../contextAPI/ThemeContext";
 import { FaRegSun } from "react-icons/fa";
 import { FaRegMoon } from "react-icons/fa";
+import axios from "axios";
 
 const Nav = () => {
   const { t } = useTranslation();
@@ -17,6 +18,7 @@ const Nav = () => {
   const { signOutWithGoogle } = UserAuth();
   const [user, setUser] = useState(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [updatedImageUrl, setUpdatedImageUrl] = useState('')
 
   const logOutWithGoogle = async () => {
     try {
@@ -38,6 +40,29 @@ const Nav = () => {
     return () => unsubscribe();
   }, [navigate]);
 
+
+  useEffect(() => {
+    if (user && user.uid) {
+      // Verifica que el usuario esté logueado y tenga un UID
+      axios
+        .get(`http://localhost:3001/users/${user.uid}`)
+        .then((response) => {
+          const data = response.data;
+          console.log(data);
+
+          if (data.image) {
+            
+            setUpdatedImageUrl(data.image);
+           
+          }
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    }
+  }, [user]);
+
+
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
@@ -49,6 +74,7 @@ const Nav = () => {
     >
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
         <div className="relative flex h-16 items-center justify-between">
+
           <div className="flex items-center">
             <div className="flex-shrink-0">
               <img
@@ -91,6 +117,7 @@ const Nav = () => {
                     {t("NAV.WELCOME")}, <br />
                     {user ? user.displayName || user.email : ""}
                   </h3>
+
                 </div>
               </div>
             </div>
@@ -108,7 +135,7 @@ const Nav = () => {
               >
                 <img
                   className="h-8 w-8 rounded-full"
-                  src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                  src={updatedImageUrl}
                   alt="User"
                 />
               </button>

@@ -110,7 +110,8 @@
             "DESCRIPTION 1": "Únete a nuestra newsletter para recibir las mejores ofertas para cuidar de tu salud",
             "DESCRIPTION 2": "Puedes cancelar en cuaquier momento",
             "BUTTON": "Suscríbete",
-            "PLACEHOLDER": "Correo aquí"
+            "PLACEHOLDER": "Correo aquí",
+            "TOAST":"Solicitud enviada. Espere la confirmación en su correo electrónico"
         }
     },
     "HOME PAGE": {
@@ -205,6 +206,9 @@
             "BUTTON": "Leer más"
         }
     },
+    "SCHEDULE PAGE": {
+        "TOAST": "Solicitud enviada. Espere la confirmación en su correo electrónico"
+    },
     "NAV": {
         "HOME BUTTON": "REGRESAR",
         "HEALTHPLUS": "HEALTHPLUS",
@@ -232,7 +236,8 @@
             "SPECIALTY": "Especialidades",
             "REVIEWS": "Reseñas",
             "DESCRIPTION": "Descripción",
-            "NOCOMMENTS": "Sin comentarios por el momento"
+            "NOCOMMENTS": "Sin comentarios por el momento",
+            "MORE REVIEWS": "Más Reseñas"
         }
     },
     "CARDS": {
@@ -322,5 +327,26 @@
         "BIRTHDAY": "Fecha de nacimiento",
         "DNI": "DNI",
         "SAVE": "Guardar"
+    },
+
+    "SIGNUP": {
+        "TITLE": "REGISTRO",
+        "BACK": "Regresar",
+        "EMAIL": "Correo Electrónico",
+        "PASSWORD": "Contraseña",
+        "BTNSIGNUP": "Registrame",
+        "PLACEHOLDEREMAIL": "Correo...",
+        "PLACEHOLDEREPASS": "Contraseña..."
+
+    },
+    "FORGOTPASSWORD": {
+        "BACK": "Regresar",
+        "EMAIL": "Correo Electrónico",
+        "SEND": "Enviar",
+        "PLACEHOLDEREMAIL": "Correo..."
+    },
+
+    "DETAILREVIEW" : {
+        "MSG": "Estas son algunas reseñas:"
     }
 }
