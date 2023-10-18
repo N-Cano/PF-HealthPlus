@@ -13,7 +13,7 @@ const MyDates = () => {
   const date = useSelector((state) => state.dateById);
 
   useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged(function(user) {
+    const unsubscribe = auth.onAuthStateChanged(function (user) {
       if (user) {
         const id = user.uid;
         dispatch(dateById(id));
@@ -26,8 +26,8 @@ const MyDates = () => {
     };
   }, [dispatch]);
   return (
-    <div>
-      <div style={{ background: darkMode ? "#00519C" : "" }}>
+    <div className='flex flex-col justify-between'>
+      <div className='h-full flex flex-col just mb-40' style={{ background: darkMode ? "#00519C" : "" }}>
         <Nav />
         <CardsDates dates={date} />
       </div>

@@ -1,7 +1,4 @@
-
-import { deleteDate } from "./deleteDate";
 import { useTheme } from "../../../contextAPI/ThemeContext";
-import { Link } from "react-router-dom";
 import { auth } from "../../../firebase/firebase.config";
 import axios from "axios";
 import { useState } from "react";
@@ -12,7 +9,7 @@ import { cancelDate } from "./deleteDate";
 const Dates = (props) => {
 
   const { darkMode } = useTheme();
-  
+
 
   const [form, setForm] = useState({
     punctuation: "",
@@ -25,7 +22,7 @@ const Dates = (props) => {
   console.log(form);
 
   useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged(function(user) {
+    const unsubscribe = auth.onAuthStateChanged(function (user) {
       if (user) {
         const uid = user.uid;
         setForm({ ...form, uid });
@@ -57,65 +54,68 @@ const Dates = (props) => {
 
   return (
     <div
-      className="w-full bg-blue-200 p-8 "
+      className="w-full bg-blue-200 p-8 flex flex-col justify-between items-center rounded-2xl"
       key={props.dateId}
       style={{
         backgroundColor: darkMode ? "#00519C" : "",
         color: darkMode ? "white" : "",
       }}
     >
-      {props.status === "pending" ? (
-        <button
-          onClick={cancelDate}
-          className="absolute right-0 font-bold bg-red-600 p-2 rounded-full"
-        >
-          X
-        </button>
-      ) : props.status === "taken" ? (
-        <button
-          onClick={() => setReview(true)}
-          className="absolute right-0 font-bold bg-red-600 p-2 rounded-full"
-        >
-          Review
-        </button>
-      ) : null}
+      <div className="flex flex-row justify-between items-center rounded-2xl space-x-20">
+        <div className="flex gap-4 ">
+          <p>Dr: {props.doctorName}</p>
+          <p>Specialty: {props.specialty}</p>
+          <p>date: {props.date}</p>
+          <p>schedule: {props.schedule}</p>
+          <p>status: {props.status}</p>
+        </div>
 
-      <div className="flex gap-4 ">
-        <p>Dr: {props.doctorName}</p>
-        <p>Specialty: {props.specialty}</p>
-        <p>date: {props.date}</p>
-        <p>schedule: {props.schedule}</p>
-        <p>status: {props.status}</p>
+        {props.status === "pending" ? (
+          <button
+            onClick={cancelDate}
+            className="font-bold bg-red-600 hover:bg-red-800 transition ease-in-out duration-300 hover:scale-110 p-2 rounded-full"
+          >
+            X
+          </button>
+        ) : props.status === "taken" ? (
+          <button
+            onClick={() => setReview(true)}
+            className="font-bold bg-red-600 hover:bg-red-800 transition ease-in-out duration-300 hover:scale-110 p-2 rounded-full"
+          >
+            Review
+          </button>
+        ) : null}
       </div>
+
       {review && (
-        <div>
-          <form onSubmit={submitHandler}>
-            <div>
-              <label>comment:</label>
-              <input
-                type="text"
+        <div className='flex items-center justify-center'>
+          <form className='flex flex-col justify-center items-center mt-8 w-[500px] space-y-6' onSubmit={submitHandler}>
+            <div className="text-center bg-blue-300 p-4 rounded-2xl w-full">
+              <label className='font-bold'>Comment:</label>
+              <textarea
                 name="comment"
                 value={form.comment}
                 onChange={changeHandler}
+                maxLength={200}
+                className="w-full rounded-2xl p-4 resize-none h-[150px]"
+                placeholder="Write your comment here..."
               />
             </div>
-            <div>
-              <label>punctuation:</label>
-              <input
-                type="text"
+            <div className="text-center bg-blue-300 p-4 rounded-2xl w-full">
+              <label>Punctuation:</label>
+              <select
                 name="punctuation"
-                value={Number(form.punctuation)}
+                value={form.punctuation}
                 onChange={changeHandler}
-              />
-            </div>
-            <div>
-              <label>a:</label>
-              <input
-                type="date"
-                name="date"
-                value={form.date}
-                onChange={changeHandler}
-              />
+                className="w-full rounded-2xl p-4"
+              >
+                <option value="">Select a punctuation</option>
+                {Array.from({ length: 5 }, (_, i) => i + 1).map((value) => (
+                  <option key={value} value={value}>
+                    {value}
+                  </option>
+                ))}
+              </select>
             </div>
 
             <button
@@ -123,7 +123,7 @@ const Dates = (props) => {
               type="submit"
               onSubmit={submitHandler}
             >
-              X
+              Submit
             </button>
           </form>
         </div>
