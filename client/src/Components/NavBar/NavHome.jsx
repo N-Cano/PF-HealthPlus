@@ -46,10 +46,6 @@ const NavHome = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  const checkAuth = () => {
-    const user = auth.currentUser;
-    authEmail(user);
-  };
   //----------------------------------------------------
   const [form, setForm] = useState({
     uid: "",
@@ -188,7 +184,6 @@ const NavHome = () => {
                 <Link to="/profile">
                   <a
                     className="block px-4 py-2 text-sm  hover:bg-gray-100 hover:text-black"
-                    onClick={checkAuth}
                   >
                     {t("HOME PAGE.NAVBAR.LOGIN.PROFILE")}
                   </a>
