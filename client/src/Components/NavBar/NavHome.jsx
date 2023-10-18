@@ -123,6 +123,7 @@ const NavHome = () => {
               />
             </div>
 
+
             <div className="hidden sm:ml-8 sm:flex flex-grow items-center">
               <div className="flex items-center space-x-4">
                 <ScrollHome />
@@ -141,7 +142,6 @@ const NavHome = () => {
                   )}
                 </Link>
                 <div className="flex space-x-4">
-
                   <div className="flex items-center">
                     <Link to="/create">
                       <a
@@ -184,11 +184,13 @@ const NavHome = () => {
               </div>
             </div>
 
+
             <div className="relative ml-3 mt-3">
               <div>
                 <button
                   type="button"
                   className="relative flex items-center rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+
 
                   id="user-menu-button"
                   aria-expanded="false"
@@ -198,7 +200,9 @@ const NavHome = () => {
                   <img
                     className="h-8 w-8 rounded-full"
 
+
                     src={updatedImageUrl}
+
                     alt="User"
                   />
                 </button>
@@ -211,13 +215,13 @@ const NavHome = () => {
                     background: darkMode ? "#00519C" : "",
 
                     color: darkMode ? "white" : "black",
+
                     marginTop: "8px",
                   }}
                 >
                   <Link to="/profile">
 
                     <a className="block px-4 py-2 text-sm  hover:bg-gray-100 hover:text-black">
-
                       {t("HOME PAGE.NAVBAR.LOGIN.PROFILE")}
                     </a>
                   </Link>
@@ -225,7 +229,6 @@ const NavHome = () => {
                     <a
                       href="#"
                       className="block px-4 py-2 text-sm hover:bg-gray-100 hover:text-black"
-
                     >
                       {t("HOME PAGE.NAVBAR.LOGIN.DATES")}
                     </a>
@@ -233,8 +236,8 @@ const NavHome = () => {
                   <a
                     href="#"
 
-                    className="block px-4 py-2 text-sm  hover:bg-gray-100 hover:text-black"
 
+                    className="block px-4 py-2 text-sm  hover:bg-gray-100 hover:text-black"
                     onClick={logOutWithGoogle}
                     style={{
                       background: darkMode ? "black" : "",

@@ -39,6 +39,8 @@ const App = () => {
     return user ? children : <Navigate to={"/login"} />;
   };
 
+  const canAccessDashboard = user?.email === "admin@admin.com";
+
   return (
     <div className={darkMode ? "dark-mode" : ""}>
       <Routes>
@@ -52,25 +54,148 @@ const App = () => {
             </RequireAuth>
           }
         />
-        <Route path="/create" element={<Schedule />} />
-        <Route path="/profileForm" element={<ProfileForm />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/payment" element={<Payment />} />
-        <Route path="/plan" element={<Plan />} />
+        <Route
+          path="/create"
+          element={
+            <RequireAuth>
+              <Schedule />
+            </RequireAuth>
+          }
+        />
+        <Route
+          path="/profileForm"
+          element={
+            <RequireAuth>
+              <ProfileForm />
+            </RequireAuth>
+          }
+        />
+        <Route
+          path="/profile"
+          element={
+            <RequireAuth>
+              <Profile />
+            </RequireAuth>
+          }
+        />
+        <Route
+          path="/payment"
+          element={
+            <RequireAuth>
+              <Payment />
+            </RequireAuth>
+          }
+        />
+        <Route
+          path="/plan"
+          element={
+            <RequireAuth>
+              <Plan />
+            </RequireAuth>
+          }
+        />
         <Route path="/forgotPassword" element={<ForgotPassgord />} />
         <Route path="/signUp" element={<SignUp />} />
-        <Route path="/detail/:id" element={<Detail />} />
-        <Route path="/detail2/:id" element={<Detail2 />} />
-        <Route path="/detailReviews/:id" element={<DetailReviews />} />
-        <Route path="/DetailUsers/:id" element={<DetailUsers />} />
+        <Route
+          path="/detail/:id"
+          element={
+            <RequireAuth>
+              <Detail />
+            </RequireAuth>
+          }
+        />
+        <Route
+          path="/detail2/:id"
+          element={
+            <RequireAuth>
+              <Detail2 />
+            </RequireAuth>
+          }
+        />
+        <Route
+          path="/detailReviews/:id"
+          element={
+            <RequireAuth>
+              <DetailReviews />
+            </RequireAuth>
+          }
+        />
+        <Route
+          path="/DetailUsers/:id"
+          element={
+            <RequireAuth>
+              <DetailUsers />
+            </RequireAuth>
+          }
+        />
         <Route path="/myDates" element={<MyDates />} />
-        <Route path="/dashboard" element={<DashBoard />} />
-        <Route path="/dashboardusers" element={<DashBoardUsers />} />
-        <Route path="/postdocs" element={<PostDocs />} />
-        <Route path="/postusers" element={<PostUsers />} />
-        <Route path="/confirm" element={<Bridge />} />
-        <Route path="/graphics" element={<Graphics />} />
-        <Route path="/review/:dateId" element={<Review />} />
+
+        <Route
+          path="/dashboard"
+          element={
+            user?.email === "admin@admin.com" ? (
+              <RequireAuth>
+                <DashBoard />
+              </RequireAuth>
+            ) : (
+              <Navigate to={"/home"} />
+            )
+          }
+        />
+
+        <Route
+          path="/dashboardusers"
+          element={
+            user?.email === "admin@admin.com" ? (
+              <RequireAuth>
+                <DashBoard />
+              </RequireAuth>
+            ) : (
+              <Navigate to={"/home"} />
+            )
+          }
+        />
+
+        <Route
+          path="/postdocs"
+          element={
+            <RequireAuth>
+              <PostDocs />
+            </RequireAuth>
+          }
+        />
+        <Route
+          path="/postusers"
+          element={
+            <RequireAuth>
+              <PostUsers />
+            </RequireAuth>
+          }
+        />
+        <Route
+          path="/confirm"
+          element={
+            <RequireAuth>
+              <Bridge />
+            </RequireAuth>
+          }
+        />
+        <Route
+          path="/graphics"
+          element={
+            <RequireAuth>
+              <Graphics />
+            </RequireAuth>
+          }
+        />
+        <Route
+          path="/review/:dateId"
+          element={
+            <RequireAuth>
+              <Review />
+            </RequireAuth>
+          }
+        />
       </Routes>
     </div>
   );
