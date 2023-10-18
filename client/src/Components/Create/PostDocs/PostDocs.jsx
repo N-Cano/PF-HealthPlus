@@ -55,7 +55,7 @@ const PostDocs = () => {
             POST DOCTORS
           </h2>
  
-      <form onSubmit={submitHandler}>
+      <form onSubmit={submitHandler}> </form>
         <div>
           <label htmlFor="name">Name:</label>
           <input
@@ -123,6 +123,8 @@ const PostDocs = () => {
           />
         </div>
       </div>
+    </div>
+    
     </div>
   );
 };
