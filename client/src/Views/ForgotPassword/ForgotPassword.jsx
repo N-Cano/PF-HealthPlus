@@ -4,11 +4,11 @@ import { auth } from "../../firebase/firebase.config";
 import { useNavigate } from "react-router-dom";
 import { useForm, Controller } from "react-hook-form";
 import { useTheme } from "../../contextAPI/ThemeContext";
-import { FaRegSun } from "react-icons/fa";
-import { FaRegMoon } from "react-icons/fa";
 import { Footer } from "../../Components";
+import { useTranslation } from "react-i18next";
 
 const ForgotPassword = () => {
+  const { t } = useTranslation();
   const { darkMode } = useTheme();
   const navigate = useNavigate();
   const {
@@ -37,7 +37,7 @@ const ForgotPassword = () => {
           to="/login"
           className="absolute top-0 left-0 m-8 hover:scale-110 transition duration-300 ease-in-out bg-slate-950 text-neutral-50 w-20 p-2 rounded-2xl text-center"
         >
-          Back
+          {t("FORGOTPASSWORD.BACK")}
         </Link>
 
         <div className="flex justify-center flex-col gap-2 mb-6 max-w-md w-full h-5/6">
@@ -49,7 +49,7 @@ const ForgotPassword = () => {
               className="text-3xl text-center mt-8 max-w-xs w-full font-bold text-neutral-50 bg-gray-950 rounded-2xl p-2"
               style={{ background: darkMode ? "#325372" : "" }}
             >
-              Email
+              {t("FORGOTPASSWORD.EMAIL")}
             </label>
             <Controller
               name="email"
@@ -67,7 +67,8 @@ const ForgotPassword = () => {
                   {...field}
                   className="p-2 pl-4 placeholder-slate-600 rounded-2xl focus:outline-none w-72"
                   type="email"
-                  placeholder="Email..."
+                  placeholder={t("FORGOTPASSWORD.PLACEHOLDEREMAIL")}
+                  style={{ color: darkMode ? "black" : "" }}
                 />
               )}
             />
@@ -78,7 +79,7 @@ const ForgotPassword = () => {
               type="submit"
               className="bg-slate-950 text-neutral-50 w-24 p-2 rounded-2xl hover:bg-slate-700 hover:scale-110 transition duration-300 ease-in-out"
             >
-              Send Email
+              {t("FORGOTPASSWORD.SEND")}
             </button>
           </div>
         </div>

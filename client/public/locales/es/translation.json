@@ -323,5 +323,26 @@
         "BIRTHDAY": "Fecha de nacimiento",
         "DNI": "DNI",
         "SAVE": "Guardar"
+    },
+
+    "SIGNUP": {
+        "TITLE": "REGISTRO",
+        "BACK": "Regresar",
+        "EMAIL": "Correo Electrónico",
+        "PASSWORD": "Contraseña",
+        "BTNSIGNUP": "Registrame",
+        "PLACEHOLDEREMAIL": "Correo...",
+        "PLACEHOLDEREPASS": "Contraseña..."
+
+    },
+    "FORGOTPASSWORD": {
+        "BACK": "Regresar",
+        "EMAIL": "Correo Electrónico",
+        "SEND": "Enviar",
+        "PLACEHOLDEREMAIL": "Correo..."
+    },
+
+    "DETAILREVIEW" : {
+        "MSG": "Estas son algunas reseñas:"
     }
 }

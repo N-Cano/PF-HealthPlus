@@ -114,7 +114,7 @@ const Detail = () => {
                       <div className="flex justify-center flex-wrap mt-2">
                         <div className="flex gap-1">
                           <p
-                            className="bg-white hover:bg-blue-400 hover:text-white border border-gray-300 p-2 w-1/3 h-auto text-[13px] flex items-center  rounded-lg flex-col justify-between"
+                            className="bg-white hover:bg-blue-400 hover:text-white border border-gray-300 p-2 w-1/3 h-auto text-[13px] flex items-center  rounded-lg flex-col justify-between hover:scale-110 transition duration-300 ease-in-out"
                             style={{
                               fontFamily: "Open Sans, sans-serif",
                               background: darkMode ? "#00519C" : "",
@@ -135,7 +135,7 @@ const Detail = () => {
                           </p>
 
                           <p
-                            className="bg-white hover:bg-blue-400 hover:text-white border border-gray-300 p-2 w-1/3 h-auto text-[13px] flex items-center justify-between rounded-lg flex-col"
+                            className="bg-white hover:bg-blue-400 hover:text-white border border-gray-300 p-2 w-1/3 h-auto text-[13px] flex items-center justify-between rounded-lg flex-col hover:scale-110 transition duration-300 ease-in-out"
                             style={{
                               fontFamily: "Open Sans, sans-serif",
                               background: darkMode ? "#00519C" : "",
@@ -155,7 +155,7 @@ const Detail = () => {
                             </div>
                           </p>
                           <p
-                            className="bg-white hover:bg-blue-400 hover:text-white border border-gray-300 p-2 w-1/3 h-auto text-[13px] flex items-center justify-between rounded-lg flex-col"
+                            className="bg-white hover:bg-blue-400 hover:text-white border border-gray-300 p-2 w-1/3 h-auto text-[13px] flex items-center justify-between rounded-lg flex-col hover:scale-110 transition duration-300 ease-in-out"
                             style={{
                               fontFamily: "Open Sans, sans-serif",
                               background: darkMode ? "#00519C" : "",
@@ -178,7 +178,7 @@ const Detail = () => {
                       </div>
                       <Link to={`/detailReviews/${detail.id}`}>
                         <button
-                          className="bg-black text-white mt-4 hover:bg-white hover:text-black rounded-lg w-[120px] h-[40px]"
+                          className="bg-black text-white mt-4 hover:bg-white hover:text-black rounded-lg w-[120px] h-[40px] hover:scale-110 transition duration-300 ease-in-out"
                           style={{
                             background: darkMode ? "black" : "",
                             color: darkMode ? "white" : "",
@@ -205,20 +205,25 @@ const Detail = () => {
             </>
           )}
         </div>
-        <div className="flex justify-center items-center mt-2">
-          <Link to="/home">
-            <button
-              className="bg-black text-white h-10 w-20 rounded-lg hover:bg-white hover:text-black"
-              type="button"
-              style={{
-                background: darkMode ? "#325372" : "",
-                color: darkMode ? "white" : "",
-              }}
-            >
-              {t("DETAIL.HEADERS.HOME")}
-            </button>
-          </Link>
-        </div>
+
+        {loading ? (
+          ""
+        ) : (
+          <div className="flex justify-center items-center mt-1 mb-28">
+            <Link to="/home">
+              <button
+                className="bg-black text-white h-10 w-20 rounded-lg hover:bg-white hover:text-black  hover:scale-110 transition duration-300 ease-in-out"
+                type="button"
+                style={{
+                  background: darkMode ? "#325372" : "",
+                  color: darkMode ? "white" : "",
+                }}
+              >
+                {t("DETAIL.HEADERS.HOME")}
+              </button>
+            </Link>
+          </div>
+        )}
       </div>
       <Footer />
     </div>

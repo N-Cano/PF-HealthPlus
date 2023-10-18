@@ -23,28 +23,39 @@ const DetailReviews = () => {
           <Nav />
 
           <h1
-            style={{ fontFamily: "Rubik, sans-serif" }}
+            style={{
+              fontFamily: "Rubik, sans-serif",
+              color: darkMode ? "black" : "",
+            }}
             className="text-center text-5xl font-semibold pt-6"
           >
             {detail.name}
           </h1>
 
-          <p className="mt-7 text-center">These are some of the reviews:</p>
-          <div className="max-w-[1200] py-[30px] grid lg:grid-cols-5 sm:grid-cols-5 gap-6 text-black">
+          <p className="mt-7 text-center">{t("DETAILREVIEW.MSG")}</p>
+          <div className="max-w-[1200] py-[30px] grid lg:grid-cols-5 sm:grid-cols-5 gap-6 text-black mx-4">
             {detail.comments
               ? detail.comments.slice(0, 25).map((comment, index) => (
-                  <div key={index} className="shadow-lg p-4 text-center">
-                    <h3 className="text-xl py-2">{comment.userName}</h3>
+                  <div
+                    key={index}
+                    className="shadow-lg p-4 text-center hover:scale-110 transition duration-300 ease-in-out"
+                    style={{
+                      background: darkMode ? "#00519C" : "",
+                      color: darkMode ? "white" : "",
+                    }}
+                  >
+                    <h2 className="text-xl py-2">{comment.userName}</h2>
                     <p>{comment.comment}</p>
                     <span>{comment.date}</span>
                   </div>
                 ))
               : null}
           </div>
-          <div className="flex justify-center items-center">
+
+          <div className="flex justify-center items-center ">
             <Link to="/home">
               <button
-                className="bg-black text-white h-10 w-20 rounded-lg hover:bg-white hover:text-black"
+                className="bg-black text-white h-10 w-20 rounded-lg hover:bg-white hover:text-black hover:scale-110 transition duration-300 ease-in-out"
                 type="button"
                 style={{
                   background: darkMode ? "#325372" : "",
