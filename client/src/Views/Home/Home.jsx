@@ -10,6 +10,10 @@ import SpecialtiesHome from "../../Components/Specialties/SpecialtiesHome";
 import { useTranslation } from "react-i18next";
 import { useTheme } from "../../contextAPI/ThemeContext";
 import { Footer, Sponsors, Location } from "../../Components/index";
+import { authEmail } from "../../functions/post";
+import { auth } from "../../firebase/firebase.config";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 const Home = () => {
   const { t } = useTranslation();
@@ -27,6 +31,48 @@ const Home = () => {
   const handleRating = (event) => {
     dispatch(ratingCards(event.target.value));
   };
+
+//----------------------------------------------------
+
+const checkAuth = () => {
+  const user = auth.currentUser;
+  authEmail(user);
+};
+
+const [form, setForm] = useState({
+uid: "",
+});
+
+useEffect(() => {
+const unsubscribe = auth.onAuthStateChanged(function(user) {
+  if (user) {
+    const uid = user.uid;
+    setForm({ uid });
+  }
+});
+return () => {
+  unsubscribe();
+};
+}, []);
+
+
+const [userCreated, setUserCreated] = useState(false);
+
+useEffect(() => {
+if (form.uid && userCreated === false) {
+  axios
+    .get(`http://localhost:3001/users/${form.uid}`)
+    .then((response) => {
+      const data = response.data;
+        return data;
+    })
+    .catch((error) => {
+      console.error(error);
+      checkAuth(); 
+        setUserCreated(true);
+    });
+}
+}, [form.uid]);
 
   return (
     <div

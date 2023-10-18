@@ -1,6 +1,6 @@
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import ScrollHome from "../Scroll/ScrollHome";
-import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../../firebase/firebase.config";
 import { UserAuth } from "../../context/AuthContext";
@@ -46,10 +46,6 @@ const NavHome = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  const checkAuth = () => {
-    const user = auth.currentUser;
-    authEmail(user);
-  };
   //----------------------------------------------------
   const [form, setForm] = useState({
     uid: "",
@@ -88,12 +84,14 @@ const NavHome = () => {
   }, [form.uid]);
 
   return (
+
     <nav
       className="bg-blue-900 text-white"
       style={{ background: darkMode ? "black" : "" }}
     >
+
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
-        <div className="relative flex h-16 items-center justify-between">
+        <div className="relative flex h-16 items-center justify-end">
           <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
             <div className="flex flex-shrink-0 items-center">
               <img
@@ -104,9 +102,12 @@ const NavHome = () => {
             </div>
             <div className="hidden sm:ml-6 sm:block">
               <div className="flex space-x-4">
-                <div className="flex items-center space-x-4 ml-auto">
+                <div className="flex items-center space-x-4">
                   <ScrollHome />
                 </div>
+
+
+                <div className="flex items-center ml-auto">
 
                 <Link to={"/plan"}>
                   {enable !== true && (
@@ -122,6 +123,7 @@ const NavHome = () => {
                   )}
                 </Link>
                 <div className="flex items-center">
+
                   <Link to="/create">
                     <a
                       href="#"
@@ -132,7 +134,7 @@ const NavHome = () => {
                     </a>
                   </Link>
 
-                  <div className="ml-auto">
+                  <div className="mr-4">
                     <button
                       onClick={toggleDarkMode}
                       className="p-2 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
@@ -145,7 +147,7 @@ const NavHome = () => {
                     </button>
                   </div>
 
-                  <div className="ml-auto">
+                  <div className="mr-4">
                     <LanguageSwitcher />
                   </div>
 
@@ -185,13 +187,14 @@ const NavHome = () => {
                 className="absolute right-0 mt-2 w-48 bg-white border border-gray-200 divide-y divide-gray-100 rounded-md shadow-lg"
                 style={{
                   background: darkMode ? "#00519C" : "",
+
                   color: darkMode ? "white" : "black",
                 }}
               >
                 <Link to="/profile">
                   <a
                     className="block px-4 py-2 text-sm  hover:bg-gray-100 hover:text-black"
-                    onClick={checkAuth}
+
                   >
                     {t("HOME PAGE.NAVBAR.LOGIN.PROFILE")}
                   </a>
@@ -199,7 +202,9 @@ const NavHome = () => {
                 <Link to="/myDates">
                   <a
                     href="#"
+
                     className="block px-4 py-2 text-sm hover:bg-gray-100 hover:text-black"
+
                   >
                     {t("HOME PAGE.NAVBAR.LOGIN.DATES")}
                   </a>
@@ -208,6 +213,11 @@ const NavHome = () => {
                   href="#"
                   className="block px-4 py-2 text-sm  hover:bg-gray-100 hover:text-black"
                   onClick={logOutWithGoogle}
+
+                  style={{
+                    background: darkMode ? "black" : "",
+                  }}
+
                 >
                   {t("HOME PAGE.NAVBAR.LOGIN.LOG OUT")}
                 </a>

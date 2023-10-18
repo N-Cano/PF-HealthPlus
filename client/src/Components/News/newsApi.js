@@ -1,12 +1,12 @@
 import axios from "axios";
 
 export const fetchNewsData = async (setCurrentPage, setNews) => {
-    try {
-        const response = await axios.get(
-            "https://newsapi.org/v2/top-headlines?country=us&category=health&apiKey=dc9527c75c4c4affbb788da794c77690"
-        );
-        setNews(response.data.articles);
-    } catch (error) {
-        console.error("Error fetching news:", error);
-    }
+  try {
+    const response = await axios.get(
+      "https://newsdata.io/api/1/news?apikey=pub_31295aca47de29ff44eea90e57f27bcfec9a4&q=clinic%20health&category=health"
+    );
+    setNews(response.data.results);
+  } catch (error) {
+    console.error("Error fetching news:", error);
+  }
 };
