@@ -16,7 +16,7 @@ const Cards = () => {
   }, [dispatch]);
 
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 5;
+  const itemsPerPage = 4;
   const totalItems = doctors.length;
   const totalPages = Math.ceil(totalItems / itemsPerPage);
 

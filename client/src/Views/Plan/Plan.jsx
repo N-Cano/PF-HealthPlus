@@ -1,4 +1,3 @@
-
 import React from "react";
 import Nav from "../../Components/NavBar/Nav";
 import Footer from "../../Components/Footer/Footer";
@@ -33,7 +32,8 @@ const Plan = () => {
     <div>
       <div
         className={styles.contains}
-        style={{ background: darkMode ? "#00519C" : "" }}>
+        style={{ background: darkMode ? "#00519C" : "" }}
+      >
         <Nav />
 
         <h1 className="text-center mt-[30px] text-4xl">
@@ -43,11 +43,12 @@ const Plan = () => {
         <div className="flex flex-col justify-evenly items-center text-center whitespace-normal">
           {products.map((product, index) => (
             <div key={index}>
-              <h3 className="mt-5 text-[40px] font-bold">
-                {product.title}
-              </h3>
+              <h3 className="mt-5 text-[40px] font-bold">{product.title}</h3>
               <p>{product.description}</p>
-              <p className="text-xl font-bold text-green-600">
+              <p
+                className="text-xl font-bold text-green-600"
+                style={{ color: darkMode ? "white" : "" }}
+              >
                 $ {product.price}
               </p>
               <img
