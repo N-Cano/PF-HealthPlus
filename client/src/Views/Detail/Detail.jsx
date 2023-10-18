@@ -38,7 +38,7 @@ const Detail = () => {
   }, [doctor]);
 
   useEffect(() => {
-    setDetailData(doctor); // Set 'detail' data
+    setDetailData(doctor); // context api
   }, [doctor]);
 
   return (
