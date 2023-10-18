@@ -19,9 +19,18 @@ const data = [
   { name: "clau", value: 3211 },
   { name: "pedra", value: 2533 },
 ];
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getDoctors } from "../../../redux/actions";
 const COLORS = ["#ce93d8", "#5c6bc0", "#b49ddb", "#4dd0e1", "#f48fb1"];
 
 const Torta = () => {
+  const dispatch = useDispatch();
+  const doctors = useSelector((state) => state.doctors);
+
+  useEffect(() => {
+    dispatch(getDoctors());
+  }, [dispatch]);
   return (
     <div className="w-5/5 ">
       <ResponsiveContainer aspect={2}>

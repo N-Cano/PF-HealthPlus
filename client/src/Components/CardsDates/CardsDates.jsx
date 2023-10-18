@@ -6,7 +6,7 @@ const CardsDates = ({ dates }) => {
         {dates.map((user) => (
           <Dates
             doctorName={user.doctor}
-            docotrId={user.docotrId}
+            doctorId={user.doctorId}
             specialty={user.specialty}
             date={user.date}
             status={user.status}
