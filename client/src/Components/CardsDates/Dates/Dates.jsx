@@ -7,9 +7,7 @@ import { useEffect } from "react";
 import { cancelDate } from "./deleteDate";
 
 const Dates = (props) => {
-
   const { darkMode } = useTheme();
-
 
   const [form, setForm] = useState({
     punctuation: "",

@@ -3,11 +3,11 @@ import { useForm, Controller } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { postEmail } from "../../functions/post";
 import { useTheme } from "../../contextAPI/ThemeContext";
-import { FaRegSun } from "react-icons/fa";
-import { FaRegMoon } from "react-icons/fa";
 import { Footer } from "../../Components";
+import { useTranslation } from "react-i18next";
 
 const SignUp = () => {
+  const { t } = useTranslation();
   const { darkMode } = useTheme();
   const {
     handleSubmit,
@@ -37,7 +37,7 @@ const SignUp = () => {
           to="/login"
           className="absolute top-0 left-0 m-8 hover:scale-110 transition duration-300 ease-in-out bg-slate-950 text-neutral-50 w-20 p-2 rounded-2xl text-center"
         >
-          Back
+          {t("SIGNUP.BACK")}
         </Link>
         <form onSubmit={handleSubmit(onSubmit)}>
           <div
@@ -48,10 +48,10 @@ const SignUp = () => {
               className="text-3xl text-center mt-8 max-w-xs w-full font-bold text-neutral-50 bg-gray-950 rounded-2xl p-2"
               style={{ background: darkMode ? "#325372" : "" }}
             >
-              Sign Up
+              {t("SIGNUP.TITLE")}
             </h2>
             <div className="flex flex-col gap-4 p-8 text-center w-full">
-              <label className="text-xl">Email</label>
+              <label className="text-xl">{t("SIGNUP.EMAIL")}</label>
               <Controller
                 name="email"
                 control={control}
@@ -69,7 +69,8 @@ const SignUp = () => {
                     {...field}
                     className="p-2 pl-4 placeholder-slate-600 rounded-2xl focus:outline-none w-full"
                     type="email"
-                    placeholder="Email..."
+                    placeholder={t("SIGNUP.PLACEHOLDEREMAIL")}
+                    style={{ color: darkMode ? "black" : "" }}
                   />
                 )}
               />
@@ -77,7 +78,7 @@ const SignUp = () => {
                 <p className="text-red-800">{errors.email.message}</p>
               )}
 
-              <label className="text-xl">Password</label>
+              <label className="text-xl">{t("SIGNUP.PASSWORD")}</label>
               <Controller
                 name="password"
                 control={control}
@@ -94,7 +95,8 @@ const SignUp = () => {
                     {...field}
                     className="p-2 pl-4 placeholder-slate-600 rounded-2xl focus:outline-none w-full"
                     type="password"
-                    placeholder="Password..."
+                    placeholder={t("SIGNUP.PLACEHOLDEREPASS")}
+                    style={{ color: darkMode ? "black" : "" }}
                   />
                 )}
               />
@@ -107,7 +109,7 @@ const SignUp = () => {
               type="submit"
               className="bg-slate-950 text-neutral-50 w-24 p-2 rounded-2xl hover:bg-slate-700 hover:scale-110 transition duration-300 ease-in-out mb-8"
             >
-              Sign Up
+              {t("SIGNUP.BTNSIGNUP")}
             </button>
           </div>
         </form>

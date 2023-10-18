@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import ScrollHome from "../Scroll/ScrollHome";
 import { useNavigate } from "react-router-dom";
@@ -21,6 +21,7 @@ const NavHome = () => {
   const { signOutWithGoogle } = UserAuth();
   const [user, setUser] = useState(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [updatedImageUrl, setUpdatedImageUrl] = useState('')
 
   const logOutWithGoogle = async () => {
     try {
@@ -41,6 +42,27 @@ const NavHome = () => {
 
     return () => unsubscribe();
   }, [navigate]);
+
+  useEffect(() => {
+    if (user && user.uid) {
+     
+      axios
+        .get(`http://localhost:3001/users/${user.uid}`)
+        .then((response) => {
+          const data = response.data;
+          console.log(data);
+
+          if (data.image) {
+           
+            setUpdatedImageUrl(data.image);
+           
+          }
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    }
+  }, [user]);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -84,12 +106,10 @@ const NavHome = () => {
   }, [form.uid]);
 
   return (
-
     <nav
       className="bg-blue-900 text-white"
       style={{ background: darkMode ? "black" : "" }}
     >
-
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
         <div className="relative flex h-16 items-center justify-end">
           <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
@@ -106,9 +126,7 @@ const NavHome = () => {
                   <ScrollHome />
                 </div>
 
-
                 <div className="flex items-center ml-auto">
-
                   <Link to={"/plan"}>
                     {enable !== true && (
                       <button
@@ -123,7 +141,6 @@ const NavHome = () => {
                     )}
                   </Link>
                   <div className="flex items-center">
-
                     <Link to="/create">
                       <a
                         href="#"
@@ -176,7 +193,7 @@ const NavHome = () => {
                 >
                   <img
                     className="h-8 w-8 rounded-full"
-                    src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                    src={updatedImageUrl}
                     alt="User"
                   />
                 </button>
@@ -192,17 +209,13 @@ const NavHome = () => {
                   }}
                 >
                   <Link to="/profile">
-                    <a
-                      className="block px-4 py-2 text-sm  hover:bg-gray-100 hover:text-black"
-
-                    >
+                    <a className="block px-4 py-2 text-sm  hover:bg-gray-100 hover:text-black">
                       {t("HOME PAGE.NAVBAR.LOGIN.PROFILE")}
                     </a>
                   </Link>
                   <Link to="/myDates">
                     <a
                       href="#"
-
                       className="block px-4 py-2 text-sm hover:bg-gray-100 hover:text-black"
 
                     >
@@ -213,11 +226,9 @@ const NavHome = () => {
                     href="#"
                     className="block px-4 py-2 text-sm  hover:bg-gray-100 hover:text-black"
                     onClick={logOutWithGoogle}
-
                     style={{
                       background: darkMode ? "black" : "",
                     }}
-
                   >
                     {t("HOME PAGE.NAVBAR.LOGIN.LOG OUT")}
                   </a>
