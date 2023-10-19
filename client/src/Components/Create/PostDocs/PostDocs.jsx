@@ -65,8 +65,6 @@ const PostDocs = () => {
             POST DOCTORS
           </h2>
 
-
-
           <form
             onSubmit={submitHandler}
             className="flex flex-col items-center gap-3"
@@ -81,7 +79,8 @@ const PostDocs = () => {
                 onChange={changeHandler}
                 name="name"
                 id="name"
-                className="rounded-2xl ml-4"
+                className="rounded-2xl ml-4 p-2"
+                style={{ color: darkMode ? "black" : "" }}
               />
             </div>
             <div className="flex items-center mb-2">
@@ -94,7 +93,8 @@ const PostDocs = () => {
                 onChange={changeHandler}
                 name="email"
                 id="email"
-                className="rounded-2xl ml-4"
+                className="rounded-2xl ml-4 p-2"
+                style={{ color: darkMode ? "black" : "" }}
               />
             </div>
             <div className="flex items-center ml-[35px] mb-2">
@@ -107,11 +107,12 @@ const PostDocs = () => {
                 onChange={handleImageChange}
                 name="image"
                 id="image"
-                className="ml-4"
+                className="ml-4 p-2"
+                style={{ color: darkMode ? "black" : "" }}
               />
             </div>
             <div className="flex items-center mb-2">
-              <label htmlFor="specialty" className="w-1/3 text-right pr-4">
+              <label htmlFor="specialty" className="w-1/3 text-right pr-4 ">
                 Specialty:
               </label>
               <select
@@ -119,7 +120,8 @@ const PostDocs = () => {
                 onChange={changeHandler}
                 name="specialty"
                 id="specialty"
-                className="rounded-2xl ml-2 h-[25px] w-[197px]"
+                className="rounded-2xl ml-2 h-[25px] w-[197px] "
+                style={{ color: darkMode ? "black" : "" }}
               >
                 <option value="Dermatology">Dermatology</option>
                 <option value="Rheumatology">Rheumatology</option>
@@ -138,7 +140,8 @@ const PostDocs = () => {
                 onChange={changeHandler}
                 name="engDescription"
                 id="engDescription"
-                className="w-2/3 rounded-2xl -ml-10"
+                className="w-2/3 rounded-2xl -ml-10 p-2"
+                style={{ color: darkMode ? "black" : "" }}
               />
             </div>
             <div className="flex items-center mb-2">
@@ -148,7 +151,8 @@ const PostDocs = () => {
                 onChange={changeHandler}
                 name="espDescription"
                 id="espDescription"
-                className="w-2/3 rounded-2xl -ml-10"
+                className="w-2/3 rounded-2xl -ml-10 p-2"
+                style={{ color: darkMode ? "black" : "" }}
               />
             </div>
             <button
@@ -162,10 +166,7 @@ const PostDocs = () => {
           </form>
         </div>
       </div>
-
-
-   </>
-
+    </>
   );
 };
 
