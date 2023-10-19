@@ -10,7 +10,7 @@ const createComments = async (req, res) => {
     dateId,
     comment,
     date,
-    punctuation,
+    punctuation: parseInt(punctuation)
   };
   console.log(req.body);
   if (comment === undefined) {
