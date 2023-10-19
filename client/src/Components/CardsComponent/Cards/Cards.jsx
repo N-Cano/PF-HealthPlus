@@ -9,7 +9,6 @@ const Cards = () => {
   const { darkMode } = useTheme();
   const dispatch = useDispatch();
   const doctors = useSelector((state) => state.doctors);
-  console.log(doctors);
 
   useEffect(() => {
     dispatch(getDoctors());
