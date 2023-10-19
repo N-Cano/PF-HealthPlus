@@ -7,6 +7,8 @@ import Footer from "../../Components/Footer/Footer";
 import NavBarDesp from "../../Components/NavBar/NavBarDesp";
 import { useTheme } from "../../contextAPI/ThemeContext";
 import { deleteDoctor } from "./deleteDoctor";
+import { disableDoctor } from "./disableDoctor";
+import { enableDoctor } from './enableDoctor';
 
 const Detail2 = () => {
   const [detail, setDetail] = useState({});
@@ -37,6 +39,13 @@ const Detail2 = () => {
     deleteDoctor(id);
   };
 
+  const handleDisable = async () => {
+    await disableDoctor(id)
+  };
+  const handleEnable = async () => {
+    await enableDoctor(id)
+  };
+
   return (
     <>
       <NavBarDesp />
@@ -54,7 +63,7 @@ const Detail2 = () => {
             src={
               detail.photo
                 ? detail.photo.secure_url
-                : "https://fakeimg.pl/208x208/fa0848/909090?text=ERROR"
+                : "https://res.cloudinary.com/drpge2a0c/image/upload/v1697675916/assets/909090_tsckeg.png"
             }
             alt={`${detail.name}'s Photo`}
           />
@@ -79,6 +88,25 @@ const Detail2 = () => {
               Delete
             </button>
           </Link>
+          {
+            detail.enable === true
+              ? <Link to="/dashboard">
+                <button
+                  className="bg-black text-white h-10 w-20 rounded-2xl mt-2   mb-2"
+                  onClick={handleDisable}
+                >
+                  Disable
+                </button>
+              </Link>
+              : <Link to="/dashboard">
+                <button
+                  className="bg-black text-white h-10 w-20 rounded-2xl mt-2   mb-2"
+                  onClick={handleEnable}
+                >
+                  Enable
+                </button>
+              </Link>
+          }
         </div>
       </div>
       <Footer />
