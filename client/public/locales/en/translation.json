@@ -237,7 +237,8 @@
             "REVIEWS": "Reviews",
             "DESCRIPTION": "Description",
             "NOCOMMENTS": "No comments for the moment",
-            "MORE REVIEWS": "More Reviews"
+            "MORE REVIEWS": "More Reviews",
+            "RATING": "Rating"
         }
     },
     "CARDS": {

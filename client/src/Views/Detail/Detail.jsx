@@ -78,6 +78,13 @@ const Detail = () => {
               </div>
               <div>
                 <h2 style={{ fontFamily: "Open Sans, sans-serif" }}>
+                  <strong>{t("DETAIL.HEADERS.RATING")}</strong>
+                  <br></br>
+                  {detail.rating}
+                </h2>
+              </div>
+              <div>
+                <h2 style={{ fontFamily: "Open Sans, sans-serif" }}>
                   <strong>{t("DETAIL.HEADERS.REVIEWS")}</strong>{" "}
                 </h2>
               </div>
