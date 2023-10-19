@@ -179,26 +179,27 @@ const putComments = async ({
     };
     if (doctor.comments.length > 0) {
       let doctorRating = punctuation;
-      let quantity = 1
+      let quantity = 1;
 
       doctor.comments.forEach((comm) => {
-        doctorRating += comm.punctuation
-        quantity++
-        console.log({
-          doctorRating: doctorRating,
-          quantity: quantity,
-          rating: doctorRating/quantity
-        });
-      })
+        doctorRating += comm.punctuation;
+        quantity++;
+      });
       const currentPunctuation = doctorRating / quantity;
-      console.log(currentPunctuation);
-      await db.collection('doctors').doc(doctorId).update({ rating: currentPunctuation });
-    } else await db.collection('doctors').doc(doctorId).update({ rating: punctuation })
+      await db
+        .collection("doctors")
+        .doc(doctorId)
+        .update({ rating: Math.floor(currentPunctuation) });
+    } else
+      await db
+        .collection("doctors")
+        .doc(doctorId)
+        .update({ rating: punctuation });
 
     const reviewedDate = doctor.dates.find((date) => date.id === dateId);
-    if (reviewedDate.status === 'reviewed')
+    if (reviewedDate.status === "reviewed")
       throw new Error("the appointment has already been reviewed");
-    reviewedDate.status === 'reviewed';
+    reviewedDate.status === "reviewed";
 
     const filteredDates = doctor.dates.filter((date) => date.id !== dateId);
     filteredDates.push(reviewedDate);
@@ -230,7 +231,7 @@ const updateDoctor = async (id, data) => {
     if (
       doctor.photo?.public_id ||
       doctor.photo.secure_url !==
-      "https://res.cloudinary.com/drpge2a0c/image/upload/v1697037341/userImages/blank-profile-picture-973460_960_720_sgp40b.webp"
+        "https://res.cloudinary.com/drpge2a0c/image/upload/v1697037341/userImages/blank-profile-picture-973460_960_720_sgp40b.webp"
     ) {
       await deleteImage(doctor.photo.public_id);
     }
