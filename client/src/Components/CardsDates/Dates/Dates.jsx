@@ -12,12 +12,11 @@ const Dates = (props) => {
   const [form, setForm] = useState({
     punctuation: "",
     comment: "",
-    date: "",
+    date: props.date,
     userId: props.userId,
     doctorId: props.doctorId,
     dateId: props.dateId,
   });
-  console.log(form);
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(function (user) {
@@ -37,13 +36,16 @@ const Dates = (props) => {
     setForm({ ...form, [property]: value });
   };
 
+  const cancelHandler = () => {
+    cancelDate(props)
+  };
+
   const submitHandler = async (event) => {
     event.preventDefault();
-
     try {
       await axios.post("http://localhost:3001/doctors/comment", form);
       setReview(false);
-      console.log(" Comentario Cargado");
+      window.location.reload()
     } catch (error) {
       console.error("Error al enviar el formulario:", error);
     }
@@ -70,7 +72,7 @@ const Dates = (props) => {
 
         {props.status === "pending" ? (
           <button
-            onClick={cancelDate}
+            onClick={cancelHandler}
             className="font-bold bg-red-600 hover:bg-red-800 transition ease-in-out duration-300 hover:scale-110 p-2 rounded-full"
           >
             X
