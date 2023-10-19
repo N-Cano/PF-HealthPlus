@@ -148,7 +148,7 @@ const App = () => {
           element={
             user?.email === "admin@admin.com" ? (
               <RequireAuth>
-                <DashBoard />
+                <DashBoardUsers />
               </RequireAuth>
             ) : (
               <Navigate to={"/home"} />
