@@ -19,7 +19,7 @@ const Dates = (props) => {
   });
 
   useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged(function (user) {
+    const unsubscribe = auth.onAuthStateChanged(function(user) {
       if (user) {
         const uid = user.uid;
         setForm({ ...form, uid });
@@ -37,7 +37,7 @@ const Dates = (props) => {
   };
 
   const cancelHandler = () => {
-    cancelDate(props)
+    cancelDate(props);
   };
 
   const submitHandler = async (event) => {
@@ -45,7 +45,7 @@ const Dates = (props) => {
     try {
       await axios.post("http://localhost:3001/doctors/comment", form);
       setReview(false);
-      window.location.reload()
+      window.location.reload();
     } catch (error) {
       console.error("Error al enviar el formulario:", error);
     }
@@ -88,10 +88,13 @@ const Dates = (props) => {
       </div>
 
       {review && (
-        <div className='flex items-center justify-center'>
-          <form className='flex flex-col justify-center items-center mt-8 w-[500px] space-y-6' onSubmit={submitHandler}>
+        <div className="flex items-center justify-center">
+          <form
+            className="flex flex-col justify-center items-center mt-8 w-[500px] space-y-6"
+            onSubmit={submitHandler}
+          >
             <div className="text-center bg-blue-300 p-4 rounded-2xl w-full">
-              <label className='font-bold'>Comment:</label>
+              <label className="font-bold">Comment:</label>
               <textarea
                 name="comment"
                 value={form.comment}
@@ -99,6 +102,7 @@ const Dates = (props) => {
                 maxLength={200}
                 className="w-full rounded-2xl p-4 resize-none h-[150px]"
                 placeholder="Write your comment here..."
+                style={{ color: darkMode ? "black" : "" }}
               />
             </div>
             <div className="text-center bg-blue-300 p-4 rounded-2xl w-full">
@@ -108,6 +112,7 @@ const Dates = (props) => {
                 value={form.punctuation}
                 onChange={changeHandler}
                 className="w-full rounded-2xl p-4"
+                style={{ color: darkMode ? "black" : "" }}
               >
                 <option value="">Select a punctuation</option>
                 {Array.from({ length: 5 }, (_, i) => i + 1).map((value) => (

@@ -71,6 +71,7 @@ const DetailReviews = () => {
                       >
                         <h2 className="text-xl py-2">{comment.userName}</h2>
                         <p>{comment.comment}</p>
+                        <p>{comment.punctuation}&#11088;</p>
                         <span>{comment.date}</span>
                       </div>
                     ))

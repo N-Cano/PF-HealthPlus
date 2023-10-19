@@ -25,7 +25,7 @@ const ProfileForm = () => {
   });
 
   useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged(function (user) {
+    const unsubscribe = auth.onAuthStateChanged(function(user) {
       if (user) {
         const uid = user.uid;
         setForm({ ...form, uid });
@@ -91,6 +91,7 @@ const ProfileForm = () => {
                   name="image"
                   accept="image/*"
                   onChange={changeHandler}
+                  style={{ color: darkMode ? "black" : "" }}
                 />
               </div>
 
@@ -101,6 +102,7 @@ const ProfileForm = () => {
                   name="name"
                   value={form.name}
                   onChange={changeHandler}
+                  style={{ color: darkMode ? "black" : "" }}
                 />
               </div>
               <div className={styles.inputbox}>
@@ -110,6 +112,7 @@ const ProfileForm = () => {
                   name="lastName"
                   value={form.lastName}
                   onChange={changeHandler}
+                  style={{ color: darkMode ? "black" : "" }}
                 />
               </div>
               <div className={styles.inputbox}>
@@ -119,6 +122,7 @@ const ProfileForm = () => {
                   name="date"
                   value={form.date}
                   onChange={changeHandler}
+                  style={{ color: darkMode ? "black" : "" }}
                 />
               </div>
               <div className={styles.inputbox}>
@@ -128,6 +132,7 @@ const ProfileForm = () => {
                   name="userId"
                   value={form.userId}
                   onChange={changeHandler}
+                  style={{ color: darkMode ? "black" : "" }}
                 />
               </div>
 
