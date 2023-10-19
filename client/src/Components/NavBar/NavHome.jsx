@@ -22,6 +22,7 @@ const NavHome = () => {
   const [user, setUser] = useState(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [updatedImageUrl, setUpdatedImageUrl] = useState("");
+  const [admin, setAdmin] = useState(false);
 
   const logOutWithGoogle = async () => {
     try {
@@ -49,11 +50,10 @@ const NavHome = () => {
         .get(`http://localhost:3001/users/${user.uid}`)
         .then((response) => {
           const data = response.data;
-          console.log(data);
 
-          if (data.image) {
-            setUpdatedImageUrl(data.image);
-          }
+          if (data.image) setUpdatedImageUrl(data.image);
+
+          if (data.rol === 'admin') setAdmin(true);
         })
         .catch((error) => {
           console.error(error);
@@ -71,7 +71,7 @@ const NavHome = () => {
   });
 
   useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged(function(user) {
+    const unsubscribe = auth.onAuthStateChanged(function (user) {
       if (user) {
         const uid = user.uid;
         setForm({ uid });
@@ -232,7 +232,7 @@ const NavHome = () => {
                   >
                     {t("HOME PAGE.NAVBAR.LOGIN.LOG OUT")}
                   </a>
-                  {user?.email === "admin@admin.com" && (
+                  {admin && (
                     <Link to="/dashboard">
                       <a
                         href="#"
