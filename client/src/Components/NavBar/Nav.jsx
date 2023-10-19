@@ -18,7 +18,7 @@ const Nav = () => {
   const { signOutWithGoogle } = UserAuth();
   const [user, setUser] = useState(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [updatedImageUrl, setUpdatedImageUrl] = useState('')
+  const [updatedImageUrl, setUpdatedImageUrl] = useState("");
 
   const logOutWithGoogle = async () => {
     try {
@@ -40,7 +40,6 @@ const Nav = () => {
     return () => unsubscribe();
   }, [navigate]);
 
-
   useEffect(() => {
     if (user && user.uid) {
       // Verifica que el usuario esté logueado y tenga un UID
@@ -51,9 +50,7 @@ const Nav = () => {
           console.log(data);
 
           if (data.image) {
-            
             setUpdatedImageUrl(data.image);
-           
           }
         })
         .catch((error) => {
@@ -61,7 +58,6 @@ const Nav = () => {
         });
     }
   }, [user]);
-
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -74,7 +70,6 @@ const Nav = () => {
     >
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
         <div className="relative flex h-16 items-center justify-between">
-
           <div className="flex items-center">
             <div className="flex-shrink-0">
               <img
@@ -109,7 +104,7 @@ const Nav = () => {
 
                 <LanguageSwitcher />
 
-                <div className="flex items-center">
+                <div className="flex">
                   <h3
                     className="ml-4 font-semibold"
                     style={{ fontFamily: "Rubik, sans-serif" }}
@@ -117,7 +112,6 @@ const Nav = () => {
                     {t("NAV.WELCOME")}, <br />
                     {user ? user.displayName || user.email : ""}
                   </h3>
-
                 </div>
               </div>
             </div>

@@ -7,7 +7,7 @@ const PostDocs = () => {
   const { darkMode } = useTheme();
   const [form, setForm] = useState({
     name: "",
-    engDescription: "",
+    description: "",
     espDescription: "",
     specialty: "",
     email: "",
@@ -31,7 +31,7 @@ const PostDocs = () => {
     try {
       const formData = new FormData();
       formData.append("name", form.name);
-      formData.append("engDescription", form.engDescription);
+      formData.append("description", form.description);
       formData.append("espDescription", form.espDescription);
       formData.append("specialty", form.specialty);
       formData.append("email", form.email);
@@ -134,12 +134,12 @@ const PostDocs = () => {
               </select>
             </div>
             <div className="flex items-center mb-2">
-              <label htmlFor="engDescription">English description:</label>
+              <label htmlFor="description">English description:</label>
               <textarea
-                value={form.engDescription}
+                value={form.description}
                 onChange={changeHandler}
-                name="engDescription"
-                id="engDescription"
+                name="description"
+                id="description"
                 className="w-2/3 rounded-2xl -ml-10 p-2"
                 style={{ color: darkMode ? "black" : "" }}
               />

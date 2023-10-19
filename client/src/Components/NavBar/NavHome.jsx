@@ -21,7 +21,7 @@ const NavHome = () => {
   const { signOutWithGoogle } = UserAuth();
   const [user, setUser] = useState(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [updatedImageUrl, setUpdatedImageUrl] = useState('')
+  const [updatedImageUrl, setUpdatedImageUrl] = useState("");
 
   const logOutWithGoogle = async () => {
     try {
@@ -45,7 +45,6 @@ const NavHome = () => {
 
   useEffect(() => {
     if (user && user.uid) {
-     
       axios
         .get(`http://localhost:3001/users/${user.uid}`)
         .then((response) => {
@@ -53,9 +52,7 @@ const NavHome = () => {
           console.log(data);
 
           if (data.image) {
-           
             setUpdatedImageUrl(data.image);
-           
           }
         })
         .catch((error) => {
@@ -74,9 +71,7 @@ const NavHome = () => {
   });
 
   useEffect(() => {
-
-    const unsubscribe = auth.onAuthStateChanged(function (user) {
-
+    const unsubscribe = auth.onAuthStateChanged(function(user) {
       if (user) {
         const uid = user.uid;
         setForm({ uid });
@@ -123,7 +118,6 @@ const NavHome = () => {
               />
             </div>
 
-
             <div className="hidden sm:ml-8 sm:flex flex-grow items-center">
               <div className="flex items-center space-x-4">
                 <ScrollHome />
@@ -144,13 +138,15 @@ const NavHome = () => {
                 <div className="flex space-x-4">
                   <div className="flex items-center">
                     <Link to="/create">
-                      <a
-                        href="#"
-                        className="text-white hover:bg-gray-700 hover:text-white rounded-md px-4 py-2 text-sm font-medium"
-                        style={{ fontFamily: "Rubik, sans-serif" }}
-                      >
-                        {t("HOME PAGE.NAVBAR.SCHEDULE")}
-                      </a>
+                      {enable === true && (
+                        <a
+                          href="#"
+                          className="text-white hover:bg-gray-700 hover:text-white rounded-md px-4 py-2 text-sm font-medium"
+                          style={{ fontFamily: "Rubik, sans-serif" }}
+                        >
+                          {t("HOME PAGE.NAVBAR.SCHEDULE")}
+                        </a>
+                      )}
                     </Link>
 
                     <div className="mr-4">
@@ -184,14 +180,11 @@ const NavHome = () => {
               </div>
             </div>
 
-
             <div className="relative ml-3 mt-3">
               <div>
                 <button
                   type="button"
                   className="relative flex items-center rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
-
-
                   id="user-menu-button"
                   aria-expanded="false"
                   aria-haspopup="true"
@@ -199,10 +192,7 @@ const NavHome = () => {
                 >
                   <img
                     className="h-8 w-8 rounded-full"
-
-
                     src={updatedImageUrl}
-
                     alt="User"
                   />
                 </button>
@@ -220,7 +210,6 @@ const NavHome = () => {
                   }}
                 >
                   <Link to="/profile">
-
                     <a className="block px-4 py-2 text-sm  hover:bg-gray-100 hover:text-black">
                       {t("HOME PAGE.NAVBAR.LOGIN.PROFILE")}
                     </a>
@@ -235,8 +224,6 @@ const NavHome = () => {
                   </Link>
                   <a
                     href="#"
-
-
                     className="block px-4 py-2 text-sm  hover:bg-gray-100 hover:text-black"
                     onClick={logOutWithGoogle}
                     style={{
@@ -249,9 +236,7 @@ const NavHome = () => {
                     <Link to="/dashboard">
                       <a
                         href="#"
-
                         className="block px-4 py-2 text-sm  hover.bg-gray-100"
-
                       >
                         Dashboard
                       </a>

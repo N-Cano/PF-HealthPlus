@@ -22,7 +22,7 @@ const DashBoardUsers = () => {
 
   return (
     <div
-      className="bg-blue-200 h-full flex flex-col justify-between"
+      className="bg-blue-200 min-h-[1080px]"
       style={{ background: darkMode ? "#1E3453" : "" }}
     >
       <div

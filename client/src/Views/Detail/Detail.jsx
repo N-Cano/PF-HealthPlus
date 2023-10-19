@@ -17,7 +17,7 @@ const Detail = () => {
   const { t } = useTranslation();
   const { darkMode } = useTheme();
   const { setDetailData } = useDetail();
-
+  const lenguaje = localStorage.getItem("lng");
   const [loading, setLoading] = useState(true);
   const [detail, setDetail] = useState({});
   const { id } = useParams();
@@ -73,7 +73,11 @@ const Detail = () => {
                 <h2 style={{ fontFamily: "Open Sans, sans-serif" }}>
                   <strong>{t("DETAIL.HEADERS.SPECIALTY")}</strong>
                   <br></br>
-                  {detail.specialty}
+                  {lenguaje === "es" ? (
+                    <p>{detail.espSpecialty}</p>
+                  ) : (
+                    <p>{detail.specialty}</p>
+                  )}
                 </h2>
               </div>
               <div>
@@ -206,7 +210,11 @@ const Detail = () => {
                 <h2 style={{ fontFamily: "Open Sans, sans-serif" }}>
                   <strong>{t("DETAIL.HEADERS.DESCRIPTION")}</strong>
                   <br></br>
-                  {detail.description}
+                  {lenguaje === "es" ? (
+                    <p>{detail.espDescription}</p>
+                  ) : (
+                    <p>{detail.description}</p>
+                  )}
                 </h2>
               </div>
             </>
