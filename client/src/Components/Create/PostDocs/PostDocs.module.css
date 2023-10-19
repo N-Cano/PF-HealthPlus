@@ -1,0 +1,32 @@
+.title {
+  display: flex;
+  justify-content: center;
+}
+
+.inputbox {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.error {
+  color: red;
+}
+
+/* Add the styles from ProfileForm.module.css below */
+/* Example styles from ProfileForm.module.css */
+.userdetails {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+img {
+  max-width: 100%;
+  max-height: 300px;
+  object-fit: contain;
+}

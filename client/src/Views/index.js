@@ -1,5 +1,5 @@
 import Home from "./Home/Home.jsx";
-import Form from "./Form/Form.jsx";
+import Schedule from "./Schedule/Schedule.jsx";
 import Landing from "./Landing/Landing.jsx";
 import Login from "./Login/Login.jsx";
 import ProfileForm from "./Profile/ProfileForm.jsx";
@@ -9,7 +9,21 @@ import ForgotPassgord from "./ForgotPassword/ForgotPassword.jsx";
 import SignUp from "./SignUp/SignUp.jsx";
 import Detail from "./Detail/Detail.jsx";
 import Profile from "./Profile/Profile.jsx";
+import MyDates from "./MyDates/MyDates.jsx";
+import DetailReviews from "./Detail/DetailReviews.jsx";
 
-export { Home, Form, Landing, Login, ProfileForm,Profile, Payment, Plan, ForgotPassgord, SignUp , Detail};
-
-
+export {
+  Home,
+  Schedule,
+  Landing,
+  Login,
+  ProfileForm,
+  Profile,
+  Payment,
+  Plan,
+  ForgotPassgord,
+  SignUp,
+  Detail,
+  MyDates,
+  DetailReviews,
+};

@@ -1,15 +1,24 @@
 import NavHome from "../../Components/NavBar/NavHome";
 import ScrollToTop from "react-scroll-to-top";
-import Footer from "../../Components/Footer/Footer";
 import News from "../../Components/News/News";
 import Cards from "../../Components/CardsComponent/Cards/Cards";
-import { filterSpeciality, orderCards, priceCards } from "../../redux/actions";
-import SearchBar from "../../Components/Utils/SearchBar/SearchBar";
+import { filterSpeciality, orderCards, ratingCards } from "../../redux/actions";
+import SearchBar from "../../Components/SearchBar/SearchBar";
 import { useDispatch } from "react-redux";
 import Subscribe from "../../Components/Subscribe/Subscribe";
-import Specialties from "../../Components/Specialties/Specialties";
+import SpecialtiesHome from "../../Components/Specialties/SpecialtiesHome";
+import { useTranslation } from "react-i18next";
+import { useTheme } from "../../contextAPI/ThemeContext";
+import { Footer, Sponsors, Location } from "../../Components/index";
+import { authEmail } from "../../functions/post";
+import { auth } from "../../firebase/firebase.config";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 const Home = () => {
+  const { t } = useTranslation();
+  const { darkMode } = useTheme();
+
   const dispatch = useDispatch();
 
   const filterSpecial = (event) => {
@@ -19,165 +28,241 @@ const Home = () => {
     //dispatch del asc y desc
     dispatch(orderCards(e.target.value));
   };
-  const handlePrice = (event) => {
-    dispatch(priceCards(event.target.value));
+  const handleRating = (event) => {
+    dispatch(ratingCards(event.target.value));
   };
+
+//----------------------------------------------------
+
+const checkAuth = () => {
+  const user = auth.currentUser;
+  authEmail(user);
+};
+
+const [form, setForm] = useState({
+uid: "",
+});
+
+useEffect(() => {
+const unsubscribe = auth.onAuthStateChanged(function(user) {
+  if (user) {
+    const uid = user.uid;
+    setForm({ uid });
+  }
+});
+return () => {
+  unsubscribe();
+};
+}, []);
+
+
+const [userCreated, setUserCreated] = useState(false);
+
+useEffect(() => {
+if (form.uid && userCreated === false) {
+  axios
+    .get(`http://localhost:3001/users/${form.uid}`)
+    .then((response) => {
+      const data = response.data;
+        return data;
+    })
+    .catch((error) => {
+      console.error(error);
+      checkAuth(); 
+        setUserCreated(true);
+    });
+}
+}, [form.uid]);
 
   return (
     <div
-      style={{
-        background: "linear-gradient(45deg, #71b7e6, #f6f6f6)",
-        boxShadow: "7px 6px 30px #8ccef5",
-      }}>
+      className={
+        darkMode
+          ? "#1E3453"
+          : "bg-gradient-to-br from-blue-300 to-gray-100 shadow-lg"
+      }
+    >
       <NavHome />
 
       <div
         id="doctors"
-        className="flex flex-col md:flex-row mt-1 md:items-center md:justify-center">
-        <div className="flex-1 p-4 rounded-lg shadow-md my-7 mx-2 md:my-6 md:mr-2 md:ml-2 md:pb-12 h-60">
+        className="flex flex-col md:flex-row mt-1 md:items-center md:justify-center max-w-screen-xl mx-auto h-full"
+      >
+        <div className="flex-1 p-4 rounded-lg  my-7 mx-2 md:my-6 md:mr-2 md:ml-2 md:pb-12">
           <h3
             className="mt-5 text-center text-2xl font-bold"
-            style={{ fontFamily: "Rubik, sans-serif" }}>
-            DOCTORS
+            style={{ fontFamily: "Rubik, sans-serif" }}
+          >
+            {t("HOME PAGE.PROFESSIONALS.TITLE")}
           </h3>
           <p
             className="mt-5 text-center text-2xl font-normal mb-3"
-            style={{ fontFamily: "Rubik, sans-serif" }}>
-            {`We work with a wide varierty of specialist, here you can find the best doctor to fit your needs. Click for more information`}
+            style={{ fontFamily: "Rubik, sans-serif" }}
+          >
+            {t("HOME PAGE.PROFESSIONALS.DESCRIPTION 1")}
           </p>
           {/* AQUI VAN LAS CARDS Y CON CLICK MAS DETALLES DEL DOCTOR */}
-          <div className="flex  justify-center items-center mb-4 gap-3">
+          <div className="flex  justify-center items-center gap-3 mb-2">
             <SearchBar />
             <select
-              className="bg-sky-200/100 ... rounded-lg w-[100px]"
+              className="bg-sky-300/100 ... rounded-lg w-[200px] h-[42px]"
               onChange={filterSpecial}
-              style={{ fontFamily: "Open Sans, sans-serif" }}>
+              style={{
+                fontFamily: "Open Sans, sans-serif",
+                background: darkMode ? "#00519C" : "",
+              }}
+            >
               <option
                 value="allDocs"
                 className="font-bold text-center"
-                style={{ fontFamily: "Open Sans, sans-serif" }}>
-                allDocs
+                style={{
+                  fontFamily: "Open Sans, sans-serif",
+                  background: darkMode ? "#00519C" : "",
+                }}
+              >
+                {t("HOME PAGE.SELECTS.ALL")}
               </option>
               <option
                 value="Dermatology"
                 className="font-bold text-center"
-                style={{ fontFamily: "Open Sans, sans-serif" }}>
-                Dermatology
+                style={{ fontFamily: "Open Sans, sans-serif" }}
+              >
+                {t("HOME PAGE.SELECTS.DERMATOLOGY")}
               </option>
               <option
                 value="Rheumatology"
-                className="font-bold"
-                style={{ fontFamily: "Open Sans, sans-serif" }}>
-                Rheumatology
+                className="font-bold text-center"
+                style={{ fontFamily: "Open Sans, sans-serif" }}
+              >
+                {t("HOME PAGE.SELECTS.RHEUMATOLOGY")}
               </option>
               <option
                 value="Psychiatry"
                 className="font-bold text-center"
-                style={{ fontFamily: "Open Sans, sans-serif" }}>
-                Psychiatry
+                style={{ fontFamily: "Open Sans, sans-serif" }}
+              >
+                {t("HOME PAGE.SELECTS.PSYCHIATRY")}
               </option>
               <option
                 value="Gastroenterology"
                 className="font-bold text-center"
-                style={{ fontFamily: "Open Sans, sans-serif" }}>
-                Gastroenterology
+                style={{ fontFamily: "Open Sans, sans-serif" }}
+              >
+                {t("HOME PAGE.SELECTS.GASTROENTEROLOGY")}
               </option>
               <option
                 value="Endocrinology"
                 className="font-bold text-center"
-                style={{ fontFamily: "Open Sans, sans-serif" }}>
-                Endocrinology
+                style={{ fontFamily: "Open Sans, sans-serif" }}
+              >
+                {t("HOME PAGE.SELECTS.ENDOCRINOLOGY")}
               </option>
               <option
                 value="Radiology"
                 className="font-bold text-center"
-                style={{ fontFamily: "Open Sans, sans-serif" }}>
-                Radiology
+                style={{ fontFamily: "Open Sans, sans-serif" }}
+              >
+                {t("HOME PAGE.SELECTS.RADIOLOGY")}
               </option>
               <option
                 value="Urology"
                 className="font-bold text-center"
-                style={{ fontFamily: "Open Sans, sans-serif" }}>
-                Urology
+                style={{ fontFamily: "Open Sans, sans-serif" }}
+              >
+                {t("HOME PAGE.SELECTS.UROLOGY")}
               </option>
               <option
-                value="cardiology"
+                value="Cardiology"
                 className="font-bold text-center"
-                style={{ fontFamily: "Open Sans, sans-serif" }}>
-                Cardiology
+                style={{ fontFamily: "Open Sans, sans-serif" }}
+              >
+                {t("HOME PAGE.SELECTS.CARDIOLOGY")}
               </option>
             </select>
             <select
-              className="bg-sky-200/100 ... rounded-lg w-[100px]"
+              className="bg-sky-300/100 ... rounded-lg w-[150px] h-[42px]"
               onChange={handleOrder}
-              style={{ fontFamily: "Open Sans, sans-serif" }}>
+              style={{
+                fontFamily: "Open Sans, sans-serif",
+                background: darkMode ? "#00519C" : "",
+              }}
+            >
               <option
                 className="font-bold text-center"
-                style={{ fontFamily: "Open Sans, sans-serif" }}>
-                Order
+                style={{ fontFamily: "Open Sans, sans-serif" }}
+              >
+                {t("HOME PAGE.SELECTS.ORDER")}
               </option>
               <option
                 value="A"
                 className="font-bold text-center"
-                style={{ fontFamily: "Open Sans, sans-serif" }}>
-                A-Z
+                style={{ fontFamily: "Open Sans, sans-serif" }}
+              >
+                {t("HOME PAGE.SELECTS.AZ")}
               </option>
               <option
                 value="D"
                 className="font-bold text-center"
-                style={{ fontFamily: "Open Sans, sans-serif" }}>
-                Z-A
+                style={{ fontFamily: "Open Sans, sans-serif" }}
+              >
+                {t("HOME PAGE.SELECTS.ZA")}
               </option>
             </select>
-
             <select
-              className="bg-sky-200/100 ... rounded-lg w-[100px]"
-              onChange={handlePrice}
-              style={{ fontFamily: "Open Sans, sans-serif" }}>
+              className="bg-sky-300/100 ... rounded-lg w-[200px] h-[42px]"
+              onChange={handleRating}
+              style={{
+                fontFamily: "Open Sans, sans-serif",
+                background: darkMode ? "#00519C" : "",
+              }}
+            >
               <option
                 className="font-bold text-center"
-                style={{ fontFamily: "Open Sans, sans-serif" }}>
-                Price
+                style={{ fontFamily: "Open Sans, sans-serif" }}
+              >
+                {t("HOME PAGE.SELECTS.RATING")}
               </option>
               <option
                 value="Top"
                 className="font-bold text-center"
-                style={{ fontFamily: "Open Sans, sans-serif" }}>
-                Price Top
+                style={{ fontFamily: "Open Sans, sans-serif" }}
+              >
+                {t("HOME PAGE.SELECTS.TOP RATING")}
               </option>
               <option
                 value="Low"
                 className="font-bold text-center"
-                style={{ fontFamily: "Open Sans, sans-serif" }}>
-                Price Low
+                style={{ fontFamily: "Open Sans, sans-serif" }}
+              >
+                {t("HOME PAGE.SELECTS.LOW RATING")}
               </option>
             </select>
           </div>
-          <div className="bg-blue-200 ... rounded-lg "></div>
-          <Cards />
         </div>
       </div>
 
-      <div className="flex-1 p-4 rounded-lg shadow-md my-2 mx-2 md:my-6 md:mr-2 md:ml-2 md:pb-12 h-96">
-        <h3
-          className="mt-5 text-center text-2xl"
-          style={{ fontFamily: "Open Sans, sans-serif" }}></h3>
-        <p
-          className="mt-5 text-center"
-          style={{ fontFamily: "Open Sans, sans-serif" }}></p>
-      </div>
+      <Cards />
 
       <div id="services">
-        <Specialties />
+        <SpecialtiesHome />
       </div>
 
       <div id="subscribe">
         <Subscribe />
       </div>
 
+      {/*  SPONSORS */}
+      <div>
+        <Sponsors />
+      </div>
+      <div id="locations">
+        <Location />
+      </div>
+
       <div
         id="news"
-        className="flex flex-col md:flex-row md:items-center md:justify-center">
+        className="flex flex-col md:flex-row md:items-center md:justify-center"
+      >
         <News />
       </div>
 
