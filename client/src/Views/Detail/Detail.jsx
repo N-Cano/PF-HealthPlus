@@ -93,7 +93,7 @@ const Detail = () => {
                 </h2>
               </div>
 
-              {detail.comments && detail.comments.length > 1 ? (
+              {detail.comments && detail.comments.length > 0 ? (
                 <div className="flex flex-wrap">
                   <div className="flex-grow">
                     <div
